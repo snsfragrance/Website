@@ -33,30 +33,55 @@
     ========================= */
 
     .announcement {
-      height: 42px;
-      background: #000;
-      color: #fff;
+  height: 42px;
+  background: #000;
+  color: #fff;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+  overflow: hidden;
+  position: relative;
 
-      padding: 0 32px;
-      font-size: 13px;
-      letter-spacing: 0.3px;
-    }
+  display: flex;
+  align-items: center;
 
-    .announcement span {
-      width: 33.33%;
-    }
+  white-space: nowrap;
+}
 
-    .announcement span:nth-child(2) {
-      text-align: center;
-    }
+.announcement-track {
+  display: flex;
+  align-items: center;
 
-    .announcement span:last-child {
-      text-align: right;
-    }
+  width: max-content;
+
+  animation: announcementScroll 30s linear infinite;
+}
+
+.announcement-track span {
+  display: inline-flex;
+  align-items: center;
+
+  margin-right: 140px;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  letter-spacing: 1px;
+}
+
+@keyframes announcementScroll {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
+}
+
+.announcement:hover .announcement-track {
+  animation-play-state: paused;
+}
 
 
     /* =========================
@@ -700,15 +725,26 @@
        ANNOUNCEMENT BAR
   ========================== -->
 
-  <div class="announcement">
+  <!-- =========================
+     ANNOUNCEMENT BAR
+========================== -->
+
+<div class="announcement">
+
+  <div class="announcement-track">
 
     <span>THE ART OF SCENT</span>
-
     <span>A SYMPHONY FOR THE SENSES</span>
+    <span>DISCOVER SNS FRAGRANCE</span>
 
+    <!-- Duplicate for seamless looping -->
+    <span>THE ART OF SCENT</span>
+    <span>A SYMPHONY FOR THE SENSES</span>
     <span>DISCOVER SNS FRAGRANCE</span>
 
   </div>
+
+</div>
 
 
   <!-- =========================
