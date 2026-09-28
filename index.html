@@ -114,23 +114,60 @@
     }
 
     .header-icons {
-      position: absolute;
-      right: 38px;
+  position: absolute;
+  right: 38px;
 
-      display: flex;
-      align-items: center;
-      gap: 22px;
-    }
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
 
-    .header-icon {
-      font-size: 21px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+.header-icon {
+  width: 26px;
+  height: 26px;
 
-    .header-icon:hover {
-      transform: translateY(-2px);
-    }
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.header-icon svg {
+  width: 25px;
+  height: 25px;
+
+  fill: none;
+
+  stroke: #111;
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  transition: all 0.2s ease;
+}
+
+/* Wishlist */
+.wishlist-icon svg {
+  stroke: #e90046;
+  stroke-width: 1.8;
+}
+
+/* Hover */
+.header-icon:hover svg {
+  transform: scale(1.08);
+}
+
+.wishlist-icon:hover svg {
+  stroke: #c8003b;
+}
 
 
     /* =========================
@@ -761,16 +798,45 @@
 
       <div class="header-icons">
 
-        <div class="header-icon">♙</div>
+  <!-- ACCOUNT -->
+  <button class="header-icon" aria-label="Account">
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="7" r="3.2"></circle>
+      <path d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5"></path>
+    </svg>
+  </button>
 
-        <div class="header-icon">♡</div>
+  <!-- WISHLIST -->
+  <button class="header-icon wishlist-icon" aria-label="Wishlist">
+    <svg viewBox="0 0 24 24">
+      <path d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+               -1.8 0-3.4 1-4.1 2.4
+               C11.3 5 9.7 4 7.9 4
+               5.2 4 3.2 6 3.2 8.8
+               c0 4.9 8.8 10.2 8.8 10.2
+               s8.8-5.3 8.8-10.2z"></path>
+    </svg>
+  </button>
 
-        <div class="header-icon">⌕</div>
+  <!-- SEARCH -->
+  <button class="header-icon" aria-label="Search">
+    <svg viewBox="0 0 24 24">
+      <circle cx="10.5" cy="10.5" r="6.3"></circle>
+      <path d="M15.3 15.3L20.5 20.5"></path>
+    </svg>
+  </button>
 
-        <div class="header-icon">🛒</div>
+  <!-- SHOPPING CART -->
+  <button class="header-icon" aria-label="Shopping Cart">
+    <svg viewBox="0 0 24 24">
+      <path d="M3 4h2l2.1 11.2h10.8L20 7H6"></path>
+      <path d="M9 19.5h.01"></path>
+      <path d="M17 19.5h.01"></path>
+      <path d="M7.1 15.2h10.8"></path>
+    </svg>
+  </button>
 
-      </div>
-
+</div>
     </div>
 
 
