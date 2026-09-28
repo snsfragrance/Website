@@ -1,1 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>SNS Fragrance — A Symphony for the Senses</title>
+
+  <style>
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --cream: #f7f5f0;
+      --gold: #9b7a42;
+      --light-gray: #e8e6e1;
+      --text-gray: #666666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    /* =========================
+       TOP ANNOUNCEMENT BAR
+    ========================= */
+
+    .announcement {
+      height: 42px;
+      background: #000;
+      color: #fff;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 32px;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+    }
+
+    .announcement span {
+      width: 33.33%;
+    }
+
+    .announcement span:nth-child(2) {
+      text-align: center;
+    }
+
+    .announcement span:last-child {
+      text-align: right;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .header-main {
+      height: 96px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+    }
+
+    .logo {
+      font-size: 42px;
+      font-weight: 600;
+      letter-spacing: -2px;
+    }
+
+    .logo span {
+      font-weight: 300;
+    }
+
+    .header-icons {
+      position: absolute;
+      right: 38px;
+
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .header-icon {
+      font-size: 21px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .header-icon:hover {
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      gap: 38px;
+
+      min-height: 58px;
+      padding: 0 25px;
+
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    .navigation a {
+      color: #111;
+      text-decoration: none;
+
+      font-size: 15px;
+      white-space: nowrap;
+
+      transition: 0.2s;
+    }
+
+    .navigation a:hover {
+      color: var(--gold);
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 530px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(245, 243, 237, 0.15),
+          rgba(245, 243, 237, 0.95)
+        ),
+        url("https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=2000&q=90");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      width: 50%;
+      margin-left: auto;
+
+      padding: 50px 8% 50px 30px;
+
+      text-align: center;
+    }
+
+    .hero-small {
+      font-size: 15px;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
+
+    .hero-title {
+      font-family: Georgia, serif;
+
+      font-size: clamp(48px, 6vw, 86px);
+      line-height: 0.95;
+
+      font-weight: 400;
+      letter-spacing: -3px;
+
+      margin-bottom: 22px;
+    }
+
+    .hero-description {
+      font-size: 16px;
+      line-height: 1.7;
+
+      max-width: 470px;
+      margin: 0 auto 28px;
+
+      color: #333;
+    }
+
+    .hero-button {
+      display: inline-block;
+
+      padding: 14px 32px;
+
+      background: #111;
+      color: #fff;
+
+      border-radius: 2px;
+
+      text-decoration: none;
+
+      font-size: 14px;
+      letter-spacing: 0.5px;
+
+      transition: 0.25s;
+    }
+
+    .hero-button:hover {
+      background: var(--gold);
+    }
+
+
+    /* =========================
+       CATEGORY
+    ========================= */
+
+    .section {
+      padding: 75px 5%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-heading span {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin-top: 10px;
+
+      font-family: Georgia, serif;
+      font-weight: 400;
+
+      font-size: 40px;
+    }
+
+
+    .categories {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .category {
+      position: relative;
+      min-height: 270px;
+
+      overflow: hidden;
+
+      background: #eee;
+
+      display: flex;
+      align-items: flex-end;
+
+      cursor: pointer;
+    }
+
+    .category img {
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: 0.5s;
+    }
+
+    .category:hover img {
+      transform: scale(1.05);
+    }
+
+    .category-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          transparent 40%,
+          rgba(0,0,0,0.65)
+        );
+    }
+
+    .category-content {
+      position: relative;
+
+      color: #fff;
+
+      padding: 25px;
+
+      z-index: 2;
+    }
+
+    .category-content h3 {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: 400;
+    }
+
+    .category-content p {
+      margin-top: 7px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
+    .products {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 25px;
+    }
+
+    .product-card {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .product-image {
+      height: 360px;
+
+      background: var(--cream);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 75%;
+      height: 85%;
+
+      object-fit: contain;
+
+      transition: 0.4s;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding-top: 17px;
+    }
+
+    .product-category {
+      font-size: 11px;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      color: var(--text-gray);
+    }
+
+    .product-name {
+      margin-top: 7px;
+
+      font-family: Georgia, serif;
+      font-size: 20px;
+    }
+
+    .product-price {
+      margin-top: 8px;
+
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .add-cart {
+      position: absolute;
+
+      top: 15px;
+      right: 15px;
+
+      width: 38px;
+      height: 38px;
+
+      border-radius: 50%;
+
+      background: #fff;
+
+      border: none;
+
+      cursor: pointer;
+
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+      font-size: 16px;
+    }
+
+
+    /* =========================
+       BRAND STATEMENT
+    ========================= */
+
+    .statement {
+      padding: 100px 10%;
+
+      text-align: center;
+
+      background: #f6f4ef;
+    }
+
+    .statement h2 {
+      font-family: Georgia, serif;
+
+      font-weight: 400;
+
+      font-size: clamp(36px, 5vw, 65px);
+
+      line-height: 1.1;
+
+      max-width: 900px;
+
+      margin: auto;
+    }
+
+    .statement p {
+      max-width: 650px;
+
+      margin: 25px auto 0;
+
+      color: #666;
+
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       REVIEWS
+    ========================= */
+
+    .reviews {
+      padding: 45px 40px;
+
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+
+    /* =========================
+       FLOATING BUTTONS
+    ========================= */
+
+    .floating {
+      position: fixed;
+
+      bottom: 18px;
+
+      z-index: 100;
+    }
+
+    .rewards {
+      left: 18px;
+
+      background: #000;
+      color: #fff;
+
+      padding: 15px 24px;
+
+      border-radius: 40px;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-weight: 600;
+
+      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+
+      cursor: pointer;
+    }
+
+    .chat {
+      right: 18px;
+
+      width: 62px;
+      height: 62px;
+
+      border-radius: 50%;
+
+      background: #000;
+      color: #fff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 22px;
+
+      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #111;
+      color: #fff;
+
+      padding: 65px 7% 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        2fr 1fr 1fr 1fr;
+
+      gap: 50px;
+    }
+
+    .footer-brand h2 {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .footer-brand p {
+      margin-top: 15px;
+
+      max-width: 350px;
+
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    footer h4 {
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    footer a {
+      display: block;
+
+      color: #aaa;
+
+      text-decoration: none;
+
+      margin-bottom: 12px;
+
+      font-size: 13px;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    .copyright {
+      border-top: 1px solid #333;
+
+      margin-top: 50px;
+      padding-top: 25px;
+
+      color: #777;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      .navigation {
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-content {
+        width: 60%;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .announcement {
+        font-size: 10px;
+        padding: 0 12px;
+      }
+
+      .header-main {
+        height: 75px;
+      }
+
+      .logo {
+        font-size: 30px;
+      }
+
+      .header-icons {
+        right: 15px;
+        gap: 12px;
+      }
+
+      .navigation {
+        gap: 25px;
+        min-height: 48px;
+      }
+
+      .navigation a {
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: 600px;
+
+        background-position: 35% center;
+      }
+
+      .hero-content {
+        width: 100%;
+
+        margin-top: auto;
+
+        padding: 40px 20px;
+
+        background:
+          linear-gradient(
+            transparent,
+            rgba(255,255,255,0.95)
+          );
+      }
+
+      .categories,
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 420px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rewards {
+        padding: 13px 18px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =========================
+       ANNOUNCEMENT BAR
+  ========================== -->
+
+  <div class="announcement">
+
+    <span>THE ART OF SCENT</span>
+
+    <span>A SYMPHONY FOR THE SENSES</span>
+
+    <span>DISCOVER SNS FRAGRANCE</span>
+
+  </div>
+
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <div class="header-main">
+
+      <div class="logo">
+        SNS <span>Fragrance</span>
+      </div>
+
+      <div class="header-icons">
+
+        <div class="header-icon">♙</div>
+
+        <div class="header-icon">♡</div>
+
+        <div class="header-icon">⌕</div>
+
+        <div class="header-icon">🛒</div>
+
+      </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="navigation">
+
+      <a href="#">What's Your Scent?</a>
+
+      <a href="#">Bestsellers</a>
+
+      <a href="#">Extrait de Parfum</a>
+
+      <a href="#">New Arrivals</a>
+
+      <a href="#">Collections</a>
+
+      <a href="#">Body Care</a>
+
+      <a href="#">Home Fragrance</a>
+
+      <a href="#">About SNS</a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-small">
+        SNS FRAGRANCE
+      </div>
+
+      <h1 class="hero-title">
+        Find Your<br>
+        Signature
+      </h1>
+
+      <p class="hero-description">
+        Discover fragrances crafted to become
+        part of your identity. A scent for every
+        story, every mood, and every moment.
+      </p>
+
+      <a href="#products" class="hero-button">
+        SHOP COLLECTION
+      </a>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       CATEGORIES
+  ========================== -->
+
+  <section class="section">
+
+    <div class="section-heading">
+
+      <span>Explore SNS</span>
+
+      <h2>Find Your Fragrance</h2>
+
+    </div>
+
+
+    <div class="categories">
+
+      <div class="category">
+
+        <img
+          src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=85"
+          alt="Extrait de Parfum"
+        />
+
+        <div class="category-overlay"></div>
+
+        <div class="category-content">
+
+          <h3>Extrait de Parfum</h3>
+
+          <p>Long-lasting signature scents</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="category">
+
+        <img
+          src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=900&q=85"
+          alt="Bestsellers"
+        />
+
+        <div class="category-overlay"></div>
+
+        <div class="category-content">
+
+          <h3>Bestsellers</h3>
+
+          <p>Our most loved fragrances</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="category">
+
+        <img
+          src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=900&q=85"
+          alt="New Arrivals"
+        />
+
+        <div class="category-overlay"></div>
+
+        <div class="category-content">
+
+          <h3>New Arrivals</h3>
+
+          <p>Discover what's new</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="category">
+
+        <img
+          src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=900&q=85"
+          alt="Gift"
+        />
+
+        <div class="category-overlay"></div>
+
+        <div class="category-content">
+
+          <h3>Gift Collection</h3>
+
+          <p>Give a scent worth remembering</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       PRODUCTS
+  ========================== -->
+
+  <section class="section" id="products">
+
+    <div class="section-heading">
+
+      <span>Signature Collection</span>
+
+      <h2>Everyone's Favorite</h2>
+
+    </div>
+
+
+    <div class="products">
+
+
+      <!-- PRODUCT 1 -->
+
+      <div class="product-card">
+
+        <button class="add-cart"
+                onclick="addToCart('Tranquility')">
+          +
+        </button>
+
+        <div class="product-image">
+
+          <img
+            src="YOUR_PRODUCT_IMAGE_1"
+            alt="SNS Tranquility"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Extrait de Parfum
+          </div>
+
+          <div class="product-name">
+            Tranquility
+          </div>
+
+          <div class="product-price">
+            Rp 299.000
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PRODUCT 2 -->
+
+      <div class="product-card">
+
+        <button class="add-cart"
+                onclick="addToCart('Cocoa Amore')">
+          +
+        </button>
+
+        <div class="product-image">
+
+          <img
+            src="YOUR_PRODUCT_IMAGE_2"
+            alt="SNS Cocoa Amore"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Extrait de Parfum
+          </div>
+
+          <div class="product-name">
+            Cocoa Amore
+          </div>
+
+          <div class="product-price">
+            Rp 299.000
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PRODUCT 3 -->
+
+      <div class="product-card">
+
+        <button class="add-cart"
+                onclick="addToCart('Rapha')">
+          +
+        </button>
+
+        <div class="product-image">
+
+          <img
+            src="YOUR_PRODUCT_IMAGE_3"
+            alt="SNS Rapha"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Extrait de Parfum
+          </div>
+
+          <div class="product-name">
+            Rapha
+          </div>
+
+          <div class="product-price">
+            Rp 299.000
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PRODUCT 4 -->
+
+      <div class="product-card">
+
+        <button class="add-cart"
+                onclick="addToCart('Ophir')">
+          +
+        </button>
+
+        <div class="product-image">
+
+          <img
+            src="YOUR_PRODUCT_IMAGE_4"
+            alt="SNS Ophir"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Extrait de Parfum
+          </div>
+
+          <div class="product-name">
+            Ophir
+          </div>
+
+          <div class="product-price">
+            Rp 299.000
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       BRAND STATEMENT
+  ========================== -->
+
+  <section class="statement">
+
+    <h2>
+      Your scent is more than
+      a fragrance. It is a memory.
+    </h2>
+
+    <p>
+      At SNS Fragrance, we believe fragrance is
+      an extension of who you are. Each creation is
+      designed to accompany your story and leave
+      an impression long after you have left the room.
+    </p>
+
+  </section>
+
+
+
+  <!-- =========================
+       REVIEWS
+  ========================== -->
+
+  <div class="reviews">
+
+    ★ &nbsp; Reviews
+
+  </div>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+
+      <div class="footer-brand">
+
+        <h2>SNS Fragrance</h2>
+
+        <p>
+          A contemporary fragrance house creating
+          expressive scents for every individual,
+          every story, and every moment.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h4>SHOP</h4>
+
+        <a href="#">Extrait de Parfum</a>
+        <a href="#">Bestsellers</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">Collections</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>ABOUT</h4>
+
+        <a href="#">Our Story</a>
+        <a href="#">Contact</a>
+        <a href="#">FAQ</a>
+        <a href="#">Shipping</a>
+
+      </div>
+
+
+      <div>
+
+        <h4>FOLLOW</h4>
+
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Shopee</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 SNS Fragrance. All rights reserved.
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================
+       FLOATING BUTTONS
+  ========================== -->
+
+  <div class="floating rewards">
+
+    🎁 &nbsp; Rewards
+
+  </div>
+
+
+  <div class="floating chat">
+
+    💬
+
+  </div>
+
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    let cart = [];
+
+    function addToCart(product) {
+
+      cart.push(product);
+
+      alert(
+        product +
+        " has been added to your cart."
+      );
+
+      console.log("Cart:", cart);
+
+    }
+
+  </script>
+
+</body>
+</html>
