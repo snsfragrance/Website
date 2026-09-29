@@ -1,1 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>My Wishlist — SNS Fragrance</title>
+
+
+  <style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: #111;
+
+      background: #fff;
+
+      min-height: 100vh;
+    }
+
+
+    /* =====================================================
+       ANNOUNCEMENT BAR
+    ===================================================== */
+
+    .announcement {
+      height: 36px;
+
+      background: #000;
+
+      color: #fff;
+
+      overflow: hidden;
+
+      white-space: nowrap;
+
+      display: flex;
+
+      align-items: center;
+    }
+
+
+    .announcement-track {
+
+      display: flex;
+
+      width: max-content;
+
+      animation:
+        marquee 28s linear infinite;
+    }
+
+
+    .announcement-track span {
+
+      margin-right: 140px;
+
+      font-size: 13px;
+
+      font-weight: 500;
+
+      letter-spacing: .2px;
+    }
+
+
+    @keyframes marquee {
+
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    header {
+      background: #fff;
+    }
+
+
+    .header-main {
+
+      height: 75px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      position: relative;
+    }
+
+
+    /* LOGO */
+
+    .logo {
+
+      color: #222;
+
+      font-size: 36px;
+
+      font-weight: 600;
+
+      letter-spacing: -2px;
+
+      text-decoration: none;
+    }
+
+
+    .logo span {
+      font-weight: 300;
+    }
+
+
+    /* =====================================================
+       HEADER ICONS
+    ===================================================== */
+
+    .header-icons {
+
+      position: absolute;
+
+      right: 40px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+    }
+
+
+    .header-icon {
+
+      width: 26px;
+      height: 26px;
+
+      padding: 0;
+      margin: 0;
+
+      border: none;
+      outline: none;
+
+      background: transparent;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      text-decoration: none;
+
+      color: #111;
+    }
+
+
+    .header-icon svg {
+
+      width: 25px;
+      height: 25px;
+
+      fill: none !important;
+
+      stroke: #111 !important;
+
+      stroke-width: 1.7;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+      display: block;
+
+      transition:
+        transform .2s ease;
+    }
+
+
+    .header-icon:hover svg {
+
+      transform: scale(1.08);
+    }
+
+
+    /* ACTIVE WISHLIST */
+
+    .wishlist-icon svg {
+
+      fill: none !important;
+
+      stroke: #e90046 !important;
+
+      stroke-width: 1.8;
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+
+    .navigation {
+
+      height: 48px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 34px;
+
+      border-bottom: 1px solid #ededed;
+
+      padding: 0 25px;
+    }
+
+
+    .navigation a {
+
+      color: #111;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      white-space: nowrap;
+
+      transition: color .2s ease;
+    }
+
+
+    .navigation a:hover {
+
+      color: #777;
+    }
+
+
+    /* =====================================================
+       WISHLIST PAGE
+    ===================================================== */
+
+    .wishlist-page {
+
+      width: 100%;
+
+      max-width: 1110px;
+
+      margin: 0 auto;
+
+      padding:
+        48px 0 100px;
+    }
+
+
+    /* =====================================================
+       PAGE TITLE
+    ===================================================== */
+
+    .wishlist-title {
+
+      text-align: center;
+
+      margin-bottom: 14px;
+    }
+
+
+    .wishlist-title h1 {
+
+      font-size: 30px;
+
+      font-weight: 600;
+
+      letter-spacing: -.7px;
+
+      margin: 0;
+    }
+
+
+    /* =====================================================
+       LIST HEADER
+    ===================================================== */
+
+    .wishlist-list-header {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 31px;
+    }
+
+
+    .wishlist-list-name {
+
+      font-size: 20px;
+
+      font-weight: 600;
+    }
+
+
+    /* ADD NEW LIST */
+
+    .new-list-button {
+
+      border: none;
+
+      background: transparent;
+
+      color: #102956;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      font-size: 13px;
+
+      cursor: pointer;
+
+      padding: 5px;
+    }
+
+
+    .new-list-button svg {
+
+      width: 18px;
+
+      height: 18px;
+
+      fill: none;
+
+      stroke: #102956;
+
+      stroke-width: 1.5;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+    }
+
+
+    .new-list-button:hover {
+
+      opacity: .65;
+    }
+
+
+    /* =====================================================
+       EMPTY WISHLIST
+    ===================================================== */
+
+    .wishlist-empty {
+
+      width: 100%;
+
+      min-height: 315px;
+
+      background: #f1f2f5;
+
+      border-radius: 8px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      color: #102956;
+    }
+
+
+    /* LARGE HEART */
+
+    .empty-heart {
+
+      width: 52px;
+
+      height: 52px;
+
+      margin-bottom: 14px;
+    }
+
+
+    .empty-heart svg {
+
+      width: 52px;
+
+      height: 52px;
+
+      fill: #102956;
+
+      stroke: #102956;
+
+      stroke-width: 1;
+    }
+
+
+    /* EMPTY TITLE */
+
+    .empty-title {
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      margin-bottom: 14px;
+    }
+
+
+    /* EMPTY DESCRIPTION */
+
+    .empty-description {
+
+      font-size: 13px;
+
+      line-height: 1.5;
+
+      color: #102956;
+    }
+
+
+    .empty-description .small-heart {
+
+      display: inline-block;
+
+      font-size: 16px;
+
+      line-height: 0;
+
+      margin-left: 3px;
+    }
+
+
+    /* =====================================================
+       REVIEWS
+    ===================================================== */
+
+    .reviews-button {
+
+      position: fixed;
+
+      left: 0;
+
+      bottom: 65px;
+
+      z-index: 100;
+
+      height: 50px;
+
+      padding:
+        0 22px 0 31px;
+
+      border: none;
+
+      border-radius:
+        0 28px 28px 0;
+
+      background: #fff;
+
+      color: #111;
+
+      box-shadow:
+        0 2px 12px
+        rgba(0,0,0,.08);
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      font-size: 16px;
+
+      font-weight: 600;
+    }
+
+
+    .reviews-star {
+
+      font-size: 20px;
+
+      line-height: 1;
+    }
+
+
+    /* =====================================================
+       REWARDS
+    ===================================================== */
+
+    .rewards-button {
+
+      position: fixed;
+
+      left: 14px;
+
+      bottom: 10px;
+
+      z-index: 101;
+
+      height: 54px;
+
+      padding:
+        0 23px;
+
+      border: none;
+
+      border-radius: 30px;
+
+      background: #000;
+
+      color: #fff;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      font-size: 15px;
+
+      font-weight: 600;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.18);
+
+      cursor: pointer;
+    }
+
+
+    .reward-icon {
+
+      font-size: 17px;
+    }
+
+
+    /* =====================================================
+       CHAT
+    ===================================================== */
+
+    .chat-button {
+
+      position: fixed;
+
+      right: 18px;
+
+      bottom: 10px;
+
+      z-index: 100;
+
+      width: 50px;
+
+      height: 50px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: #000;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.18);
+    }
+
+
+    .chat-button svg {
+
+      width: 22px;
+
+      height: 22px;
+
+      fill: none;
+
+      stroke: #fff;
+
+      stroke-width: 1.5;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 1000px) {
+
+      .wishlist-page {
+
+        padding-left: 30px;
+
+        padding-right: 30px;
+      }
+
+
+      .navigation {
+
+        gap: 20px;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      .header-main {
+
+        height: 70px;
+
+        justify-content: space-between;
+
+        padding: 0 20px;
+      }
+
+
+      .logo {
+
+        font-size: 28px;
+      }
+
+
+      .header-icons {
+
+        position: static;
+
+        gap: 14px;
+      }
+
+
+      .navigation {
+
+        height: 45px;
+
+        padding-left: 20px;
+      }
+
+
+      .navigation a {
+
+        font-size: 13px;
+      }
+
+
+      .wishlist-page {
+
+        padding:
+          35px 20px 100px;
+      }
+
+
+      .wishlist-title h1 {
+
+        font-size: 26px;
+      }
+
+
+      .wishlist-list-header {
+
+        margin-bottom: 20px;
+      }
+
+
+      .wishlist-empty {
+
+        min-height: 280px;
+      }
+
+    }
+
+
+    @media (max-width: 450px) {
+
+      .wishlist-title {
+
+        margin-bottom: 25px;
+      }
+
+
+      .wishlist-list-header {
+
+        align-items: flex-start;
+
+        gap: 15px;
+      }
+
+
+      .wishlist-list-name {
+
+        font-size: 18px;
+      }
+
+
+      .new-list-button {
+
+        font-size: 12px;
+      }
+
+
+      .wishlist-empty {
+
+        min-height: 300px;
+      }
+
+
+      .reviews-button {
+
+        bottom: 68px;
+
+        height: 44px;
+
+        padding:
+          0 18px 0 22px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       ANNOUNCEMENT BAR
+  ====================================================== -->
+
+  <div class="announcement">
+
+    <div class="announcement-track">
+
+      <span>
+        THE ART OF SCENT
+      </span>
+
+      <span>
+        A SYMPHONY FOR THE SENSES
+      </span>
+
+      <span>
+        DISCOVER SNS FRAGRANCE
+      </span>
+
+      <span>
+        THE ART OF SCENT
+      </span>
+
+      <span>
+        A SYMPHONY FOR THE SENSES
+      </span>
+
+      <span>
+        DISCOVER SNS FRAGRANCE
+      </span>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header>
+
+
+    <div class="header-main">
+
+
+      <!-- LOGO -->
+
+      <a
+        href="index.html"
+        class="logo">
+
+        SNS <span>Fragrance</span>
+
+      </a>
+
+
+
+      <!-- HEADER ICONS -->
+
+      <div class="header-icons">
+
+
+        <!-- ACCOUNT -->
+
+        <a
+          href="login.html"
+          class="header-icon"
+          aria-label="Account">
+
+          <svg viewBox="0 0 24 24">
+
+            <circle
+              cx="12"
+              cy="7"
+              r="3.2">
+            </circle>
+
+            <path
+              d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5">
+            </path>
+
+          </svg>
+
+        </a>
+
+
+
+        <!-- WISHLIST -->
+
+        <a
+          href="wishlist.html"
+          class="header-icon wishlist-icon"
+          aria-label="Wishlist">
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+              -1.8 0-3.4 1-4.1 2.4
+              C11.3 5 9.7 4 7.9 4
+              5.2 4 3.2 6 3.2 8.8
+              c0 4.9 8.8 10.2 8.8 10.2
+              s8.8-5.3 8.8-10.2z">
+            </path>
+
+          </svg>
+
+        </a>
+
+
+
+        <!-- SEARCH -->
+
+        <button
+          class="header-icon"
+          aria-label="Search">
+
+          <svg viewBox="0 0 24 24">
+
+            <circle
+              cx="10.5"
+              cy="10.5"
+              r="6.3">
+            </circle>
+
+            <path
+              d="M15.3 15.3L20.5 20.5">
+            </path>
+
+          </svg>
+
+        </button>
+
+
+
+        <!-- CART -->
+
+        <button
+          class="header-icon"
+          aria-label="Shopping cart">
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M3 4h2l2.1 11.2h10.8L20 7H6">
+            </path>
+
+            <path
+              d="M9 19.5h.01">
+            </path>
+
+            <path
+              d="M17 19.5h.01">
+            </path>
+
+            <path
+              d="M7.1 15.2h10.8">
+            </path>
+
+          </svg>
+
+        </button>
+
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         NAVIGATION
+    ================================================== -->
+
+    <nav class="navigation">
+
+      <a href="index.html">
+        What's Your Persona?
+      </a>
+
+      <a href="bestsellers.html">
+        Everyone's Favorite
+      </a>
+
+      <a href="#">
+        Deo Potion
+      </a>
+
+      <a href="extrait.html">
+        Extrait de Parfum
+      </a>
+
+      <a href="#">
+        Home Fragrance
+      </a>
+
+      <a href="#">
+        Cloud Mist
+      </a>
+
+      <a href="#">
+        Body Care
+      </a>
+
+      <a href="#">
+        Hand Dew
+      </a>
+
+      <a href="#">
+        Loyalty
+      </a>
+
+      <a href="#">
+        Store
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       WISHLIST
+  ====================================================== -->
+
+  <main class="wishlist-page">
+
+
+    <!-- PAGE TITLE -->
+
+    <div class="wishlist-title">
+
+      <h1>
+        MY WISHLIST
+      </h1>
+
+    </div>
+
+
+
+    <!-- LIST HEADER -->
+
+    <div class="wishlist-list-header">
+
+
+      <div class="wishlist-list-name">
+        Wishlist
+      </div>
+
+
+      <button
+        class="new-list-button"
+        onclick="createNewList()">
+
+
+        <svg viewBox="0 0 24 24">
+
+          <path
+            d="M4 6.5A2.5 2.5 0 0 1 6.5 4h8A2.5 2.5 0 0 1 17 6.5v5">
+          </path>
+
+          <path
+            d="M4 6.5v11A2.5 2.5 0 0 0 6.5 20H14">
+          </path>
+
+          <path
+            d="M18 14v6">
+          </path>
+
+          <path
+            d="M15 17h6">
+          </path>
+
+        </svg>
+
+
+        Add a new list
+
+
+      </button>
+
+    </div>
+
+
+
+    <!-- EMPTY WISHLIST -->
+
+    <section class="wishlist-empty">
+
+
+      <!-- HEART -->
+
+      <div class="empty-heart">
+
+        <svg viewBox="0 0 24 24">
+
+          <path
+            d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+            -1.8 0-3.4 1-4.1 2.4
+            C11.3 5 9.7 4 7.9 4
+            5.2 4 3.2 6 3.2 8.8
+            c0 4.9 8.8 10.2 8.8 10.2
+            s8.8-5.3 8.8-10.2z">
+          </path>
+
+        </svg>
+
+      </div>
+
+
+
+      <div class="empty-title">
+
+        List is empty
+
+      </div>
+
+
+
+      <div class="empty-description">
+
+        You can add items to wish list by
+        clicking
+
+        <span class="small-heart">
+          ♡
+        </span>
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       REVIEWS
+  ====================================================== -->
+
+  <div class="reviews-button">
+
+    <span class="reviews-star">
+      ★
+    </span>
+
+    <span>
+      Reviews
+    </span>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       REWARDS
+  ====================================================== -->
+
+  <button class="rewards-button">
+
+    <span class="reward-icon">
+      🎁
+    </span>
+
+    <span>
+      Rewards
+    </span>
+
+  </button>
+
+
+
+  <!-- =====================================================
+       CHAT
+  ====================================================== -->
+
+  <button
+    class="chat-button"
+    aria-label="Chat">
+
+    <svg viewBox="0 0 24 24">
+
+      <path
+        d="M5 5.5h14v10H10l-4 3v-13z">
+      </path>
+
+      <path
+        d="M9 10h.01">
+      </path>
+
+      <path
+        d="M12 10h.01">
+      </path>
+
+      <path
+        d="M15 10h.01">
+      </path>
+
+    </svg>
+
+  </button>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    function createNewList() {
+
+      const name =
+        prompt(
+          "Enter a name for your new wishlist:"
+        );
+
+
+      if (
+        name &&
+        name.trim() !== ""
+      ) {
+
+        alert(
+          'Wishlist "' +
+          name.trim() +
+          '" created.'
+        );
+
+      }
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>
