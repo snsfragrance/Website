@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Privacy Policy — SNS Fragrance</title>
+
+
+  <style>
+
+    /* =====================================================
+       GLOBAL
+    ===================================================== */
+
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --gray: #666666;
+      --light-gray: #eeeeee;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color: var(--black);
+
+      background: #fff;
+
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    /* =====================================================
+       ANNOUNCEMENT BAR
+    ===================================================== */
+
+    .announcement {
+
+      height: 35px;
+
+      background: #000;
+
+      color: #fff;
+
+      overflow: hidden;
+
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      white-space: nowrap;
+    }
+
+    .announcement-track {
+
+      display: flex;
+
+      align-items: center;
+
+      width: max-content;
+
+      animation:
+        announcementScroll
+        30s linear infinite;
+    }
+
+    .announcement-track span {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      margin-right: 150px;
+
+      font-size: 12px;
+
+      font-weight: 400;
+
+      letter-spacing: 0.3px;
+    }
+
+    @keyframes announcementScroll {
+
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+
+    }
+
+    .announcement:hover
+    .announcement-track {
+
+      animation-play-state: paused;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    header {
+
+      background: #fff;
+
+      border-bottom:
+        1px solid #eeeeee;
+    }
+
+    .header-main {
+
+      height: 78px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      position: relative;
+    }
+
+    .logo {
+
+      font-size: 36px;
+
+      font-weight: 600;
+
+      letter-spacing: -2px;
+    }
+
+    .logo span {
+
+      font-weight: 300;
+    }
+
+
+    /* =====================================================
+       HEADER ICONS
+    ===================================================== */
+
+    .header-icons {
+
+      position: absolute;
+
+      right: 38px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+    }
+
+    .header-icon {
+
+      width: 25px;
+      height: 25px;
+
+      padding: 0;
+      margin: 0;
+
+      border: none;
+
+      background: transparent;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      cursor: pointer;
+    }
+
+    .header-icon svg {
+
+      width: 23px;
+      height: 23px;
+
+      fill: none;
+
+      stroke: #111;
+
+      stroke-width: 1.7;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+      transition:
+        transform 0.2s ease;
+    }
+
+    .header-icon:hover svg {
+
+      transform:
+        scale(1.08);
+    }
+
+    .wishlist-icon svg {
+
+      stroke: #e90046;
+
+      stroke-width: 1.8;
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+
+    .navigation {
+
+      min-height: 45px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 38px;
+
+      overflow-x: auto;
+
+      white-space: nowrap;
+    }
+
+    .navigation a {
+
+      font-size: 13px;
+
+      font-weight: 400;
+
+      transition:
+        opacity 0.2s ease;
+    }
+
+    .navigation a:hover {
+
+      opacity: 0.55;
+    }
+
+
+    /* =====================================================
+       PRIVACY POLICY CONTENT
+    ===================================================== */
+
+    .privacy-wrapper {
+
+      width: 100%;
+
+      max-width: 1280px;
+
+      margin: 0 auto;
+
+      padding:
+        48px
+        32px
+        120px;
+    }
+
+
+    /* =====================================================
+       PAGE TITLE
+    ===================================================== */
+
+    .privacy-title {
+
+      font-size: 31px;
+
+      line-height: 1.15;
+
+      font-weight: 600;
+
+      letter-spacing: -0.8px;
+
+      margin-bottom: 14px;
+    }
+
+
+    /* =====================================================
+       LAST UPDATED
+    ===================================================== */
+
+    .last-updated {
+
+      font-size: 14px;
+
+      font-style: italic;
+
+      line-height: 1.4;
+
+      margin-bottom: 9px;
+    }
+
+
+    /* =====================================================
+       PRIVACY SECTIONS
+    ===================================================== */
+
+    .privacy-section {
+
+      margin-bottom: 28px;
+    }
+
+    .privacy-section h2 {
+
+      font-size: 16px;
+
+      line-height: 1.3;
+
+      font-weight: 600;
+
+      margin-bottom: 7px;
+
+      text-transform: uppercase;
+    }
+
+    .privacy-section p {
+
+      font-size: 14px;
+
+      line-height: 1.25;
+
+      letter-spacing: 0.25px;
+
+      margin-bottom: 9px;
+
+      color: #111;
+    }
+
+
+    /* =====================================================
+       LISTS
+    ===================================================== */
+
+    .privacy-section ul {
+
+      margin:
+        7px 0
+        10px
+        25px;
+    }
+
+    .privacy-section li {
+
+      font-size: 14px;
+
+      line-height: 1.35;
+
+      margin-bottom: 5px;
+    }
+
+
+    /* =====================================================
+       LINKS INSIDE POLICY
+    ===================================================== */
+
+    .privacy-section a {
+
+      text-decoration: underline;
+
+      text-underline-offset: 2px;
+    }
+
+    .privacy-section a:hover {
+
+      opacity: 0.6;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    footer {
+
+      background: #111;
+
+      color: #fff;
+
+      padding:
+        65px
+        7%
+        30px;
+    }
+
+    .footer-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        2.2fr
+        1fr
+        1fr
+        1fr
+        1.6fr;
+
+      gap: 45px;
+    }
+
+    .footer-brand h2 {
+
+      font-size: 30px;
+
+      font-weight: 500;
+    }
+
+    .footer-brand p {
+
+      margin-top: 15px;
+
+      max-width: 350px;
+
+      color: #aaa;
+
+      line-height: 1.7;
+
+      font-size: 14px;
+    }
+
+    footer h4 {
+
+      margin-bottom: 18px;
+
+      font-size: 14px;
+
+      font-weight: 600;
+    }
+
+    footer a {
+
+      display: block;
+
+      color: #aaa;
+
+      margin-bottom: 12px;
+
+      font-size: 13px;
+
+      transition:
+        color 0.2s ease;
+    }
+
+    footer a:hover {
+
+      color: #fff;
+    }
+
+    .copyright {
+
+      border-top:
+        1px solid #333;
+
+      margin-top: 50px;
+
+      padding-top: 25px;
+
+      color: #777;
+
+      font-size: 12px;
+    }
+
+
+    /* =====================================================
+       FLOATING BUTTONS
+    ===================================================== */
+
+    .floating {
+
+      position: fixed;
+
+      z-index: 1000;
+
+      cursor: pointer;
+    }
+
+    .reviews {
+
+      left: 15px;
+
+      bottom: 68px;
+
+      background: #fff;
+
+      color: #111;
+
+      padding:
+        15px 20px;
+
+      border-radius: 32px;
+
+      font-size: 16px;
+
+      font-weight: 600;
+
+      box-shadow:
+        0 4px 20px
+        rgba(0,0,0,0.12);
+    }
+
+    .reviews::before {
+
+      content: "★";
+
+      margin-right: 9px;
+
+      font-size: 17px;
+    }
+
+    .rewards {
+
+      left: 15px;
+
+      bottom: 10px;
+
+      background: #000;
+
+      color: #fff;
+
+      padding:
+        15px 22px;
+
+      border-radius: 32px;
+
+      font-size: 16px;
+
+      font-weight: 600;
+
+      box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.2);
+    }
+
+    .rewards::before {
+
+      content: "🎁";
+
+      margin-right: 9px;
+    }
+
+    .chat {
+
+      right: 15px;
+
+      bottom: 10px;
+
+      width: 50px;
+
+      height: 50px;
+
+      border-radius: 50%;
+
+      background: #000;
+
+      color: #fff;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.2);
+    }
+
+    .chat svg {
+
+      width: 23px;
+
+      height: 23px;
+
+      fill: none;
+
+      stroke: #fff;
+
+      stroke-width: 1.7;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 1000px) {
+
+      .navigation {
+
+        justify-content: flex-start;
+
+        padding: 0 25px;
+      }
+
+      .footer-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+      .announcement {
+
+        height: 32px;
+      }
+
+      .announcement-track span {
+
+        font-size: 10px;
+
+        margin-right: 90px;
+      }
+
+      .header-main {
+
+        height: 72px;
+      }
+
+      .logo {
+
+        font-size: 29px;
+      }
+
+      .header-icons {
+
+        right: 15px;
+
+        gap: 11px;
+      }
+
+      .header-icon {
+
+        width: 22px;
+
+        height: 22px;
+      }
+
+      .header-icon svg {
+
+        width: 21px;
+
+        height: 21px;
+      }
+
+      .navigation {
+
+        min-height: 45px;
+
+        gap: 25px;
+
+        padding: 0 20px;
+      }
+
+      .navigation a {
+
+        font-size: 12px;
+      }
+
+
+      /* PRIVACY */
+
+      .privacy-wrapper {
+
+        padding:
+          38px
+          20px
+          90px;
+      }
+
+      .privacy-title {
+
+        font-size: 27px;
+
+        margin-bottom: 13px;
+      }
+
+      .last-updated {
+
+        font-size: 13px;
+      }
+
+      .privacy-section {
+
+        margin-bottom: 25px;
+      }
+
+      .privacy-section h2 {
+
+        font-size: 14px;
+      }
+
+      .privacy-section p,
+      .privacy-section li {
+
+        font-size: 13px;
+
+        line-height: 1.35;
+      }
+
+
+      /* FOOTER */
+
+      .footer-grid {
+
+        grid-template-columns:
+          1fr;
+
+        gap: 35px;
+      }
+
+
+      /* FLOATING */
+
+      .reviews,
+      .rewards {
+
+        left: 12px;
+
+        font-size: 14px;
+
+        padding:
+          13px 17px;
+      }
+
+      .reviews {
+
+        bottom: 65px;
+      }
+
+      .rewards {
+
+        bottom: 10px;
+      }
+
+      .chat {
+
+        right: 12px;
+
+        bottom: 10px;
+
+        width: 48px;
+
+        height: 48px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       ANNOUNCEMENT BAR
+  ===================================================== -->
+
+  <div class="announcement">
+
+    <div class="announcement-track">
+
+      <span>
+        THE ART OF SCENT
+      </span>
+
+      <span>
+        A SYMPHONY FOR THE SENSES
+      </span>
+
+      <span>
+        DISCOVER SNS FRAGRANCE
+      </span>
+
+      <span>
+        THE ART OF SCENT
+      </span>
+
+      <span>
+        A SYMPHONY FOR THE SENSES
+      </span>
+
+      <span>
+        DISCOVER SNS FRAGRANCE
+      </span>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
+
+  <header>
+
+    <div class="header-main">
+
+
+      <!-- LOGO -->
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+
+        SNS <span>Fragrance</span>
+
+      </a>
+
+
+
+      <!-- HEADER ICONS -->
+
+      <div class="header-icons">
+
+
+        <!-- ACCOUNT -->
+
+        <a
+          href="#"
+          class="header-icon"
+          aria-label="Account"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <circle
+              cx="12"
+              cy="7"
+              r="3.2"
+            ></circle>
+
+            <path
+              d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5"
+            ></path>
+
+          </svg>
+
+        </a>
+
+
+
+        <!-- WISHLIST -->
+
+        <a
+          href="#"
+          class="header-icon wishlist-icon"
+          aria-label="Wishlist"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+                 -1.8 0-3.4 1-4.1 2.4
+                 C11.3 5 9.7 4 7.9 4
+                 5.2 4 3.2 6 3.2 8.8
+                 c0 4.9 8.8 10.2 8.8 10.2
+                 s8.8-5.3 8.8-10.2z"
+            ></path>
+
+          </svg>
+
+        </a>
+
+
+
+        <!-- SEARCH -->
+
+        <a
+          href="search.html"
+          class="header-icon"
+          aria-label="Search"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <circle
+              cx="10.5"
+              cy="10.5"
+              r="6.3"
+            ></circle>
+
+            <path
+              d="M15.3 15.3L20.5 20.5"
+            ></path>
+
+          </svg>
+
+        </a>
+
+
+
+        <!-- CART -->
+
+        <a
+          href="cart.html"
+          class="header-icon"
+          aria-label="Shopping Cart"
+        >
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M3 4h2l2.4 11.2
+                 a2 2 0 0 0 2 1.6
+                 h7.8
+                 a2 2 0 0 0 1.9-1.4
+                 L21 8H6"
+            ></path>
+
+            <circle
+              cx="10"
+              cy="20"
+              r="1"
+            ></circle>
+
+            <circle
+              cx="18"
+              cy="20"
+              r="1"
+            ></circle>
+
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         NAVIGATION
+    ================================================== -->
+
+    <nav class="navigation">
+
+      <a href="bestsellers.html">
+        Bestsellers
+      </a>
+
+      <a href="edp.html">
+        Extrait de Parfum
+      </a>
+
+      <a href="newarrivals.html">
+        New Arrivals
+      </a>
+
+      <a href="#">
+        Collections
+      </a>
+
+      <a href="about.html">
+        About Us
+      </a>
+
+      <a href="#">
+        Contact
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       PRIVACY POLICY
+  ===================================================== -->
+
+  <main class="privacy-wrapper">
+
+
+    <!-- TITLE -->
+
+    <h1 class="privacy-title">
+      PRIVACY POLICY
+    </h1>
+
+
+    <!-- LAST UPDATED -->
+
+    <p class="last-updated">
+      Last updated: September 29, 2026
+    </p>
+
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="privacy-section">
+
+      <p>
+        This Privacy Policy describes how SNS Fragrance
+        (“SNS Fragrance”, “we”, “us”, or “our”) collects,
+        uses, stores and discloses your personal information
+        when you visit our website, use our services, or
+        make a purchase from SNS Fragrance.
+      </p>
+
+      <p>
+        For purposes of this Privacy Policy, “you” and
+        “your” means you as the user of the Services,
+        whether you are a customer, website visitor, or
+        another individual whose information we have
+        collected pursuant to this Privacy Policy.
+      </p>
+
+      <p>
+        Please read this Privacy Policy carefully.
+        By using and accessing any of the Services,
+        you agree to the collection, use and disclosure
+        of your information as described in this Privacy
+        Policy.
+      </p>
+
+      <p>
+        If you do not agree to this Privacy Policy,
+        please do not use or access our Services.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CHANGES
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        CHANGES TO THIS PRIVACY POLICY
+      </h2>
+
+      <p>
+        We may update this Privacy Policy from time to
+        time, including to reflect changes to our
+        practices or for other operational, legal, or
+        regulatory reasons.
+      </p>
+
+      <p>
+        When we make changes, we will update the
+        “Last updated” date at the top of this Privacy
+        Policy and publish the revised version on this
+        page.
+      </p>
+
+      <p>
+        We encourage you to review this Privacy Policy
+        periodically to stay informed about how we
+        collect, use and protect your information.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         HOW WE COLLECT
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        HOW WE COLLECT AND USE YOUR PERSONAL INFORMATION
+      </h2>
+
+      <p>
+        To provide our Services, we collect personal
+        information about you from a variety of sources,
+        as described below.
+      </p>
+
+      <p>
+        The information that we collect and use varies
+        depending on how you interact with our website,
+        purchase our products, contact us, or otherwise
+        use our Services.
+      </p>
+
+      <p>
+        We may use personal information to provide and
+        improve our Services, process transactions,
+        communicate with you, provide customer support,
+        and protect the security and integrity of our
+        website.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PERSONAL INFORMATION
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        PERSONAL INFORMATION WE COLLECT
+      </h2>
+
+      <p>
+        The types of personal information we obtain
+        about you depends on how you interact with our
+        website and use our Services.
+      </p>
+
+      <p>
+        When we use the term “personal information”,
+        we are referring to information that identifies,
+        relates to, describes, or can reasonably be
+        associated with you.
+      </p>
+
+      <p>
+        Depending on your interaction with SNS Fragrance,
+        this information may include:
+      </p>
+
+      <ul>
+
+        <li>
+          Name and contact information.
+        </li>
+
+        <li>
+          Email address.
+        </li>
+
+        <li>
+          Telephone or WhatsApp number.
+        </li>
+
+        <li>
+          Billing and shipping address.
+        </li>
+
+        <li>
+          Order and purchase information.
+        </li>
+
+        <li>
+          Payment-related information necessary to
+          process transactions.
+        </li>
+
+        <li>
+          Information you provide when contacting
+          customer service.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+
+    <!-- =================================================
+         INFORMATION AUTOMATICALLY COLLECTED
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        INFORMATION WE COLLECT AUTOMATICALLY
+      </h2>
+
+      <p>
+        When you visit, use or navigate our website,
+        we may automatically collect certain information
+        about your device and interaction with our
+        Services.
+      </p>
+
+      <p>
+        This information may include your IP address,
+        browser type, device type, operating system,
+        pages visited, referring website, and information
+        about how you interact with our website.
+      </p>
+
+      <p>
+        This information may be collected using cookies,
+        pixels, tags and similar technologies.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         COOKIES
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        COOKIES AND SIMILAR TECHNOLOGIES
+      </h2>
+
+      <p>
+        We may use cookies and similar technologies to
+        help operate our website, remember your preferences,
+        understand how visitors use our website, and
+        improve your browsing experience.
+      </p>
+
+      <p>
+        You may be able to control cookies through your
+        browser settings. Disabling certain cookies may
+        affect the functionality of some parts of the
+        website.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         HOW INFORMATION IS USED
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        HOW WE USE YOUR PERSONAL INFORMATION
+      </h2>
+
+      <p>
+        We may use your personal information for the
+        following purposes:
+      </p>
+
+      <ul>
+
+        <li>
+          To process and fulfill your orders.
+        </li>
+
+        <li>
+          To arrange shipping and delivery.
+        </li>
+
+        <li>
+          To communicate with you about your orders.
+        </li>
+
+        <li>
+          To respond to questions, requests and
+          customer service inquiries.
+        </li>
+
+        <li>
+          To maintain and improve our website and
+          Services.
+        </li>
+
+        <li>
+          To personalize your experience.
+        </li>
+
+        <li>
+          To detect and prevent fraud, abuse and
+          security incidents.
+        </li>
+
+        <li>
+          To comply with applicable legal obligations.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+
+    <!-- =================================================
+         SHARING
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        SHARING YOUR PERSONAL INFORMATION
+      </h2>
+
+      <p>
+        We may share your personal information with
+        service providers and other third parties when
+        necessary to operate our business and provide
+        our Services.
+      </p>
+
+      <p>
+        For example, information may be shared with
+        payment providers, shipping and delivery
+        companies, website hosting providers, technology
+        providers, and customer service providers.
+      </p>
+
+      <p>
+        We may also disclose information when required
+        to comply with applicable law, legal process,
+        or a valid request from an authorized authority.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAYMENT
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        PAYMENT INFORMATION
+      </h2>
+
+      <p>
+        When you make a purchase through our website,
+        payment information may be processed by the
+        applicable payment service provider.
+      </p>
+
+      <p>
+        SNS Fragrance does not intend to store complete
+        payment card information on its own systems
+        unless expressly stated otherwise.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         DATA SECURITY
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        DATA SECURITY
+      </h2>
+
+      <p>
+        We take reasonable measures designed to protect
+        personal information from unauthorized access,
+        use, alteration or disclosure.
+      </p>
+
+      <p>
+        However, no method of transmission over the
+        Internet or method of electronic storage is
+        completely secure, and we cannot guarantee
+        absolute security.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         DATA RETENTION
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        DATA RETENTION
+      </h2>
+
+      <p>
+        We retain personal information for as long as
+        reasonably necessary to fulfill the purposes
+        described in this Privacy Policy, provide our
+        Services, comply with legal obligations, resolve
+        disputes, and enforce our agreements.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         YOUR RIGHTS
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        YOUR RIGHTS AND CHOICES
+      </h2>
+
+      <p>
+        Depending on applicable law, you may have rights
+        regarding your personal information, including
+        the right to request access, correction or
+        deletion of certain information.
+      </p>
+
+      <p>
+        You may also have the right to object to or
+        restrict certain processing activities where
+        applicable.
+      </p>
+
+      <p>
+        To make a privacy-related request, please
+        contact us using the information provided below.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CHILDREN
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        CHILDREN'S PRIVACY
+      </h2>
+
+      <p>
+        Our Services are not intended for children who
+        are not legally permitted to use online shopping
+        services without parental or guardian involvement.
+      </p>
+
+      <p>
+        We do not knowingly collect personal information
+        from children without appropriate authorization.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         THIRD PARTY LINKS
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        THIRD-PARTY WEBSITES
+      </h2>
+
+      <p>
+        Our website may contain links to third-party
+        websites or services. These websites are not
+        operated or controlled by SNS Fragrance.
+      </p>
+
+      <p>
+        We are not responsible for the privacy practices
+        or content of third-party websites. We encourage
+        you to review their privacy policies before
+        providing personal information.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         CONTACT
+    ================================================== -->
+
+    <section class="privacy-section">
+
+      <h2>
+        CONTACT US
+      </h2>
+
+      <p>
+        If you have questions about this Privacy Policy
+        or would like to exercise an applicable privacy
+        right, you can contact us at:
+      </p>
+
+      <p>
+
+        <strong>
+          SNS Fragrance
+        </strong>
+
+        <br>
+
+        Email:
+        <strong>
+          snsfragranceid@gmail.com
+        </strong>
+
+      </p>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+
+  <footer>
+
+    <div class="footer-grid">
+
+
+      <div class="footer-brand">
+
+        <h2>
+          SNS Fragrance
+        </h2>
+
+        <p>
+          A contemporary fragrance house creating
+          expressive scents for every individual,
+          every story, and every moment.
+        </p>
+
+      </div>
+
+
+
+      <div>
+
+        <h4>
+          ABOUT
+        </h4>
+
+        <a href="about.html">
+          Our Story
+        </a>
+
+        <a href="#">
+          Store
+        </a>
+
+      </div>
+
+
+
+      <div>
+
+        <h4>
+          FOLLOW
+        </h4>
+
+        <a
+          href="https://www.instagram.com/snsfragrance.id/"
+          target="_blank"
+        >
+          Instagram
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@snsfragrance.id"
+          target="_blank"
+        >
+          TikTok
+        </a>
+
+        <a
+          href="https://wa.me/message/TZMPXSMPC6XHM1"
+          target="_blank"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+
+
+      <div>
+
+        <h4>
+          INFO
+        </h4>
+
+        <a href="terms.html">
+          Terms of Service
+        </a>
+
+        <a href="privacy.html">
+          Privacy Policy
+        </a>
+
+        <a href="#">
+          Returns & Exchanges
+        </a>
+
+      </div>
+
+
+
+      <div>
+
+        <h4>
+          CONTACT
+        </h4>
+
+        <a
+          href="mailto:snsfragranceid@gmail.com"
+        >
+          snsfragranceid@gmail.com
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="copyright">
+
+      © 2026 SNS Fragrance.
+      All rights reserved.
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       FLOATING BUTTONS
+  ===================================================== -->
+
+  <div class="floating reviews">
+    Reviews
+  </div>
+
+
+  <div class="floating rewards">
+    Rewards
+  </div>
+
+
+  <div class="floating chat">
+
+    <svg viewBox="0 0 24 24">
+
+      <path
+        d="M5 5.5
+           h14
+           a2 2 0 0 1 2 2
+           v8
+           a2 2 0 0 1-2 2
+           h-7
+           l-4 3
+           v-3
+           H5
+           a2 2 0 0 1-2-2
+           v-8
+           a2 2 0 0 1 2-2z"
+      ></path>
+
+      <circle
+        cx="8"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
+
+      <circle
+        cx="12"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
+
+      <circle
+        cx="16"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
+
+    </svg>
+
+  </div>
+
+
+</body>
+
+</html>
