@@ -1,1 +1,750 @@
+<script>
 
+/* =====================================================
+   SNS FRAGRANCE — GLOBAL SEARCH
+===================================================== */
+
+
+/*
+  Pages that contain SNS products.
+
+  Add another page here whenever you create
+  another marketplace product page.
+*/
+
+const PRODUCT_PAGES = [
+  "index.html",
+  "bestsellers.html",
+  "edp.html",
+  "newarrivals.html"
+];
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const searchOverlay =
+  document.getElementById("searchOverlay");
+
+const searchBackdrop =
+  document.getElementById("searchBackdrop");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const searchClose =
+  document.getElementById("searchClose");
+
+const searchClear =
+  document.getElementById("searchClear");
+
+const searchResults =
+  document.getElementById("searchResults");
+
+const suggestionList =
+  document.getElementById("suggestionList");
+
+const searchProductGrid =
+  document.getElementById("searchProductGrid");
+
+
+/* =====================================================
+   PRODUCT DATABASE
+===================================================== */
+
+let allSearchProducts = [];
+
+
+/* =====================================================
+   READ PRODUCTS FROM YOUR EXISTING PAGES
+===================================================== */
+
+async function loadSearchProducts() {
+
+  const products = [];
+
+  const currentPage =
+    window.location.pathname
+      .split("/")
+      .pop() || "index.html";
+
+
+  for (
+    const page of PRODUCT_PAGES
+  ) {
+
+    try {
+
+      /*
+        Don't fetch the current page again.
+        We already have its HTML.
+      */
+
+      let documentToRead;
+
+
+      if (page === currentPage) {
+
+        documentToRead =
+          document;
+
+      } else {
+
+        const response =
+          await fetch(page);
+
+
+        if (!response.ok) {
+          continue;
+        }
+
+
+        const html =
+          await response.text();
+
+
+        const parser =
+          new DOMParser();
+
+
+        documentToRead =
+          parser.parseFromString(
+            html,
+            "text/html"
+          );
+
+      }
+
+
+      const productCards =
+        documentToRead.querySelectorAll(
+          ".product-card"
+        );
+
+
+      productCards.forEach(
+        card => {
+
+          const nameElement =
+            card.querySelector(
+              ".product-name"
+            );
+
+
+          const categoryElement =
+            card.querySelector(
+              ".product-category"
+            );
+
+
+          const priceElement =
+            card.querySelector(
+              ".product-price"
+            );
+
+
+          const imageElement =
+            card.querySelector(
+              ".product-image img"
+            );
+
+
+          if (!nameElement) {
+            return;
+          }
+
+
+          const name =
+            nameElement
+              .textContent
+              .trim();
+
+
+          const category =
+            categoryElement
+              ? categoryElement.textContent.trim()
+              : "";
+
+
+          const price =
+            priceElement
+              ? priceElement.textContent.trim()
+              : "";
+
+
+          const image =
+            imageElement
+              ? imageElement.getAttribute("src")
+              : "";
+
+
+          /*
+            Avoid duplicate products
+            appearing if the same product
+            exists on multiple pages.
+          */
+
+          const alreadyExists =
+            products.some(
+              product =>
+                product.name.toLowerCase()
+                === name.toLowerCase()
+            );
+
+
+          if (
+            !alreadyExists
+          ) {
+
+            products.push({
+
+              name,
+
+              category,
+
+              price,
+
+              image,
+
+              page
+
+            });
+
+          }
+
+        }
+      );
+
+
+    } catch (error) {
+
+      console.warn(
+        "Could not load:",
+        page,
+        error
+      );
+
+    }
+
+  }
+
+
+  allSearchProducts =
+    products;
+
+}
+
+
+/* =====================================================
+   OPEN SEARCH
+===================================================== */
+
+async function openSearch() {
+
+  searchOverlay
+    .classList
+    .add("active");
+
+  searchBackdrop
+    .classList
+    .add("active");
+
+
+  document.body.style.overflow =
+    "hidden";
+
+
+  /*
+    Load products when search opens.
+  */
+
+  await loadSearchProducts();
+
+
+  setTimeout(() => {
+
+    searchInput.focus();
+
+  }, 150);
+
+}
+
+
+/* =====================================================
+   CLOSE SEARCH
+===================================================== */
+
+function closeSearch() {
+
+  searchOverlay
+    .classList
+    .remove("active");
+
+  searchBackdrop
+    .classList
+    .remove("active");
+
+
+  document.body.style.overflow =
+    "";
+
+
+  searchInput.value = "";
+
+
+  searchResults
+    .classList
+    .remove("active");
+
+
+  searchClear
+    .classList
+    .remove("visible");
+
+
+  suggestionList.innerHTML = "";
+
+  searchProductGrid.innerHTML = "";
+
+}
+
+
+/* =====================================================
+   CONNECT SEARCH ICON
+===================================================== */
+
+document
+  .querySelectorAll(
+    ".header-icon"
+  )
+  .forEach(icon => {
+
+    const label =
+      icon.getAttribute(
+        "aria-label"
+      );
+
+
+    if (
+      label &&
+      label.toLowerCase()
+        .includes("search")
+    ) {
+
+      icon.addEventListener(
+        "click",
+        openSearch
+      );
+
+    }
+
+  });
+
+
+/* =====================================================
+   CLOSE
+===================================================== */
+
+searchClose.addEventListener(
+  "click",
+  closeSearch
+);
+
+
+searchBackdrop.addEventListener(
+  "click",
+  closeSearch
+);
+
+
+/* =====================================================
+   ESC
+===================================================== */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "Escape" &&
+      searchOverlay
+        .classList
+        .contains("active")
+    ) {
+
+      closeSearch();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   CLEAR
+===================================================== */
+
+searchClear.addEventListener(
+  "click",
+  () => {
+
+    searchInput.value = "";
+
+    searchResults
+      .classList
+      .remove("active");
+
+    searchClear
+      .classList
+      .remove("visible");
+
+    suggestionList.innerHTML = "";
+
+    searchProductGrid.innerHTML = "";
+
+    searchInput.focus();
+
+  }
+);
+
+
+/* =====================================================
+   SEARCH INPUT
+===================================================== */
+
+searchInput.addEventListener(
+  "input",
+  event => {
+
+    const query =
+      event.target.value
+        .trim()
+        .toLowerCase();
+
+
+    /*
+      Nothing typed yet.
+      Keep the panel clean like
+      your first reference image.
+    */
+
+    if (!query) {
+
+      searchResults
+        .classList
+        .remove("active");
+
+      searchClear
+        .classList
+        .remove("visible");
+
+      return;
+
+    }
+
+
+    searchResults
+      .classList
+      .add("active");
+
+
+    searchClear
+      .classList
+      .add("visible");
+
+
+    performSearch(query);
+
+  }
+);
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function performSearch(query) {
+
+  const words =
+    query
+      .split(/\s+/)
+      .filter(Boolean);
+
+
+  const matches =
+    allSearchProducts.filter(
+      product => {
+
+        const searchableText = (
+
+          product.name +
+          " " +
+          product.category
+
+        ).toLowerCase();
+
+
+        /*
+          Every typed word must exist
+          somewhere in the product data.
+        */
+
+        return words.every(
+          word =>
+            searchableText
+              .includes(word)
+        );
+
+      }
+    );
+
+
+  renderSuggestions(
+    query
+  );
+
+
+  renderProducts(
+    matches
+  );
+
+}
+
+
+/* =====================================================
+   SUGGESTIONS
+===================================================== */
+
+function renderSuggestions(
+  query
+) {
+
+  const suggestions = [
+
+    query,
+
+    `parfum ${query}`,
+
+    `extrait de parfum ${query}`
+
+  ];
+
+
+  suggestionList.innerHTML = "";
+
+
+  suggestions.forEach(
+    suggestion => {
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+
+      button.type =
+        "button";
+
+
+      button.className =
+        "suggestion-item";
+
+
+      button.textContent =
+        suggestion;
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          searchInput.value =
+            suggestion;
+
+          performSearch(
+            suggestion.toLowerCase()
+          );
+
+        }
+      );
+
+
+      suggestionList.appendChild(
+        button
+      );
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(
+  products
+) {
+
+  searchProductGrid.innerHTML =
+    "";
+
+
+  if (
+    products.length === 0
+  ) {
+
+    searchProductGrid.innerHTML = `
+
+      <div class="search-no-results">
+
+        No products found for
+        "<strong>
+          ${escapeHTML(
+            searchInput.value
+          )}
+        </strong>"
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  products.forEach(
+    product => {
+
+      const card =
+        document.createElement(
+          "a"
+        );
+
+
+      card.className =
+        "search-product-card";
+
+
+      /*
+        Clicking the search result
+        takes the customer to the
+        page where that product
+        currently exists.
+      */
+
+      card.href =
+        product.page;
+
+
+      card.innerHTML = `
+
+        <div class="search-product-image">
+
+          <img
+            src="${escapeAttribute(
+              product.image
+            )}"
+            alt="${escapeAttribute(
+              product.name
+            )}"
+            loading="lazy">
+
+        </div>
+
+
+        <div class="search-product-info">
+
+          <div class="search-product-category">
+
+            ${escapeHTML(
+              product.category
+            )}
+
+          </div>
+
+
+          <div class="search-product-name">
+
+            ${escapeHTML(
+              product.name
+            )}
+
+          </div>
+
+
+          <div class="search-product-price">
+
+            ${escapeHTML(
+              product.price
+            )}
+
+          </div>
+
+        </div>
+
+      `;
+
+
+      searchProductGrid
+        .appendChild(card);
+
+    }
+  );
+
+}
+
+
+/* =====================================================
+   SECURITY HELPERS
+===================================================== */
+
+function escapeHTML(
+  value
+) {
+
+  const div =
+    document.createElement(
+      "div"
+    );
+
+
+  div.textContent =
+    value || "";
+
+
+  return div.innerHTML;
+
+}
+
+
+function escapeAttribute(
+  value
+) {
+
+  return String(
+    value || ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  );
+
+}
+
+</script>
