@@ -130,6 +130,7 @@
   margin: 0;
 
   border: none;
+  outline: none;
   background: transparent;
 
   display: flex;
@@ -137,42 +138,35 @@
   justify-content: center;
 
   cursor: pointer;
-
   text-decoration: none;
-  color: inherit;
-  }
+  color: #111;
 }
 
 .header-icon svg {
   width: 25px;
   height: 25px;
 
-  fill: none;
-
-  stroke: #111;
+  fill: none !important;
+  stroke: #111 !important;
   stroke-width: 1.7;
 
   stroke-linecap: round;
   stroke-linejoin: round;
 
-  transition: all 0.2s ease;
+  display: block;
+
+  transition: transform 0.2s ease;
 }
 
-/* Wishlist */
-.wishlist-icon svg {
-  stroke: #e90046;
-  stroke-width: 1.8;
-}
-
-/* Hover */
 .header-icon:hover svg {
   transform: scale(1.08);
 }
 
-.wishlist-icon:hover svg {
-  stroke: #c8003b;
+.wishlist-icon svg {
+  fill: none !important;
+  stroke: #e90046 !important;
+  stroke-width: 1.8;
 }
-
 
     /* =========================
        NAVIGATION
