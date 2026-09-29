@@ -1,0 +1,2522 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FAQ | SNS Fragrance</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #111111;
+}
+
+
+/* =========================================================
+   TOP ANNOUNCEMENT BAR
+========================================================= */
+
+.announcement-bar {
+    height: 38px;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.announcement-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+}
+
+.announcement-track span {
+    display: inline-block;
+    margin-right: 190px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@keyframes marquee {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    height: 88px;
+    background: #fff;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    text-decoration: none;
+    color: #111;
+
+    font-size: 40px;
+    font-weight: 600;
+
+    letter-spacing: -2.5px;
+}
+
+
+/* =========================================================
+   HEADER ICONS
+========================================================= */
+
+.header-icons {
+    position: absolute;
+    right: 42px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-icon {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+}
+
+.header-icon svg {
+    width: 24px;
+    height: 24px;
+
+    fill: none;
+    stroke: #111;
+
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.header-icon.wishlist svg {
+    stroke: #ed174d;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navigation {
+    min-height: 54px;
+
+    border-bottom: 1px solid #e6e6e6;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 34px;
+
+    padding: 0 25px;
+
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.navigation::-webkit-scrollbar {
+    display: none;
+}
+
+.navigation a {
+    color: #111;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    transition: opacity .2s ease;
+}
+
+.navigation a:hover {
+    opacity: .55;
+}
+
+
+/* =========================================================
+   LANGUAGE SWITCHER
+========================================================= */
+
+.language-switcher {
+    max-width: 1380px;
+
+    margin: 0 auto;
+
+    padding: 40px 15px 70px;
+
+    display: flex;
+    gap: 14px;
+}
+
+.language-button {
+    height: 45px;
+
+    padding: 0 24px;
+
+    border: 1px solid #111;
+
+    background: #fff;
+    color: #777;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.language-button.active {
+    background: #000;
+    color: #fff;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FAQ MAIN LAYOUT
+========================================================= */
+
+.faq-layout {
+
+    max-width: 1380px;
+
+    margin: 0 auto;
+
+    padding: 0 15px 120px;
+
+    display: grid;
+
+    grid-template-columns: 330px minmax(0, 1fr);
+
+    gap: 60px;
+}
+
+
+/* =========================================================
+   LEFT SIDEBAR
+========================================================= */
+
+.faq-sidebar {
+
+    position: sticky;
+
+    top: 25px;
+
+    align-self: start;
+}
+
+.faq-sidebar a {
+
+    display: block;
+
+    width: max-content;
+
+    margin-bottom: 18px;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+}
+
+.faq-sidebar a.active {
+
+    border-bottom: 1px solid #111;
+
+    padding-bottom: 4px;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.faq-content {
+    width: 100%;
+    max-width: 880px;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.faq-section {
+
+    margin-bottom: 75px;
+
+    scroll-margin-top: 30px;
+}
+
+.faq-section-title {
+
+    font-size: 25px;
+
+    font-weight: 600;
+
+    margin-bottom: 47px;
+
+    letter-spacing: -0.4px;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.faq-subtitle {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+/* =========================================================
+   FAQ ITEM
+========================================================= */
+
+.faq-item {
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.faq-question {
+
+    width: 100%;
+
+    min-height: 65px;
+
+    padding: 20px 0;
+
+    background: transparent;
+
+    border: none;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    text-align: left;
+
+    color: #111;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+.faq-question-text {
+
+    padding-right: 30px;
+
+    line-height: 1.5;
+}
+
+.plus {
+
+    flex-shrink: 0;
+
+    font-size: 23px;
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    transition: transform .25s ease;
+}
+
+
+/* =========================================================
+   ANSWER
+========================================================= */
+
+.faq-answer {
+
+    display: grid;
+
+    grid-template-rows: 0fr;
+
+    transition: grid-template-rows .3s ease;
+}
+
+.faq-answer-inner {
+
+    overflow: hidden;
+
+    color: #555;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.faq-item.open .faq-answer {
+
+    grid-template-rows: 1fr;
+
+}
+
+.faq-item.open .faq-answer-inner {
+
+    padding: 0 0 24px;
+}
+
+.faq-item.open .plus {
+
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   FLOATING REVIEWS
+========================================================= */
+
+.reviews {
+
+    position: fixed;
+
+    left: 25px;
+    bottom: 90px;
+
+    background: #fff;
+
+    border-radius: 30px;
+
+    padding: 13px 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    box-shadow: 0 3px 18px rgba(0,0,0,.12);
+
+    z-index: 1000;
+}
+
+.reviews-star {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   FLOATING REWARDS
+========================================================= */
+
+.rewards {
+
+    position: fixed;
+
+    left: 12px;
+    bottom: 18px;
+
+    background: #000;
+    color: #fff;
+
+    border-radius: 35px;
+
+    padding: 16px 28px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    z-index: 1000;
+}
+
+.reward-icon {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   FLOATING CHAT
+========================================================= */
+
+.chat {
+
+    position: fixed;
+
+    right: 18px;
+    bottom: 18px;
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    background: #000;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+
+    box-shadow: 0 3px 15px rgba(0,0,0,.15);
+}
+
+.chat svg {
+
+    width: 25px;
+    height: 25px;
+
+    fill: none;
+
+    stroke: #fff;
+
+    stroke-width: 1.5;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .navigation {
+        justify-content: flex-start;
+    }
+
+    .faq-layout {
+
+        grid-template-columns: 240px minmax(0, 1fr);
+
+        gap: 40px;
+    }
+
+    .header-icons {
+        right: 25px;
+    }
+
+}
+
+
+@media (max-width: 760px) {
+
+    .header {
+        height: 72px;
+    }
+
+    .logo {
+        font-size: 31px;
+    }
+
+    .header-icons {
+        right: 15px;
+        gap: 12px;
+    }
+
+    .header-icon:first-child {
+        display: none;
+    }
+
+    .navigation {
+        min-height: 52px;
+        gap: 24px;
+    }
+
+    .navigation a {
+        font-size: 13px;
+    }
+
+    .language-switcher {
+
+        padding: 25px 20px 45px;
+
+    }
+
+    .faq-layout {
+
+        display: block;
+
+        padding: 0 20px 100px;
+    }
+
+    .faq-sidebar {
+
+        position: static;
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 18px 28px;
+
+        margin-bottom: 50px;
+    }
+
+    .faq-sidebar a {
+        margin-bottom: 0;
+    }
+
+    .faq-section-title {
+        font-size: 23px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .announcement-bar {
+        height: 34px;
+    }
+
+    .announcement-track span {
+        font-size: 12px;
+        margin-right: 100px;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .header-icons {
+        gap: 8px;
+    }
+
+    .header-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .header-icon svg {
+        width: 21px;
+        height: 21px;
+    }
+
+    .language-button {
+        padding: 0 17px;
+        font-size: 14px;
+    }
+
+    .faq-question {
+        font-size: 13px;
+    }
+
+    .faq-sidebar a {
+        font-size: 13px;
+    }
+
+    .reviews {
+        left: 12px;
+        bottom: 80px;
+        font-size: 14px;
+        padding: 11px 17px;
+    }
+
+    .rewards {
+        left: 10px;
+        bottom: 14px;
+        font-size: 14px;
+        padding: 14px 20px;
+    }
+
+    .chat {
+        width: 52px;
+        height: 52px;
+        right: 12px;
+        bottom: 14px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ANNOUNCEMENT BAR
+====================================================== -->
+
+<div class="announcement-bar">
+
+    <div class="announcement-track">
+
+        <span>Olfactory Odyssey</span>
+
+        <span>A Symphony for the Senses</span>
+
+        <span>Olfactory Odyssey</span>
+
+        <span>A Symphony for the Senses</span>
+
+        <span>Olfactory Odyssey</span>
+
+        <span>A Symphony for the Senses</span>
+
+        <span>Olfactory Odyssey</span>
+
+        <span>A Symphony for the Senses</span>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="header">
+
+
+    <a href="index.html" class="logo">
+
+        SNS Fragrance
+
+    </a>
+
+
+
+    <div class="header-icons">
+
+
+        <!-- ACCOUNT -->
+
+        <a href="#" class="header-icon">
+
+            <svg viewBox="0 0 24 24">
+
+                <circle
+                    cx="12"
+                    cy="7"
+                    r="3.2">
+                </circle>
+
+                <path
+                    d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5">
+                </path>
+
+            </svg>
+
+        </a>
+
+
+
+        <!-- WISHLIST -->
+
+        <a
+            href="#"
+            class="header-icon wishlist">
+
+            <svg viewBox="0 0 24 24">
+
+                <path
+                    d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8-1.8 0-3.4 1-4.1 2.4C11.3 5 9.7 4 7.9 4 5.2 4 3.2 6 3.2 8.8c0 4.9 8.8 10.2 8.8 10.2s8.8-5.3 8.8-10.2z">
+                </path>
+
+            </svg>
+
+        </a>
+
+
+
+        <!-- SEARCH -->
+
+        <a href="#" class="header-icon">
+
+            <svg viewBox="0 0 24 24">
+
+                <circle
+                    cx="10.5"
+                    cy="10.5"
+                    r="6.3">
+                </circle>
+
+                <path
+                    d="M15.3 15.3L20.5 20.5">
+                </path>
+
+            </svg>
+
+        </a>
+
+
+
+        <!-- CART -->
+
+        <a href="#" class="header-icon">
+
+            <svg viewBox="0 0 24 24">
+
+                <path
+                    d="M3 4h2l2.1 11.2h10.8L20 7H6">
+                </path>
+
+                <path d="M9 19.5h.01"></path>
+
+                <path d="M17 19.5h.01"></path>
+
+            </svg>
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+====================================================== -->
+
+<nav class="navigation">
+
+    <a href="index.html">
+        What's Your Persona?
+    </a>
+
+    <a href="#">
+        Everyone's Favorite
+    </a>
+
+    <a href="#">
+        Deo Potion
+    </a>
+
+    <a href="#">
+        Extrait de Parfum
+    </a>
+
+    <a href="#">
+        Home Fragrance
+    </a>
+
+    <a href="#">
+        Cloud Mist
+    </a>
+
+    <a href="#">
+        Body Care
+    </a>
+
+    <a href="#">
+        Hand Dew
+    </a>
+
+    <a href="#">
+        Loyalty
+    </a>
+
+    <a href="#">
+        Store
+    </a>
+
+</nav>
+
+
+
+<!-- =====================================================
+     LANGUAGE
+====================================================== -->
+
+<div class="language-switcher">
+
+    <button class="language-button">
+
+        English
+
+    </button>
+
+    <button class="language-button active">
+
+        Bahasa Indonesia
+
+    </button>
+
+</div>
+
+
+
+<!-- =====================================================
+     FAQ
+====================================================== -->
+
+<div class="faq-layout">
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="faq-sidebar">
+
+        <a
+            href="#order"
+            class="active">
+
+            ORDER/PESANAN
+
+        </a>
+
+        <a href="#returns">
+
+            PENGEMBALIAN PRODUK & DANA
+
+        </a>
+
+        <a href="#account">
+
+            AKUN
+
+        </a>
+
+        <a href="#products">
+
+            PRODUK
+
+        </a>
+
+    </aside>
+
+
+
+    <!-- =================================================
+         CONTENT
+    ================================================== -->
+
+    <main class="faq-content">
+
+
+
+        <!-- =================================================
+             ORDER
+        ================================================== -->
+
+        <section
+            class="faq-section"
+            id="order">
+
+
+            <h1 class="faq-section-title">
+
+                ORDER/PESANAN
+
+            </h1>
+
+
+
+            <!-- PEMBATALAN -->
+
+            <h2 class="faq-subtitle">
+
+                Pembatalan Pesanan
+
+            </h2>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BAGAIMANA CARA MEMBATALKAN PESANAN?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Silakan hubungi layanan pelanggan
+                        SNS Fragrance sesegera mungkin
+                        apabila ingin membatalkan pesanan.
+                        Pesanan yang sudah diproses atau
+                        dikirim mungkin tidak dapat dibatalkan.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STATUS -->
+
+            <h2
+                class="faq-subtitle"
+                style="margin-top:55px;">
+
+                Status Pesanan
+
+            </h2>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BAGAIMANA CARA MEMERIKSA STATUS PESANAN?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Status pesanan dapat diperiksa melalui
+                        akun Anda atau melalui informasi pesanan
+                        yang diberikan setelah proses checkout.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APAKAH STATUS PESANAN AKAN DIPERBARUI SECARA OTOMATIS?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Ya. Status pesanan akan diperbarui
+                        sesuai dengan perkembangan proses
+                        pesanan, mulai dari diproses hingga
+                        dikirim.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APA ARTI STATUS PESANAN "DIPROSES"?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Status "Diproses" berarti pesanan
+                        telah diterima dan sedang dipersiapkan
+                        sebelum dikirim.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APA ARTI STATUS PESANAN "DIKIRIM"?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Status "Dikirim" berarti pesanan telah
+                        diserahkan kepada jasa pengiriman dan
+                        sedang dalam perjalanan menuju alamat
+                        tujuan.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        MENGAPA STATUS PENGIRIMAN TERTUNDA ATAU "PENDING"?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Status pengiriman dapat tertunda karena
+                        berbagai faktor seperti proses kurir,
+                        kondisi cuaca, hari libur, atau kondisi
+                        pengiriman lainnya.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APA YANG HARUS DILAKUKAN JIKA STATUS PESANAN
+                        TIDAK BERUBAH DALAM WAKTU LAMA?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Silakan hubungi layanan pelanggan SNS
+                        Fragrance dengan menyertakan nomor
+                        pesanan agar kami dapat membantu
+                        memeriksa status pesanan Anda.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SHIPPING -->
+
+            <h2
+                class="faq-section-title"
+                style="margin-top:55px; margin-bottom:35px;">
+
+                PENGIRIMAN & PENGANTARAN
+
+            </h2>
+
+
+            <h3 class="faq-subtitle">
+
+                Operasional Pengiriman
+
+            </h3>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BERAPA LAMA PESANAN AKAN DIKEMAS?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Pesanan akan dipersiapkan dan dikemas
+                        setelah pembayaran berhasil dikonfirmasi.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BERAPA LAMA PESANAN DIPROSES DAN DIKIRIM?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Waktu pemrosesan dan pengiriman dapat
+                        berbeda tergantung jumlah pesanan,
+                        tujuan, dan jasa pengiriman.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BAGAIMANA CARA MELACAK PENGIRIMAN PESANAN?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Informasi pelacakan akan diberikan
+                        setelah pesanan diserahkan kepada
+                        jasa pengiriman.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APAKAH UKURAN KEMASAN MEMENGARUHI BIAYA PENGIRIMAN?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Biaya pengiriman dapat dipengaruhi
+                        oleh berat, ukuran paket, tujuan,
+                        serta jasa pengiriman yang digunakan.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INTERNATIONAL -->
+
+            <h3
+                class="faq-subtitle"
+                style="margin-top:55px;">
+
+                Pengiriman Internasional
+
+            </h3>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APA PERBEDAAN PENGIRIMAN INTERNASIONAL
+                        DENGAN PENGIRIMAN LOKAL?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Pengiriman internasional dapat
+                        membutuhkan waktu lebih lama dan
+                        dapat melibatkan proses bea cukai
+                        serta ketentuan impor negara tujuan.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BAGAIMANA CARA MELAKUKAN PEMESANAN INTERNASIONAL?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Ketersediaan pemesanan internasional
+                        bergantung pada negara tujuan dan
+                        layanan pengiriman yang tersedia.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        NEGARA MANA SAJA YANG BISA DIJANGKAU
+                        OLEH PENGIRIMAN INTERNASIONAL SNS FRAGRANCE?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Ketersediaan negara tujuan dapat
+                        berbeda sesuai dengan layanan pengiriman
+                        dan ketentuan yang berlaku.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        EKSPEDISI APA YANG DIGUNAKAN UNTUK
+                        PENGIRIMAN INTERNASIONAL?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Jasa pengiriman internasional yang
+                        digunakan dapat berbeda sesuai
+                        dengan negara tujuan dan layanan
+                        yang tersedia.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BERAPA LAMA WAKTU PENGIRIMAN INTERNASIONAL?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Lama pengiriman internasional bergantung
+                        pada negara tujuan, jasa pengiriman,
+                        serta proses bea cukai.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APAKAH SEMUA PRODUK BISA DIKIRIM KE LUAR NEGERI?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Tidak selalu. Ketersediaan pengiriman
+                        dapat bergantung pada jenis produk,
+                        negara tujuan, serta peraturan yang
+                        berlaku.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BISAKAH MENGETAHUI BIAYA PENGIRIMAN
+                        INTERNASIONAL SEBELUM MEMESAN?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Biaya pengiriman dapat dilihat berdasarkan
+                        tujuan dan metode pengiriman yang tersedia
+                        sebelum pesanan diselesaikan.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BAGAIMANA CARA MELACAK PENGIRIMAN INTERNASIONAL?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Nomor pelacakan dapat digunakan untuk
+                        memantau perjalanan paket melalui sistem
+                        pelacakan jasa pengiriman.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <h3
+                class="faq-subtitle"
+                style="margin-top:55px;">
+
+                Lainnya
+
+            </h3>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APA YANG HARUS SAYA LAKUKAN JIKA
+                        ALAMAT PENGIRIMAN SAYA SALAH?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Segera hubungi layanan pelanggan
+                        SNS Fragrance apabila terdapat
+                        kesalahan alamat agar dapat diperiksa
+                        sebelum pesanan dikirim.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             RETURNS
+        ================================================== -->
+
+        <section
+            class="faq-section"
+            id="returns">
+
+
+            <h1 class="faq-section-title">
+
+                PENGEMBALIAN PRODUK & DANA
+
+            </h1>
+
+
+
+            <h2 class="faq-subtitle">
+
+                Produk Rusak
+
+            </h2>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APA YANG HARUS DILAKUKAN JIKA
+                        PRODUK YANG DITERIMA RUSAK?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Hubungi layanan pelanggan SNS Fragrance
+                        sesegera mungkin dan sertakan nomor
+                        pesanan serta foto atau video kondisi
+                        produk yang diterima.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APAKAH PERLU MENGEMBALIKAN PRODUK
+                        YANG RUSAK?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Ketentuan pengembalian dapat berbeda
+                        tergantung kondisi produk. Hubungi
+                        customer service terlebih dahulu untuk
+                        mendapatkan instruksi.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APAKAH AKAN DIKENAKAN BIAYA UNTUK
+                        PENGEMBALIAN PRODUK YANG RUSAK?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Silakan hubungi customer service
+                        untuk mendapatkan informasi mengenai
+                        proses pengembalian produk rusak.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BAGAIMANA JIKA TIDAK MEMILIKI BUKTI
+                        PRODUK RUSAK?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Hubungi customer service dan jelaskan
+                        kondisi produk serta berikan informasi
+                        pesanan yang tersedia.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BERAPA LAMA PROSES PENGEMBALIAN PRODUK RUSAK?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Lama proses bergantung pada pemeriksaan
+                        produk dan proses penyelesaian pengembalian.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APAKAH PRODUK RUSAK AKAN DIGANTI
+                        DENGAN PRODUK BARU?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Penggantian produk dapat dilakukan
+                        sesuai hasil pemeriksaan dan ketersediaan
+                        produk.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APA YANG HARUS DILAKUKAN JIKA MENERIMA
+                        PRODUK RUSAK SETELAH MASA PENGEMBALIAN BERAKHIR?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Silakan hubungi customer service untuk
+                        menjelaskan kondisi produk dan tanggal
+                        penerimaan pesanan.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUK SALAH -->
+
+            <h2
+                class="faq-subtitle"
+                style="margin-top:55px;">
+
+                Produk Salah
+
+            </h2>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APA YANG HARUS DILAKUKAN JIKA
+                        MENERIMA PRODUK YANG SALAH?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Hubungi customer service dan sertakan
+                        nomor pesanan serta foto produk yang
+                        diterima.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APAKAH AKAN DIKENAKAN BIAYA UNTUK
+                        PENGEMBALIAN PRODUK YANG SALAH?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Hubungi customer service terlebih dahulu
+                        sebelum melakukan pengembalian untuk
+                        mendapatkan instruksi.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APAKAH PRODUK YANG SUDAH DIBUKA BISA
+                        DIKEMBALIKAN JIKA TERNYATA TIDAK SESUAI?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Ketentuan pengembalian produk yang
+                        telah dibuka bergantung pada kondisi
+                        produk dan alasan pengembalian.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TERMS -->
+
+            <h2
+                class="faq-subtitle"
+                style="margin-top:55px;">
+
+                Syarat & Ketentuan Pengembalian Produk
+
+            </h2>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        PENGEMBALIAN PRODUK RUSAK
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Pengembalian produk rusak harus
+                        mengikuti prosedur pemeriksaan dan
+                        ketentuan yang berlaku.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        PENGEMBALIAN PRODUK SALAH
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Untuk produk yang salah, silakan
+                        hubungi customer service sebelum
+                        melakukan pengiriman kembali.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             ACCOUNT
+        ================================================== -->
+
+        <section
+            class="faq-section"
+            id="account">
+
+
+            <h1 class="faq-section-title">
+
+                AKUN
+
+            </h1>
+
+
+
+            <h2 class="faq-subtitle">
+
+                Lupa Kata Sandi
+
+            </h2>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APA YANG HARUS DILAKUKAN JIKA LUPA KATA SANDI?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Gunakan fitur "Lupa Kata Sandi"
+                        pada halaman login dan ikuti
+                        instruksi yang diberikan.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BAGAIMANA CARA MENGATUR ULANG KATA SANDI?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Masukkan alamat email yang terdaftar
+                        dan ikuti instruksi untuk membuat
+                        kata sandi baru.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        APAKAH KATA SANDI AKUN BISA DIUBAH?
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Ya. Kata sandi dapat diubah melalui
+                        pengaturan akun.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PRODUCTS
+        ================================================== -->
+
+        <section
+            class="faq-section"
+            id="products">
+
+
+            <h1 class="faq-section-title">
+
+                PRODUK
+
+            </h1>
+
+
+
+            <h2 class="faq-subtitle">
+
+                Informasi Produk & Ketentuan Keamanan
+
+            </h2>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        CARA PENGGUNAAN
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Semprotkan parfum pada area titik
+                        nadi seperti pergelangan tangan,
+                        leher, atau belakang telinga.
+                        Hindari menggosok parfum setelah
+                        diaplikasikan.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        BPOM (BADAN PENGAWAS OBAT DAN MAKANAN – INDONESIA)
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Informasi registrasi BPOM mengikuti
+                        nomor registrasi yang berlaku pada
+                        masing-masing produk SNS Fragrance.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        HALAL
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Informasi sertifikasi halal dapat
+                        dilihat berdasarkan keterangan
+                        pada masing-masing produk.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+
+                    <span class="faq-question-text">
+
+                        REAKSI ALERGI PADA KULIT
+
+                    </span>
+
+                    <span class="plus">+</span>
+
+                </button>
+
+                <div class="faq-answer">
+
+                    <div class="faq-answer-inner">
+
+                        Apabila terjadi iritasi atau reaksi
+                        alergi, hentikan penggunaan. Untuk
+                        kulit sensitif, disarankan melakukan
+                        patch test terlebih dahulu.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     FLOATING REVIEWS
+====================================================== -->
+
+<div class="reviews">
+
+    <span class="reviews-star">★</span>
+
+    <span>Reviews</span>
+
+</div>
+
+
+
+<!-- =====================================================
+     FLOATING REWARDS
+====================================================== -->
+
+<div class="rewards">
+
+    <span class="reward-icon">🎁</span>
+
+    <span>Rewards</span>
+
+</div>
+
+
+
+<!-- =====================================================
+     CHAT
+====================================================== -->
+
+<div class="chat">
+
+    <svg viewBox="0 0 24 24">
+
+        <path
+            d="M5 5.5h14a2 2 0 0 1 2 2v8
+            a2 2 0 0 1-2 2H11l-4.5 3v-3H5
+            a2 2 0 0 1-2-2v-8
+            a2 2 0 0 1 2-2z">
+        </path>
+
+        <path d="M8 11.5h.01"></path>
+
+        <path d="M12 11.5h.01"></path>
+
+        <path d="M16 11.5h.01"></path>
+
+    </svg>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+/* ========================================================
+   ACCORDION
+======================================================== */
+
+const questions =
+    document.querySelectorAll(".faq-question");
+
+
+questions.forEach(question => {
+
+    question.addEventListener("click", function() {
+
+        const currentItem =
+            this.closest(".faq-item");
+
+
+        /*
+         * Close other questions.
+         * If you want multiple questions open at once,
+         * remove this section.
+         */
+
+        document
+            .querySelectorAll(".faq-item.open")
+            .forEach(item => {
+
+                if (item !== currentItem) {
+
+                    item.classList.remove("open");
+
+                }
+
+            });
+
+
+        currentItem.classList.toggle("open");
+
+    });
+
+});
+
+
+
+/* ========================================================
+   SIDEBAR ACTIVE STATE
+======================================================== */
+
+const sidebarLinks =
+    document.querySelectorAll(".faq-sidebar a");
+
+
+const sections = [
+    document.getElementById("order"),
+    document.getElementById("returns"),
+    document.getElementById("account"),
+    document.getElementById("products")
+];
+
+
+window.addEventListener("scroll", function() {
+
+    let currentSection = "order";
+
+
+    sections.forEach(section => {
+
+        if (!section) return;
+
+
+        const sectionTop =
+            section.getBoundingClientRect().top;
+
+
+        if (sectionTop <= 180) {
+
+            currentSection =
+                section.id;
+
+        }
+
+    });
+
+
+    sidebarLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+
+        if (
+            link.getAttribute("href")
+            === "#" + currentSection
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+
+
+</script>
+
+
+</body>
+</html>
