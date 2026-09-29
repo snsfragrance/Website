@@ -1,2581 +1,1638 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FAQ | SNS Fragrance</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #111;
+            background: #fff;
+        }
+
+        a {
+            color: inherit;
+        }
+
+
+        /* =========================
+           TOP MARQUEE
+        ========================= */
+
+        .top-marquee {
+            width: 100%;
+            height: 40px;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-item {
+            width: 420px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .header-main {
+            height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 42px;
+            font-weight: 600;
+            letter-spacing: -2px;
+        }
+
+        .header-icons {
+            position: absolute;
+            right: 45px;
+            top: 50%;
+            transform: translateY(-50%);
+
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
 
-  <meta charset="UTF-8">
+        .header-icon {
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
+            font-size: 23px;
+            text-decoration: none;
+        }
 
-  <title>FAQ | SNS Fragrance</title>
+        .wishlist {
+            color: #ff174f;
+        }
 
 
-  <style>
+        /* =========================
+           NAVIGATION
+        ========================= */
 
-    /* =====================================================
-       GLOBAL
-    ===================================================== */
+        .navigation {
+            height: 55px;
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    html {
-      scroll-behavior: smooth;
-    }
+            gap: 38px;
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #111;
-      background: #fff;
-    }
+            border-bottom: 1px solid #ededed;
+        }
 
+        .navigation a {
+            text-decoration: none;
+            color: #111;
+            font-size: 16px;
+            white-space: nowrap;
+        }
 
-    /* =====================================================
-       TOP ANNOUNCEMENT BAR
-    ===================================================== */
+        .navigation a:hover {
+            opacity: 0.6;
+        }
 
-    .announcement-bar {
-      width: 100%;
-      height: 38px;
 
-      background: #000;
-      color: #fff;
+        /* =========================
+           LANGUAGE BUTTONS
+        ========================= */
 
-      overflow: hidden;
-      white-space: nowrap;
+        .language-wrapper {
+            max-width: 1380px;
+            margin: 0 auto;
 
-      display: flex;
-      align-items: center;
-    }
+            padding: 40px 15px 70px;
+        }
 
-    .announcement-track {
-      display: flex;
-      align-items: center;
+        .language-switcher {
+            display: flex;
+            gap: 18px;
+        }
 
-      width: max-content;
+        .lang-btn {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
 
-      animation: announcementMove 35s linear infinite;
-    }
+            height: 60px !important;
 
-    .announcement-track span {
-      display: inline-block;
+            background: #000 !important;
+            color: #fff !important;
 
-      margin-right: 180px;
+            border: 1px solid #000 !important;
+            border-radius: 0 !important;
 
-      font-size: 14px;
-      font-weight: 500;
+            text-decoration: none !important;
 
-      letter-spacing: 0.2px;
-    }
+            font-family: Arial, Helvetica, sans-serif !important;
+            font-size: 20px !important;
+            font-weight: 400 !important;
 
-    @keyframes announcementMove {
+            cursor: pointer;
 
-      0% {
-        transform: translateX(0);
-      }
+            transition: background 0.2s ease;
+        }
 
-      100% {
-        transform: translateX(-50%);
-      }
+        .lang-btn:first-child {
+            width: 127px !important;
+        }
 
-    }
+        .lang-btn:last-child {
+            width: 222px !important;
+        }
 
+        .lang-btn:hover {
+            background: #222 !important;
+            color: #fff !important;
+            text-decoration: none !important;
+        }
 
-    /* =====================================================
-       MAIN HEADER
-    ===================================================== */
+        .lang-btn:visited,
+        .lang-btn:active {
+            color: #fff !important;
+            text-decoration: none !important;
+        }
 
-    .site-header {
 
-      position: relative;
+        /* =========================
+           FAQ LAYOUT
+        ========================= */
 
-      width: 100%;
-      height: 88px;
+        .faq-container {
+            max-width: 1380px;
+            margin: 0 auto;
 
-      background: #fff;
+            display: grid;
+            grid-template-columns: 300px 1fr;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+            gap: 100px;
 
-    }
+            padding: 0 15px 120px;
+        }
 
 
-    /* =====================================================
-       LOGO
-    ===================================================== */
+        /* =========================
+           LEFT SIDEBAR
+        ========================= */
 
-    .site-logo {
+        .faq-sidebar {
+            position: sticky;
+            top: 30px;
+            align-self: start;
+        }
 
-      font-family: Arial, Helvetica, sans-serif;
+        .faq-sidebar a {
+            display: block;
 
-      font-size: 39px;
+            width: max-content;
 
-      font-weight: 600;
+            margin-bottom: 20px;
 
-      letter-spacing: -2.2px;
+            color: #111;
+            text-decoration: none;
 
-      color: #111;
+            font-size: 15px;
+            line-height: 1.4;
+        }
 
-      line-height: 1;
-    }
+        .faq-sidebar a:hover {
+            opacity: 0.6;
+        }
 
+        .faq-sidebar a.active {
+            border-bottom: 1px solid #111;
+            padding-bottom: 5px;
+        }
 
-    /* =====================================================
-       HEADER ICONS
-    ===================================================== */
 
-    .header-icons {
+        /* =========================
+           FAQ CONTENT
+        ========================= */
 
-      position: absolute;
+        .faq-content {
+            width: 100%;
+        }
 
-      right: 48px;
+        .faq-section {
+            margin-bottom: 75px;
+        }
 
-      top: 50%;
+        .faq-section-title {
+            font-size: 27px;
+            font-weight: 600;
+            margin-bottom: 45px;
+        }
 
-      transform: translateY(-50%);
+        .faq-subtitle {
+            font-size: 18px;
+            font-weight: 600;
 
-      display: flex;
+            padding-bottom: 20px;
 
-      align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
 
-      gap: 27px;
-    }
 
+        /* =========================
+           FAQ ITEM
+        ========================= */
 
-    .header-icon {
+        .faq-item {
+            border-bottom: 1px solid #e5e5e5;
+        }
 
-      width: 25px;
-      height: 25px;
+        .faq-question {
+            width: 100%;
 
-      display: flex;
+            min-height: 65px;
 
-      align-items: center;
-      justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-      color: #111;
+            padding: 20px 0;
 
-      text-decoration: none;
+            background: transparent;
+            border: none;
 
-      cursor: pointer;
-    }
+            color: #111;
 
+            text-align: left;
 
-    .header-icon svg {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
 
-      width: 24px;
-      height: 24px;
+            cursor: pointer;
+        }
 
-      fill: none;
+        .faq-question:hover {
+            opacity: 0.65;
+        }
 
-      stroke: #111;
+        .faq-plus {
+            font-size: 24px;
+            font-weight: 300;
 
-      stroke-width: 1.7;
+            margin-left: 30px;
 
-      stroke-linecap: round;
+            flex-shrink: 0;
 
-      stroke-linejoin: round;
+            transition: transform 0.2s ease;
+        }
 
-      transition: transform 0.2s ease;
-    }
+        .faq-item.open .faq-plus {
+            transform: rotate(45deg);
+        }
 
 
-    .header-icon:hover svg {
+        /* =========================
+           FAQ ANSWER
+        ========================= */
 
-      transform: scale(1.08);
+        .faq-answer {
+            max-height: 0;
 
-    }
+            overflow: hidden;
 
+            transition:
+                max-height 0.3s ease,
+                padding 0.3s ease;
 
-    /* Wishlist */
+            font-size: 15px;
+            line-height: 1.7;
 
-    .wishlist-icon svg {
+            color: #444;
+        }
 
-      stroke: #ed174d;
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+            padding: 0 45px 25px 0;
+        }
 
-      stroke-width: 1.8;
 
-    }
+        /* =========================
+           FLOATING REVIEWS
+        ========================= */
 
+        .reviews {
+            position: fixed;
 
-    /* =====================================================
-       NAVIGATION
-    ===================================================== */
+            left: 20px;
+            bottom: 85px;
 
-    .main-navigation {
+            background: #fff;
 
-      width: 100%;
+            padding: 16px 25px;
 
-      min-height: 65px;
+            border-radius: 35px;
 
-      display: flex;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.12);
 
-      align-items: center;
+            font-size: 17px;
+            font-weight: 600;
 
-      justify-content: center;
+            z-index: 1000;
+        }
 
-      gap: 36px;
+        .reviews::before {
+            content: "★";
+            margin-right: 10px;
+        }
 
-      padding: 0 30px;
 
-      background: #fff;
+        /* =========================
+           FLOATING REWARDS
+        ========================= */
 
-      border-bottom: 1px solid #e8e8e8;
+        .rewards {
+            position: fixed;
 
-    }
+            left: 20px;
+            bottom: 20px;
 
+            background: #000;
+            color: #fff;
 
-    .main-navigation a {
+            padding: 18px 30px;
 
-      position: relative;
+            border-radius: 35px;
 
-      color: #111;
+            font-size: 17px;
+            font-weight: 600;
 
-      text-decoration: none;
+            z-index: 1000;
+        }
 
-      font-size: 15px;
+        .rewards::before {
+            content: "🎁";
+            margin-right: 10px;
+        }
 
-      font-weight: 400;
 
-      white-space: nowrap;
+        /* =========================
+           FLOATING CHAT
+        ========================= */
 
-      transition: opacity 0.2s ease;
+        .chat {
+            position: fixed;
 
-    }
+            right: 20px;
+            bottom: 20px;
 
+            width: 58px;
+            height: 58px;
 
-    .main-navigation a:hover {
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-      opacity: 0.6;
+            background: #000;
+            color: #fff;
 
-    }
+            border-radius: 50%;
 
+            font-size: 25px;
 
-    .main-navigation a.active {
+            z-index: 1000;
+        }
 
-      font-weight: 500;
 
-    }
+        /* =========================
+           MOBILE
+        ========================= */
 
+        @media (max-width: 900px) {
 
-    .main-navigation a.active::after {
+            .logo {
+                font-size: 32px;
+            }
 
-      content: "";
+            .header-icons {
+                right: 20px;
+                gap: 12px;
+            }
 
-      position: absolute;
+            .navigation {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 0 20px;
+                gap: 25px;
+            }
 
-      left: 0;
+            .faq-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
 
-      right: 0;
+            .faq-sidebar {
+                position: static;
+            }
 
-      bottom: -10px;
+            .faq-sidebar {
+                display: flex;
+                gap: 25px;
+                overflow-x: auto;
+            }
 
-      height: 1px;
+            .faq-sidebar a {
+                white-space: nowrap;
+            }
 
-      background: #111;
+            .language-wrapper {
+                padding-bottom: 50px;
+            }
+        }
 
-    }
 
+        @media (max-width: 600px) {
 
-    /* =====================================================
-       LANGUAGE SWITCHER
-    ===================================================== */
+            .top-marquee {
+                height: 35px;
+            }
 
-    .language-switcher {
+            .marquee-item {
+                width: 300px;
+                font-size: 12px;
+            }
 
-      display: flex;
+            .header-main {
+                height: 70px;
+            }
 
-      gap: 14px;
+            .logo {
+                font-size: 27px;
+            }
 
-      padding: 24px 15px;
+            .header-icons {
+                right: 12px;
+            }
 
-      margin-bottom: 55px;
-    }
+            .header-icon {
+                font-size: 18px;
+            }
 
+            .navigation {
+                height: 48px;
+            }
 
-    .language-switcher button {
+            .navigation a {
+                font-size: 13px;
+            }
 
-      height: 48px;
+            .language-switcher {
+                gap: 10px;
+            }
 
-      padding: 0 24px;
+            .lang-btn {
+                height: 50px !important;
+                font-size: 16px !important;
+            }
 
-      border: 1px solid #111;
+            .lang-btn:first-child {
+                width: 105px !important;
+            }
 
-      background: #fff;
+            .lang-btn:last-child {
+                width: 180px !important;
+            }
 
-      font-size: 16px;
+            .faq-container {
+                padding-bottom: 100px;
+            }
 
-      cursor: pointer;
+            .faq-section-title {
+                font-size: 23px;
+            }
 
-      transition: all 0.25s ease;
-    }
+            .faq-question {
+                font-size: 13px;
+            }
 
+            .reviews {
+                left: 10px;
+                bottom: 75px;
+                padding: 13px 18px;
+                font-size: 14px;
+            }
 
-    .language-switcher button.active {
+            .rewards {
+                left: 10px;
+                bottom: 15px;
+                padding: 15px 22px;
+                font-size: 14px;
+            }
 
-      background: #000;
+            .chat {
+                right: 12px;
+                bottom: 15px;
+                width: 50px;
+                height: 50px;
+            }
+        }
 
-      color: #fff;
-
-    }
-
-
-    .language-switcher button:hover {
-
-      background: #111;
-
-      color: #fff;
-
-    }
-
-
-    /* =====================================================
-       FAQ LAYOUT
-    ===================================================== */
-
-    .faq-wrapper {
-
-      display: grid;
-
-      grid-template-columns: 330px minmax(0, 1fr);
-
-      gap: 60px;
-
-      max-width: 1380px;
-
-      margin: 0 auto;
-
-      padding: 0 15px 100px;
-
-    }
-
-
-    /* =====================================================
-       LEFT SIDEBAR
-    ===================================================== */
-
-    .faq-sidebar {
-
-      position: sticky;
-
-      top: 30px;
-
-      align-self: start;
-    }
-
-
-    .faq-sidebar a {
-
-      display: block;
-
-      width: max-content;
-
-      margin-bottom: 20px;
-
-      color: #111;
-
-      text-decoration: none;
-
-      font-size: 15px;
-
-      font-weight: 400;
-
-      line-height: 1.4;
-
-      cursor: pointer;
-
-    }
-
-
-    .faq-sidebar a.active {
-
-      border-bottom: 1px solid #111;
-
-      padding-bottom: 4px;
-
-    }
-
-
-    .faq-sidebar a:hover {
-
-      opacity: 0.6;
-
-    }
-
-
-    /* =====================================================
-       FAQ CONTENT
-    ===================================================== */
-
-    .faq-content {
-
-      width: 100%;
-
-      max-width: 1000px;
-
-    }
-
-
-    .faq-section {
-
-      margin-bottom: 70px;
-
-      scroll-margin-top: 30px;
-
-    }
-
-
-    .faq-section-title {
-
-      font-size: 27px;
-
-      font-weight: 600;
-
-      margin-bottom: 35px;
-
-      letter-spacing: -0.5px;
-
-    }
-
-
-    .faq-subtitle {
-
-      font-size: 18px;
-
-      font-weight: 600;
-
-      padding-bottom: 20px;
-
-      border-bottom: 1px solid #e5e5e5;
-
-    }
-
-
-    /* =====================================================
-       FAQ ITEM
-    ===================================================== */
-
-    .faq-item {
-
-      border-bottom: 1px solid #e5e5e5;
-
-    }
-
-
-    .faq-question {
-
-      width: 100%;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      background: none;
-
-      border: none;
-
-      padding: 25px 0;
-
-      color: #111;
-
-      font-family: inherit;
-
-      font-size: 15px;
-
-      font-weight: 400;
-
-      text-align: left;
-
-      cursor: pointer;
-
-    }
-
-
-    .faq-question span:first-child {
-
-      padding-right: 30px;
-
-    }
-
-
-    .faq-plus {
-
-      flex-shrink: 0;
-
-      font-size: 25px;
-
-      font-weight: 300;
-
-      line-height: 1;
-
-      transition: transform 0.3s ease;
-
-    }
-
-
-    .faq-item.open .faq-plus {
-
-      transform: rotate(45deg);
-
-    }
-
-
-    /* =====================================================
-       FAQ ANSWER
-    ===================================================== */
-
-    .faq-answer {
-
-      display: grid;
-
-      grid-template-rows: 0fr;
-
-      transition:
-        grid-template-rows 0.35s ease,
-        padding 0.35s ease;
-
-    }
-
-
-    .faq-answer-inner {
-
-      overflow: hidden;
-
-      color: #555;
-
-      font-size: 15px;
-
-      line-height: 1.7;
-
-    }
-
-
-    .faq-item.open .faq-answer {
-
-      grid-template-rows: 1fr;
-
-      padding-bottom: 25px;
-
-    }
-
-
-    /* =====================================================
-       LANGUAGE CONTENT
-    ===================================================== */
-
-    .language-content {
-
-      display: none;
-
-    }
-
-
-    .language-content.active {
-
-      display: block;
-
-    }
-
-
-    /* =====================================================
-       FLOATING REVIEWS
-    ===================================================== */
-
-    .reviews-button {
-
-      position: fixed;
-
-      left: 20px;
-
-      bottom: 95px;
-
-      z-index: 999;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      padding: 14px 22px;
-
-      background: #fff;
-
-      color: #111;
-
-      border-radius: 30px;
-
-      box-shadow:
-        0 3px 15px rgba(0,0,0,0.12);
-
-      font-size: 16px;
-
-      font-weight: 600;
-
-    }
-
-
-    .reviews-star {
-
-      font-size: 20px;
-
-    }
-
-
-    /* =====================================================
-       FLOATING REWARDS
-    ===================================================== */
-
-    .rewards-button {
-
-      position: fixed;
-
-      left: 10px;
-
-      bottom: 20px;
-
-      z-index: 999;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      padding: 17px 28px;
-
-      background: #000;
-
-      color: #fff;
-
-      border-radius: 35px;
-
-      box-shadow:
-        0 3px 15px rgba(0,0,0,0.18);
-
-      font-size: 16px;
-
-      font-weight: 600;
-
-      cursor: pointer;
-
-    }
-
-
-    .rewards-icon {
-
-      font-size: 18px;
-
-    }
-
-
-    /* =====================================================
-       FLOATING CHAT
-    ===================================================== */
-
-    .chat-button {
-
-      position: fixed;
-
-      right: 20px;
-
-      bottom: 20px;
-
-      z-index: 999;
-
-      width: 58px;
-
-      height: 58px;
-
-      border-radius: 50%;
-
-      background: #000;
-
-      color: #fff;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      box-shadow:
-        0 3px 15px rgba(0,0,0,0.18);
-
-      cursor: pointer;
-
-    }
-
-
-    .chat-button svg {
-
-      width: 25px;
-
-      height: 25px;
-
-      fill: none;
-
-      stroke: #fff;
-
-      stroke-width: 1.6;
-
-      stroke-linecap: round;
-
-      stroke-linejoin: round;
-
-    }
-
-
-    /* =====================================================
-       MOBILE
-    ===================================================== */
-
-    @media (max-width: 1100px) {
-
-      .main-navigation {
-
-        gap: 22px;
-
-      }
-
-      .main-navigation a {
-
-        font-size: 14px;
-
-      }
-
-      .header-icons {
-
-        right: 25px;
-
-        gap: 20px;
-
-      }
-
-      .site-logo {
-
-        font-size: 34px;
-
-      }
-
-    }
-
-
-    @media (max-width: 900px) {
-
-      .site-header {
-
-        height: 75px;
-
-      }
-
-
-      .site-logo {
-
-        font-size: 31px;
-
-      }
-
-
-      .header-icons {
-
-        right: 20px;
-
-        gap: 15px;
-
-      }
-
-
-      .main-navigation {
-
-        overflow-x: auto;
-
-        justify-content: flex-start;
-
-        gap: 25px;
-
-        padding: 0 20px;
-
-        scrollbar-width: none;
-
-      }
-
-
-      .main-navigation::-webkit-scrollbar {
-
-        display: none;
-
-      }
-
-
-      .faq-wrapper {
-
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-
-        padding: 0 20px 70px;
-
-      }
-
-
-      .faq-sidebar {
-
-        position: static;
-
-        display: flex;
-
-        flex-wrap: wrap;
-
-        gap: 20px 30px;
-
-      }
-
-
-      .faq-sidebar a {
-
-        margin-bottom: 0;
-
-      }
-
-
-      .faq-content {
-
-        max-width: none;
-
-      }
-
-
-      .faq-section {
-
-        margin-bottom: 55px;
-
-      }
-
-    }
-
-
-    @media (max-width: 600px) {
-
-      .announcement-bar {
-
-        height: 35px;
-
-      }
-
-
-      .announcement-track span {
-
-        font-size: 12px;
-
-        margin-right: 100px;
-
-      }
-
-
-      .site-header {
-
-        height: 70px;
-
-      }
-
-
-      .site-logo {
-
-        font-size: 27px;
-
-        letter-spacing: -1.5px;
-
-      }
-
-
-      .header-icons {
-
-        right: 12px;
-
-        gap: 10px;
-
-      }
-
-
-      .header-icon {
-
-        width: 22px;
-
-        height: 22px;
-
-      }
-
-
-      .header-icon svg {
-
-        width: 21px;
-
-        height: 21px;
-
-      }
-
-
-      /* Hide account on very small screens */
-
-      .header-icon:first-child {
-
-        display: none;
-
-      }
-
-
-      .main-navigation {
-
-        min-height: 55px;
-
-        gap: 22px;
-
-      }
-
-
-      .main-navigation a {
-
-        font-size: 13px;
-
-      }
-
-
-      .language-switcher {
-
-        padding: 20px;
-
-        margin-bottom: 35px;
-
-        gap: 8px;
-
-      }
-
-
-      .language-switcher button {
-
-        height: 44px;
-
-        padding: 0 17px;
-
-        font-size: 14px;
-
-      }
-
-
-      .faq-wrapper {
-
-        padding: 0 20px 60px;
-
-      }
-
-
-      .faq-section-title {
-
-        font-size: 23px;
-
-      }
-
-
-      .faq-subtitle {
-
-        font-size: 17px;
-
-      }
-
-
-      .faq-question {
-
-        font-size: 14px;
-
-        padding: 21px 0;
-
-      }
-
-
-      .faq-plus {
-
-        font-size: 22px;
-
-      }
-
-
-      .reviews-button {
-
-        left: 12px;
-
-        bottom: 80px;
-
-        padding: 12px 17px;
-
-        font-size: 14px;
-
-      }
-
-
-      .rewards-button {
-
-        left: 10px;
-
-        bottom: 15px;
-
-        padding: 14px 20px;
-
-        font-size: 14px;
-
-      }
-
-
-      .chat-button {
-
-        right: 12px;
-
-        bottom: 15px;
-
-        width: 52px;
-
-        height: 52px;
-
-      }
-
-    }
-
-  </style>
-
+    </style>
 </head>
 
 
 <body>
 
 
-  <!-- ==================================================
-       TOP ANNOUNCEMENT BAR
-  =================================================== -->
+    <!-- =========================
+         TOP MARQUEE
+    ========================== -->
 
-  <div class="announcement-bar">
+    <div class="top-marquee">
 
-    <div class="announcement-track">
+        <div class="marquee-track">
 
-      <span>Olfactory Odyssey</span>
+            <div class="marquee-item">
+                Olfactory Odyssey
+            </div>
 
-      <span>A Symphony for the Senses</span>
+            <div class="marquee-item">
+                A Symphony for the Senses
+            </div>
 
-      <span>Olfactory Odyssey</span>
+            <div class="marquee-item">
+                Olfactory Odyssey
+            </div>
 
-      <span>A Symphony for the Senses</span>
+            <div class="marquee-item">
+                A Symphony for the Senses
+            </div>
 
-      <span>Olfactory Odyssey</span>
+            <div class="marquee-item">
+                Olfactory Odyssey
+            </div>
 
-      <span>A Symphony for the Senses</span>
+            <div class="marquee-item">
+                A Symphony for the Senses
+            </div>
 
-      <span>Olfactory Odyssey</span>
+            <!-- duplicate -->
 
-      <span>A Symphony for the Senses</span>
+            <div class="marquee-item">
+                Olfactory Odyssey
+            </div>
+
+            <div class="marquee-item">
+                A Symphony for the Senses
+            </div>
+
+            <div class="marquee-item">
+                Olfactory Odyssey
+            </div>
+
+            <div class="marquee-item">
+                A Symphony for the Senses
+            </div>
+
+        </div>
 
     </div>
 
-  </div>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <div class="header-main">
+
+            <div class="logo">
+                SNS Fragrance
+            </div>
+
+            <div class="header-icons">
+
+                <a href="#" class="header-icon">
+                    ♙
+                </a>
+
+                <a href="#" class="header-icon wishlist">
+                    ♡
+                </a>
+
+                <a href="#" class="header-icon">
+                    ⌕
+                </a>
+
+                <a href="#" class="header-icon">
+                    🛒
+                </a>
+
+            </div>
+
+        </div>
 
 
+        <nav class="navigation">
 
-  <!-- ==================================================
-       MAIN HEADER
-  =================================================== -->
+            <a href="index.html">
+                What's Your Persona?
+            </a>
 
-  <header class="site-header">
+            <a href="bestsellers.html">
+                Everyone's Favorite
+            </a>
 
+            <a href="#">
+                Deo Potion
+            </a>
 
-    <!-- LOGO -->
+            <a href="extrait.html">
+                Extrait de Parfum
+            </a>
 
-    <a
-      href="index.html"
-      class="site-logo"
-      style="text-decoration:none;">
+            <a href="#">
+                Home Fragrance
+            </a>
 
-      SNS Fragrance
+            <a href="#">
+                Cloud Mist
+            </a>
 
-    </a>
+            <a href="#">
+                Body Care
+            </a>
 
+            <a href="#">
+                Hand Dew
+            </a>
 
+            <a href="#">
+                Loyalty
+            </a>
 
-    <!-- HEADER ICONS -->
+            <a href="#">
+                Store
+            </a>
 
-    <div class="header-icons">
+        </nav>
 
-
-      <!-- ACCOUNT -->
-
-      <a
-        href="#"
-        class="header-icon"
-        aria-label="Account">
-
-        <svg viewBox="0 0 24 24">
-
-          <circle
-            cx="12"
-            cy="7"
-            r="3.2">
-          </circle>
-
-          <path
-            d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5">
-          </path>
-
-        </svg>
-
-      </a>
+    </header>
 
 
+    <!-- =========================
+         LANGUAGE BUTTONS
+    ========================== -->
 
-      <!-- WISHLIST -->
+    <div class="language-wrapper">
 
-      <a
-        href="#"
-        class="header-icon wishlist-icon"
-        aria-label="Wishlist">
+        <div class="language-switcher">
 
-        <svg viewBox="0 0 24 24">
+            <a href="faq.html" class="lang-btn">
+                English
+            </a>
 
-          <path
-            d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-            -1.8 0-3.4 1-4.1 2.4
-            C11.3 5 9.7 4 7.9 4
-            5.2 4 3.2 6 3.2 8.8
-            c0 4.9 8.8 10.2 8.8 10.2
-            s8.8-5.3 8.8-10.2z">
-          </path>
+            <a href="faq_idn.html" class="lang-btn">
+                Bahasa Indonesia
+            </a>
 
-        </svg>
-
-      </a>
-
-
-
-      <!-- SEARCH -->
-
-      <a
-        href="#"
-        class="header-icon"
-        aria-label="Search">
-
-        <svg viewBox="0 0 24 24">
-
-          <circle
-            cx="10.5"
-            cy="10.5"
-            r="6.3">
-          </circle>
-
-          <path
-            d="M15.3 15.3L20.5 20.5">
-          </path>
-
-        </svg>
-
-      </a>
-
-
-
-      <!-- CART -->
-
-      <a
-        href="#"
-        class="header-icon"
-        aria-label="Cart">
-
-        <svg viewBox="0 0 24 24">
-
-          <path
-            d="M3 4h2l2.1 11.2h10.8L20 7H6">
-          </path>
-
-          <path d="M9 19.5h.01"></path>
-
-          <path d="M17 19.5h.01"></path>
-
-          <path d="M7.1 15.2h10.8"></path>
-
-        </svg>
-
-      </a>
+        </div>
 
     </div>
 
-  </header>
 
+    <!-- =========================
+         FAQ
+    ========================== -->
 
+    <main class="faq-container">
 
-  <!-- ==================================================
-       NAVIGATION
-  =================================================== -->
 
-  <nav class="main-navigation">
+        <!-- SIDEBAR -->
 
+        <aside class="faq-sidebar">
 
-    <a href="index.html">
-      What's Your Persona?
-    </a>
+            <a href="#order" class="active">
+                ORDER
+            </a>
 
+            <a href="#returns">
+                RETURNS AND REFUNDS
+            </a>
 
-    <a href="bestsellers.html">
-      Everyone's Favorite
-    </a>
+            <a href="#account">
+                ACCOUNT
+            </a>
 
+            <a href="#products">
+                PRODUCTS
+            </a>
 
-    <a href="#">
-      Deo Potion
-    </a>
+        </aside>
 
 
-    <a href="extrait.html">
-      Extrait de Parfum
-    </a>
+        <!-- CONTENT -->
 
+        <section class="faq-content">
 
-    <a href="#">
-      Home Fragrance
-    </a>
 
+            <!-- =========================
+                 ORDER
+            ========================== -->
 
-    <a href="#">
-      Cloud Mist
-    </a>
+            <div class="faq-section" id="order">
 
+                <h1 class="faq-section-title">
+                    ORDER
+                </h1>
 
-    <a href="#">
-      Body Care
-    </a>
 
+                <h3 class="faq-subtitle">
+                    Cancellation
+                </h3>
 
-    <a href="#">
-      Hand Dew
-    </a>
 
+                <div class="faq-item">
 
-    <a href="#">
-      Loyalty
-    </a>
+                    <button class="faq-question">
 
+                        <span>
+                            HOW DO I CANCEL AN ORDER?
+                        </span>
 
-    <a href="#">
-      Store
-    </a>
+                        <span class="faq-plus">
+                            +
+                        </span>
 
-  </nav>
+                    </button>
 
+                    <div class="faq-answer">
+                        You may contact SNS Fragrance customer service as soon as possible to request an order cancellation. Cancellation requests may depend on the current processing status of your order.
+                    </div>
 
+                </div>
 
-  <!-- ==================================================
-       LANGUAGE SWITCHER
-  =================================================== -->
 
-  <div class="language-switcher">
+                <h3 class="faq-subtitle" style="margin-top:40px;">
+                    Order Status
+                </h3>
 
-    <button href="faq.html" class="language-button active">
-        English
-    </button>
 
-    <button href="faq_ind.html" class="language-button">
-        Bahasa Indonesia
-    </button>
-  </div>
+                <div class="faq-item">
 
+                    <button class="faq-question">
 
+                        <span>
+                            HOW DO I CHECK MY ORDER STATUS?
+                        </span>
 
-  <!-- ==================================================
-       ENGLISH
-  =================================================== -->
+                        <span class="faq-plus">
+                            +
+                        </span>
 
-  <div
-    class="language-content active"
-    id="english">
+                    </button>
 
+                    <div class="faq-answer">
+                        You can check your order status through your account or by contacting SNS Fragrance customer service.
+                    </div>
 
-    <div class="faq-wrapper">
+                </div>
 
 
-      <!-- ==========================================
-           LEFT SIDEBAR
-      =========================================== -->
+                <div class="faq-item">
 
-      <aside class="faq-sidebar">
+                    <button class="faq-question">
 
+                        <span>
+                            WILL MY ORDER STATUS BE UPDATED AUTOMATICALLY?
+                        </span>
 
-        <a
-          href="#order"
-          class="active">
+                        <span class="faq-plus">
+                            +
+                        </span>
 
-          ORDER
+                    </button>
 
-        </a>
+                    <div class="faq-answer">
+                        Order status updates depend on the processing and shipping system used by SNS Fragrance.
+                    </div>
 
+                </div>
 
-        <a href="#returns">
 
-          RETURNS AND REFUNDS
+                <div class="faq-item">
 
-        </a>
+                    <button class="faq-question">
 
+                        <span>
+                            WHAT DOES THE ORDER STATUS "PROCESSING" MEAN?
+                        </span>
 
-        <a href="#account">
+                        <span class="faq-plus">
+                            +
+                        </span>
 
-          ACCOUNT
+                    </button>
 
-        </a>
+                    <div class="faq-answer">
+                        Processing means that your order has been received and is currently being prepared.
+                    </div>
 
+                </div>
 
-        <a href="#products">
 
-          PRODUCTS
+                <div class="faq-item">
 
-        </a>
+                    <button class="faq-question">
 
+                        <span>
+                            WHAT DOES THE ORDER STATUS "SHIPPED" MEAN?
+                        </span>
 
-      </aside>
+                        <span class="faq-plus">
+                            +
+                        </span>
 
+                    </button>
 
+                    <div class="faq-answer">
+                        Shipped means that your order has been handed over to the shipping carrier.
+                    </div>
 
-      <!-- ==========================================
-           RIGHT FAQ CONTENT
-      =========================================== -->
+                </div>
 
-      <main class="faq-content">
 
+                <div class="faq-item">
 
+                    <button class="faq-question">
 
-        <!-- ======================================
-             ORDER
-        ======================================= -->
+                        <span>
+                            WHY IS MY DELIVERY STATUS PENDING OR DELAYED?
+                        </span>
 
-        <section
-          class="faq-section"
-          id="order">
+                        <span class="faq-plus">
+                            +
+                        </span>
 
+                    </button>
 
-          <h1 class="faq-section-title">
+                    <div class="faq-answer">
+                        Delivery may be delayed due to processing time, courier conditions, weather, holidays, or other logistical circumstances.
+                    </div>
 
-            ORDER
+                </div>
 
-          </h1>
 
+                <div class="faq-item">
 
+                    <button class="faq-question">
 
-          <!-- Cancellation -->
+                        <span>
+                            WHAT SHOULD I DO IF MY ORDER STATUS DOESN'T CHANGE FOR A LONG TIME?
+                        </span>
 
-          <h2 class="faq-subtitle">
+                        <span class="faq-plus">
+                            +
+                        </span>
 
-            Cancellation
+                    </button>
 
-          </h2>
+                    <div class="faq-answer">
+                        Please contact SNS Fragrance customer service with your order number so the order status can be checked.
+                    </div>
 
+                </div>
 
-          <div class="faq-item">
 
-            <button class="faq-question">
+                <h3 class="faq-section-title" style="margin-top:70px;">
+                    SHIPPING & DELIVERY
+                </h3>
 
-              <span>
-                HOW DO I CANCEL AN ORDER?
-              </span>
 
-              <span class="faq-plus">
-                +
-              </span>
+                <h3 class="faq-subtitle">
+                    Shipping Operations
+                </h3>
 
-            </button>
 
+                <div class="faq-item">
 
-            <div class="faq-answer">
+                    <button class="faq-question">
 
-              <div class="faq-answer-inner">
+                        <span>
+                            HOW LONG DOES IT TAKE FOR MY ORDER TO BE PACKAGED?
+                        </span>
 
-                If you need to cancel your order,
-                please contact SNS Fragrance customer
-                service as soon as possible. Orders that
-                have already been processed or shipped
-                may not be eligible for cancellation.
+                        <span class="faq-plus">
+                            +
+                        </span>
 
-              </div>
+                    </button>
+
+                    <div class="faq-answer">
+                        Packaging time may vary depending on order volume and product availability.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        <span>
+                            HOW LONG DOES IT TAKE FOR MY ORDER TO BE PROCESSED AND SHIPPED?
+                        </span>
+
+                        <span class="faq-plus">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+                        Processing and shipping times depend on the order and destination.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        <span>
+                            HOW DO I TRACK MY ORDER DELIVERY?
+                        </span>
+
+                        <span class="faq-plus">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+                        Once your order has been shipped, you can use the provided tracking information to monitor the delivery.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        <span>
+                            DOES PACKAGING SIZE AFFECT MY SHIPPING FEE?
+                        </span>
+
+                        <span class="faq-plus">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+                        Shipping fees may depend on package size, weight, destination, and the selected shipping service.
+                    </div>
+
+                </div>
+
+
+                <h3 class="faq-subtitle" style="margin-top:40px;">
+                    International Shipping
+                </h3>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        <span>
+                            HOW IS INTERNATIONAL SHIPPING DIFFERENT FROM LOCAL SHIPPING?
+                        </span>
+
+                        <span class="faq-plus">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+                        International orders may involve different shipping times, costs, customs procedures, and delivery requirements.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        <span>
+                            HOW DO I PLACE AN INTERNATIONAL ORDER?
+                        </span>
+
+                        <span class="faq-plus">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+                        Please contact SNS Fragrance customer service to confirm international ordering and shipping availability.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        <span>
+                            WHICH COUNTRIES CAN SNS FRAGRANCE SHIP TO?
+                        </span>
+
+                        <span class="faq-plus">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+                        International shipping availability may vary by destination. Please contact SNS Fragrance for current availability.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        <span>
+                            WHICH SHIPPING SERVICE IS USED FOR INTERNATIONAL ORDERS?
+                        </span>
+
+                        <span class="faq-plus">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+                        The shipping service may depend on the destination and availability.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        <span>
+                            HOW LONG DOES INTERNATIONAL SHIPPING TAKE?
+                        </span>
+
+                        <span class="faq-plus">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+                        International delivery time varies depending on destination, courier, customs, and other logistical conditions.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        <span>
+                            CAN ALL PRODUCTS BE SHIPPED OVERSEAS?
+                        </span>
+
+                        <span class="faq-plus">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+                        International shipping eligibility may vary depending on the product and destination.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        <span>
+                            CAN I CHECK THE INTERNATIONAL SHIPPING COST BEFORE PLACING AN ORDER?
+                        </span>
+
+                        <span class="faq-plus">
+                            +
+                        </span>
+
+                    </button>
+
+                    <div class="faq-answer">
+                        Please contact SNS Fragrance customer service for an estimated international shipping cost before ordering.
+                    </div>
+
+                </div>
+
 
             </div>
 
-          </div>
+
+            <!-- =========================
+                 RETURNS
+            ========================== -->
+
+            <div class="faq-section" id="returns">
+
+                <h2 class="faq-section-title">
+                    RETURNS AND REFUNDS
+                </h2>
 
 
-
-          <!-- Order Status -->
-
-          <h2
-            class="faq-subtitle"
-            style="margin-top:55px;">
-
-            Order Status
-
-          </h2>
+                <h3 class="faq-subtitle">
+                    Damaged Items
+                </h3>
 
 
+                <div class="faq-item">
 
-          <div class="faq-item">
+                    <button class="faq-question">
+                        <span>
+                            WHAT SHOULD I DO IF I RECEIVE DAMAGED ITEMS?
+                        </span>
 
-            <button class="faq-question">
+                        <span class="faq-plus">+</span>
+                    </button>
 
-              <span>
-                HOW DO I CHECK MY ORDER STATUS?
-              </span>
+                    <div class="faq-answer">
+                        Please contact SNS Fragrance customer service as soon as possible and provide photos or videos showing the condition of the product and packaging.
+                    </div>
 
-              <span class="faq-plus">
-                +
-              </span>
-
-            </button>
+                </div>
 
 
-            <div class="faq-answer">
+                <div class="faq-item">
 
-              <div class="faq-answer-inner">
+                    <button class="faq-question">
+                        <span>
+                            DO I NEED TO RETURN THE ITEM IF IT'S DAMAGED?
+                        </span>
 
-                You can check your order status through
-                your SNS Fragrance account or through
-                the order confirmation information
-                provided after checkout.
+                        <span class="faq-plus">+</span>
+                    </button>
 
-              </div>
+                    <div class="faq-answer">
+                        Return requirements will depend on the assessment of the damaged product and the applicable return procedure.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            WILL I BE CHARGED FOR RETURNING DAMAGED ITEMS?
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Please contact SNS Fragrance customer service for instructions regarding return shipping costs.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            WHAT IF I DON'T HAVE PROOF OF DAMAGED ITEMS?
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Please contact customer service and explain the situation. Additional information may be requested to review the case.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            HOW LONG DOES IT TAKE TO PROCESS A RETURN FOR DAMAGED ITEMS?
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Processing time depends on the condition of the product and the return review process.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            WILL DAMAGED ITEMS BE REPLACED WITH NEW ITEMS?
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Replacement availability depends on the product condition, stock availability, and return review.
+                    </div>
+
+                </div>
+
+
+                <h3 class="faq-subtitle" style="margin-top:40px;">
+                    Incorrect Item
+                </h3>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            WHAT SHOULD I DO IF I RECEIVE AN INCORRECT ITEM?
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Please contact SNS Fragrance customer service and provide your order number and photos of the item received.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            WILL I BE CHARGED FOR RETURNING AN INCORRECT ITEM?
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Please contact customer service for instructions regarding the return of an incorrect item.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            CAN AN UNSEALED ITEM BE RETURNED IF IT'S INCORRECT?
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Return eligibility depends on the condition of the product and the applicable return policy.
+                    </div>
+
+                </div>
+
 
             </div>
 
-          </div>
+
+            <!-- =========================
+                 ACCOUNT
+            ========================== -->
+
+            <div class="faq-section" id="account">
+
+                <h2 class="faq-section-title">
+                    ACCOUNT
+                </h2>
 
 
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WILL MY ORDER STATUS BE UPDATED AUTOMATICALLY?
-              </span>
-
-              <span class="faq-plus">
-                +
-              </span>
-
-            </button>
+                <h3 class="faq-subtitle">
+                    Forgot Password
+                </h3>
 
 
-            <div class="faq-answer">
+                <div class="faq-item">
 
-              <div class="faq-answer-inner">
+                    <button class="faq-question">
+                        <span>
+                            WHAT SHOULD I DO IF I FORGET MY ACCOUNT PASSWORD?
+                        </span>
 
-                Yes. Your order status will be updated
-                as your order moves through processing,
-                shipping, and delivery.
+                        <span class="faq-plus">+</span>
+                    </button>
 
-              </div>
+                    <div class="faq-answer">
+                        Use the password recovery option on the account login page to request a password reset.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            HOW DO I RESET MY PASSWORD?
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Follow the password reset instructions provided on the account login page.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            CAN I CHANGE MY PASSWORD?
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Yes. You can change your password through your account settings when the feature is available.
+                    </div>
+
+                </div>
+
 
             </div>
 
-          </div>
+
+            <!-- =========================
+                 PRODUCTS
+            ========================== -->
+
+            <div class="faq-section" id="products">
+
+                <h2 class="faq-section-title">
+                    PRODUCTS
+                </h2>
 
 
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WHAT DOES THE ORDER STATUS "PROCESSING" MEAN?
-              </span>
-
-              <span class="faq-plus">
-                +
-              </span>
-
-            </button>
+                <h3 class="faq-subtitle">
+                    Product Information & Safety Details
+                </h3>
 
 
-            <div class="faq-answer">
+                <div class="faq-item">
 
-              <div class="faq-answer-inner">
+                    <button class="faq-question">
+                        <span>
+                            HOW TO USE
+                        </span>
 
-                Processing means that your order has
-                been received and is currently being
-                prepared before shipment.
+                        <span class="faq-plus">+</span>
+                    </button>
 
-              </div>
+                    <div class="faq-answer">
+                        Apply the fragrance to pulse points such as the wrists, neck, or behind the ears. Avoid contact with eyes and irritated skin.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            BPOM (BADAN PENGAWAS OBAT DAN MAKANAN – INDONESIA)
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Product registration information should be checked according to the specific SNS Fragrance product.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            HALAL
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        Please refer to the specific product information for applicable halal certification details.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        <span>
+                            ALLERGY REACTION TO THE SKIN
+                        </span>
+
+                        <span class="faq-plus">+</span>
+                    </button>
+
+                    <div class="faq-answer">
+                        If irritation or an allergic reaction occurs, discontinue use and seek appropriate medical advice if necessary. Always consider performing a patch test before regular use.
+                    </div>
+
+                </div>
+
 
             </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WHAT DOES THE ORDER STATUS "SHIPPED" MEAN?
-              </span>
-
-              <span class="faq-plus">
-                +
-              </span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Shipped means your order has been handed
-                over to the delivery service and is on
-                its way to the shipping address.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WHY IS MY DELIVERY STATUS PENDING OR DELAYED?
-              </span>
-
-              <span class="faq-plus">
-                +
-              </span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Delivery times may vary depending on the
-                courier, destination, weather, holidays,
-                and other delivery conditions.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WHAT SHOULD I DO IF MY ORDER STATUS DOESN'T CHANGE FOR A LONG TIME?
-              </span>
-
-              <span class="faq-plus">
-                +
-              </span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Please contact SNS Fragrance customer
-                service with your order number so we
-                can help check the latest status.
-
-              </div>
-
-            </div>
-
-          </div>
 
 
         </section>
 
+    </main>
 
 
-        <!-- ======================================
-             SHIPPING & DELIVERY
-        ======================================= -->
+    <!-- =========================
+         FLOATING UI
+    ========================== -->
 
-        <section class="faq-section">
-
-
-          <h2 class="faq-section-title">
-
-            SHIPPING & DELIVERY
-
-          </h2>
-
-
-
-          <h3 class="faq-subtitle">
-
-            Shipping Operations
-
-          </h3>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                HOW LONG DOES IT TAKE FOR MY ORDER TO BE PACKAGED?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Orders are normally prepared for shipment
-                after payment has been successfully confirmed.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                HOW LONG DOES IT TAKE FOR MY ORDER TO BE PROCESSED AND SHIPPED?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Processing and shipping times depend on
-                order volume and the destination.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                HOW DO I TRACK MY ORDER DELIVERY?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Once your order has been shipped, tracking
-                information will be provided when available.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                DOES PACKAGING SIZE AFFECT MY SHIPPING FEE?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Shipping fees may depend on the courier,
-                destination, package dimensions, and weight.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <h3
-            class="faq-subtitle"
-            style="margin-top:55px;">
-
-            International Shipping
-
-          </h3>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                HOW IS INTERNATIONAL SHIPPING DIFFERENT FROM LOCAL SHIPPING?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                International orders may require additional
-                shipping time, customs processing, and
-                applicable import requirements.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                HOW DO I PLACE AN INTERNATIONAL ORDER?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                International ordering availability depends
-                on the destination and current SNS Fragrance
-                shipping options.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WHICH COUNTRIES CAN SNS FRAGRANCE SHIP TO?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                International destinations will depend on
-                available shipping services and applicable
-                regulations.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                HOW LONG DOES INTERNATIONAL SHIPPING TAKE?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                International delivery time varies depending
-                on the destination and shipping method.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-        </section>
-
-
-
-        <!-- ======================================
-             RETURNS AND REFUNDS
-        ======================================= -->
-
-        <section
-          class="faq-section"
-          id="returns">
-
-
-          <h2 class="faq-section-title">
-
-            RETURNS AND REFUNDS
-
-          </h2>
-
-
-
-          <h3 class="faq-subtitle">
-
-            Damage Items
-
-          </h3>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WHAT SHOULD I DO IF I RECEIVE DAMAGED ITEMS?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Please contact SNS Fragrance customer
-                service as soon as possible and provide
-                your order details together with photos
-                or videos showing the damage.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                DO I NEED TO RETURN THE ITEM IF IT'S DAMAGED?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Return requirements may depend on the
-                specific condition of the damaged product.
-                Please contact customer service first.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WILL I BE CHARGED FOR RETURNING DAMAGED ITEMS?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Please contact customer service for
-                instructions regarding damaged-item returns.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WILL DAMAGED ITEMS BE REPLACED WITH NEW ITEMS?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Replacement options depend on the condition
-                of the product and availability.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <h3
-            class="faq-subtitle"
-            style="margin-top:55px;">
-
-            Incorrect Item
-
-          </h3>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WHAT SHOULD I DO IF I RECEIVE AN INCORRECT ITEM?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Please contact customer service with your
-                order number and photos of the item received.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WILL I BE CHARGED FOR RETURNING AN INCORRECT ITEM?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Please contact customer service before
-                returning an incorrect item so we can
-                provide the appropriate instructions.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-        </section>
-
-
-
-        <!-- ======================================
-             ACCOUNT
-        ======================================= -->
-
-        <section
-          class="faq-section"
-          id="account">
-
-
-          <h2 class="faq-section-title">
-
-            ACCOUNT
-
-          </h2>
-
-
-
-          <h3 class="faq-subtitle">
-
-            Forgot Password
-
-          </h3>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                WHAT SHOULD I DO IF I FORGET MY ACCOUNT PASSWORD?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Select the forgot-password option on the
-                login page and follow the instructions
-                to reset your password.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                HOW DO I RESET MY PASSWORD?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Enter your registered email address and
-                follow the password reset instructions.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                CAN I CHANGE MY PASSWORD?
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Yes. You can change your password from
-                your account settings.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-        </section>
-
-
-
-        <!-- ======================================
-             PRODUCTS
-        ======================================= -->
-
-        <section
-          class="faq-section"
-          id="products">
-
-
-          <h2 class="faq-section-title">
-
-            PRODUCTS
-
-          </h2>
-
-
-
-          <h3 class="faq-subtitle">
-
-            Product Information & Safety Details
-
-          </h3>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                HOW TO USE
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Spray perfume onto pulse points such as
-                the wrists, neck, and behind the ears.
-                Avoid rubbing the fragrance into the skin.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                BPOM (NATIONAL AGENCY OF DRUG AND FOOD CONTROL – INDONESIA)
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Product registration information should be
-                provided according to the applicable BPOM
-                registration for each SNS Fragrance product.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                HALAL
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                Please refer to the individual product
-                information for applicable halal
-                certification details.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="faq-item">
-
-            <button class="faq-question">
-
-              <span>
-                ALLERGY REACTION TO THE SKIN
-              </span>
-
-              <span class="faq-plus">+</span>
-
-            </button>
-
-
-            <div class="faq-answer">
-
-              <div class="faq-answer-inner">
-
-                If irritation or an allergic reaction occurs,
-                discontinue use. For sensitive skin, perform
-                a patch test before applying the product
-                more broadly.
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-        </section>
-
-
-      </main>
-
+    <div class="reviews">
+        Reviews
     </div>
 
-  </div>
+    <div class="rewards">
+        Rewards
+    </div>
+
+    <div class="chat">
+        ♡
+    </div>
 
 
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
-  <!-- ==================================================
-       FLOATING REVIEWS
-  =================================================== -->
+    <script>
 
-  <div class="reviews-button">
-
-    <span class="reviews-star">★</span>
-
-    <span>Reviews</span>
-
-  </div>
+        const faqQuestions =
+            document.querySelectorAll(".faq-question");
 
 
+        faqQuestions.forEach(function(question) {
 
-  <!-- ==================================================
-       FLOATING REWARDS
-  =================================================== -->
+            question.addEventListener("click", function() {
 
-  <div class="rewards-button">
-
-    <span class="rewards-icon">🎁</span>
-
-    <span>Rewards</span>
-
-  </div>
+                const item =
+                    question.parentElement;
 
 
+                item.classList.toggle("open");
 
-  <!-- ==================================================
-       FLOATING CHAT
-  =================================================== -->
-
-  <div class="chat-button">
-
-    <svg viewBox="0 0 24 24">
-
-      <path
-        d="M5 5.5h14a2 2 0 0 1 2 2v8
-        a2 2 0 0 1-2 2H11l-4.5 3v-3H5
-        a2 2 0 0 1-2-2v-8
-        a2 2 0 0 1 2-2z">
-      </path>
-
-      <path
-        d="M8 11.5h.01">
-      </path>
-
-      <path
-        d="M12 11.5h.01">
-      </path>
-
-      <path
-        d="M16 11.5h.01">
-      </path>
-
-    </svg>
-
-  </div>
-
-
-
-  <!-- ==================================================
-       JAVASCRIPT
-  =================================================== -->
-
-  <script>
-
-
-    /* ================================================
-       FAQ ACCORDION
-    ================================================= */
-
-    const faqQuestions =
-      document.querySelectorAll(".faq-question");
-
-
-    faqQuestions.forEach(question => {
-
-      question.addEventListener("click", () => {
-
-        const item =
-          question.closest(".faq-item");
-
-
-        item.classList.toggle("open");
-
-      });
-
-    });
-
-
-
-    /* ================================================
-       LANGUAGE SWITCHER
-    ================================================= */
-
-    const languageButtons =
-      document.querySelectorAll(".language-btn");
-
-
-    const languageContents =
-      document.querySelectorAll(".language-content");
-
-
-    languageButtons.forEach(button => {
-
-      button.addEventListener("click", () => {
-
-        const selectedLanguage =
-          button.dataset.language;
-
-
-        languageButtons.forEach(btn => {
-
-          btn.classList.remove("active");
+            });
 
         });
 
 
-        button.classList.add("active");
+        /* Highlight sidebar section */
+
+        const sections =
+            document.querySelectorAll(".faq-section");
+
+        const sidebarLinks =
+            document.querySelectorAll(".faq-sidebar a");
 
 
-        languageContents.forEach(content => {
+        window.addEventListener("scroll", function() {
 
-          content.classList.remove("active");
+            let current = "";
+
+
+            sections.forEach(function(section) {
+
+                const sectionTop =
+                    section.offsetTop - 150;
+
+                if (window.scrollY >= sectionTop) {
+
+                    current =
+                        section.getAttribute("id");
+
+                }
+
+            });
+
+
+            sidebarLinks.forEach(function(link) {
+
+                link.classList.remove("active");
+
+                if (
+                    link.getAttribute("href") ===
+                    "#" + current
+                ) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
 
         });
 
-
-        const selectedContent =
-          document.getElementById(selectedLanguage);
-
-
-        if (selectedContent) {
-
-          selectedContent.classList.add("active");
-
-        }
-
-      });
-
-    });
-
-
-
-    /* ================================================
-       SIDEBAR ACTIVE CATEGORY
-    ================================================= */
-
-    const sidebarLinks =
-      document.querySelectorAll(".faq-sidebar a");
-
-
-    sidebarLinks.forEach(link => {
-
-      link.addEventListener("click", () => {
-
-        sidebarLinks.forEach(item => {
-
-          item.classList.remove("active");
-
-        });
-
-
-        link.classList.add("active");
-
-      });
-
-    });
-
-
-
-    /* ================================================
-       UPDATE ACTIVE SIDEBAR WHILE SCROLLING
-    ================================================= */
-
-    const faqSections =
-      document.querySelectorAll(".faq-section");
-
-
-    window.addEventListener("scroll", () => {
-
-      let current = "";
-
-
-      faqSections.forEach(section => {
-
-        const sectionTop =
-          section.offsetTop - 180;
-
-
-        if (window.scrollY >= sectionTop) {
-
-          if (section.id) {
-
-            current = section.id;
-
-          }
-
-        }
-
-      });
-
-
-      sidebarLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-
-        if (
-          current &&
-          link.getAttribute("href") === "#" + current
-        ) {
-
-          link.classList.add("active");
-
-        }
-
-      });
-
-    });
-
-
-  </script>
+    </script>
 
 
 </body>
-
 </html>
