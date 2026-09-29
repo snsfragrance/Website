@@ -536,20 +536,125 @@
        FLOATING BUTTONS
     ========================= */
 
-    <style>
-
-  /* CSS website kamu lainnya */
-  
-  
-  /* =========================
-     FLOATING BUTTONS
-  ========================== */
-
-  /* PASTE CSS BARU DI SINI */
-
+    .floating {
+      position: fixed;
+      z-index: 1000;
+      text-decoration: none;
+      box-sizing: border-box;
     }
-</style>
 
+    /* REVIEWS */
+    .floating.review-button {
+      left: 18px;
+      bottom: 80px;
+      height: 52px;
+      padding: 0 20px;
+
+      background: #fff;
+      color: #111;
+      border-radius: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
+
+      box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+      cursor: pointer;
+    }
+
+    .floating.review-button:hover {
+      color: #111;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .floating.review-button svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      display: block;
+      fill: #111;
+    }
+
+    /* JOIN MEMBER */
+    .floating.join.member {
+      left: 18px;
+      bottom: 18px;
+
+      background: #000;
+      color: #fff;
+
+      padding: 15px 24px;
+      border-radius: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
+
+      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
+      cursor: pointer;
+    }
+
+    .floating.join.member:hover {
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* CHAT */
+    .floating.chat {
+      right: 18px;
+      bottom: 18px;
+
+      width: 50px;
+      height: 50px;
+
+      border-radius: 50%;
+      background: #000;
+      color: #fff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
+      cursor: pointer;
+    }
+
+    .floating.chat:hover {
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .floating.chat svg {
+      width: 23px;
+      height: 23px;
+      display: block;
+
+      fill: none;
+      stroke: #fff;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .floating.chat circle {
+      fill: #fff;
+      stroke: none;
+    }
 
     /* =========================
        FOOTER
@@ -709,7 +814,7 @@
         grid-template-columns: 1fr;
       }
 
-      .join.member {
+      .floating.join.member {
         padding: 13px 18px;
       }
     }
@@ -1176,8 +1281,11 @@
        REVIEWS
   ========================== -->
 
-  <a href="review.html" class="floating reviews">
-    Reviews
+  <a href="review.html" class="floating review-button" aria-label="Reviews">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3.5 L14.5 8.5 L20 9.3 L16 13.2 L17 18.7 L12 16.1 L7 18.7 L8 13.2 L4 9.3 L9.5 8.5 Z"></path>
+    </svg>
+    <span>Reviews</span>
   </a>
 
 
@@ -1242,79 +1350,55 @@
 
   </footer>
 
-  <a
-  href="review.html"
-  class="floating reviews"
-  aria-label="Reviews"
->
-  <svg
-    class="reviews-icon"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
-    <path
-      d="M12 3.5
-         L14.6 8.7
-         L20.3 9.45
-         L16.15 13.35
-         L17.1 19
-         L12 16.35
-         L6.9 19
-         L7.85 13.35
-         L3.7 9.45
-         L9.4 8.7
-         Z"
-    />
-  </svg>
-
-  <span>Reviews</span>
-</a>
 
 
-<!-- JOIN MEMBER -->
-<a
-  href="member.html"
-  class="floating join member"
->
+  <!-- =========================
+       FLOATING BUTTONS
+  ========================== -->
+
+  <a href="member.html" class="floating join member">
   Join Member
-</a>
+  </a>
+  
+  <a href="https://wa.me/message/TZMPXSMPC6XHM1" class="floating chat">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M5 5.5
+           h14
+           a2 2 0 0 1 2 2
+           v8
+           a2 2 0 0 1-2 2
+           h-7
+           l-4 3
+           v-3
+           H5
+           a2 2 0 0 1-2-2
+           v-8
+           a2 2 0 0 1 2-2z"
+      ></path>
 
+      <circle
+        cx="8"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
 
-<!-- CHAT -->
-<a
-  href="https://wa.me/message/TZMPXSMPC6XHM1"
-  class="floating chat"
-  aria-label="Chat with us"
->
+      <circle
+        cx="12"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
 
-  <svg
-    class="chat-icon"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
-
-    <path
-      d="M6.5 5.5
-         H17.5
-         C19.43 5.5 21 7.07 21 9
-         V14.5
-         C21 16.43 19.43 18 17.5 18
-         H11
-         L6.5 21
-         V18
-         H6.5
-         C4.57 18 3 16.43 3 14.5
-         V9
-         C3 7.07 4.57 5.5 6.5 5.5
-         Z"
-    />
-
-    <circle cx="8" cy="12" r="0.8" />
-    <circle cx="12" cy="12" r="0.8" />
-    <circle cx="16" cy="12" r="0.8" />
-
-  </svg>
-</a>
+      <circle
+        cx="16"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
+    </svg>
+  </div>
 
 
 
