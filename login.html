@@ -1,1 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Sign In — SNS Fragrance</title>
+
+
+  <style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background: #f4f4f4;
+
+      color: #111;
+
+      min-height: 100vh;
+    }
+
+
+    /* =====================================================
+       LOGIN PAGE
+    ===================================================== */
+
+    .login-page {
+
+      min-height: 100vh;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      position: relative;
+
+      padding: 38px 20px 30px;
+    }
+
+
+    /* =====================================================
+       LOGO
+    ===================================================== */
+
+    .login-logo {
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      text-decoration: none;
+
+      color: #111;
+    }
+
+
+    .logo-mark {
+
+      width: 58px;
+      height: 58px;
+
+      border: 4px solid #111;
+
+      border-radius: 15px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-family: Georgia, serif;
+
+      font-size: 30px;
+
+      font-weight: 700;
+
+      letter-spacing: -5px;
+
+      transform: rotate(-2deg);
+    }
+
+
+    .logo-text {
+
+      margin-top: 9px;
+
+      font-size: 20px;
+
+      font-weight: 600;
+
+      letter-spacing: -0.5px;
+    }
+
+
+    /* =====================================================
+       LOGIN CONTAINER
+    ===================================================== */
+
+    .login-container {
+
+      width: 100%;
+
+      max-width: 378px;
+
+      margin-top: 130px;
+    }
+
+
+    /* =====================================================
+       TITLE
+    ===================================================== */
+
+    .login-title {
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 23px;
+
+      font-weight: 400;
+
+      margin-bottom: 6px;
+    }
+
+
+    .login-subtitle {
+
+      color: #777;
+
+      font-size: 13px;
+
+      line-height: 1.5;
+
+      margin-bottom: 20px;
+    }
+
+
+    /* =====================================================
+       EMAIL FORM
+    ===================================================== */
+
+    .email-form {
+
+      width: 100%;
+
+      position: relative;
+    }
+
+
+    .email-input {
+
+      width: 100%;
+
+      height: 48px;
+
+      padding:
+        0 55px 0 12px;
+
+      border:
+        1px solid #d8d8d8;
+
+      border-radius: 10px;
+
+      background: #fff;
+
+      outline: none;
+
+      font-size: 14px;
+
+      color: #111;
+
+      transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+    }
+
+
+    .email-input::placeholder {
+
+      color: #777;
+    }
+
+
+    .email-input:focus {
+
+      border-color: #111;
+
+      box-shadow:
+        0 0 0 2px
+        rgba(0,0,0,.04);
+    }
+
+
+    /* =====================================================
+       SUBMIT BUTTON
+    ===================================================== */
+
+    .submit-button {
+
+      position: absolute;
+
+      right: 5px;
+
+      top: 5px;
+
+      width: 38px;
+
+      height: 38px;
+
+      border: none;
+
+      background: transparent;
+
+      color: #111;
+
+      border-radius: 7px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      cursor: pointer;
+
+      font-size: 21px;
+
+      transition:
+        background .2s ease;
+    }
+
+
+    .submit-button:hover {
+
+      background: #f1f1f1;
+    }
+
+
+    /* =====================================================
+       NEWSLETTER CHECKBOX
+    ===================================================== */
+
+    .newsletter {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      margin-top: 14px;
+
+      font-size: 13px;
+
+      color: #444;
+
+      cursor: pointer;
+    }
+
+
+    .newsletter input {
+
+      width: 18px;
+
+      height: 18px;
+
+      appearance: none;
+
+      -webkit-appearance: none;
+
+      border:
+        1px solid #d5d5d5;
+
+      border-radius: 6px;
+
+      background: #fff;
+
+      cursor: pointer;
+
+      position: relative;
+    }
+
+
+    .newsletter input:checked {
+
+      background: #111;
+
+      border-color: #111;
+    }
+
+
+    .newsletter input:checked::after {
+
+      content: "✓";
+
+      position: absolute;
+
+      color: #fff;
+
+      font-size: 12px;
+
+      left: 3px;
+
+      top: 0px;
+    }
+
+
+    /* =====================================================
+       TERMS
+    ===================================================== */
+
+    .terms {
+
+      text-align: center;
+
+      margin-top: 25px;
+
+      color: #888;
+
+      font-size: 11px;
+
+      line-height: 1.5;
+    }
+
+
+    .terms a {
+
+      color: #666;
+
+      text-decoration: underline;
+    }
+
+
+    /* =====================================================
+       ERROR MESSAGE
+    ===================================================== */
+
+    .error-message {
+
+      display: none;
+
+      margin-top: 10px;
+
+      color: #b00020;
+
+      font-size: 12px;
+    }
+
+
+    .error-message.show {
+
+      display: block;
+    }
+
+
+    /* =====================================================
+       PRIVACY
+    ===================================================== */
+
+    .privacy {
+
+      position: absolute;
+
+      bottom: 22px;
+
+      left: 0;
+
+      right: 0;
+
+      text-align: center;
+    }
+
+
+    .privacy a {
+
+      color: #777;
+
+      font-size: 13px;
+
+      text-decoration: none;
+    }
+
+
+    .privacy a:hover {
+
+      color: #111;
+
+      text-decoration: underline;
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 600px) {
+
+      .login-page {
+
+        padding-top: 30px;
+      }
+
+
+      .login-container {
+
+        margin-top: 95px;
+
+        max-width: 100%;
+      }
+
+
+      .logo-mark {
+
+        width: 52px;
+
+        height: 52px;
+
+        font-size: 27px;
+      }
+
+
+      .logo-text {
+
+        font-size: 18px;
+      }
+
+
+      .login-title {
+
+        font-size: 22px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <main class="login-page">
+
+
+    <!-- =================================================
+         SNS FRAGRANCE LOGO
+    ================================================== -->
+
+    <a
+      href="index.html"
+      class="login-logo">
+
+      <div class="logo-mark">
+        SNS
+      </div>
+
+      <div class="logo-text">
+        SNS Fragrance
+      </div>
+
+    </a>
+
+
+
+    <!-- =================================================
+         LOGIN
+    ================================================== -->
+
+    <div class="login-container">
+
+
+      <h1 class="login-title">
+        Sign in
+      </h1>
+
+
+      <p class="login-subtitle">
+        Enter your email and we'll send you
+        a verification code
+      </p>
+
+
+
+      <!-- EMAIL FORM -->
+
+      <form
+        class="email-form"
+        id="loginForm">
+
+
+        <input
+          type="email"
+          id="email"
+          class="email-input"
+          placeholder="Email"
+          autocomplete="email"
+          required>
+
+
+        <button
+          type="submit"
+          class="submit-button"
+          aria-label="Continue">
+
+          →
+
+        </button>
+
+
+      </form>
+
+
+
+      <!-- ERROR -->
+
+      <div
+        class="error-message"
+        id="errorMessage">
+
+        Please enter a valid email address.
+
+      </div>
+
+
+
+      <!-- NEWSLETTER -->
+
+      <label class="newsletter">
+
+        <input
+          type="checkbox"
+          id="newsletter">
+
+
+        <span>
+          Email me with news and offers
+        </span>
+
+      </label>
+
+
+
+      <!-- TERMS -->
+
+      <p class="terms">
+
+        By continuing, you agree to our
+
+        <a href="#">
+          Terms of service
+        </a>
+
+      </p>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         PRIVACY
+    ================================================== -->
+
+    <div class="privacy">
+
+      <a href="#">
+        Privacy policy
+      </a>
+
+    </div>
+
+
+  </main>
+
+
+
+  <script>
+
+    const loginForm =
+      document.getElementById(
+        "loginForm"
+      );
+
+    const emailInput =
+      document.getElementById(
+        "email"
+      );
+
+    const errorMessage =
+      document.getElementById(
+        "errorMessage"
+      );
+
+
+    loginForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+
+        if (
+          !emailInput.checkValidity()
+        ) {
+
+          errorMessage.classList.add(
+            "show"
+          );
+
+          return;
+
+        }
+
+
+        errorMessage.classList.remove(
+          "show"
+        );
+
+
+        /*
+          TEMPORARY BEHAVIOR
+
+          At this stage, the page only
+          validates the email.
+
+          Later you can connect this
+          to your authentication system
+          to actually send a verification
+          code.
+        */
+
+        alert(
+          "Verification code will be sent to " +
+          emailInput.value
+        );
+
+      }
+    );
+
+
+    emailInput.addEventListener(
+      "input",
+      function() {
+
+        errorMessage.classList.remove(
+          "show"
+        );
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
+</html>
