@@ -1,611 +1,832 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FAQ | SNS Fragrance</title>
+  <meta charset="UTF-8">
 
-<style>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-/* =========================================================
-   RESET
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #111111;
-}
+  <title>FAQ | SNS Fragrance</title>
 
 
-/* =========================================================
-   TOP ANNOUNCEMENT BAR
-========================================================= */
+  <style>
 
-.announcement-bar {
-    height: 38px;
-    width: 100%;
-    background: #000;
-    color: #fff;
-    overflow: hidden;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-}
+    /* =====================================================
+       GLOBAL
+    ===================================================== */
 
-.announcement-track {
-    display: flex;
-    width: max-content;
-    animation: marquee 32s linear infinite;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.announcement-track span {
-    display: inline-block;
-    margin-right: 190px;
-    font-size: 14px;
-    font-weight: 600;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-@keyframes marquee {
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+    }
 
-    0% {
+
+    /* =====================================================
+       TOP ANNOUNCEMENT BAR
+    ===================================================== */
+
+    .announcement-bar {
+      width: 100%;
+      height: 38px;
+
+      background: #000;
+      color: #fff;
+
+      overflow: hidden;
+      white-space: nowrap;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .announcement-track {
+      display: flex;
+      align-items: center;
+
+      width: max-content;
+
+      animation: announcementMove 35s linear infinite;
+    }
+
+    .announcement-track span {
+      display: inline-block;
+
+      margin-right: 180px;
+
+      font-size: 14px;
+      font-weight: 500;
+
+      letter-spacing: 0.2px;
+    }
+
+    @keyframes announcementMove {
+
+      0% {
         transform: translateX(0);
-    }
+      }
 
-    100% {
+      100% {
         transform: translateX(-50%);
+      }
+
     }
 
-}
 
+    /* =====================================================
+       MAIN HEADER
+    ===================================================== */
 
-/* =========================================================
-   HEADER
-========================================================= */
+    .site-header {
 
-.header {
-    height: 88px;
-    background: #fff;
-    position: relative;
+      position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+      width: 100%;
+      height: 88px;
 
-.logo {
-    text-decoration: none;
-    color: #111;
+      background: #fff;
 
-    font-size: 40px;
-    font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    letter-spacing: -2.5px;
-}
-
-
-/* =========================================================
-   HEADER ICONS
-========================================================= */
-
-.header-icons {
-    position: absolute;
-    right: 42px;
-    top: 50%;
-
-    transform: translateY(-50%);
-
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.header-icon {
-    width: 25px;
-    height: 25px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-decoration: none;
-}
-
-.header-icon svg {
-    width: 24px;
-    height: 24px;
-
-    fill: none;
-    stroke: #111;
-
-    stroke-width: 1.7;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.header-icon.wishlist svg {
-    stroke: #ed174d;
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.navigation {
-    min-height: 54px;
-
-    border-bottom: 1px solid #e6e6e6;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 34px;
-
-    padding: 0 25px;
-
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-.navigation::-webkit-scrollbar {
-    display: none;
-}
-
-.navigation a {
-    color: #111;
-    text-decoration: none;
-
-    font-size: 15px;
-    font-weight: 400;
-
-    transition: opacity .2s ease;
-}
-
-.navigation a:hover {
-    opacity: .55;
-}
-
-
-/* =========================================================
-   LANGUAGE SWITCHER
-========================================================= */
-
-.language-switcher {
-    max-width: 1380px;
-
-    margin: 0 auto;
-
-    padding: 40px 15px 70px;
-
-    display: flex;
-    gap: 14px;
-}
-
-.language-button {
-    height: 45px;
-
-    padding: 0 24px;
-
-    border: 1px solid #111;
-
-    background: #fff;
-    color: #777;
-
-    font-size: 16px;
-
-    cursor: pointer;
-}
-
-.language-button.active {
-    background: #000;
-    color: #fff;
-
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   FAQ MAIN LAYOUT
-========================================================= */
-
-.faq-layout {
-
-    max-width: 1380px;
-
-    margin: 0 auto;
-
-    padding: 0 15px 120px;
-
-    display: grid;
-
-    grid-template-columns: 330px minmax(0, 1fr);
-
-    gap: 60px;
-}
-
-
-/* =========================================================
-   LEFT SIDEBAR
-========================================================= */
-
-.faq-sidebar {
-
-    position: sticky;
-
-    top: 25px;
-
-    align-self: start;
-}
-
-.faq-sidebar a {
-
-    display: block;
-
-    width: max-content;
-
-    margin-bottom: 18px;
-
-    color: #111;
-
-    text-decoration: none;
-
-    font-size: 15px;
-
-    line-height: 1.5;
-}
-
-.faq-sidebar a.active {
-
-    border-bottom: 1px solid #111;
-
-    padding-bottom: 4px;
-}
-
-
-/* =========================================================
-   CONTENT
-========================================================= */
-
-.faq-content {
-    width: 100%;
-    max-width: 880px;
-}
-
-
-/* =========================================================
-   SECTION
-========================================================= */
-
-.faq-section {
-
-    margin-bottom: 75px;
-
-    scroll-margin-top: 30px;
-}
-
-.faq-section-title {
-
-    font-size: 25px;
-
-    font-weight: 600;
-
-    margin-bottom: 47px;
-
-    letter-spacing: -0.4px;
-}
-
-
-/* =========================================================
-   SUBTITLE
-========================================================= */
-
-.faq-subtitle {
-
-    font-size: 17px;
-
-    font-weight: 600;
-
-    padding-bottom: 25px;
-
-    border-bottom: 1px solid #e5e5e5;
-}
-
-
-/* =========================================================
-   FAQ ITEM
-========================================================= */
-
-.faq-item {
-
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.faq-question {
-
-    width: 100%;
-
-    min-height: 65px;
-
-    padding: 20px 0;
-
-    background: transparent;
-
-    border: none;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    text-align: left;
-
-    color: #111;
-
-    font-family: inherit;
-
-    font-size: 15px;
-
-    font-weight: 400;
-
-    cursor: pointer;
-}
-
-.faq-question-text {
-
-    padding-right: 30px;
-
-    line-height: 1.5;
-}
-
-.plus {
-
-    flex-shrink: 0;
-
-    font-size: 23px;
-
-    font-weight: 300;
-
-    line-height: 1;
-
-    transition: transform .25s ease;
-}
-
-
-/* =========================================================
-   ANSWER
-========================================================= */
-
-.faq-answer {
-
-    display: grid;
-
-    grid-template-rows: 0fr;
-
-    transition: grid-template-rows .3s ease;
-}
-
-.faq-answer-inner {
-
-    overflow: hidden;
-
-    color: #555;
-
-    font-size: 14px;
-
-    line-height: 1.7;
-}
-
-.faq-item.open .faq-answer {
-
-    grid-template-rows: 1fr;
-
-}
-
-.faq-item.open .faq-answer-inner {
-
-    padding: 0 0 24px;
-}
-
-.faq-item.open .plus {
-
-    transform: rotate(45deg);
-}
-
-
-/* =========================================================
-   FLOATING REVIEWS
-========================================================= */
-
-.reviews {
-
-    position: fixed;
-
-    left: 25px;
-    bottom: 90px;
-
-    background: #fff;
-
-    border-radius: 30px;
-
-    padding: 13px 20px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    font-size: 16px;
-    font-weight: 600;
-
-    box-shadow: 0 3px 18px rgba(0,0,0,.12);
-
-    z-index: 1000;
-}
-
-.reviews-star {
-    font-size: 20px;
-}
-
-
-/* =========================================================
-   FLOATING REWARDS
-========================================================= */
-
-.rewards {
-
-    position: fixed;
-
-    left: 12px;
-    bottom: 18px;
-
-    background: #000;
-    color: #fff;
-
-    border-radius: 35px;
-
-    padding: 16px 28px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    font-size: 16px;
-    font-weight: 600;
-
-    z-index: 1000;
-}
-
-.reward-icon {
-    font-size: 18px;
-}
-
-
-/* =========================================================
-   FLOATING CHAT
-========================================================= */
-
-.chat {
-
-    position: fixed;
-
-    right: 18px;
-    bottom: 18px;
-
-    width: 58px;
-    height: 58px;
-
-    border-radius: 50%;
-
-    background: #000;
-    color: #fff;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    z-index: 1000;
-
-    box-shadow: 0 3px 15px rgba(0,0,0,.15);
-}
-
-.chat svg {
-
-    width: 25px;
-    height: 25px;
-
-    fill: none;
-
-    stroke: #fff;
-
-    stroke-width: 1.5;
-
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 1000px) {
-
-    .navigation {
-        justify-content: flex-start;
     }
 
-    .faq-layout {
 
-        grid-template-columns: 240px minmax(0, 1fr);
+    /* =====================================================
+       LOGO
+    ===================================================== */
 
-        gap: 40px;
+    .site-logo {
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      font-size: 39px;
+
+      font-weight: 600;
+
+      letter-spacing: -2.2px;
+
+      color: #111;
+
+      line-height: 1;
     }
+
+
+    /* =====================================================
+       HEADER ICONS
+    ===================================================== */
 
     .header-icons {
-        right: 25px;
+
+      position: absolute;
+
+      right: 48px;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 27px;
     }
 
-}
 
+    .header-icon {
 
-@media (max-width: 760px) {
+      width: 25px;
+      height: 25px;
 
-    .header {
-        height: 72px;
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      color: #111;
+
+      text-decoration: none;
+
+      cursor: pointer;
     }
 
-    .logo {
-        font-size: 31px;
+
+    .header-icon svg {
+
+      width: 24px;
+      height: 24px;
+
+      fill: none;
+
+      stroke: #111;
+
+      stroke-width: 1.7;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+      transition: transform 0.2s ease;
     }
 
-    .header-icons {
-        right: 15px;
-        gap: 12px;
+
+    .header-icon:hover svg {
+
+      transform: scale(1.08);
+
     }
 
-    .header-icon:first-child {
-        display: none;
+
+    /* Wishlist */
+
+    .wishlist-icon svg {
+
+      stroke: #ed174d;
+
+      stroke-width: 1.8;
+
     }
 
-    .navigation {
-        min-height: 52px;
-        gap: 24px;
+
+    /* =====================================================
+       NAVIGATION
+    ===================================================== */
+
+    .main-navigation {
+
+      width: 100%;
+
+      min-height: 65px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 36px;
+
+      padding: 0 30px;
+
+      background: #fff;
+
+      border-bottom: 1px solid #e8e8e8;
+
     }
 
-    .navigation a {
-        font-size: 13px;
+
+    .main-navigation a {
+
+      position: relative;
+
+      color: #111;
+
+      text-decoration: none;
+
+      font-size: 15px;
+
+      font-weight: 400;
+
+      white-space: nowrap;
+
+      transition: opacity 0.2s ease;
+
     }
+
+
+    .main-navigation a:hover {
+
+      opacity: 0.6;
+
+    }
+
+
+    .main-navigation a.active {
+
+      font-weight: 500;
+
+    }
+
+
+    .main-navigation a.active::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+
+      right: 0;
+
+      bottom: -10px;
+
+      height: 1px;
+
+      background: #111;
+
+    }
+
+
+    /* =====================================================
+       LANGUAGE SWITCHER
+    ===================================================== */
 
     .language-switcher {
 
-        padding: 25px 20px 45px;
+      display: flex;
+
+      gap: 14px;
+
+      padding: 24px 15px;
+
+      margin-bottom: 55px;
+    }
+
+
+    .language-switcher button {
+
+      height: 48px;
+
+      padding: 0 24px;
+
+      border: 1px solid #111;
+
+      background: #fff;
+
+      font-size: 16px;
+
+      cursor: pointer;
+
+      transition: all 0.25s ease;
+    }
+
+
+    .language-switcher button.active {
+
+      background: #000;
+
+      color: #fff;
 
     }
 
-    .faq-layout {
 
-        display: block;
+    .language-switcher button:hover {
 
-        padding: 0 20px 100px;
+      background: #111;
+
+      color: #fff;
+
     }
+
+
+    /* =====================================================
+       FAQ LAYOUT
+    ===================================================== */
+
+    .faq-wrapper {
+
+      display: grid;
+
+      grid-template-columns: 330px minmax(0, 1fr);
+
+      gap: 60px;
+
+      max-width: 1380px;
+
+      margin: 0 auto;
+
+      padding: 0 15px 100px;
+
+    }
+
+
+    /* =====================================================
+       LEFT SIDEBAR
+    ===================================================== */
 
     .faq-sidebar {
+
+      position: sticky;
+
+      top: 30px;
+
+      align-self: start;
+    }
+
+
+    .faq-sidebar a {
+
+      display: block;
+
+      width: max-content;
+
+      margin-bottom: 20px;
+
+      color: #111;
+
+      text-decoration: none;
+
+      font-size: 15px;
+
+      font-weight: 400;
+
+      line-height: 1.4;
+
+      cursor: pointer;
+
+    }
+
+
+    .faq-sidebar a.active {
+
+      border-bottom: 1px solid #111;
+
+      padding-bottom: 4px;
+
+    }
+
+
+    .faq-sidebar a:hover {
+
+      opacity: 0.6;
+
+    }
+
+
+    /* =====================================================
+       FAQ CONTENT
+    ===================================================== */
+
+    .faq-content {
+
+      width: 100%;
+
+      max-width: 1000px;
+
+    }
+
+
+    .faq-section {
+
+      margin-bottom: 70px;
+
+      scroll-margin-top: 30px;
+
+    }
+
+
+    .faq-section-title {
+
+      font-size: 27px;
+
+      font-weight: 600;
+
+      margin-bottom: 35px;
+
+      letter-spacing: -0.5px;
+
+    }
+
+
+    .faq-subtitle {
+
+      font-size: 18px;
+
+      font-weight: 600;
+
+      padding-bottom: 20px;
+
+      border-bottom: 1px solid #e5e5e5;
+
+    }
+
+
+    /* =====================================================
+       FAQ ITEM
+    ===================================================== */
+
+    .faq-item {
+
+      border-bottom: 1px solid #e5e5e5;
+
+    }
+
+
+    .faq-question {
+
+      width: 100%;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      background: none;
+
+      border: none;
+
+      padding: 25px 0;
+
+      color: #111;
+
+      font-family: inherit;
+
+      font-size: 15px;
+
+      font-weight: 400;
+
+      text-align: left;
+
+      cursor: pointer;
+
+    }
+
+
+    .faq-question span:first-child {
+
+      padding-right: 30px;
+
+    }
+
+
+    .faq-plus {
+
+      flex-shrink: 0;
+
+      font-size: 25px;
+
+      font-weight: 300;
+
+      line-height: 1;
+
+      transition: transform 0.3s ease;
+
+    }
+
+
+    .faq-item.open .faq-plus {
+
+      transform: rotate(45deg);
+
+    }
+
+
+    /* =====================================================
+       FAQ ANSWER
+    ===================================================== */
+
+    .faq-answer {
+
+      display: grid;
+
+      grid-template-rows: 0fr;
+
+      transition:
+        grid-template-rows 0.35s ease,
+        padding 0.35s ease;
+
+    }
+
+
+    .faq-answer-inner {
+
+      overflow: hidden;
+
+      color: #555;
+
+      font-size: 15px;
+
+      line-height: 1.7;
+
+    }
+
+
+    .faq-item.open .faq-answer {
+
+      grid-template-rows: 1fr;
+
+      padding-bottom: 25px;
+
+    }
+
+
+    /* =====================================================
+       LANGUAGE CONTENT
+    ===================================================== */
+
+    .language-content {
+
+      display: none;
+
+    }
+
+
+    .language-content.active {
+
+      display: block;
+
+    }
+
+
+    /* =====================================================
+       FLOATING REVIEWS
+    ===================================================== */
+
+    .reviews-button {
+
+      position: fixed;
+
+      left: 20px;
+
+      bottom: 95px;
+
+      z-index: 999;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 14px 22px;
+
+      background: #fff;
+
+      color: #111;
+
+      border-radius: 30px;
+
+      box-shadow:
+        0 3px 15px rgba(0,0,0,0.12);
+
+      font-size: 16px;
+
+      font-weight: 600;
+
+    }
+
+
+    .reviews-star {
+
+      font-size: 20px;
+
+    }
+
+
+    /* =====================================================
+       FLOATING REWARDS
+    ===================================================== */
+
+    .rewards-button {
+
+      position: fixed;
+
+      left: 10px;
+
+      bottom: 20px;
+
+      z-index: 999;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 17px 28px;
+
+      background: #000;
+
+      color: #fff;
+
+      border-radius: 35px;
+
+      box-shadow:
+        0 3px 15px rgba(0,0,0,0.18);
+
+      font-size: 16px;
+
+      font-weight: 600;
+
+      cursor: pointer;
+
+    }
+
+
+    .rewards-icon {
+
+      font-size: 18px;
+
+    }
+
+
+    /* =====================================================
+       FLOATING CHAT
+    ===================================================== */
+
+    .chat-button {
+
+      position: fixed;
+
+      right: 20px;
+
+      bottom: 20px;
+
+      z-index: 999;
+
+      width: 58px;
+
+      height: 58px;
+
+      border-radius: 50%;
+
+      background: #000;
+
+      color: #fff;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      box-shadow:
+        0 3px 15px rgba(0,0,0,0.18);
+
+      cursor: pointer;
+
+    }
+
+
+    .chat-button svg {
+
+      width: 25px;
+
+      height: 25px;
+
+      fill: none;
+
+      stroke: #fff;
+
+      stroke-width: 1.6;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 1100px) {
+
+      .main-navigation {
+
+        gap: 22px;
+
+      }
+
+      .main-navigation a {
+
+        font-size: 14px;
+
+      }
+
+      .header-icons {
+
+        right: 25px;
+
+        gap: 20px;
+
+      }
+
+      .site-logo {
+
+        font-size: 34px;
+
+      }
+
+    }
+
+
+    @media (max-width: 900px) {
+
+      .site-header {
+
+        height: 75px;
+
+      }
+
+
+      .site-logo {
+
+        font-size: 31px;
+
+      }
+
+
+      .header-icons {
+
+        right: 20px;
+
+        gap: 15px;
+
+      }
+
+
+      .main-navigation {
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+        gap: 25px;
+
+        padding: 0 20px;
+
+        scrollbar-width: none;
+
+      }
+
+
+      .main-navigation::-webkit-scrollbar {
+
+        display: none;
+
+      }
+
+
+      .faq-wrapper {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding: 0 20px 70px;
+
+      }
+
+
+      .faq-sidebar {
 
         position: static;
 
@@ -613,1906 +834,1758 @@ body {
 
         flex-wrap: wrap;
 
-        gap: 18px 28px;
+        gap: 20px 30px;
 
-        margin-bottom: 50px;
-    }
+      }
 
-    .faq-sidebar a {
+
+      .faq-sidebar a {
+
         margin-bottom: 0;
+
+      }
+
+
+      .faq-content {
+
+        max-width: none;
+
+      }
+
+
+      .faq-section {
+
+        margin-bottom: 55px;
+
+      }
+
     }
 
-    .faq-section-title {
-        font-size: 23px;
-    }
 
-}
+    @media (max-width: 600px) {
+
+      .announcement-bar {
+
+        height: 35px;
+
+      }
 
 
-@media (max-width: 500px) {
+      .announcement-track span {
 
-    .announcement-bar {
-        height: 34px;
-    }
-
-    .announcement-track span {
         font-size: 12px;
+
         margin-right: 100px;
-    }
 
-    .logo {
+      }
+
+
+      .site-header {
+
+        height: 70px;
+
+      }
+
+
+      .site-logo {
+
         font-size: 27px;
-    }
 
-    .header-icons {
-        gap: 8px;
-    }
+        letter-spacing: -1.5px;
 
-    .header-icon {
-        width: 22px;
-        height: 22px;
-    }
+      }
 
-    .header-icon svg {
-        width: 21px;
-        height: 21px;
-    }
 
-    .language-button {
-        padding: 0 17px;
-        font-size: 14px;
-    }
+      .header-icons {
 
-    .faq-question {
-        font-size: 13px;
-    }
-
-    .faq-sidebar a {
-        font-size: 13px;
-    }
-
-    .reviews {
-        left: 12px;
-        bottom: 80px;
-        font-size: 14px;
-        padding: 11px 17px;
-    }
-
-    .rewards {
-        left: 10px;
-        bottom: 14px;
-        font-size: 14px;
-        padding: 14px 20px;
-    }
-
-    .chat {
-        width: 52px;
-        height: 52px;
         right: 12px;
-        bottom: 14px;
+
+        gap: 10px;
+
+      }
+
+
+      .header-icon {
+
+        width: 22px;
+
+        height: 22px;
+
+      }
+
+
+      .header-icon svg {
+
+        width: 21px;
+
+        height: 21px;
+
+      }
+
+
+      /* Hide account on very small screens */
+
+      .header-icon:first-child {
+
+        display: none;
+
+      }
+
+
+      .main-navigation {
+
+        min-height: 55px;
+
+        gap: 22px;
+
+      }
+
+
+      .main-navigation a {
+
+        font-size: 13px;
+
+      }
+
+
+      .language-switcher {
+
+        padding: 20px;
+
+        margin-bottom: 35px;
+
+        gap: 8px;
+
+      }
+
+
+      .language-switcher button {
+
+        height: 44px;
+
+        padding: 0 17px;
+
+        font-size: 14px;
+
+      }
+
+
+      .faq-wrapper {
+
+        padding: 0 20px 60px;
+
+      }
+
+
+      .faq-section-title {
+
+        font-size: 23px;
+
+      }
+
+
+      .faq-subtitle {
+
+        font-size: 17px;
+
+      }
+
+
+      .faq-question {
+
+        font-size: 14px;
+
+        padding: 21px 0;
+
+      }
+
+
+      .faq-plus {
+
+        font-size: 22px;
+
+      }
+
+
+      .reviews-button {
+
+        left: 12px;
+
+        bottom: 80px;
+
+        padding: 12px 17px;
+
+        font-size: 14px;
+
+      }
+
+
+      .rewards-button {
+
+        left: 10px;
+
+        bottom: 15px;
+
+        padding: 14px 20px;
+
+        font-size: 14px;
+
+      }
+
+
+      .chat-button {
+
+        right: 12px;
+
+        bottom: 15px;
+
+        width: 52px;
+
+        height: 52px;
+
+      }
+
     }
 
-}
+  </style>
 
-</style>
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
-     ANNOUNCEMENT BAR
-====================================================== -->
+  <!-- ==================================================
+       TOP ANNOUNCEMENT BAR
+  =================================================== -->
 
-<div class="announcement-bar">
+  <div class="announcement-bar">
 
     <div class="announcement-track">
 
-        <span>Olfactory Odyssey</span>
+      <span>Olfactory Odyssey</span>
 
-        <span>A Symphony for the Senses</span>
+      <span>A Symphony for the Senses</span>
 
-        <span>Olfactory Odyssey</span>
+      <span>Olfactory Odyssey</span>
 
-        <span>A Symphony for the Senses</span>
+      <span>A Symphony for the Senses</span>
 
-        <span>Olfactory Odyssey</span>
+      <span>Olfactory Odyssey</span>
 
-        <span>A Symphony for the Senses</span>
+      <span>A Symphony for the Senses</span>
 
-        <span>Olfactory Odyssey</span>
+      <span>Olfactory Odyssey</span>
 
-        <span>A Symphony for the Senses</span>
+      <span>A Symphony for the Senses</span>
 
     </div>
 
-</div>
+  </div>
 
 
 
-<!-- =====================================================
-     HEADER
-====================================================== -->
+  <!-- ==================================================
+       MAIN HEADER
+  =================================================== -->
 
-<header class="header">
+  <header class="site-header">
 
 
-    <a href="index.html" class="logo">
+    <!-- LOGO -->
 
-        SAFF & Co.
+    <a
+      href="index.html"
+      class="site-logo"
+      style="text-decoration:none;">
+
+      SAFF & Co.
 
     </a>
 
 
+
+    <!-- HEADER ICONS -->
 
     <div class="header-icons">
 
 
-        <!-- ACCOUNT -->
+      <!-- ACCOUNT -->
 
-        <a href="#" class="header-icon">
+      <a
+        href="#"
+        class="header-icon"
+        aria-label="Account">
 
-            <svg viewBox="0 0 24 24">
+        <svg viewBox="0 0 24 24">
 
-                <circle
-                    cx="12"
-                    cy="7"
-                    r="3.2">
-                </circle>
+          <circle
+            cx="12"
+            cy="7"
+            r="3.2">
+          </circle>
 
-                <path
-                    d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5">
-                </path>
+          <path
+            d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5">
+          </path>
 
-            </svg>
+        </svg>
 
-        </a>
-
-
-
-        <!-- WISHLIST -->
-
-        <a
-            href="#"
-            class="header-icon wishlist">
-
-            <svg viewBox="0 0 24 24">
-
-                <path
-                    d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8-1.8 0-3.4 1-4.1 2.4C11.3 5 9.7 4 7.9 4 5.2 4 3.2 6 3.2 8.8c0 4.9 8.8 10.2 8.8 10.2s8.8-5.3 8.8-10.2z">
-                </path>
-
-            </svg>
-
-        </a>
+      </a>
 
 
 
-        <!-- SEARCH -->
+      <!-- WISHLIST -->
 
-        <a href="#" class="header-icon">
+      <a
+        href="#"
+        class="header-icon wishlist-icon"
+        aria-label="Wishlist">
 
-            <svg viewBox="0 0 24 24">
+        <svg viewBox="0 0 24 24">
 
-                <circle
-                    cx="10.5"
-                    cy="10.5"
-                    r="6.3">
-                </circle>
+          <path
+            d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+            -1.8 0-3.4 1-4.1 2.4
+            C11.3 5 9.7 4 7.9 4
+            5.2 4 3.2 6 3.2 8.8
+            c0 4.9 8.8 10.2 8.8 10.2
+            s8.8-5.3 8.8-10.2z">
+          </path>
 
-                <path
-                    d="M15.3 15.3L20.5 20.5">
-                </path>
+        </svg>
 
-            </svg>
-
-        </a>
-
+      </a>
 
 
-        <!-- CART -->
 
-        <a href="#" class="header-icon">
+      <!-- SEARCH -->
 
-            <svg viewBox="0 0 24 24">
+      <a
+        href="#"
+        class="header-icon"
+        aria-label="Search">
 
-                <path
-                    d="M3 4h2l2.1 11.2h10.8L20 7H6">
-                </path>
+        <svg viewBox="0 0 24 24">
 
-                <path d="M9 19.5h.01"></path>
+          <circle
+            cx="10.5"
+            cy="10.5"
+            r="6.3">
+          </circle>
 
-                <path d="M17 19.5h.01"></path>
+          <path
+            d="M15.3 15.3L20.5 20.5">
+          </path>
 
-            </svg>
+        </svg>
 
-        </a>
+      </a>
+
+
+
+      <!-- CART -->
+
+      <a
+        href="#"
+        class="header-icon"
+        aria-label="Cart">
+
+        <svg viewBox="0 0 24 24">
+
+          <path
+            d="M3 4h2l2.1 11.2h10.8L20 7H6">
+          </path>
+
+          <path d="M9 19.5h.01"></path>
+
+          <path d="M17 19.5h.01"></path>
+
+          <path d="M7.1 15.2h10.8"></path>
+
+        </svg>
+
+      </a>
 
     </div>
 
-</header>
+  </header>
 
 
 
-<!-- =====================================================
-     NAVIGATION
-====================================================== -->
+  <!-- ==================================================
+       NAVIGATION
+  =================================================== -->
 
-<nav class="navigation">
+  <nav class="main-navigation">
+
 
     <a href="index.html">
-        What's Your Persona?
+      What's Your Persona?
     </a>
+
+
+    <a href="bestsellers.html">
+      Everyone's Favorite
+    </a>
+
 
     <a href="#">
-        Everyone's Favorite
+      Deo Potion
     </a>
+
+
+    <a href="extrait.html">
+      Extrait de Parfum
+    </a>
+
 
     <a href="#">
-        Deo Potion
+      Home Fragrance
     </a>
+
 
     <a href="#">
-        Extrait de Parfum
+      Cloud Mist
     </a>
+
 
     <a href="#">
-        Home Fragrance
+      Body Care
     </a>
+
 
     <a href="#">
-        Cloud Mist
+      Hand Dew
     </a>
+
 
     <a href="#">
-        Body Care
+      Loyalty
     </a>
+
 
     <a href="#">
-        Hand Dew
+      Store
     </a>
 
-    <a href="#">
-        Loyalty
-    </a>
-
-    <a href="#">
-        Store
-    </a>
-
-</nav>
+  </nav>
 
 
 
-<!-- =====================================================
-     LANGUAGE
-====================================================== -->
+  <!-- ==================================================
+       LANGUAGE SWITCHER
+  =================================================== -->
 
-<div class="language-switcher">
+  <div class="language-switcher">
 
-    <a href="faq.html" class="language-button active">
-        English
-    </a>
+    <button
+      class="language-btn active"
+      data-language="english">
 
-    <a href="faq_ind.html" class="language-button">
-        Bahasa Indonesia
-    </a>
+      English
 
-</div>
+    </button>
 
 
+    <button
+      class="language-btn"
+      data-language="indonesia">
 
-<!-- =====================================================
-     FAQ
-====================================================== -->
+      Bahasa Indonesia
 
-<div class="faq-layout">
+    </button>
+
+  </div>
 
 
-    <!-- =================================================
-         SIDEBAR
-    ================================================== -->
 
-    <aside class="faq-sidebar">
+  <!-- ==================================================
+       ENGLISH
+  =================================================== -->
+
+  <div
+    class="language-content active"
+    id="english">
+
+
+    <div class="faq-wrapper">
+
+
+      <!-- ==========================================
+           LEFT SIDEBAR
+      =========================================== -->
+
+      <aside class="faq-sidebar">
+
 
         <a
-            href="#order"
-            class="active">
+          href="#order"
+          class="active">
 
-            ORDER/PESANAN
+          ORDER
 
         </a>
+
 
         <a href="#returns">
 
-            PENGEMBALIAN PRODUK & DANA
+          RETURNS AND REFUNDS
 
         </a>
+
 
         <a href="#account">
 
-            AKUN
+          ACCOUNT
 
         </a>
+
 
         <a href="#products">
 
-            PRODUK
+          PRODUCTS
 
         </a>
 
-    </aside>
+
+      </aside>
 
 
 
-    <!-- =================================================
-         CONTENT
-    ================================================== -->
+      <!-- ==========================================
+           RIGHT FAQ CONTENT
+      =========================================== -->
 
-    <main class="faq-content">
+      <main class="faq-content">
 
 
 
-        <!-- =================================================
+        <!-- ======================================
              ORDER
-        ================================================== -->
+        ======================================= -->
 
         <section
-            class="faq-section"
-            id="order">
+          class="faq-section"
+          id="order">
 
 
-            <h1 class="faq-section-title">
+          <h1 class="faq-section-title">
 
-                ORDER/PESANAN
+            ORDER
 
-            </h1>
-
-
-
-            <!-- PEMBATALAN -->
-
-            <h2 class="faq-subtitle">
-
-                Pembatalan Pesanan
-
-            </h2>
+          </h1>
 
 
-            <div class="faq-item">
 
-                <button class="faq-question">
+          <!-- Cancellation -->
 
-                    <span class="faq-question-text">
+          <h2 class="faq-subtitle">
 
-                        BAGAIMANA CARA MEMBATALKAN PESANAN?
+            Cancellation
 
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
+          </h2>
 
 
-                <div class="faq-answer">
+          <div class="faq-item">
 
-                    <div class="faq-answer-inner">
+            <button class="faq-question">
 
-                        Silakan hubungi layanan pelanggan
-                        SNS Fragrance sesegera mungkin
-                        apabila ingin membatalkan pesanan.
-                        Pesanan yang sudah diproses atau
-                        dikirim mungkin tidak dapat dibatalkan.
+              <span>
+                HOW DO I CANCEL AN ORDER?
+              </span>
 
-                    </div>
+              <span class="faq-plus">
+                +
+              </span>
 
-                </div>
+            </button>
+
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                If you need to cancel your order,
+                please contact SNS Fragrance customer
+                service as soon as possible. Orders that
+                have already been processed or shipped
+                may not be eligible for cancellation.
+
+              </div>
 
             </div>
 
-
-
-            <!-- STATUS -->
-
-            <h2
-                class="faq-subtitle"
-                style="margin-top:55px;">
-
-                Status Pesanan
-
-            </h2>
+          </div>
 
 
 
-            <div class="faq-item">
+          <!-- Order Status -->
 
-                <button class="faq-question">
+          <h2
+            class="faq-subtitle"
+            style="margin-top:55px;">
 
-                    <span class="faq-question-text">
+            Order Status
 
-                        BAGAIMANA CARA MEMERIKSA STATUS PESANAN?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Status pesanan dapat diperiksa melalui
-                        akun Anda atau melalui informasi pesanan
-                        yang diberikan setelah proses checkout.
-
-                    </div>
-
-                </div>
-
-            </div>
+          </h2>
 
 
 
-            <div class="faq-item">
+          <div class="faq-item">
 
-                <button class="faq-question">
+            <button class="faq-question">
 
-                    <span class="faq-question-text">
+              <span>
+                HOW DO I CHECK MY ORDER STATUS?
+              </span>
 
-                        APAKAH STATUS PESANAN AKAN DIPERBARUI SECARA OTOMATIS?
+              <span class="faq-plus">
+                +
+              </span>
 
-                    </span>
+            </button>
 
-                    <span class="plus">+</span>
 
-                </button>
+            <div class="faq-answer">
 
-                <div class="faq-answer">
+              <div class="faq-answer-inner">
 
-                    <div class="faq-answer-inner">
+                You can check your order status through
+                your SNS Fragrance account or through
+                the order confirmation information
+                provided after checkout.
 
-                        Ya. Status pesanan akan diperbarui
-                        sesuai dengan perkembangan proses
-                        pesanan, mulai dari diproses hingga
-                        dikirim.
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        APA ARTI STATUS PESANAN "DIPROSES"?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Status "Diproses" berarti pesanan
-                        telah diterima dan sedang dipersiapkan
-                        sebelum dikirim.
-
-                    </div>
-
-                </div>
-
-            </div>
+          </div>
 
 
 
-            <div class="faq-item">
+          <div class="faq-item">
 
-                <button class="faq-question">
+            <button class="faq-question">
 
-                    <span class="faq-question-text">
+              <span>
+                WILL MY ORDER STATUS BE UPDATED AUTOMATICALLY?
+              </span>
 
-                        APA ARTI STATUS PESANAN "DIKIRIM"?
+              <span class="faq-plus">
+                +
+              </span>
 
-                    </span>
+            </button>
 
-                    <span class="plus">+</span>
 
-                </button>
+            <div class="faq-answer">
 
-                <div class="faq-answer">
+              <div class="faq-answer-inner">
 
-                    <div class="faq-answer-inner">
+                Yes. Your order status will be updated
+                as your order moves through processing,
+                shipping, and delivery.
 
-                        Status "Dikirim" berarti pesanan telah
-                        diserahkan kepada jasa pengiriman dan
-                        sedang dalam perjalanan menuju alamat
-                        tujuan.
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        MENGAPA STATUS PENGIRIMAN TERTUNDA ATAU "PENDING"?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Status pengiriman dapat tertunda karena
-                        berbagai faktor seperti proses kurir,
-                        kondisi cuaca, hari libur, atau kondisi
-                        pengiriman lainnya.
-
-                    </div>
-
-                </div>
-
-            </div>
+          </div>
 
 
 
-            <div class="faq-item">
+          <div class="faq-item">
 
-                <button class="faq-question">
+            <button class="faq-question">
 
-                    <span class="faq-question-text">
+              <span>
+                WHAT DOES THE ORDER STATUS "PROCESSING" MEAN?
+              </span>
 
-                        APA YANG HARUS DILAKUKAN JIKA STATUS PESANAN
-                        TIDAK BERUBAH DALAM WAKTU LAMA?
+              <span class="faq-plus">
+                +
+              </span>
 
-                    </span>
+            </button>
 
-                    <span class="plus">+</span>
 
-                </button>
+            <div class="faq-answer">
 
-                <div class="faq-answer">
+              <div class="faq-answer-inner">
 
-                    <div class="faq-answer-inner">
+                Processing means that your order has
+                been received and is currently being
+                prepared before shipment.
 
-                        Silakan hubungi layanan pelanggan SNS
-                        Fragrance dengan menyertakan nomor
-                        pesanan agar kami dapat membantu
-                        memeriksa status pesanan Anda.
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
-
-
-            <!-- SHIPPING -->
-
-            <h2
-                class="faq-section-title"
-                style="margin-top:55px; margin-bottom:35px;">
-
-                PENGIRIMAN & PENGANTARAN
-
-            </h2>
-
-
-            <h3 class="faq-subtitle">
-
-                Operasional Pengiriman
-
-            </h3>
+          </div>
 
 
 
-            <div class="faq-item">
+          <div class="faq-item">
 
-                <button class="faq-question">
+            <button class="faq-question">
 
-                    <span class="faq-question-text">
+              <span>
+                WHAT DOES THE ORDER STATUS "SHIPPED" MEAN?
+              </span>
 
-                        BERAPA LAMA PESANAN AKAN DIKEMAS?
+              <span class="faq-plus">
+                +
+              </span>
 
-                    </span>
+            </button>
 
-                    <span class="plus">+</span>
 
-                </button>
+            <div class="faq-answer">
 
-                <div class="faq-answer">
+              <div class="faq-answer-inner">
 
-                    <div class="faq-answer-inner">
+                Shipped means your order has been handed
+                over to the delivery service and is on
+                its way to the shipping address.
 
-                        Pesanan akan dipersiapkan dan dikemas
-                        setelah pembayaran berhasil dikonfirmasi.
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        BERAPA LAMA PESANAN DIPROSES DAN DIKIRIM?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Waktu pemrosesan dan pengiriman dapat
-                        berbeda tergantung jumlah pesanan,
-                        tujuan, dan jasa pengiriman.
-
-                    </div>
-
-                </div>
-
-            </div>
+          </div>
 
 
 
-            <div class="faq-item">
+          <div class="faq-item">
 
-                <button class="faq-question">
+            <button class="faq-question">
 
-                    <span class="faq-question-text">
+              <span>
+                WHY IS MY DELIVERY STATUS PENDING OR DELAYED?
+              </span>
 
-                        BAGAIMANA CARA MELACAK PENGIRIMAN PESANAN?
+              <span class="faq-plus">
+                +
+              </span>
 
-                    </span>
+            </button>
 
-                    <span class="plus">+</span>
 
-                </button>
+            <div class="faq-answer">
 
-                <div class="faq-answer">
+              <div class="faq-answer-inner">
 
-                    <div class="faq-answer-inner">
+                Delivery times may vary depending on the
+                courier, destination, weather, holidays,
+                and other delivery conditions.
 
-                        Informasi pelacakan akan diberikan
-                        setelah pesanan diserahkan kepada
-                        jasa pengiriman.
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        APAKAH UKURAN KEMASAN MEMENGARUHI BIAYA PENGIRIMAN?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Biaya pengiriman dapat dipengaruhi
-                        oleh berat, ukuran paket, tujuan,
-                        serta jasa pengiriman yang digunakan.
-
-                    </div>
-
-                </div>
-
-            </div>
+          </div>
 
 
 
-            <!-- INTERNATIONAL -->
+          <div class="faq-item">
 
-            <h3
-                class="faq-subtitle"
-                style="margin-top:55px;">
+            <button class="faq-question">
 
-                Pengiriman Internasional
+              <span>
+                WHAT SHOULD I DO IF MY ORDER STATUS DOESN'T CHANGE FOR A LONG TIME?
+              </span>
 
-            </h3>
+              <span class="faq-plus">
+                +
+              </span>
+
+            </button>
 
 
+            <div class="faq-answer">
 
-            <div class="faq-item">
+              <div class="faq-answer-inner">
 
-                <button class="faq-question">
+                Please contact SNS Fragrance customer
+                service with your order number so we
+                can help check the latest status.
 
-                    <span class="faq-question-text">
-
-                        APA PERBEDAAN PENGIRIMAN INTERNASIONAL
-                        DENGAN PENGIRIMAN LOKAL?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Pengiriman internasional dapat
-                        membutuhkan waktu lebih lama dan
-                        dapat melibatkan proses bea cukai
-                        serta ketentuan impor negara tujuan.
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        BAGAIMANA CARA MELAKUKAN PEMESANAN INTERNASIONAL?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Ketersediaan pemesanan internasional
-                        bergantung pada negara tujuan dan
-                        layanan pengiriman yang tersedia.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        NEGARA MANA SAJA YANG BISA DIJANGKAU
-                        OLEH PENGIRIMAN INTERNASIONAL SNS FRAGRANCE?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Ketersediaan negara tujuan dapat
-                        berbeda sesuai dengan layanan pengiriman
-                        dan ketentuan yang berlaku.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        EKSPEDISI APA YANG DIGUNAKAN UNTUK
-                        PENGIRIMAN INTERNASIONAL?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Jasa pengiriman internasional yang
-                        digunakan dapat berbeda sesuai
-                        dengan negara tujuan dan layanan
-                        yang tersedia.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        BERAPA LAMA WAKTU PENGIRIMAN INTERNASIONAL?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Lama pengiriman internasional bergantung
-                        pada negara tujuan, jasa pengiriman,
-                        serta proses bea cukai.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        APAKAH SEMUA PRODUK BISA DIKIRIM KE LUAR NEGERI?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Tidak selalu. Ketersediaan pengiriman
-                        dapat bergantung pada jenis produk,
-                        negara tujuan, serta peraturan yang
-                        berlaku.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        BISAKAH MENGETAHUI BIAYA PENGIRIMAN
-                        INTERNASIONAL SEBELUM MEMESAN?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Biaya pengiriman dapat dilihat berdasarkan
-                        tujuan dan metode pengiriman yang tersedia
-                        sebelum pesanan diselesaikan.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        BAGAIMANA CARA MELACAK PENGIRIMAN INTERNASIONAL?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Nomor pelacakan dapat digunakan untuk
-                        memantau perjalanan paket melalui sistem
-                        pelacakan jasa pengiriman.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <h3
-                class="faq-subtitle"
-                style="margin-top:55px;">
-
-                Lainnya
-
-            </h3>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        APA YANG HARUS SAYA LAKUKAN JIKA
-                        ALAMAT PENGIRIMAN SAYA SALAH?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Segera hubungi layanan pelanggan
-                        SNS Fragrance apabila terdapat
-                        kesalahan alamat agar dapat diperiksa
-                        sebelum pesanan dikirim.
-
-                    </div>
-
-                </div>
-
-            </div>
+          </div>
 
 
         </section>
 
 
 
-        <!-- =================================================
-             RETURNS
-        ================================================== -->
+        <!-- ======================================
+             SHIPPING & DELIVERY
+        ======================================= -->
 
-        <section
-            class="faq-section"
-            id="returns">
+        <section class="faq-section">
 
 
-            <h1 class="faq-section-title">
+          <h2 class="faq-section-title">
 
-                PENGEMBALIAN PRODUK & DANA
+            SHIPPING & DELIVERY
 
-            </h1>
+          </h2>
 
 
 
-            <h2 class="faq-subtitle">
+          <h3 class="faq-subtitle">
 
-                Produk Rusak
+            Shipping Operations
 
-            </h2>
+          </h3>
 
 
 
-            <div class="faq-item">
+          <div class="faq-item">
 
-                <button class="faq-question">
+            <button class="faq-question">
 
-                    <span class="faq-question-text">
+              <span>
+                HOW LONG DOES IT TAKE FOR MY ORDER TO BE PACKAGED?
+              </span>
 
-                        APA YANG HARUS DILAKUKAN JIKA
-                        PRODUK YANG DITERIMA RUSAK?
+              <span class="faq-plus">+</span>
 
-                    </span>
+            </button>
 
-                    <span class="plus">+</span>
 
-                </button>
+            <div class="faq-answer">
 
-                <div class="faq-answer">
+              <div class="faq-answer-inner">
 
-                    <div class="faq-answer-inner">
+                Orders are normally prepared for shipment
+                after payment has been successfully confirmed.
 
-                        Hubungi layanan pelanggan SNS Fragrance
-                        sesegera mungkin dan sertakan nomor
-                        pesanan serta foto atau video kondisi
-                        produk yang diterima.
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
+          </div>
 
 
-            <div class="faq-item">
 
-                <button class="faq-question">
+          <div class="faq-item">
 
-                    <span class="faq-question-text">
+            <button class="faq-question">
 
-                        APAKAH PERLU MENGEMBALIKAN PRODUK
-                        YANG RUSAK?
+              <span>
+                HOW LONG DOES IT TAKE FOR MY ORDER TO BE PROCESSED AND SHIPPED?
+              </span>
 
-                    </span>
+              <span class="faq-plus">+</span>
 
-                    <span class="plus">+</span>
+            </button>
 
-                </button>
 
-                <div class="faq-answer">
+            <div class="faq-answer">
 
-                    <div class="faq-answer-inner">
+              <div class="faq-answer-inner">
 
-                        Ketentuan pengembalian dapat berbeda
-                        tergantung kondisi produk. Hubungi
-                        customer service terlebih dahulu untuk
-                        mendapatkan instruksi.
+                Processing and shipping times depend on
+                order volume and the destination.
 
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
+          </div>
 
 
-            <div class="faq-item">
 
-                <button class="faq-question">
+          <div class="faq-item">
 
-                    <span class="faq-question-text">
+            <button class="faq-question">
 
-                        APAKAH AKAN DIKENAKAN BIAYA UNTUK
-                        PENGEMBALIAN PRODUK YANG RUSAK?
+              <span>
+                HOW DO I TRACK MY ORDER DELIVERY?
+              </span>
 
-                    </span>
+              <span class="faq-plus">+</span>
 
-                    <span class="plus">+</span>
+            </button>
 
-                </button>
 
-                <div class="faq-answer">
+            <div class="faq-answer">
 
-                    <div class="faq-answer-inner">
+              <div class="faq-answer-inner">
 
-                        Silakan hubungi customer service
-                        untuk mendapatkan informasi mengenai
-                        proses pengembalian produk rusak.
+                Once your order has been shipped, tracking
+                information will be provided when available.
 
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
+          </div>
 
 
-            <div class="faq-item">
 
-                <button class="faq-question">
+          <div class="faq-item">
 
-                    <span class="faq-question-text">
+            <button class="faq-question">
 
-                        BAGAIMANA JIKA TIDAK MEMILIKI BUKTI
-                        PRODUK RUSAK?
+              <span>
+                DOES PACKAGING SIZE AFFECT MY SHIPPING FEE?
+              </span>
 
-                    </span>
+              <span class="faq-plus">+</span>
 
-                    <span class="plus">+</span>
+            </button>
 
-                </button>
 
-                <div class="faq-answer">
+            <div class="faq-answer">
 
-                    <div class="faq-answer-inner">
+              <div class="faq-answer-inner">
 
-                        Hubungi customer service dan jelaskan
-                        kondisi produk serta berikan informasi
-                        pesanan yang tersedia.
+                Shipping fees may depend on the courier,
+                destination, package dimensions, and weight.
 
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        BERAPA LAMA PROSES PENGEMBALIAN PRODUK RUSAK?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Lama proses bergantung pada pemeriksaan
-                        produk dan proses penyelesaian pengembalian.
-
-                    </div>
-
-                </div>
-
-            </div>
+          </div>
 
 
 
-            <div class="faq-item">
+          <h3
+            class="faq-subtitle"
+            style="margin-top:55px;">
 
-                <button class="faq-question">
+            International Shipping
 
-                    <span class="faq-question-text">
+          </h3>
 
-                        APAKAH PRODUK RUSAK AKAN DIGANTI
-                        DENGAN PRODUK BARU?
 
-                    </span>
 
-                    <span class="plus">+</span>
+          <div class="faq-item">
 
-                </button>
+            <button class="faq-question">
 
-                <div class="faq-answer">
+              <span>
+                HOW IS INTERNATIONAL SHIPPING DIFFERENT FROM LOCAL SHIPPING?
+              </span>
 
-                    <div class="faq-answer-inner">
+              <span class="faq-plus">+</span>
 
-                        Penggantian produk dapat dilakukan
-                        sesuai hasil pemeriksaan dan ketersediaan
-                        produk.
+            </button>
 
-                    </div>
 
-                </div>
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                International orders may require additional
+                shipping time, customs processing, and
+                applicable import requirements.
+
+              </div>
 
             </div>
 
+          </div>
 
 
-            <div class="faq-item">
 
-                <button class="faq-question">
+          <div class="faq-item">
 
-                    <span class="faq-question-text">
+            <button class="faq-question">
 
-                        APA YANG HARUS DILAKUKAN JIKA MENERIMA
-                        PRODUK RUSAK SETELAH MASA PENGEMBALIAN BERAKHIR?
+              <span>
+                HOW DO I PLACE AN INTERNATIONAL ORDER?
+              </span>
 
-                    </span>
+              <span class="faq-plus">+</span>
 
-                    <span class="plus">+</span>
+            </button>
 
-                </button>
 
-                <div class="faq-answer">
+            <div class="faq-answer">
 
-                    <div class="faq-answer-inner">
+              <div class="faq-answer-inner">
 
-                        Silakan hubungi customer service untuk
-                        menjelaskan kondisi produk dan tanggal
-                        penerimaan pesanan.
+                International ordering availability depends
+                on the destination and current SNS Fragrance
+                shipping options.
 
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
-
-
-            <!-- PRODUK SALAH -->
-
-            <h2
-                class="faq-subtitle"
-                style="margin-top:55px;">
-
-                Produk Salah
-
-            </h2>
+          </div>
 
 
 
-            <div class="faq-item">
+          <div class="faq-item">
 
-                <button class="faq-question">
+            <button class="faq-question">
 
-                    <span class="faq-question-text">
+              <span>
+                WHICH COUNTRIES CAN SNS FRAGRANCE SHIP TO?
+              </span>
 
-                        APA YANG HARUS DILAKUKAN JIKA
-                        MENERIMA PRODUK YANG SALAH?
+              <span class="faq-plus">+</span>
 
-                    </span>
+            </button>
 
-                    <span class="plus">+</span>
 
-                </button>
+            <div class="faq-answer">
 
-                <div class="faq-answer">
+              <div class="faq-answer-inner">
 
-                    <div class="faq-answer-inner">
+                International destinations will depend on
+                available shipping services and applicable
+                regulations.
 
-                        Hubungi customer service dan sertakan
-                        nomor pesanan serta foto produk yang
-                        diterima.
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
+          </div>
 
 
-            <div class="faq-item">
 
-                <button class="faq-question">
+          <div class="faq-item">
 
-                    <span class="faq-question-text">
+            <button class="faq-question">
 
-                        APAKAH AKAN DIKENAKAN BIAYA UNTUK
-                        PENGEMBALIAN PRODUK YANG SALAH?
+              <span>
+                HOW LONG DOES INTERNATIONAL SHIPPING TAKE?
+              </span>
 
-                    </span>
+              <span class="faq-plus">+</span>
 
-                    <span class="plus">+</span>
+            </button>
 
-                </button>
 
-                <div class="faq-answer">
+            <div class="faq-answer">
 
-                    <div class="faq-answer-inner">
+              <div class="faq-answer-inner">
 
-                        Hubungi customer service terlebih dahulu
-                        sebelum melakukan pengembalian untuk
-                        mendapatkan instruksi.
+                International delivery time varies depending
+                on the destination and shipping method.
 
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        APAKAH PRODUK YANG SUDAH DIBUKA BISA
-                        DIKEMBALIKAN JIKA TERNYATA TIDAK SESUAI?
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Ketentuan pengembalian produk yang
-                        telah dibuka bergantung pada kondisi
-                        produk dan alasan pengembalian.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- TERMS -->
-
-            <h2
-                class="faq-subtitle"
-                style="margin-top:55px;">
-
-                Syarat & Ketentuan Pengembalian Produk
-
-            </h2>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        PENGEMBALIAN PRODUK RUSAK
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Pengembalian produk rusak harus
-                        mengikuti prosedur pemeriksaan dan
-                        ketentuan yang berlaku.
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        PENGEMBALIAN PRODUK SALAH
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Untuk produk yang salah, silakan
-                        hubungi customer service sebelum
-                        melakukan pengiriman kembali.
-
-                    </div>
-
-                </div>
-
-            </div>
+          </div>
 
 
         </section>
 
 
 
-        <!-- =================================================
+        <!-- ======================================
+             RETURNS AND REFUNDS
+        ======================================= -->
+
+        <section
+          class="faq-section"
+          id="returns">
+
+
+          <h2 class="faq-section-title">
+
+            RETURNS AND REFUNDS
+
+          </h2>
+
+
+
+          <h3 class="faq-subtitle">
+
+            Damage Items
+
+          </h3>
+
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                WHAT SHOULD I DO IF I RECEIVE DAMAGED ITEMS?
+              </span>
+
+              <span class="faq-plus">+</span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Please contact SNS Fragrance customer
+                service as soon as possible and provide
+                your order details together with photos
+                or videos showing the damage.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                DO I NEED TO RETURN THE ITEM IF IT'S DAMAGED?
+              </span>
+
+              <span class="faq-plus">+</span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Return requirements may depend on the
+                specific condition of the damaged product.
+                Please contact customer service first.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                WILL I BE CHARGED FOR RETURNING DAMAGED ITEMS?
+              </span>
+
+              <span class="faq-plus">+</span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Please contact customer service for
+                instructions regarding damaged-item returns.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                WILL DAMAGED ITEMS BE REPLACED WITH NEW ITEMS?
+              </span>
+
+              <span class="faq-plus">+</span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Replacement options depend on the condition
+                of the product and availability.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <h3
+            class="faq-subtitle"
+            style="margin-top:55px;">
+
+            Incorrect Item
+
+          </h3>
+
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                WHAT SHOULD I DO IF I RECEIVE AN INCORRECT ITEM?
+              </span>
+
+              <span class="faq-plus">+</span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Please contact customer service with your
+                order number and photos of the item received.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                WILL I BE CHARGED FOR RETURNING AN INCORRECT ITEM?
+              </span>
+
+              <span class="faq-plus">+</span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Please contact customer service before
+                returning an incorrect item so we can
+                provide the appropriate instructions.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </section>
+
+
+
+        <!-- ======================================
              ACCOUNT
-        ================================================== -->
+        ======================================= -->
 
         <section
-            class="faq-section"
-            id="account">
+          class="faq-section"
+          id="account">
 
 
-            <h1 class="faq-section-title">
+          <h2 class="faq-section-title">
 
-                AKUN
+            ACCOUNT
 
-            </h1>
-
-
-
-            <h2 class="faq-subtitle">
-
-                Lupa Kata Sandi
-
-            </h2>
+          </h2>
 
 
 
-            <div class="faq-item">
+          <h3 class="faq-subtitle">
 
-                <button class="faq-question">
+            Forgot Password
 
-                    <span class="faq-question-text">
+          </h3>
 
-                        APA YANG HARUS DILAKUKAN JIKA LUPA KATA SANDI?
 
-                    </span>
 
-                    <span class="plus">+</span>
+          <div class="faq-item">
 
-                </button>
+            <button class="faq-question">
 
-                <div class="faq-answer">
+              <span>
+                WHAT SHOULD I DO IF I FORGET MY ACCOUNT PASSWORD?
+              </span>
 
-                    <div class="faq-answer-inner">
+              <span class="faq-plus">+</span>
 
-                        Gunakan fitur "Lupa Kata Sandi"
-                        pada halaman login dan ikuti
-                        instruksi yang diberikan.
+            </button>
 
-                    </div>
 
-                </div>
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Select the forgot-password option on the
+                login page and follow the instructions
+                to reset your password.
+
+              </div>
 
             </div>
 
+          </div>
 
 
-            <div class="faq-item">
 
-                <button class="faq-question">
+          <div class="faq-item">
 
-                    <span class="faq-question-text">
+            <button class="faq-question">
 
-                        BAGAIMANA CARA MENGATUR ULANG KATA SANDI?
+              <span>
+                HOW DO I RESET MY PASSWORD?
+              </span>
 
-                    </span>
+              <span class="faq-plus">+</span>
 
-                    <span class="plus">+</span>
+            </button>
 
-                </button>
 
-                <div class="faq-answer">
+            <div class="faq-answer">
 
-                    <div class="faq-answer-inner">
+              <div class="faq-answer-inner">
 
-                        Masukkan alamat email yang terdaftar
-                        dan ikuti instruksi untuk membuat
-                        kata sandi baru.
+                Enter your registered email address and
+                follow the password reset instructions.
 
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
+          </div>
 
 
-            <div class="faq-item">
 
-                <button class="faq-question">
+          <div class="faq-item">
 
-                    <span class="faq-question-text">
+            <button class="faq-question">
 
-                        APAKAH KATA SANDI AKUN BISA DIUBAH?
+              <span>
+                CAN I CHANGE MY PASSWORD?
+              </span>
 
-                    </span>
+              <span class="faq-plus">+</span>
 
-                    <span class="plus">+</span>
+            </button>
 
-                </button>
 
-                <div class="faq-answer">
+            <div class="faq-answer">
 
-                    <div class="faq-answer-inner">
+              <div class="faq-answer-inner">
 
-                        Ya. Kata sandi dapat diubah melalui
-                        pengaturan akun.
+                Yes. You can change your password from
+                your account settings.
 
-                    </div>
-
-                </div>
+              </div>
 
             </div>
+
+          </div>
 
 
         </section>
 
 
 
-        <!-- =================================================
+        <!-- ======================================
              PRODUCTS
-        ================================================== -->
+        ======================================= -->
 
         <section
-            class="faq-section"
-            id="products">
+          class="faq-section"
+          id="products">
 
 
-            <h1 class="faq-section-title">
+          <h2 class="faq-section-title">
 
-                PRODUK
+            PRODUCTS
 
-            </h1>
-
-
-
-            <h2 class="faq-subtitle">
-
-                Informasi Produk & Ketentuan Keamanan
-
-            </h2>
+          </h2>
 
 
 
-            <div class="faq-item">
+          <h3 class="faq-subtitle">
 
-                <button class="faq-question">
+            Product Information & Safety Details
 
-                    <span class="faq-question-text">
+          </h3>
 
-                        CARA PENGGUNAAN
 
-                    </span>
 
-                    <span class="plus">+</span>
+          <div class="faq-item">
 
-                </button>
+            <button class="faq-question">
 
-                <div class="faq-answer">
+              <span>
+                HOW TO USE
+              </span>
 
-                    <div class="faq-answer-inner">
+              <span class="faq-plus">+</span>
 
-                        Semprotkan parfum pada area titik
-                        nadi seperti pergelangan tangan,
-                        leher, atau belakang telinga.
-                        Hindari menggosok parfum setelah
-                        diaplikasikan.
+            </button>
 
-                    </div>
 
-                </div>
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                Spray perfume onto pulse points such as
+                the wrists, neck, and behind the ears.
+                Avoid rubbing the fragrance into the skin.
+
+              </div>
 
             </div>
 
-
-
-            <div class="faq-item">
-
-                <button class="faq-question">
-
-                    <span class="faq-question-text">
-
-                        BPOM (BADAN PENGAWAS OBAT DAN MAKANAN – INDONESIA)
-
-                    </span>
-
-                    <span class="plus">+</span>
-
-                </button>
-
-                <div class="faq-answer">
-
-                    <div class="faq-answer-inner">
-
-                        Informasi registrasi BPOM mengikuti
-                        nomor registrasi yang berlaku pada
-                        masing-masing produk SNS Fragrance.
-
-                    </div>
-
-                </div>
-
-            </div>
+          </div>
 
 
 
-            <div class="faq-item">
+          <div class="faq-item">
 
-                <button class="faq-question">
+            <button class="faq-question">
 
-                    <span class="faq-question-text">
+              <span>
+                BPOM (NATIONAL AGENCY OF DRUG AND FOOD CONTROL – INDONESIA)
+              </span>
 
-                        HALAL
+              <span class="faq-plus">+</span>
 
-                    </span>
+            </button>
 
-                    <span class="plus">+</span>
 
-                </button>
+            <div class="faq-answer">
 
-                <div class="faq-answer">
+              <div class="faq-answer-inner">
 
-                    <div class="faq-answer-inner">
+                Product registration information should be
+                provided according to the applicable BPOM
+                registration for each SNS Fragrance product.
 
-                        Informasi sertifikasi halal dapat
-                        dilihat berdasarkan keterangan
-                        pada masing-masing produk.
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
+          </div>
 
 
-            <div class="faq-item">
 
-                <button class="faq-question">
+          <div class="faq-item">
 
-                    <span class="faq-question-text">
+            <button class="faq-question">
 
-                        REAKSI ALERGI PADA KULIT
+              <span>
+                HALAL
+              </span>
 
-                    </span>
+              <span class="faq-plus">+</span>
 
-                    <span class="plus">+</span>
+            </button>
 
-                </button>
 
-                <div class="faq-answer">
+            <div class="faq-answer">
 
-                    <div class="faq-answer-inner">
+              <div class="faq-answer-inner">
 
-                        Apabila terjadi iritasi atau reaksi
-                        alergi, hentikan penggunaan. Untuk
-                        kulit sensitif, disarankan melakukan
-                        patch test terlebih dahulu.
+                Please refer to the individual product
+                information for applicable halal
+                certification details.
 
-                    </div>
-
-                </div>
+              </div>
 
             </div>
+
+          </div>
+
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                ALLERGY REACTION TO THE SKIN
+              </span>
+
+              <span class="faq-plus">+</span>
+
+            </button>
+
+
+            <div class="faq-answer">
+
+              <div class="faq-answer-inner">
+
+                If irritation or an allergic reaction occurs,
+                discontinue use. For sensitive skin, perform
+                a patch test before applying the product
+                more broadly.
+
+              </div>
+
+            </div>
+
+          </div>
 
 
         </section>
 
 
-    </main>
+      </main>
 
-</div>
+    </div>
+
+  </div>
 
 
 
-<!-- =====================================================
-     FLOATING REVIEWS
-====================================================== -->
+  <!-- ==================================================
+       FLOATING REVIEWS
+  =================================================== -->
 
-<div class="reviews">
+  <div class="reviews-button">
 
     <span class="reviews-star">★</span>
 
     <span>Reviews</span>
 
-</div>
+  </div>
 
 
 
-<!-- =====================================================
-     FLOATING REWARDS
-====================================================== -->
+  <!-- ==================================================
+       FLOATING REWARDS
+  =================================================== -->
 
-<div class="rewards">
+  <div class="rewards-button">
 
-    <span class="reward-icon">🎁</span>
+    <span class="rewards-icon">🎁</span>
 
     <span>Rewards</span>
 
-</div>
+  </div>
 
 
 
-<!-- =====================================================
-     CHAT
-====================================================== -->
+  <!-- ==================================================
+       FLOATING CHAT
+  =================================================== -->
 
-<div class="chat">
+  <div class="chat-button">
 
     <svg viewBox="0 0 24 24">
 
-        <path
-            d="M5 5.5h14a2 2 0 0 1 2 2v8
-            a2 2 0 0 1-2 2H11l-4.5 3v-3H5
-            a2 2 0 0 1-2-2v-8
-            a2 2 0 0 1 2-2z">
-        </path>
+      <path
+        d="M5 5.5h14a2 2 0 0 1 2 2v8
+        a2 2 0 0 1-2 2H11l-4.5 3v-3H5
+        a2 2 0 0 1-2-2v-8
+        a2 2 0 0 1 2-2z">
+      </path>
 
-        <path d="M8 11.5h.01"></path>
+      <path
+        d="M8 11.5h.01">
+      </path>
 
-        <path d="M12 11.5h.01"></path>
+      <path
+        d="M12 11.5h.01">
+      </path>
 
-        <path d="M16 11.5h.01"></path>
+      <path
+        d="M16 11.5h.01">
+      </path>
 
     </svg>
 
-</div>
+  </div>
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-====================================================== -->
+  <!-- ==================================================
+       JAVASCRIPT
+  =================================================== -->
 
-<script>
-
-
-/* ========================================================
-   ACCORDION
-======================================================== */
-
-const questions =
-    document.querySelectorAll(".faq-question");
+  <script>
 
 
-questions.forEach(question => {
+    /* ================================================
+       FAQ ACCORDION
+    ================================================= */
 
-    question.addEventListener("click", function() {
-
-        const currentItem =
-            this.closest(".faq-item");
-
-
-        /*
-         * Close other questions.
-         * If you want multiple questions open at once,
-         * remove this section.
-         */
-
-        document
-            .querySelectorAll(".faq-item.open")
-            .forEach(item => {
-
-                if (item !== currentItem) {
-
-                    item.classList.remove("open");
-
-                }
-
-            });
+    const faqQuestions =
+      document.querySelectorAll(".faq-question");
 
 
-        currentItem.classList.toggle("open");
+    faqQuestions.forEach(question => {
+
+      question.addEventListener("click", () => {
+
+        const item =
+          question.closest(".faq-item");
+
+
+        item.classList.toggle("open");
+
+      });
 
     });
 
-});
 
 
+    /* ================================================
+       LANGUAGE SWITCHER
+    ================================================= */
 
-/* ========================================================
-   SIDEBAR ACTIVE STATE
-======================================================== */
-
-const sidebarLinks =
-    document.querySelectorAll(".faq-sidebar a");
-
-
-const sections = [
-    document.getElementById("order"),
-    document.getElementById("returns"),
-    document.getElementById("account"),
-    document.getElementById("products")
-];
+    const languageButtons =
+      document.querySelectorAll(".language-btn");
 
 
-window.addEventListener("scroll", function() {
-
-    let currentSection = "order";
-
-
-    sections.forEach(section => {
-
-        if (!section) return;
+    const languageContents =
+      document.querySelectorAll(".language-content");
 
 
-        const sectionTop =
-            section.getBoundingClientRect().top;
+    languageButtons.forEach(button => {
+
+      button.addEventListener("click", () => {
+
+        const selectedLanguage =
+          button.dataset.language;
 
 
-        if (sectionTop <= 180) {
+        languageButtons.forEach(btn => {
 
-            currentSection =
-                section.id;
+          btn.classList.remove("active");
+
+        });
+
+
+        button.classList.add("active");
+
+
+        languageContents.forEach(content => {
+
+          content.classList.remove("active");
+
+        });
+
+
+        const selectedContent =
+          document.getElementById(selectedLanguage);
+
+
+        if (selectedContent) {
+
+          selectedContent.classList.add("active");
 
         }
 
+      });
+
     });
 
 
+
+    /* ================================================
+       SIDEBAR ACTIVE CATEGORY
+    ================================================= */
+
+    const sidebarLinks =
+      document.querySelectorAll(".faq-sidebar a");
+
+
     sidebarLinks.forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        sidebarLinks.forEach(item => {
+
+          item.classList.remove("active");
+
+        });
+
+
+        link.classList.add("active");
+
+      });
+
+    });
+
+
+
+    /* ================================================
+       UPDATE ACTIVE SIDEBAR WHILE SCROLLING
+    ================================================= */
+
+    const faqSections =
+      document.querySelectorAll(".faq-section");
+
+
+    window.addEventListener("scroll", () => {
+
+      let current = "";
+
+
+      faqSections.forEach(section => {
+
+        const sectionTop =
+          section.offsetTop - 180;
+
+
+        if (window.scrollY >= sectionTop) {
+
+          if (section.id) {
+
+            current = section.id;
+
+          }
+
+        }
+
+      });
+
+
+      sidebarLinks.forEach(link => {
 
         link.classList.remove("active");
 
 
         if (
-            link.getAttribute("href")
-            === "#" + currentSection
+          current &&
+          link.getAttribute("href") === "#" + current
         ) {
 
-            link.classList.add("active");
+          link.classList.add("active");
 
         }
 
+      });
+
     });
 
-});
 
-
-</script>
+  </script>
 
 
 </body>
+
 </html>
