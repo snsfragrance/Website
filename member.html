@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>Rewards — SNS Fragrance</title>
+
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --navy: #071c4a;
+  --text: #071c4a;
+  --gray: #61708d;
+  --light: #f5f6f8;
+  --border: #d9dee8;
+  --gold: #c89b3c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: #f4f5f7;
+
+  color: var(--text);
+
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+}
+
+
+/* =====================================================
+   MAIN APP
+===================================================== */
+
+.rewards-app {
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  background: #f5f6f8;
+
+  position: relative;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 0 30px
+    rgba(0,0,0,0.08);
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.rewards-header {
+
+  height: 145px;
+
+  background: #000;
+
+  color: #fff;
+
+  padding:
+    54px
+    16px
+    20px;
+
+  position: relative;
+
+  border-radius:
+    0 0 16px 16px;
+}
+
+.rewards-header-top {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+}
+
+.welcome {
+
+  font-size: 15px;
+
+  line-height: 1.25;
+
+  color: #fff;
+}
+
+.brand-name {
+
+  display: block;
+
+  font-size: 21px;
+
+  font-weight: 700;
+
+  margin-top: 1px;
+}
+
+.header-actions {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.header-button {
+
+  border: none;
+
+  background: transparent;
+
+  color: #fff;
+
+  cursor: pointer;
+
+  width: 25px;
+
+  height: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.close-icon {
+
+  font-size: 24px;
+
+  font-weight: 300;
+
+  line-height: 1;
+}
+
+.help-icon {
+
+  width: 17px;
+
+  height: 17px;
+
+  border:
+    1.5px solid #fff;
+
+  border-radius: 50%;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.rewards-content {
+
+  padding:
+    0
+    15px
+    30px;
+}
+
+
+/* =====================================================
+   JOIN CARD
+===================================================== */
+
+.join-card {
+
+  background: #fff;
+
+  margin-top: -15px;
+
+  border-radius: 11px;
+
+  padding:
+    16px
+    14px
+    17px;
+
+  text-align: center;
+
+  box-shadow:
+    0 3px 12px
+    rgba(0,0,0,0.08);
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.join-title {
+
+  font-size: 17px;
+
+  line-height: 1.3;
+
+  font-weight: 600;
+
+  color: var(--navy);
+
+  max-width: 320px;
+
+  margin: 0 auto 14px;
+}
+
+.join-button {
+
+  width: 120px;
+
+  height: 44px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #000;
+
+  color: #fff;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    transform .2s ease,
+    opacity .2s ease;
+}
+
+.join-button:hover {
+
+  transform:
+    translateY(-1px);
+
+  opacity: .85;
+}
+
+.login-text {
+
+  margin-top: 13px;
+
+  font-size: 13px;
+
+  color: #61708d;
+}
+
+.login-text a {
+
+  color: #111;
+
+  text-decoration: none;
+}
+
+
+/* =====================================================
+   GENERAL CARD
+===================================================== */
+
+.reward-card {
+
+  background: #fff;
+
+  border-radius: 11px;
+
+  margin-top: 12px;
+
+  padding:
+    17px 16px;
+
+  box-shadow:
+    0 3px 12px
+    rgba(0,0,0,0.06);
+}
+
+
+/* =====================================================
+   CARD TITLE
+===================================================== */
+
+.card-title {
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: var(--navy);
+
+  margin-bottom: 13px;
+}
+
+
+/* =====================================================
+   POINTS ROW
+===================================================== */
+
+.points-row {
+
+  width: 100%;
+
+  min-height: 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--navy);
+
+  text-align: left;
+
+  padding: 0;
+}
+
+.points-row + .points-row {
+
+  border-top:
+    1px solid #e5e7eb;
+
+  margin-top: 8px;
+
+  padding-top: 13px;
+}
+
+.row-icon {
+
+  width: 17px;
+
+  height: 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #000;
+
+  flex-shrink: 0;
+}
+
+.row-icon svg {
+
+  width: 17px;
+
+  height: 17px;
+
+  fill: none;
+
+  stroke: #000;
+
+  stroke-width: 1.5;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+.row-text {
+
+  font-size: 14px;
+
+  flex: 1;
+}
+
+.arrow {
+
+  font-size: 23px;
+
+  line-height: 1;
+
+  color: #000;
+
+  font-weight: 300;
+}
+
+
+/* =====================================================
+   VIP SUMMARY
+===================================================== */
+
+.vip-summary {
+
+  cursor: pointer;
+
+  border: none;
+
+  background: transparent;
+
+  width: 100%;
+
+  text-align: left;
+
+  color: var(--navy);
+
+  padding: 0;
+}
+
+.vip-summary-top {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.vip-summary-title {
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.vip-arrow {
+
+  font-size: 22px;
+
+  transition:
+    transform .25s ease;
+}
+
+.vip-summary.open .vip-arrow {
+
+  transform:
+    rotate(90deg);
+}
+
+.current-tier {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 20px;
+
+  font-weight: 500;
+
+  margin-bottom: 9px;
+}
+
+.trophy {
+
+  font-size: 22px;
+}
+
+.progress-track {
+
+  width: 100%;
+
+  height: 4px;
+
+  border-radius: 10px;
+
+  background: #e7e9ed;
+
+  overflow: hidden;
+
+  margin-bottom: 9px;
+}
+
+.progress-fill {
+
+  width: 0%;
+
+  height: 100%;
+
+  background: #071c4a;
+
+  border-radius: 10px;
+}
+
+.progress-text {
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  font-size: 12px;
+
+  color: #61708d;
+}
+
+.progress-text strong {
+
+  color: #071c4a;
+}
+
+
+/* =====================================================
+   REFERRAL
+===================================================== */
+
+.referral-card {
+
+  padding:
+    17px 16px;
+
+  min-height: 90px;
+}
+
+.referral-title {
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  margin-bottom: 17px;
+}
+
+.referral-actions {
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.referral-signup {
+
+  border: none;
+
+  background: transparent;
+
+  color: #071c4a;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+.referral-login {
+
+  border: none;
+
+  background: #000;
+
+  color: #fff;
+
+  border-radius: 7px;
+
+  padding:
+    9px 14px;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   SUB PAGE
+===================================================== */
+
+.sub-page {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  max-width: 430px;
+
+  margin: 0 auto;
+
+  background: #f5f6f8;
+
+  transform:
+    translateX(100%);
+
+  transition:
+    transform .3s ease;
+
+  overflow-y: auto;
+}
+
+.sub-page.active {
+
+  transform:
+    translateX(0);
+}
+
+
+/* =====================================================
+   SUB PAGE HEADER
+===================================================== */
+
+.sub-header {
+
+  height: 53px;
+
+  background: #000;
+
+  color: #fff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    0 15px;
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 5;
+}
+
+.sub-header-left {
+
+  display: flex;
+
+  align-items: center;
+}
+
+.back-button {
+
+  border: none;
+
+  background: transparent;
+
+  color: #fff;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  padding: 0;
+
+  width: 28px;
+}
+
+.sub-close {
+
+  border: none;
+
+  background: transparent;
+
+  color: #fff;
+
+  font-size: 24px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   SPEND / EARN TABS
+===================================================== */
+
+.tabs {
+
+  height: 48px;
+
+  background: #fff;
+
+  display: flex;
+
+  border-bottom:
+    1px solid #d9dee8;
+}
+
+.tab {
+
+  flex: 1;
+
+  border: none;
+
+  background: #fff;
+
+  color: #61708d;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  position: relative;
+}
+
+.tab.active {
+
+  color: #071c4a;
+}
+
+.tab.active::after {
+
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 2px;
+
+  background: #071c4a;
+}
+
+
+/* =====================================================
+   SPEND CARDS
+===================================================== */
+
+.spend-content {
+
+  padding:
+    15px 12px;
+}
+
+.spend-card {
+
+  background: #fff;
+
+  border-radius: 15px;
+
+  border:
+    1px solid transparent;
+
+  padding:
+    17px 13px;
+
+  margin-bottom: 13px;
+
+  box-shadow:
+    0 3px 12px
+    rgba(0,0,0,0.06);
+}
+
+.spend-card.primary {
+
+  border-color:
+    #aeb9ce;
+}
+
+.spend-card-row {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+}
+
+.spend-icon {
+
+  width: 45px;
+
+  height: 45px;
+
+  border:
+    1px solid #e1e4ea;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.tag-icon {
+
+  width: 20px;
+
+  height: 20px;
+
+  fill: #000;
+}
+
+.spend-info {
+
+  flex: 1;
+}
+
+.spend-name {
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #071c4a;
+
+  margin-top: 1px;
+
+  margin-bottom: 4px;
+}
+
+.spend-description {
+
+  font-size: 13px;
+
+  line-height: 1.35;
+
+  color: #61708d;
+}
+
+.spend-login {
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 13px;
+}
+
+.spend-login a {
+
+  color: #61708d;
+
+  font-size: 13px;
+}
+
+.spend-login button {
+
+  background: #000;
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 7px;
+
+  padding:
+    9px 13px;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   VIP PAGE
+===================================================== */
+
+.vip-page-content {
+
+  padding:
+    0 0 35px;
+}
+
+.vip-page-title {
+
+  height: 42px;
+
+  background: #fff;
+
+  padding:
+    0 15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #071c4a;
+}
+
+.vip-page-chevron {
+
+  font-size: 20px;
+
+  transform:
+    rotate(0deg);
+
+  transition:
+    transform .2s ease;
+}
+
+.vip-page-title.open
+.vip-page-chevron {
+
+  transform:
+    rotate(180deg);
+}
+
+
+/* =====================================================
+   TIER SELECTOR
+===================================================== */
+
+.tier-selector {
+
+  background: #eef0f4;
+
+  padding:
+    9px 14px
+    10px;
+
+  display: flex;
+
+  gap: 12px;
+}
+
+.tier-option {
+
+  width: 65px;
+
+  flex-shrink: 0;
+
+  cursor: pointer;
+}
+
+.tier-box {
+
+  width: 64px;
+
+  height: 64px;
+
+  border:
+    1px solid #cbd2df;
+
+  border-radius: 6px;
+
+  background: #f4f5f7;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 25px;
+
+  color: #000;
+
+  transition:
+    border .2s ease;
+}
+
+.tier-option.active
+.tier-box {
+
+  border-color: #071c4a;
+
+  background: #f7f8fa;
+}
+
+.tier-name {
+
+  font-size: 10px;
+
+  line-height: 1.15;
+
+  color: #071c4a;
+
+  margin-top: 6px;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   TIER DETAIL
+===================================================== */
+
+.tier-detail {
+
+  background: #fff;
+
+  padding:
+    11px 18px
+    18px;
+}
+
+.tier-detail-progress {
+
+  height: 4px;
+
+  background: #eceef1;
+
+  border-radius: 10px;
+
+  margin-bottom: 12px;
+}
+
+.tier-detail-progress-fill {
+
+  width: 0%;
+
+  height: 100%;
+
+  background: #071c4a;
+
+  border-radius: 10px;
+}
+
+.tier-points {
+
+  text-align: right;
+
+  font-size: 12px;
+
+  color: #61708d;
+
+  margin-bottom: 3px;
+}
+
+.tier-points strong {
+
+  color: #071c4a;
+}
+
+.tier-detail-name {
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #071c4a;
+
+  margin-bottom: 10px;
+}
+
+.benefits-title {
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  color: #111;
+
+  margin-bottom: 3px;
+}
+
+.benefits-text {
+
+  font-size: 12px;
+
+  color: #61708d;
+}
+
+
+/* =====================================================
+   HIDDEN
+===================================================== */
+
+.hidden {
+  display: none;
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 700px) {
+
+  body {
+    padding: 20px 0;
+  }
+
+  .rewards-app {
+    min-height: calc(100vh - 40px);
+
+    border-radius: 16px;
+  }
+
+  .rewards-header {
+    border-radius:
+      16px 16px 0 0;
+  }
+
+  .sub-page {
+    border-radius: 16px;
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .rewards-header {
+    height: 135px;
+
+    padding:
+      45px
+      14px
+      18px;
+  }
+
+  .rewards-content {
+    padding:
+      0 12px
+      25px;
+  }
+
+  .join-title {
+    font-size: 15px;
+  }
+
+  .current-tier {
+    font-size: 18px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="rewards-app">
+
+
+  <!-- =================================================
+       MAIN REWARDS PAGE
+  ================================================== -->
+
+  <header class="rewards-header">
+
+    <div class="rewards-header-top">
+
+      <div class="welcome">
+
+        Welcome to
+
+        <span class="brand-name">
+          SNS Fragrance.
+        </span>
+
+      </div>
+
+
+      <div class="header-actions">
+
+        <button
+          class="header-button help-icon"
+          onclick="showHelp()"
+          aria-label="Help"
+        >
+          ?
+        </button>
+
+        <button
+          class="header-button close-icon"
+          onclick="closeRewards()"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <main class="rewards-content">
+
+
+    <!-- =================================================
+         JOIN
+    ================================================== -->
+
+    <section class="join-card">
+
+      <h1 class="join-title">
+
+        Join the loyalty program
+        to enjoy exclusive rewards
+
+      </h1>
+
+      <button
+        class="join-button"
+        onclick="joinProgram()"
+      >
+        Join now
+      </button>
+
+      <div class="login-text">
+
+        Already a member?
+
+        <a href="#">
+          Log in
+        </a>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         POINTS PROGRAM
+    ================================================== -->
+
+    <section class="reward-card">
+
+      <h2 class="card-title">
+        Points program
+      </h2>
+
+
+      <button
+        class="points-row"
+        onclick="openSpendPage()"
+      >
+
+        <span class="row-icon">
+
+          <svg viewBox="0 0 24 24">
+
+            <ellipse
+              cx="9"
+              cy="7"
+              rx="5"
+              ry="2.5"
+            ></ellipse>
+
+            <path
+              d="M4 7v4c0 1.4 2.2 2.5 5 2.5"
+            ></path>
+
+            <path
+              d="M4 11v4c0 1.4 2.2 2.5 5 2.5"
+            ></path>
+
+            <path
+              d="M14 9v4"
+            ></path>
+
+            <path
+              d="M14 13h6"
+            ></path>
+
+            <path
+              d="M17 10v6"
+            ></path>
+
+          </svg>
+
+        </span>
+
+        <span class="row-text">
+          How to earn points
+        </span>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </button>
+
+
+      <button
+        class="points-row"
+        onclick="openSpendPage()"
+      >
+
+        <span class="row-icon">
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M20 13l-7 7-9-9V5h6l10 8z"
+            ></path>
+
+            <circle
+              cx="7"
+              cy="8"
+              r="1"
+            ></circle>
+
+          </svg>
+
+        </span>
+
+        <span class="row-text">
+          How to spend points
+        </span>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </button>
+
+    </section>
+
+
+
+    <!-- =================================================
+         VIP SUMMARY
+    ================================================== -->
+
+    <section class="reward-card">
+
+      <button
+        class="vip-summary"
+        onclick="openVipPage()"
+      >
+
+        <div class="vip-summary-top">
+
+          <span class="vip-summary-title">
+            VIP tiers
+          </span>
+
+          <span class="vip-arrow">
+            ›
+          </span>
+
+        </div>
+
+
+        <div class="current-tier">
+
+          <span class="trophy">
+            🏆
+          </span>
+
+          SNS-Discoverer
+
+        </div>
+
+
+        <div class="progress-track">
+
+          <div class="progress-fill"></div>
+
+        </div>
+
+
+        <div class="progress-text">
+
+          Rp 0/Rp 0 to
+
+          <strong>
+            SNS-Discoverer
+          </strong>
+
+        </div>
+
+      </button>
+
+    </section>
+
+
+
+    <!-- =================================================
+         REFERRAL
+    ================================================== -->
+
+    <section class="reward-card referral-card">
+
+      <div class="referral-title">
+        Referral program
+      </div>
+
+      <div class="referral-actions">
+
+        <button
+          class="referral-signup"
+          onclick="joinProgram()"
+        >
+          Sign up
+        </button>
+
+        <button
+          class="referral-login"
+          onclick="login()"
+        >
+          Log in
+        </button>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =================================================
+       SPEND PAGE
+  ================================================== -->
+
+  <section
+    class="sub-page"
+    id="spendPage"
+  >
+
+    <header class="sub-header">
+
+      <button
+        class="back-button"
+        onclick="closeSubPage()"
+      >
+        ←
+      </button>
+
+      <button
+        class="sub-close"
+        onclick="closeRewards()"
+      >
+        ×
+      </button>
+
+    </header>
+
+
+    <div class="tabs">
+
+      <button
+        class="tab active"
+        id="spendTab"
+        onclick="switchTab('spend')"
+      >
+        Spend
+      </button>
+
+      <button
+        class="tab"
+        id="earnTab"
+        onclick="switchTab('earn')"
+      >
+        Earn
+      </button>
+
+    </div>
+
+
+    <!-- SPEND -->
+
+    <div
+      class="spend-content"
+      id="spendContent"
+    >
+
+      <article class="spend-card primary">
+
+        <div class="spend-card-row">
+
+          <div class="spend-icon">
+
+            <svg
+              class="tag-icon"
+              viewBox="0 0 24 24"
+            >
+
+              <path
+                d="M20 13L13 20 4 11V4h7l9 9z"
+              ></path>
+
+              <circle
+                cx="8"
+                cy="8"
+                r="1.2"
+                fill="white"
+              ></circle>
+
+            </svg>
+
+          </div>
+
+
+          <div class="spend-info">
+
+            <div class="spend-name">
+              1 Rp = 1 Points
+            </div>
+
+            <div class="spend-description">
+              Spend 1 point for every Rp 1 discount
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="spend-login">
+
+          <a href="#">
+            Sign up
+          </a>
+
+          <button onclick="login()">
+            Log in
+          </button>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="spend-card">
+
+        <div class="spend-card-row">
+
+          <div class="spend-icon">
+
+            <svg
+              class="tag-icon"
+              viewBox="0 0 24 24"
+            >
+
+              <path
+                d="M20 13L13 20 4 11V4h7l9 9z"
+              ></path>
+
+              <circle
+                cx="8"
+                cy="8"
+                r="1.2"
+                fill="white"
+              ></circle>
+
+            </svg>
+
+          </div>
+
+
+          <div class="spend-info">
+
+            <div class="spend-name">
+              Cash discount
+            </div>
+
+            <div class="spend-description">
+              Spend 50,000 points for
+              Rp 50,000 discount
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- EARN -->
+
+    <div
+      class="spend-content hidden"
+      id="earnContent"
+    >
+
+      <article class="spend-card primary">
+
+        <div class="spend-card-row">
+
+          <div class="spend-icon">
+
+            <span style="font-size:21px;">
+              ♡
+            </span>
+
+          </div>
+
+
+          <div class="spend-info">
+
+            <div class="spend-name">
+              Make a purchase
+            </div>
+
+            <div class="spend-description">
+              Earn points when you shop
+              SNS Fragrance products.
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <article class="spend-card">
+
+        <div class="spend-card-row">
+
+          <div class="spend-icon">
+
+            <span style="font-size:21px;">
+              ↗
+            </span>
+
+          </div>
+
+
+          <div class="spend-info">
+
+            <div class="spend-name">
+              Refer a friend
+            </div>
+
+            <div class="spend-description">
+              Invite your friends and
+              earn additional points.
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <article class="spend-card">
+
+        <div class="spend-card-row">
+
+          <div class="spend-icon">
+
+            <span style="font-size:21px;">
+              ★
+            </span>
+
+          </div>
+
+
+          <div class="spend-info">
+
+            <div class="spend-name">
+              Leave a review
+            </div>
+
+            <div class="spend-description">
+              Share your experience and
+              earn rewards.
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =================================================
+       VIP PAGE
+  ================================================== -->
+
+  <section
+    class="sub-page"
+    id="vipPage"
+  >
+
+    <header class="sub-header">
+
+      <button
+        class="back-button"
+        onclick="closeSubPage()"
+      >
+        ←
+      </button>
+
+      <button
+        class="sub-close"
+        onclick="closeRewards()"
+      >
+        ×
+      </button>
+
+    </header>
+
+
+    <div class="vip-page-content">
+
+
+      <button
+        class="vip-page-title open"
+        onclick="toggleVipSelector()"
+      >
+
+        <span>
+          VIP tiers
+        </span>
+
+        <span class="vip-page-chevron">
+          ⌄
+        </span>
+
+      </button>
+
+
+      <!-- TIER SELECTOR -->
+
+      <div
+        class="tier-selector"
+        id="tierSelector"
+      >
+
+        <button
+          class="tier-option active"
+          onclick="selectTier('discoverer', this)"
+        >
+
+          <div class="tier-box">
+            ★
+          </div>
+
+          <div class="tier-name">
+            SNS-<br>
+            Discoverer
+          </div>
+
+        </button>
+
+
+        <button
+          class="tier-option"
+          onclick="selectTier('admirer', this)"
+        >
+
+          <div class="tier-box">
+            ★★
+          </div>
+
+          <div class="tier-name">
+            SNS-<br>
+            Admirer
+          </div>
+
+        </button>
+
+
+        <button
+          class="tier-option"
+          onclick="selectTier('lover', this)"
+        >
+
+          <div class="tier-box">
+            ★★★
+          </div>
+
+          <div class="tier-name">
+            SNS-<br>
+            Lover
+          </div>
+
+        </button>
+
+      </div>
+
+
+      <!-- TIER DETAIL -->
+
+      <div class="tier-detail">
+
+        <div class="tier-detail-progress">
+
+          <div
+            class="tier-detail-progress-fill"
+            id="tierProgress"
+          ></div>
+
+        </div>
+
+
+        <div class="tier-points">
+
+          <span id="tierPoints">
+            Rp 0/Rp 0
+          </span>
+
+          to
+
+          <strong id="tierTarget">
+            SNS-Discoverer
+          </strong>
+
+        </div>
+
+
+        <div
+          class="tier-detail-name"
+          id="tierName"
+        >
+          SNS-Discoverer
+        </div>
+
+
+        <div class="benefits-title">
+          Benefits
+        </div>
+
+        <div
+          class="benefits-text"
+          id="tierBenefits"
+        >
+          Points multiplier: 2x
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   CLOSE REWARDS
+===================================================== */
+
+function closeRewards() {
+
+  /*
+    If rewards is being used as a standalone page,
+    return to previous page.
+  */
+
+  if (window.history.length > 1) {
+
+    history.back();
+
+  } else {
+
+    window.location.href =
+      "index.html";
+
+  }
+
+}
+
+
+/* =====================================================
+   HELP
+===================================================== */
+
+function showHelp() {
+
+  alert(
+    "SNS Fragrance Rewards\n\n" +
+    "Join the loyalty program to earn " +
+    "points, unlock VIP tiers and receive " +
+    "exclusive rewards."
+  );
+
+}
+
+
+/* =====================================================
+   JOIN
+===================================================== */
+
+function joinProgram() {
+
+  alert(
+    "Welcome to SNS Fragrance Rewards!\n\n" +
+    "The registration process will be connected " +
+    "to your customer account."
+  );
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function login() {
+
+  alert(
+    "The SNS Fragrance login page will open here."
+  );
+
+}
+
+
+/* =====================================================
+   OPEN SPEND PAGE
+===================================================== */
+
+function openSpendPage() {
+
+  document
+    .getElementById("spendPage")
+    .classList
+    .add("active");
+
+}
+
+
+/* =====================================================
+   OPEN VIP PAGE
+===================================================== */
+
+function openVipPage() {
+
+  document
+    .getElementById("vipPage")
+    .classList
+    .add("active");
+
+}
+
+
+/* =====================================================
+   CLOSE SUB PAGE
+===================================================== */
+
+function closeSubPage() {
+
+  document
+    .querySelectorAll(".sub-page")
+    .forEach(function(page) {
+
+      page.classList.remove("active");
+
+    });
+
+}
+
+
+/* =====================================================
+   TABS
+===================================================== */
+
+function switchTab(tab) {
+
+  const spend =
+    document.getElementById(
+      "spendContent"
+    );
+
+  const earn =
+    document.getElementById(
+      "earnContent"
+    );
+
+  const spendTab =
+    document.getElementById(
+      "spendTab"
+    );
+
+  const earnTab =
+    document.getElementById(
+      "earnTab"
+    );
+
+
+  if (tab === "spend") {
+
+    spend.classList.remove("hidden");
+
+    earn.classList.add("hidden");
+
+    spendTab.classList.add("active");
+
+    earnTab.classList.remove("active");
+
+  } else {
+
+    spend.classList.add("hidden");
+
+    earn.classList.remove("hidden");
+
+    spendTab.classList.remove("active");
+
+    earnTab.classList.add("active");
+
+  }
+
+}
+
+
+/* =====================================================
+   VIP SELECTOR
+===================================================== */
+
+function toggleVipSelector() {
+
+  const selector =
+    document.getElementById(
+      "tierSelector"
+    );
+
+  const title =
+    document.querySelector(
+      ".vip-page-title"
+    );
+
+
+  if (
+    selector.style.display ===
+    "none"
+  ) {
+
+    selector.style.display =
+      "flex";
+
+    title.classList.add("open");
+
+  } else {
+
+    selector.style.display =
+      "flex";
+
+    title.classList.add("open");
+
+  }
+
+}
+
+
+/* =====================================================
+   SELECT TIER
+===================================================== */
+
+function selectTier(
+  tier,
+  element
+) {
+
+  document
+    .querySelectorAll(".tier-option")
+    .forEach(function(option) {
+
+      option.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  element.classList.add("active");
+
+
+  const tierName =
+    document.getElementById(
+      "tierName"
+    );
+
+  const tierTarget =
+    document.getElementById(
+      "tierTarget"
+    );
+
+  const tierPoints =
+    document.getElementById(
+      "tierPoints"
+    );
+
+  const benefits =
+    document.getElementById(
+      "tierBenefits"
+    );
+
+  const progress =
+    document.getElementById(
+      "tierProgress"
+    );
+
+
+  if (
+    tier === "discoverer"
+  ) {
+
+    tierName.textContent =
+      "SNS-Discoverer";
+
+    tierTarget.textContent =
+      "SNS-Discoverer";
+
+    tierPoints.textContent =
+      "Rp 0/Rp 0";
+
+    benefits.textContent =
+      "Points multiplier: 2x";
+
+    progress.style.width =
+      "0%";
+
+  }
+
+
+  if (
+    tier === "admirer"
+  ) {
+
+    tierName.textContent =
+      "SNS-Admirer";
+
+    tierTarget.textContent =
+      "SNS-Admirer";
+
+    tierPoints.textContent =
+      "Rp 0/Rp 5,000,000";
+
+    benefits.textContent =
+      "Points multiplier: 3x";
+
+    progress.style.width =
+      "0%";
+
+  }
+
+
+  if (
+    tier === "lover"
+  ) {
+
+    tierName.textContent =
+      "SNS-Lover";
+
+    tierTarget.textContent =
+      "SNS-Lover";
+
+    tierPoints.textContent =
+      "Rp 0/Rp 10,000,000";
+
+    benefits.textContent =
+      "Points multiplier: 4x";
+
+    progress.style.width =
+      "0%";
+  }
+}
+
+</script>
+</body>
+</html>
