@@ -123,23 +123,22 @@
 }
 
 .header-icon {
-  width: 26px;
-  height: 26px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: #111;
 
-  padding: 0;
-  margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  border: none;
-  outline: none;
-  background: transparent;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-  text-decoration: none;
-  color: #111;
+    text-decoration: none;
+  }
 }
 
 .header-icon svg {
@@ -907,15 +906,28 @@
 </a>
 
   <!-- SHOPPING CART -->
-  <button class="header-icon" aria-label="Shopping Cart">
-    <svg viewBox="0 0 24 24">
-      <path d="M3 4h2l2.1 11.2h10.8L20 7H6"></path>
-      <path d="M9 19.5h.01"></path>
-      <path d="M17 19.5h.01"></path>
-      <path d="M7.1 15.2h10.8"></path>
+ <a
+    href="cart.html"
+    class="header-icon"
+    aria-label="Cart">
+    <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.7">
+        <path
+            d="M5 8h14l-1 12H6L5 8Z">
+        </path>
+        <path
+            d="M9 8V6a3 3 0 0 1 6 0v2">
+        </path>
     </svg>
-  </button>
-
+    <span
+        class="cart-number"
+        id="headerCartCount">
+        0
+    </span>
+</a>
 </div>
     </div>
 
