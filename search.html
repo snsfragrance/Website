@@ -1,750 +1,900 @@
-<script>
-
-/* =====================================================
-   SNS FRAGRANCE — GLOBAL SEARCH
-===================================================== */
-
-
-/*
-  Pages that contain SNS products.
-
-  Add another page here whenever you create
-  another marketplace product page.
-*/
-
-const PRODUCT_PAGES = [
-  "index.html",
-  "bestsellers.html",
-  "edp.html",
-  "newarrivals.html"
-];
-
-
-/* =====================================================
-   ELEMENTS
-===================================================== */
-
-const searchOverlay =
-  document.getElementById("searchOverlay");
-
-const searchBackdrop =
-  document.getElementById("searchBackdrop");
-
-const searchInput =
-  document.getElementById("searchInput");
-
-const searchClose =
-  document.getElementById("searchClose");
-
-const searchClear =
-  document.getElementById("searchClear");
-
-const searchResults =
-  document.getElementById("searchResults");
-
-const suggestionList =
-  document.getElementById("suggestionList");
-
-const searchProductGrid =
-  document.getElementById("searchProductGrid");
-
-
-/* =====================================================
-   PRODUCT DATABASE
-===================================================== */
-
-let allSearchProducts = [];
-
-
-/* =====================================================
-   READ PRODUCTS FROM YOUR EXISTING PAGES
-===================================================== */
-
-async function loadSearchProducts() {
-
-  const products = [];
-
-  const currentPage =
-    window.location.pathname
-      .split("/")
-      .pop() || "index.html";
-
-
-  for (
-    const page of PRODUCT_PAGES
-  ) {
-
-    try {
-
-      /*
-        Don't fetch the current page again.
-        We already have its HTML.
-      */
-
-      let documentToRead;
-
-
-      if (page === currentPage) {
-
-        documentToRead =
-          document;
-
-      } else {
-
-        const response =
-          await fetch(page);
-
-
-        if (!response.ok) {
-          continue;
-        }
-
-
-        const html =
-          await response.text();
-
-
-        const parser =
-          new DOMParser();
-
-
-        documentToRead =
-          parser.parseFromString(
-            html,
-            "text/html"
-          );
-
-      }
-
-
-      const productCards =
-        documentToRead.querySelectorAll(
-          ".product-card"
-        );
-
-
-      productCards.forEach(
-        card => {
-
-          const nameElement =
-            card.querySelector(
-              ".product-name"
-            );
-
-
-          const categoryElement =
-            card.querySelector(
-              ".product-category"
-            );
-
-
-          const priceElement =
-            card.querySelector(
-              ".product-price"
-            );
-
-
-          const imageElement =
-            card.querySelector(
-              ".product-image img"
-            );
-
-
-          if (!nameElement) {
-            return;
-          }
-
-
-          const name =
-            nameElement
-              .textContent
-              .trim();
-
-
-          const category =
-            categoryElement
-              ? categoryElement.textContent.trim()
-              : "";
-
-
-          const price =
-            priceElement
-              ? priceElement.textContent.trim()
-              : "";
-
-
-          const image =
-            imageElement
-              ? imageElement.getAttribute("src")
-              : "";
-
-
-          /*
-            Avoid duplicate products
-            appearing if the same product
-            exists on multiple pages.
-          */
-
-          const alreadyExists =
-            products.some(
-              product =>
-                product.name.toLowerCase()
-                === name.toLowerCase()
-            );
-
-
-          if (
-            !alreadyExists
-          ) {
-
-            products.push({
-
-              name,
-
-              category,
-
-              price,
-
-              image,
-
-              page
-
-            });
-
-          }
-
-        }
-      );
-
-
-    } catch (error) {
-
-      console.warn(
-        "Could not load:",
-        page,
-        error
-      );
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Search — SNS Fragrance</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-  }
-
-
-  allSearchProducts =
-    products;
-
-}
-
-
-/* =====================================================
-   OPEN SEARCH
-===================================================== */
-
-async function openSearch() {
-
-  searchOverlay
-    .classList
-    .add("active");
-
-  searchBackdrop
-    .classList
-    .add("active");
-
-
-  document.body.style.overflow =
-    "hidden";
-
-
-  /*
-    Load products when search opens.
-  */
-
-  await loadSearchProducts();
-
-
-  setTimeout(() => {
-
-    searchInput.focus();
-
-  }, 150);
-
-}
-
-
-/* =====================================================
-   CLOSE SEARCH
-===================================================== */
-
-function closeSearch() {
-
-  searchOverlay
-    .classList
-    .remove("active");
-
-  searchBackdrop
-    .classList
-    .remove("active");
-
-
-  document.body.style.overflow =
-    "";
-
-
-  searchInput.value = "";
-
-
-  searchResults
-    .classList
-    .remove("active");
-
-
-  searchClear
-    .classList
-    .remove("visible");
-
-
-  suggestionList.innerHTML = "";
-
-  searchProductGrid.innerHTML = "";
-
-}
-
-
-/* =====================================================
-   CONNECT SEARCH ICON
-===================================================== */
-
-document
-  .querySelectorAll(
-    ".header-icon"
-  )
-  .forEach(icon => {
-
-    const label =
-      icon.getAttribute(
-        "aria-label"
-      );
-
-
-    if (
-      label &&
-      label.toLowerCase()
-        .includes("search")
-    ) {
-
-      icon.addEventListener(
-        "click",
-        openSearch
-      );
-
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
     }
 
-  });
+    /* =====================================================
+       HOMEPAGE BEHIND SEARCH
+    ===================================================== */
 
+    .page-background {
+      position: fixed;
+      inset: 0;
 
-/* =====================================================
-   CLOSE
-===================================================== */
+      width: 100%;
+      height: 100%;
 
-searchClose.addEventListener(
-  "click",
-  closeSearch
-);
+      border: 0;
 
+      z-index: 1;
 
-searchBackdrop.addEventListener(
-  "click",
-  closeSearch
-);
-
-
-/* =====================================================
-   ESC
-===================================================== */
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    if (
-      event.key === "Escape" &&
-      searchOverlay
-        .classList
-        .contains("active")
-    ) {
-
-      closeSearch();
-
+      background: #fff;
     }
-
-  }
-);
-
-
-/* =====================================================
-   CLEAR
-===================================================== */
-
-searchClear.addEventListener(
-  "click",
-  () => {
-
-    searchInput.value = "";
-
-    searchResults
-      .classList
-      .remove("active");
-
-    searchClear
-      .classList
-      .remove("visible");
-
-    suggestionList.innerHTML = "";
-
-    searchProductGrid.innerHTML = "";
-
-    searchInput.focus();
-
-  }
-);
-
-
-/* =====================================================
-   SEARCH INPUT
-===================================================== */
-
-searchInput.addEventListener(
-  "input",
-  event => {
-
-    const query =
-      event.target.value
-        .trim()
-        .toLowerCase();
-
 
     /*
-      Nothing typed yet.
-      Keep the panel clean like
-      your first reference image.
+      Darkens the homepage exactly like the reference.
+      The search panel itself stays completely white.
     */
 
-    if (!query) {
+    .page-dim {
+      position: fixed;
+      inset: 0;
 
-      searchResults
-        .classList
-        .remove("active");
+      background: rgba(0, 0, 0, 0.38);
 
-      searchClear
-        .classList
-        .remove("visible");
+      z-index: 2;
 
-      return;
+      pointer-events: none;
+    }
+
+
+    /* =====================================================
+       SEARCH PANEL
+    ===================================================== */
+
+    .search-panel {
+      position: fixed;
+
+      top: 39px;
+      left: 0;
+      right: 0;
+
+      height: 124px;
+
+      background: #fff;
+
+      z-index: 10;
+
+      border-bottom: 1px solid #e5e5e5;
+
+      display: flex;
+      align-items: center;
+    }
+
+
+    .search-inner {
+      width: 100%;
+
+      padding: 0 158px;
+
+      display: flex;
+      align-items: center;
+    }
+
+
+    /* =====================================================
+       SEARCH FIELD
+    ===================================================== */
+
+    .search-form {
+      flex: 1;
+
+      display: flex;
+      align-items: center;
+
+      min-width: 0;
+    }
+
+
+    .search-icon {
+      width: 20px;
+      height: 20px;
+
+      flex: 0 0 20px;
+
+      margin-right: 21px;
+
+      fill: none;
+
+      stroke: #d7d7d7;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+    }
+
+
+    .search-input {
+      width: 100%;
+
+      height: 55px;
+
+      border: none;
+      outline: none;
+
+      background: transparent;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      font-size: 14px;
+
+      font-weight: 400;
+
+      color: #111;
+
+      letter-spacing: 0.1px;
+    }
+
+
+    .search-input::placeholder {
+      color: #111;
+
+      opacity: 1;
+    }
+
+
+    /* =====================================================
+       CLOSE BUTTON
+    ===================================================== */
+
+    .search-close {
+      width: 30px;
+      height: 30px;
+
+      margin-left: 35px;
+
+      border: none;
+
+      background: transparent;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 0;
+    }
+
+
+    .search-close svg {
+      width: 21px;
+      height: 21px;
+
+      fill: none;
+
+      stroke: #111;
+
+      stroke-width: 1.7;
+
+      stroke-linecap: round;
+    }
+
+
+    .search-close:hover svg {
+      transform: scale(1.06);
+    }
+
+
+    /* =====================================================
+       SEARCH RESULTS
+    ===================================================== */
+
+    .search-results {
+      position: fixed;
+
+      top: 163px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      z-index: 11;
+
+      display: none;
+
+      background: #fff;
+
+      overflow-y: auto;
+    }
+
+
+    .search-results.active {
+      display: block;
+    }
+
+
+    .results-inner {
+      max-width: 1200px;
+
+      margin: 0 auto;
+
+      padding: 45px 50px 70px;
+    }
+
+
+    .results-heading {
+      font-size: 12px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      color: #777;
+
+      margin-bottom: 25px;
+    }
+
+
+    .results-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 25px;
+    }
+
+
+    .result-card {
+      text-decoration: none;
+
+      color: #111;
+
+      display: block;
+    }
+
+
+    .result-image {
+      width: 100%;
+      height: 290px;
+
+      background: #f7f5f0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+    }
+
+
+    .result-image img {
+      width: 82%;
+      height: 90%;
+
+      object-fit: contain;
+    }
+
+
+    .result-info {
+      padding-top: 14px;
+    }
+
+
+    .result-category {
+      font-size: 10px;
+
+      letter-spacing: 1.5px;
+
+      text-transform: uppercase;
+
+      color: #777;
+    }
+
+
+    .result-name {
+      margin-top: 6px;
+
+      font-family: Georgia, serif;
+
+      font-size: 20px;
+    }
+
+
+    .result-price {
+      margin-top: 7px;
+
+      font-size: 13px;
+
+      font-weight: 600;
+    }
+
+
+    .no-results {
+      padding: 90px 20px;
+
+      text-align: center;
+
+      font-size: 14px;
+
+      color: #555;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .search-inner {
+        padding: 0 50px;
+      }
+
+      .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
     }
 
 
-    searchResults
-      .classList
-      .add("active");
+    @media (max-width: 600px) {
+
+      .search-panel {
+        height: 105px;
+      }
+
+      .search-inner {
+        padding: 0 20px;
+      }
+
+      .search-icon {
+        margin-right: 14px;
+      }
+
+      .search-close {
+        margin-left: 15px;
+      }
+
+      .search-input {
+        font-size: 14px;
+      }
+
+      .search-results {
+        top: 144px;
+      }
+
+      .results-inner {
+        padding: 30px 20px 50px;
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+
+      .result-image {
+        height: 210px;
+      }
+
+    }
+  </style>
+</head>
 
 
-    searchClear
-      .classList
-      .add("visible");
+<body>
+
+  <!-- =====================================================
+       HOMEPAGE BEHIND SEARCH
+  ===================================================== -->
+
+  <iframe
+    class="page-background"
+    src="index.html"
+    title="SNS Fragrance Homepage">
+  </iframe>
 
 
-    performSearch(query);
+  <!-- DARK OVERLAY -->
 
-  }
-);
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-function performSearch(query) {
-
-  const words =
-    query
-      .split(/\s+/)
-      .filter(Boolean);
+  <div class="page-dim"></div>
 
 
-  const matches =
-    allSearchProducts.filter(
-      product => {
+  <!-- =====================================================
+       SEARCH PANEL
+  ===================================================== -->
 
-        const searchableText = (
+  <section class="search-panel">
 
-          product.name +
-          " " +
-          product.category
+    <div class="search-inner">
 
-        ).toLowerCase();
+      <form
+        class="search-form"
+        id="searchForm"
+        autocomplete="off">
+
+        <!-- MAGNIFYING GLASS -->
+
+        <svg
+          class="search-icon"
+          viewBox="0 0 24 24"
+          aria-hidden="true">
+
+          <circle
+            cx="10.5"
+            cy="10.5"
+            r="6.2">
+          </circle>
+
+          <path
+            d="M15.2 15.2L20 20">
+          </path>
+
+        </svg>
 
 
-        /*
-          Every typed word must exist
-          somewhere in the product data.
-        */
+        <!-- SEARCH INPUT -->
 
-        return words.every(
-          word =>
-            searchableText
-              .includes(word)
-        );
+        <input
+          id="searchInput"
+          class="search-input"
+          type="search"
+          placeholder="SOTB 2.0"
+          aria-label="Search products"
+        >
+
+      </form>
+
+
+      <!-- CLOSE -->
+
+      <button
+        class="search-close"
+        id="searchClose"
+        type="button"
+        aria-label="Close Search">
+
+        <svg viewBox="0 0 24 24">
+
+          <path d="M5 5L19 19"></path>
+
+          <path d="M19 5L5 19"></path>
+
+        </svg>
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       SEARCH RESULTS
+  ===================================================== -->
+
+  <section
+    class="search-results"
+    id="searchResults">
+
+    <div class="results-inner">
+
+      <div
+        class="results-heading"
+        id="resultsHeading">
+        Search Results
+      </div>
+
+      <div
+        class="results-grid"
+        id="resultsGrid">
+      </div>
+
+      <div
+        class="no-results"
+        id="noResults"
+        style="display:none;">
+        No products found.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script>
+
+    /* =====================================================
+       PRODUCT DATABASE
+       ===================================================== */
+
+    /*
+      Add your actual product images here later.
+
+      The search system will search:
+      - product name
+      - category
+      - keywords
+    */
+
+    const products = [
+
+      {
+        name: "Tranquility",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "tranquility fresh fruity raspberry peach apple"
+      },
+
+      {
+        name: "Cocoa Amore",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "cocoa amore chocolate sweet gourmand"
+      },
+
+      {
+        name: "Forte",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "forte powerful elegant"
+      },
+
+      {
+        name: "Intense",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "intense strong bold"
+      },
+
+      {
+        name: "Memories",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "memories soft emotional elegant"
+      },
+
+      {
+        name: "Seduction",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "seduction sensual elegant"
+      },
+
+      {
+        name: "Summer",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "summer fresh citrus clean"
+      },
+
+      {
+        name: "Charnelle",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "charnelle warm sensual"
+      },
+
+      {
+        name: "Noelis",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "noelis floral elegant"
+      },
+
+      {
+        name: "Saintvel",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "saintvel elegant sophisticated"
+      },
+
+      {
+        name: "Trice",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "trice clean modern"
+      },
+
+      {
+        name: "Rapha",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "rapha woody elegant unisex"
+      },
+
+      {
+        name: "Ophir",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "ophir gold lemon lavender pineapple vanilla amber woods"
+      },
+
+      {
+        name: "Kirche",
+        category: "Extrait de Parfum",
+        price: 299000,
+        keywords: "kirche biblical deep elegant"
+      }
+
+    ];
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const searchForm =
+      document.getElementById("searchForm");
+
+    const searchClose =
+      document.getElementById("searchClose");
+
+    const searchResults =
+      document.getElementById("searchResults");
+
+    const resultsGrid =
+      document.getElementById("resultsGrid");
+
+    const resultsHeading =
+      document.getElementById("resultsHeading");
+
+    const noResults =
+      document.getElementById("noResults");
+
+
+    /* =====================================================
+       FORMAT PRICE
+    ===================================================== */
+
+    function formatRupiah(number) {
+
+      return new Intl.NumberFormat(
+        "id-ID",
+        {
+          style: "currency",
+          currency: "IDR",
+          maximumFractionDigits: 0
+        }
+      ).format(number);
+
+    }
+
+
+    /* =====================================================
+       SHOW SEARCH RESULTS
+    ===================================================== */
+
+    function showResults(query) {
+
+      const cleanQuery =
+        query.trim().toLowerCase();
+
+
+      /*
+        If the field is empty,
+        return to the reference-style
+        search overlay.
+      */
+
+      if (!cleanQuery) {
+
+        searchResults.classList.remove("active");
+
+        return;
+
+      }
+
+
+      const results =
+        products.filter(product => {
+
+          const searchableText =
+            (
+              product.name +
+              " " +
+              product.category +
+              " " +
+              product.keywords
+            ).toLowerCase();
+
+          return searchableText.includes(cleanQuery);
+
+        });
+
+
+      searchResults.classList.add("active");
+
+
+      resultsHeading.textContent =
+        `Search results for "${query}"`;
+
+
+      if (results.length === 0) {
+
+        resultsGrid.innerHTML = "";
+
+        noResults.style.display = "block";
+
+        return;
+
+      }
+
+
+      noResults.style.display = "none";
+
+
+      resultsGrid.innerHTML =
+        results.map(product => {
+
+          return `
+
+            <a
+              class="result-card"
+              href="#"
+              onclick="return false;">
+
+              <div class="result-image">
+
+                <span
+                  style="
+                    font-family:Georgia,serif;
+                    font-size:13px;
+                    color:#777;
+                    text-align:center;
+                  ">
+                  SNS<br>FRAGRANCE
+                </span>
+
+              </div>
+
+              <div class="result-info">
+
+                <div class="result-category">
+                  ${product.category}
+                </div>
+
+                <div class="result-name">
+                  ${product.name}
+                </div>
+
+                <div class="result-price">
+                  ${formatRupiah(product.price)}
+                </div>
+
+              </div>
+
+            </a>
+
+          `;
+
+        }).join("");
+
+    }
+
+
+    /* =====================================================
+       LIVE SEARCH
+    ===================================================== */
+
+    searchInput.addEventListener(
+      "input",
+      function() {
+
+        showResults(this.value);
 
       }
     );
 
 
-  renderSuggestions(
-    query
-  );
+    /* =====================================================
+       FORM
+    ===================================================== */
 
+    searchForm.addEventListener(
+      "submit",
+      function(event) {
 
-  renderProducts(
-    matches
-  );
+        event.preventDefault();
 
-}
+        showResults(searchInput.value);
 
-
-/* =====================================================
-   SUGGESTIONS
-===================================================== */
-
-function renderSuggestions(
-  query
-) {
-
-  const suggestions = [
-
-    query,
-
-    `parfum ${query}`,
-
-    `extrait de parfum ${query}`
-
-  ];
-
-
-  suggestionList.innerHTML = "";
-
-
-  suggestions.forEach(
-    suggestion => {
-
-      const button =
-        document.createElement(
-          "button"
-        );
-
-
-      button.type =
-        "button";
-
-
-      button.className =
-        "suggestion-item";
-
-
-      button.textContent =
-        suggestion;
-
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          searchInput.value =
-            suggestion;
-
-          performSearch(
-            suggestion.toLowerCase()
-          );
-
-        }
-      );
-
-
-      suggestionList.appendChild(
-        button
-      );
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   RENDER PRODUCTS
-===================================================== */
-
-function renderProducts(
-  products
-) {
-
-  searchProductGrid.innerHTML =
-    "";
-
-
-  if (
-    products.length === 0
-  ) {
-
-    searchProductGrid.innerHTML = `
-
-      <div class="search-no-results">
-
-        No products found for
-        "<strong>
-          ${escapeHTML(
-            searchInput.value
-          )}
-        </strong>"
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  products.forEach(
-    product => {
-
-      const card =
-        document.createElement(
-          "a"
-        );
-
-
-      card.className =
-        "search-product-card";
-
-
-      /*
-        Clicking the search result
-        takes the customer to the
-        page where that product
-        currently exists.
-      */
-
-      card.href =
-        product.page;
-
-
-      card.innerHTML = `
-
-        <div class="search-product-image">
-
-          <img
-            src="${escapeAttribute(
-              product.image
-            )}"
-            alt="${escapeAttribute(
-              product.name
-            )}"
-            loading="lazy">
-
-        </div>
-
-
-        <div class="search-product-info">
-
-          <div class="search-product-category">
-
-            ${escapeHTML(
-              product.category
-            )}
-
-          </div>
-
-
-          <div class="search-product-name">
-
-            ${escapeHTML(
-              product.name
-            )}
-
-          </div>
-
-
-          <div class="search-product-price">
-
-            ${escapeHTML(
-              product.price
-            )}
-
-          </div>
-
-        </div>
-
-      `;
-
-
-      searchProductGrid
-        .appendChild(card);
-
-    }
-  );
-
-}
-
-
-/* =====================================================
-   SECURITY HELPERS
-===================================================== */
-
-function escapeHTML(
-  value
-) {
-
-  const div =
-    document.createElement(
-      "div"
+      }
     );
 
 
-  div.textContent =
-    value || "";
+    /* =====================================================
+       CLOSE SEARCH
+    ===================================================== */
+
+    searchClose.addEventListener(
+      "click",
+      function() {
+
+        /*
+          Return to the page the visitor
+          came from.
+        */
+
+        if (window.history.length > 1) {
+
+          window.history.back();
+
+        } else {
+
+          window.location.href = "index.html";
+
+        }
+
+      }
+    );
 
 
-  return div.innerHTML;
+    /* =====================================================
+       ESC KEY
+    ===================================================== */
 
-}
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          if (searchResults.classList.contains("active")) {
+
+            searchResults.classList.remove("active");
+
+            searchInput.focus();
+
+          } else {
+
+            if (window.history.length > 1) {
+
+              window.history.back();
+
+            } else {
+
+              window.location.href = "index.html";
+
+            }
+
+          }
+
+        }
+
+      }
+    );
 
 
-function escapeAttribute(
-  value
-) {
+    /* =====================================================
+       AUTO FOCUS
+    ===================================================== */
 
-  return String(
-    value || ""
-  )
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-  .replace(
-    /</g,
-    "&lt;"
-  )
-  .replace(
-    />/g,
-    "&gt;"
-  );
+    window.addEventListener(
+      "load",
+      function() {
 
-}
+        searchInput.focus();
 
-</script>
+      }
+    );
+
+  </script>
+
+</body>
+</html>
