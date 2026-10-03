@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>SNS Fragrance — Extrait de Parfum</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+  background: #fff;
+}
+
+
+/* =====================================================
+   RUNNING ANNOUNCEMENT BAR
+===================================================== */
+
+.announcement {
+
+  height: 38px;
+
+  background: #000;
+
+  color: #fff;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.announcement-track {
+
+  display: flex;
+
+  align-items: center;
+
+  width: max-content;
+
+  animation:
+    marquee 30s linear infinite;
+}
+
+.announcement-track span {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-right: 120px;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  letter-spacing: .4px;
+}
+
+@keyframes marquee {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+  background: #fff;
+}
+
+.header-main {
+
+  height: 85px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  position: relative;
+}
+
+
+/* LOGO */
+
+.logo {
+
+  font-size: 40px;
+
+  font-weight: 600;
+
+  letter-spacing: -2px;
+}
+
+.logo span {
+
+  font-weight: 300;
+}
+
+
+/* =====================================================
+   HEADER ICONS
+===================================================== */
+
+.header-icons {
+
+  position: absolute;
+
+  right: 38px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+.header-icon {
+
+  width: 26px;
+
+  height: 26px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.header-icon svg {
+
+  width: 25px;
+
+  height: 25px;
+
+  fill: none;
+
+  stroke: #111;
+
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+  transition: .2s ease;
+}
+
+.wishlist-icon svg {
+
+  stroke: #ed174d;
+
+  stroke-width: 1.8;
+}
+
+.header-icon:hover svg {
+
+  transform: scale(1.08);
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.navigation {
+
+  height: 57px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 36px;
+
+  border-bottom: 1px solid #ededed;
+
+  padding: 0 25px;
+}
+
+.navigation a {
+
+  position: relative;
+
+  color: #111;
+
+  text-decoration: none;
+
+  font-size: 15px;
+
+  white-space: nowrap;
+
+  padding: 20px 0;
+}
+
+.navigation a:hover {
+
+  color: #8b6736;
+}
+
+
+/* ACTIVE NAV */
+
+.navigation a.active {
+
+  font-weight: 500;
+}
+
+.navigation a.active::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  bottom: 8px;
+
+  height: 2px;
+
+  background: #111;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.extrait-hero {
+
+  width: 100%;
+
+  height: 465px;
+
+  display: grid;
+
+  grid-template-columns: 65% 35%;
+
+  overflow: hidden;
+}
+
+
+/* HERO IMAGE */
+
+.extrait-hero-image {
+
+  position: relative;
+
+  background-image:
+    url("images/hero-extrait.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  min-width: 0;
+}
+
+
+/*
+If you don't have the hero image yet,
+you can temporarily use:
+
+background-image:
+url("YOUR_HERO_IMAGE");
+*/
+
+
+/* DARK GRADIENT */
+
+.extrait-hero-image::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.35),
+      transparent 65%
+    );
+}
+
+
+/* HERO TEXT */
+
+.hero-copy {
+
+  position: absolute;
+
+  z-index: 2;
+
+  left: 12%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #fff;
+}
+
+.hero-small {
+
+  display: inline-block;
+
+  padding: 7px 25px;
+
+  background: rgba(255,255,255,.14);
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 18px;
+}
+
+.hero-copy h1 {
+
+  font-size: 53px;
+
+  font-weight: 400;
+
+  letter-spacing: 5px;
+
+  margin-bottom: 20px;
+}
+
+.hero-copy p {
+
+  font-size: 16px;
+
+  letter-spacing: 1px;
+}
+
+
+/* RIGHT HERO */
+
+.extrait-hero-title {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background: #fff;
+}
+
+.extrait-hero-title h2 {
+
+  font-size: 31px;
+
+  font-weight: 600;
+
+  letter-spacing: -.5px;
+}
+
+
+/* =====================================================
+   FILTER BAR
+===================================================== */
+
+.filter-bar {
+
+  height: 68px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 30px;
+
+  border-bottom: 1px solid #eee;
+
+  border-top: 1px solid #eee;
+}
+
+.filter-button {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+.filter-button svg {
+
+  width: 16px;
+
+  height: 16px;
+
+  fill: none;
+
+  stroke: #111;
+
+  stroke-width: 1.5;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+
+/* =====================================================
+   FILTER PANEL
+===================================================== */
+
+.filter-panel {
+
+  display: none;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap: 40px;
+
+  padding: 30px;
+
+  background: #fafafa;
+
+  border-bottom: 1px solid #eee;
+}
+
+.filter-panel.active {
+
+  display: grid;
+}
+
+.filter-group h4 {
+
+  font-size: 12px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 15px;
+}
+
+.filter-group label {
+
+  display: block;
+
+  font-size: 13px;
+
+  color: #555;
+
+  margin-bottom: 10px;
+
+  cursor: pointer;
+}
+
+.filter-group input {
+
+  margin-right: 8px;
+}
+
+
+/* =====================================================
+   PRODUCT GRID
+===================================================== */
+
+.product-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  border-left: 1px solid #eee;
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+
+.product-card {
+
+  border-right: 1px solid #eee;
+
+  border-bottom: 1px solid #eee;
+
+  background: #fff;
+
+  min-width: 0;
+}
+
+
+/* PRODUCT IMAGE */
+
+.product-image {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 475px;
+
+  background: #faf9f7;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.product-image img {
+
+  width: 82%;
+
+  height: 82%;
+
+  object-fit: contain;
+
+  transition: transform .45s ease;
+}
+
+.product-card:hover
+.product-image img {
+
+  transform: scale(1.04);
+}
+
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+.badge {
+
+  position: absolute;
+
+  top: 10px;
+
+  z-index: 5;
+
+  padding: 7px 15px;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+
+  letter-spacing: .5px;
+}
+
+.new-arrival {
+
+  left: 0;
+
+  background: #eeeeee;
+}
+
+.best-seller {
+
+  left: 0;
+
+  background: #eeeeee;
+}
+
+.sale {
+
+  right: 52px;
+
+  background: #efd8c7;
+}
+
+
+/* =====================================================
+   PRODUCT WISHLIST
+===================================================== */
+
+.product-wishlist {
+
+  position: absolute;
+
+  top: 8px;
+
+  right: 10px;
+
+  z-index: 10;
+
+  width: 38px;
+
+  height: 38px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 3px 12px rgba(0,0,0,.06);
+}
+
+.product-wishlist svg {
+
+  width: 20px;
+
+  height: 20px;
+
+  fill: none;
+
+  stroke: #ed174d;
+
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+
+/* =====================================================
+   PRODUCT INFO
+===================================================== */
+
+.product-info {
+
+  padding: 17px 15px 25px;
+
+  text-align: center;
+}
+
+.product-name {
+
+  font-size: 15px;
+
+  font-weight: 400;
+
+  margin-bottom: 9px;
+}
+
+.product-price {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  font-size: 14px;
+}
+
+.current-price {
+
+  font-weight: 600;
+}
+
+.old-price {
+
+  color: #777;
+
+  text-decoration: line-through;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   REVIEWS
+===================================================== */
+
+.reviews {
+
+  padding: 30px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  border-bottom: 1px solid #eee;
+}
+
+
+/* =====================================================
+   REWARDS
+===================================================== */
+
+.rewards {
+
+  position: fixed;
+
+  left: 18px;
+
+  bottom: 18px;
+
+  z-index: 100;
+
+  height: 62px;
+
+  padding: 0 25px;
+
+  background: #000;
+
+  color: #fff;
+
+  border-radius: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.2);
+}
+
+
+/* =====================================================
+   CHAT
+===================================================== */
+
+.chat {
+
+  position: fixed;
+
+  right: 18px;
+
+  bottom: 18px;
+
+  z-index: 100;
+
+  width: 62px;
+
+  height: 62px;
+
+  background: #000;
+
+  color: #fff;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.2);
+}
+
+.chat svg {
+
+  width: 24px;
+
+  height: 24px;
+
+  fill: none;
+
+  stroke: #fff;
+
+  stroke-width: 1.5;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+  .navigation {
+
+    gap: 22px;
+  }
+
+  .product-grid {
+
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .header-main {
+
+    height: 75px;
+  }
+
+  .logo {
+
+    font-size: 32px;
+  }
+
+  .header-icons {
+
+    right: 18px;
+
+    gap: 15px;
+  }
+
+  .navigation {
+
+    overflow-x: auto;
+
+    justify-content: flex-start;
+  }
+
+  .extrait-hero {
+
+    grid-template-columns: 1fr;
+
+    height: 600px;
+  }
+
+  .extrait-hero-image {
+
+    height: 430px;
+  }
+
+  .extrait-hero-title {
+
+    height: 170px;
+  }
+
+  .product-grid {
+
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .product-image {
+
+    height: 380px;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .header-main {
+
+    justify-content: space-between;
+
+    padding: 0 18px;
+  }
+
+  .logo {
+
+    font-size: 28px;
+  }
+
+  .header-icons {
+
+    position: static;
+
+    gap: 12px;
+  }
+
+  .extrait-hero {
+
+    height: 600px;
+  }
+
+  .hero-copy {
+
+    left: 8%;
+  }
+
+  .hero-copy h1 {
+
+    font-size: 38px;
+  }
+
+  .product-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+  .product-image {
+
+    height: 420px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ANNOUNCEMENT BAR
+===================================================== -->
+
+<div class="announcement">
+
+  <div class="announcement-track">
+
+    <span>
+      THE ART OF SCENT
+    </span>
+
+    <span>
+      A SYMPHONY FOR THE SENSES
+    </span>
+
+    <span>
+      DISCOVER SNS FRAGRANCE
+    </span>
+
+
+    <span>
+      THE ART OF SCENT
+    </span>
+
+    <span>
+      A SYMPHONY FOR THE SENSES
+    </span>
+
+    <span>
+      DISCOVER SNS FRAGRANCE
+    </span>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+
+<div class="header-main">
+
+
+  <!-- LOGO -->
+
+  <div class="logo">
+
+    SNS <span>Fragrance</span>
+
+  </div>
+
+
+
+  <!-- ICONS -->
+
+  <div class="header-icons">
+
+
+    <!-- ACCOUNT -->
+
+    <button class="header-icon">
+
+      <svg viewBox="0 0 24 24">
+
+        <circle
+          cx="12"
+          cy="7"
+          r="3.2">
+        </circle>
+
+        <path
+          d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+
+    <!-- WISHLIST -->
+
+    <button class="header-icon wishlist-icon">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+          -1.8 0-3.4 1-4.1 2.4
+          C11.3 5 9.7 4 7.9 4
+          5.2 4 3.2 6 3.2 8.8
+          c0 4.9 8.8 10.2 8.8 10.2
+          s8.8-5.3 8.8-10.2z">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+
+    <!-- SEARCH -->
+
+    <button class="header-icon">
+
+      <svg viewBox="0 0 24 24">
+
+        <circle
+          cx="10.5"
+          cy="10.5"
+          r="6.3">
+        </circle>
+
+        <path
+          d="M15.3 15.3L20.5 20.5">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+
+    <!-- CART -->
+
+    <button class="header-icon">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M3 4h2l2.1 11.2h10.8L20 7H6">
+        </path>
+
+        <path d="M9 19.5h.01"></path>
+
+        <path d="M17 19.5h.01"></path>
+
+        <path d="M7.1 15.2h10.8"></path>
+
+      </svg>
+
+    </button>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav class="navigation">
+
+<a href="bestsellers.html">
+    Bestsellers
+</a>
+
+<a
+    href="extrait.html"
+    class="active">
+
+    Extrait de Parfum
+</a>
+
+<a
+    href="edp.html"
+    class="active">
+
+    Eau de Parfum
+</a>
+
+<a
+    href="edt.html"
+    class="active">
+
+    Eau de Toilette
+</a>
+
+<a
+    href="loyalty.html"
+    class="active">
+
+    Loyalty
+</a>
+</nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="extrait-hero">
+
+
+  <!-- LEFT IMAGE -->
+
+  <div class="extrait-hero-image">
+
+
+    <div class="hero-copy">
+
+
+      <div class="hero-small">
+
+        THE SIGNATURE COLLECTION
+
+      </div>
+
+
+      <h1>
+
+        SNS FRAGRANCE
+
+      </h1>
+
+
+      <p>
+
+        Extrait de Parfum
+
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- RIGHT TITLE -->
+
+  <div class="extrait-hero-title">
+
+    <h2>
+
+      EXTRAIT DE PARFUM
+
+    </h2>
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FILTER
+===================================================== -->
+
+<div class="filter-bar">
+
+
+  <button
+    class="filter-button"
+    onclick="toggleFilters()">
+
+
+    <svg viewBox="0 0 24 24">
+
+      <path
+        d="M4 5h16L14 12v6l-2 1v-7L4 5z">
+      </path>
+
+    </svg>
+
+
+    FILTERS
+
+
+  </button>
+
+
+</div>
+
+
+
+<!-- FILTER PANEL -->
+
+<div
+  id="filterPanel"
+  class="filter-panel">
+
+
+  <div class="filter-group">
+
+    <h4>
+      Fragrance Family
+    </h4>
+
+    <label>
+      <input type="checkbox">
+      Fresh
+    </label>
+
+    <label>
+      <input type="checkbox">
+      Floral
+    </label>
+
+    <label>
+      <input type="checkbox">
+      Woody
+    </label>
+
+    <label>
+      <input type="checkbox">
+      Sweet
+    </label>
+
+  </div>
+
+
+
+  <div class="filter-group">
+
+    <h4>
+      Gender
+    </h4>
+
+    <label>
+      <input type="checkbox">
+      Unisex
+    </label>
+
+    <label>
+      <input type="checkbox">
+      Masculine
+    </label>
+
+    <label>
+      <input type="checkbox">
+      Feminine
+    </label>
+
+  </div>
+
+
+
+  <div class="filter-group">
+
+    <h4>
+      Price
+    </h4>
+
+    <label>
+      <input type="checkbox">
+      Under Rp 300.000
+    </label>
+
+    <label>
+      <input type="checkbox">
+      Rp 300.000 – Rp 500.000
+    </label>
+
+    <label>
+      <input type="checkbox">
+      Above Rp 500.000
+    </label>
+
+  </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     PRODUCT GRID
+===================================================== -->
+
+<main class="product-grid">
+
+
+
+<!-- PRODUCT 1 -->
+
+<article class="product-card">
+
+
+  <div class="product-image">
+
+
+    <span class="badge new-arrival">
+
+      NEW ARRIVAL
+
+    </span>
+
+
+    <span class="badge sale">
+
+      SALE
+
+    </span>
+
+
+    <button class="product-wishlist">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+          -1.8 0-3.4 1-4.1 2.4
+          C11.3 5 9.7 4 7.9 4
+          5.2 4 3.2 6 3.2 8.8
+          c0 4.9 8.8 10.2 8.8 10.2
+          s8.8-5.3 8.8-10.2z">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+    <img
+      src="images/ophir.png"
+      alt="SNS Ophir">
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+
+      Extrait de Parfum OPHIR
+
+    </div>
+
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 299,000
+      </span>
+
+      <span class="old-price">
+        Rp 349,000
+      </span>
+
+    </div>
+
+  </div>
+
+
+</article>
+
+
+
+<!-- PRODUCT 2 -->
+
+<article class="product-card">
+
+
+  <div class="product-image">
+
+
+    <span class="badge new-arrival">
+
+      NEW ARRIVAL
+
+    </span>
+
+
+    <span class="badge sale">
+
+      SALE
+
+    </span>
+
+
+    <button class="product-wishlist">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+          -1.8 0-3.4 1-4.1 2.4
+          C11.3 5 9.7 4 7.9 4
+          5.2 4 3.2 6 3.2 8.8
+          c0 4.9 8.8 10.2 8.8 10.2
+          s8.8-5.3 8.8-10.2z">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+    <img
+      src="images/tranquility.png"
+      alt="SNS Tranquility">
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+
+      Extrait de Parfum TRANQUILITY
+
+    </div>
+
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 299,000
+      </span>
+
+      <span class="old-price">
+        Rp 349,000
+      </span>
+
+    </div>
+
+  </div>
+
+
+</article>
+
+
+
+<!-- PRODUCT 3 -->
+
+<article class="product-card">
+
+
+  <div class="product-image">
+
+
+    <span class="badge best-seller">
+
+      BEST SELLER
+
+    </span>
+
+
+    <span class="badge sale">
+
+      SALE
+
+    </span>
+
+
+    <button class="product-wishlist">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+          -1.8 0-3.4 1-4.1 2.4
+          C11.3 5 9.7 4 7.9 4
+          5.2 4 3.2 6 3.2 8.8
+          c0 4.9 8.8 10.2 8.8 10.2
+          s8.8-5.3 8.8-10.2z">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+    <img
+      src="images/rapha.png"
+      alt="SNS Rapha">
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+
+      Extrait de Parfum RAPHA
+
+    </div>
+
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 285,000
+      </span>
+
+      <span class="old-price">
+        Rp 359,000
+      </span>
+
+    </div>
+
+  </div>
+
+
+</article>
+
+
+
+<!-- PRODUCT 4 -->
+
+<article class="product-card">
+
+
+  <div class="product-image">
+
+
+    <span class="badge new-arrival">
+
+      NEW ARRIVAL
+
+    </span>
+
+
+    <span class="badge sale">
+
+      SALE
+
+    </span>
+
+
+    <button class="product-wishlist">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+          -1.8 0-3.4 1-4.1 2.4
+          C11.3 5 9.7 4 7.9 4
+          5.2 4 3.2 6 3.2 8.8
+          c0 4.9 8.8 10.2 8.8 10.2
+          s8.8-5.3 8.8-10.2z">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+    <img
+      src="images/cocoa-amore.png"
+      alt="SNS Cocoa Amore">
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+
+      Extrait de Parfum COCOA AMORE
+
+    </div>
+
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 289,000
+      </span>
+
+      <span class="old-price">
+        Rp 349,000
+      </span>
+
+    </div>
+
+  </div>
+
+
+</article>
+
+
+
+<!-- PRODUCT 5 -->
+
+<article class="product-card">
+
+
+  <div class="product-image">
+
+
+    <span class="badge best-seller">
+
+      BEST SELLER
+
+    </span>
+
+
+    <button class="product-wishlist">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+          -1.8 0-3.4 1-4.1 2.4
+          C11.3 5 9.7 4 7.9 4
+          5.2 4 3.2 6 3.2 8.8
+          c0 4.9 8.8 10.2 8.8 10.2
+          s8.8-5.3 8.8-10.2z">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+    <img
+      src="images/forte.png"
+      alt="SNS Forte">
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+
+      Extrait de Parfum FORTE
+
+    </div>
+
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 299,000
+      </span>
+
+      <span class="old-price">
+        Rp 349,000
+      </span>
+
+    </div>
+
+  </div>
+
+
+</article>
+
+
+
+<!-- PRODUCT 6 -->
+
+<article class="product-card">
+
+
+  <div class="product-image">
+
+
+    <span class="badge best-seller">
+
+      BEST SELLER
+
+    </span>
+
+
+    <button class="product-wishlist">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+          -1.8 0-3.4 1-4.1 2.4
+          C11.3 5 9.7 4 7.9 4
+          5.2 4 3.2 6 3.2 8.8
+          c0 4.9 8.8 10.2 8.8 10.2
+          s8.8-5.3 8.8-10.2z">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+    <img
+      src="images/intense.png"
+      alt="SNS Intense">
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+
+      Extrait de Parfum INTENSE
+
+    </div>
+
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 299,000
+      </span>
+
+      <span class="old-price">
+        Rp 349,000
+      </span>
+
+    </div>
+
+  </div>
+
+
+</article>
+
+
+
+<!-- PRODUCT 7 -->
+
+<article class="product-card">
+
+
+  <div class="product-image">
+
+
+    <span class="badge best-seller">
+
+      BEST SELLER
+
+    </span>
+
+
+    <button class="product-wishlist">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+          -1.8 0-3.4 1-4.1 2.4
+          C11.3 5 9.7 4 7.9 4
+          5.2 4 3.2 6 3.2 8.8
+          c0 4.9 8.8 10.2 8.8 10.2
+          s8.8-5.3 8.8-10.2z">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+    <img
+      src="images/memories.png"
+      alt="SNS Memories">
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+
+      Extrait de Parfum MEMORIES
+
+    </div>
+
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 299,000
+      </span>
+
+      <span class="old-price">
+        Rp 349,000
+      </span>
+
+    </div>
+
+  </div>
+
+
+</article>
+
+
+
+<!-- PRODUCT 8 -->
+
+<article class="product-card">
+
+
+  <div class="product-image">
+
+
+    <span class="badge best-seller">
+
+      BEST SELLER
+
+    </span>
+
+
+    <button class="product-wishlist">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+          -1.8 0-3.4 1-4.1 2.4
+          C11.3 5 9.7 4 7.9 4
+          5.2 4 3.2 6 3.2 8.8
+          c0 4.9 8.8 10.2 8.8 10.2
+          s8.8-5.3 8.8-10.2z">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+    <img
+      src="images/seduction.png"
+      alt="SNS Seduction">
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+
+      Extrait de Parfum SEDUCTION
+
+    </div>
+
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 299,000
+      </span>
+
+      <span class="old-price">
+        Rp 349,000
+      </span>
+
+    </div>
+
+  </div>
+
+
+</article>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     REVIEWS
+===================================================== -->
+
+<div class="reviews">
+
+  ★ &nbsp; Reviews
+
+</div>
+
+
+
+<!-- =====================================================
+     REWARDS
+===================================================== -->
+
+<div class="rewards">
+
+  🎁
+
+  <span>
+    Rewards
+  </span>
+
+</div>
+
+
+
+<!-- =====================================================
+     CHAT
+===================================================== -->
+
+<div class="chat">
+
+  <svg viewBox="0 0 24 24">
+
+    <path
+      d="M5 5.5h14v10H10l-4 3v-13z">
+    </path>
+
+    <path
+      d="M9 10h.01M12 10h.01M15 10h.01">
+    </path>
+
+  </svg>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+function toggleFilters() {
+
+  const panel =
+    document.getElementById(
+      "filterPanel"
+    );
+
+  panel.classList.toggle(
+    "active"
+  );
+
+}
+
+
+/* WISHLIST */
+
+document
+  .querySelectorAll(
+    ".product-wishlist"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        this.classList.toggle(
+          "selected"
+        );
+
+      }
+    );
+
+  });
+
+</script>
+
+
+</body>
+
+</html>
