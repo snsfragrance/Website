@@ -1,1803 +1,2631 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SNS Fragrance — Bestsellers</title>
 
-  <title>SNS Fragrance — Bestsellers</title>
+<style>
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  <style>
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #111;
-      background: #fff;
-    }
-
-
-    /* =====================================================
-       TOP RUNNING BAR
-    ===================================================== */
-
-    .announcement {
-      height: 38px;
-
-      background: #000;
-      color: #fff;
-
-      overflow: hidden;
-
-      white-space: nowrap;
-
-      display: flex;
-      align-items: center;
-    }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111;
+    background: #fff;
+}
 
 
-    .announcement-track {
-      display: flex;
-      align-items: center;
+/* =====================================================
+   TOP ANNOUNCEMENT
+===================================================== */
 
-      width: max-content;
+.announcement {
+    height: 42px;
+    background: #000;
+    color: #fff;
 
-      animation: marquee 30s linear infinite;
-    }
+    overflow: hidden;
+    position: relative;
 
+    display: flex;
+    align-items: center;
 
-    .announcement-track span {
-      display: inline-flex;
-      align-items: center;
+    white-space: nowrap;
+}
 
-      margin-right: 120px;
+.announcement-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
 
-      font-size: 13px;
-      font-weight: 500;
+    animation: announcementScroll 30s linear infinite;
+}
 
-      letter-spacing: .4px;
-    }
+.announcement-track span {
+    display: inline-flex;
+    align-items: center;
 
+    margin-right: 140px;
 
-    @keyframes marquee {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
 
-      from {
+@keyframes announcementScroll {
+    0% {
         transform: translateX(0);
-      }
+    }
 
-      to {
+    100% {
         transform: translateX(-50%);
-      }
-
     }
+}
+
+.announcement:hover .announcement-track {
+    animation-play-state: paused;
+}
 
 
-    /* =====================================================
-       HEADER
-    ===================================================== */
+/* =====================================================
+   HEADER
+===================================================== */
 
-    header {
-      background: #fff;
-    }
+header {
+    background: #fff;
+    border-bottom: 1px solid #eeeeee;
+}
 
+.header-main {
+    height: 96px;
 
-    .header-main {
-      height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    position: relative;
+}
 
-      position: relative;
-    }
+.logo {
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: -2px;
+}
 
+.logo span {
+    font-weight: 300;
+}
 
-    /* SNS LOGO */
+.header-icons {
+    position: absolute;
+    right: 38px;
 
-    .logo {
-      font-size: 40px;
-      font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
 
-      letter-spacing: -2px;
-    }
+.header-icon {
+    width: 26px;
+    height: 26px;
 
+    padding: 0;
+    margin: 0;
 
-    .logo span {
-      font-weight: 300;
-    }
+    border: none;
+    outline: none;
+    background: transparent;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    /* =====================================================
-       HEADER ICONS
-    ===================================================== */
+    cursor: pointer;
+    text-decoration: none;
+    color: #111;
+}
 
-    .header-icons {
+.header-icon svg {
+    width: 25px;
+    height: 25px;
 
-      position: absolute;
+    fill: none !important;
+    stroke: #111 !important;
+    stroke-width: 1.7;
 
-      right: 38px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 
-      display: flex;
-      align-items: center;
+    display: block;
 
-      gap: 25px;
-    }
+    transition: transform .2s ease;
+}
 
+.header-icon:hover svg {
+    transform: scale(1.08);
+}
 
-    .header-icon {
-
-      width: 26px;
-      height: 26px;
-
-      padding: 0;
-      margin: 0;
-
-      border: none;
-      background: transparent;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      cursor: pointer;
-    }
-
-
-    .header-icon svg {
-
-      width: 25px;
-      height: 25px;
-
-      fill: none;
-
-      stroke: #111;
-
-      stroke-width: 1.7;
-
-      stroke-linecap: round;
-      stroke-linejoin: round;
-
-      transition: .2s ease;
-    }
+.wishlist-icon svg {
+    fill: none !important;
+    stroke: #e90046 !important;
+    stroke-width: 1.8;
+}
 
 
-    .wishlist-icon svg {
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
-      stroke: #ed174d;
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      stroke-width: 1.8;
-    }
+    gap: 38px;
+
+    min-height: 58px;
+
+    padding: 0 25px;
+
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.navigation a {
+    position: relative;
+
+    color: #111;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    white-space: nowrap;
+
+    padding: 20px 0;
+}
+
+.navigation a:hover {
+    color: #9b7a42;
+}
+
+.navigation a.active {
+    font-weight: 500;
+}
+
+.navigation a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 7px;
+
+    height: 2px;
+
+    background: #111;
+}
 
 
-    .header-icon:hover svg {
+/* =====================================================
+   SEARCH PANEL
+===================================================== */
 
-      transform: scale(1.08);
+.search-panel {
+    position: fixed;
 
-    }
+    top: 42px;
+    left: 0;
+
+    width: 100%;
+    height: 122px;
+
+    background: #fff;
+
+    z-index: 2001;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity .2s ease,
+        transform .25s ease,
+        visibility .2s ease;
+}
+
+.search-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.search-overlay {
+    position: fixed;
+
+    top: 164px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: rgba(0,0,0,.36);
+
+    z-index: 2000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease;
+}
+
+.search-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.search-form {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    padding: 0 11.8%;
+}
+
+.search-form input {
+    width: 100%;
+    height: 50px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #111;
+
+    padding: 0 75px 0 39px;
+}
+
+.search-form input::placeholder {
+    color: #111;
+    opacity: 1;
+}
+
+.search-submit {
+    position: absolute;
+
+    left: calc(11.8% - 1px);
+
+    width: 24px;
+    height: 24px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.search-submit svg {
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+
+    stroke: #d0d0d0;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.search-close {
+    position: absolute;
+
+    right: 11.8%;
+
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #111;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 29px;
+    font-weight: 300;
+
+    line-height: 28px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
-    /* =====================================================
-       NAVIGATION
-    ===================================================== */
+/* =====================================================
+   CART DRAWER
+===================================================== */
+
+.cart-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.38);
+
+    z-index: 1998;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-drawer {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: min(420px,92vw);
+    height: 100vh;
+
+    background: #fff;
+
+    z-index: 1999;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: -10px 0 35px rgba(0,0,0,.12);
+
+    transform: translateX(100%);
+
+    transition: transform .35s ease;
+}
+
+.cart-drawer.active {
+    transform: translateX(0);
+}
+
+.cart-drawer-header {
+    height: 82px;
+
+    padding: 0 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.cart-drawer-header h2 {
+    font-family: Georgia, serif;
+
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.cart-close {
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    color: #111;
+
+    font-size: 29px;
+    font-weight: 300;
+
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 25px 28px;
+}
+
+.cart-empty {
+    min-height: 240px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+.cart-drawer-footer {
+    border-top: 1px solid #e8e8e8;
+
+    padding: 22px 28px 28px;
+
+    background: #fff;
+}
+
+.cart-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+
+    font-size: 15px;
+}
+
+.cart-checkout {
+    width: 100%;
+    height: 48px;
+
+    border: none;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 13px;
+    letter-spacing: .5px;
+
+    cursor: pointer;
+}
+
+.cart-count {
+    position: absolute;
+
+    top: -5px;
+    right: -7px;
+
+    min-width: 16px;
+    height: 16px;
+
+    padding: 0 4px;
+
+    border-radius: 50%;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 9px;
+    line-height: 16px;
+
+    text-align: center;
+
+    display: none;
+}
+
+.cart-count.active {
+    display: block;
+}
+
+#cartTrigger {
+    position: relative;
+}
+
+
+/* =====================================================
+   BESTSELLERS TITLE
+===================================================== */
+
+.page-heading {
+    width: 100%;
+    height: 190px;
+
+    background: #fff !important;
+    color: #111 !important;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.page-heading h1 {
+    margin: 0;
+
+    color: #111 !important;
+
+    background: transparent !important;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 34px;
+
+    font-weight: 600;
+
+    letter-spacing: -1.2px;
+}
+
+
+/* =====================================================
+   FILTER BAR
+===================================================== */
+
+.filter-bar {
+    width: 100%;
+    height: 58px;
+
+    background: #fff !important;
+    color: #111 !important;
+
+    border-top: 1px solid #eeeeee !important;
+    border-bottom: 1px solid #eeeeee !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0 50px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.filter-button {
+    width: auto;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 12px;
+
+    padding: 0;
+
+    border: none !important;
+    outline: none !important;
+
+    background: transparent !important;
+
+    color: #111 !important;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    cursor: pointer;
+}
+
+.filter-button svg {
+    width: 17px;
+    height: 17px;
+
+    display: block;
+
+    fill: none !important;
+
+    stroke: #111 !important;
+
+    stroke-width: 1.5;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =====================================================
+   FILTER PANEL
+===================================================== */
+
+.filter-panel {
+    width: 100%;
+
+    display: none;
+
+    background: #fff !important;
+    color: #111 !important;
+
+    border: none !important;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 40px;
+
+    padding: 30px 50px;
+}
+
+.filter-panel.active {
+    display: grid;
+}
+
+.filter-group h4 {
+    margin: 0 0 15px;
+
+    color: #111;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.filter-group label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #555;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.filter-group input {
+    margin-right: 8px;
+}
+
+
+/* =====================================================
+   PRODUCT GRID
+===================================================== */
+
+.product-grid {
+    width: 100%;
+
+    background: #fff !important;
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    border-left: 1px solid #eeeeee;
+}
+
+
+/* =====================================================
+   PRODUCT CARD
+===================================================== */
+
+.product-card {
+    position: relative;
+
+    background: #fff !important;
+
+    border-right: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+
+    min-width: 0;
+}
+
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.product-image {
+    position: relative;
+
+    width: 100%;
+    height: 475px;
+
+    background: #faf9f7;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 82%;
+    height: 82%;
+
+    object-fit: contain;
+
+    transition: transform .45s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.04);
+}
+
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+.badge {
+    position: absolute;
+
+    top: 10px;
+
+    z-index: 5;
+
+    padding: 7px 15px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    letter-spacing: .5px;
+}
+
+.best-seller {
+    left: 0;
+
+    background: #eeeeee;
+
+    color: #222;
+}
+
+.sale {
+    right: 52px;
+
+    background: #efd8c7;
+
+    color: #111;
+}
+
+
+/* =====================================================
+   PRODUCT WISHLIST
+===================================================== */
+
+.product-wishlist {
+    position: absolute;
+
+    top: 8px;
+    right: 10px;
+
+    z-index: 10;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,.06);
+}
+
+.product-wishlist svg {
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+
+    stroke: #ed174d;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =====================================================
+   PRODUCT INFO
+===================================================== */
+
+.product-info {
+    padding: 17px 15px 25px;
+
+    text-align: center;
+
+    background: #fff;
+}
+
+.product-name {
+    font-size: 15px;
+
+    font-weight: 400;
+
+    margin-bottom: 9px;
+}
+
+.product-price {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+}
+
+.current-price {
+    font-weight: 600;
+}
+
+.old-price {
+    color: #777;
+
+    text-decoration: line-through;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    background: #111;
+    color: #fff;
+
+    padding: 65px 7% 30px;
+}
+
+.footer-grid {
+    display: grid;
+
+    grid-template-columns:
+        2.2fr 1fr 1fr 1fr 1.6fr;
+
+    gap: 45px;
+}
+
+.footer-brand h2 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.footer-brand p {
+    margin-top: 15px;
+
+    max-width: 350px;
+
+    color: #aaa;
+
+    line-height: 1.7;
+}
+
+footer h4 {
+    margin-bottom: 18px;
+
+    font-size: 14px;
+}
+
+footer a {
+    display: block;
+
+    color: #aaa;
+
+    text-decoration: none;
+
+    margin-bottom: 12px;
+
+    font-size: 13px;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+.copyright {
+    border-top: 1px solid #333;
+
+    margin-top: 50px;
+
+    padding-top: 25px;
+
+    color: #777;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   FLOATING BUTTONS
+===================================================== */
+
+.floating {
+    position: fixed;
+
+    z-index: 1000;
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+}
+
+
+/* REVIEWS */
+
+.floating.review-button {
+    left: 18px;
+    bottom: 80px;
+
+    height: 52px;
+
+    padding: 0 20px;
+
+    background: #fff;
+    color: #111;
+
+    border-radius: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    box-shadow: 0 6px 25px rgba(0,0,0,.12);
+
+    cursor: pointer;
+}
+
+.floating.review-button svg {
+    width: 18px;
+    height: 18px;
+
+    flex: 0 0 18px;
+
+    display: block;
+
+    fill: #111;
+}
+
+
+/* JOIN MEMBER */
+
+.floating.join.member {
+    left: 18px;
+    bottom: 18px;
+
+    background: #000;
+    color: #fff;
+
+    padding: 15px 24px;
+
+    border-radius: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    box-shadow: 0 6px 25px rgba(0,0,0,.20);
+
+    cursor: pointer;
+}
+
+
+/* CHAT */
+
+.floating.chat {
+    right: 18px;
+    bottom: 18px;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: #000;
+    color: #fff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 6px 25px rgba(0,0,0,.20);
+
+    cursor: pointer;
+}
+
+.floating.chat svg {
+    width: 23px;
+    height: 23px;
+
+    display: block;
+
+    fill: none;
+
+    stroke: #fff;
+
+    stroke-width: 1.6;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
 
     .navigation {
-
-      height: 57px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      gap: 36px;
-
-      border-bottom: 1px solid #ededed;
-
-      padding: 0 25px;
-    }
-
-
-    .navigation a {
-
-      position: relative;
-
-      color: #111;
-
-      text-decoration: none;
-
-      font-size: 15px;
-
-      white-space: nowrap;
-
-      padding: 20px 0;
-    }
-
-
-    .navigation a:hover {
-
-      color: #8b6736;
-
-    }
-
-
-    /* ACTIVE BESTSELLER */
-
-    .navigation a.active {
-
-      font-weight: 500;
-    }
-
-
-    .navigation a.active::after {
-
-      content: "";
-
-      position: absolute;
-
-      left: 0;
-      right: 0;
-
-      bottom: 8px;
-
-      height: 2px;
-
-      background: #111;
-    }
-
-
-    /* =====================================================
-       PAGE TITLE
-    ===================================================== */
-
-    .page-heading {
-
-      height: 190px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-    }
-
-
-    .page-heading h1 {
-
-      font-size: 34px;
-
-      font-weight: 600;
-
-      letter-spacing: -1.2px;
-    }
-
-
-    /* =====================================================
-       FILTER BAR
-    ===================================================== */
-
-    .filter-bar {
-
-      height: 58px;
-
-      border-top: 1px solid #eeeeee;
-      border-bottom: 1px solid #eeeeee;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      padding: 0 30px;
-    }
-
-
-    .filter-button {
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      border: none;
-
-      background: transparent;
-
-      font-size: 14px;
-
-      cursor: pointer;
-    }
-
-
-    .filter-button svg {
-
-      width: 16px;
-      height: 16px;
-
-      fill: none;
-
-      stroke: #111;
-
-      stroke-width: 1.5;
-
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-
-    /* =====================================================
-       FILTER PANEL
-    ===================================================== */
-
-    .filter-panel {
-
-      display: none;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
-      gap: 40px;
-
-      padding: 30px;
-
-      background: #fafafa;
-
-      border-bottom: 1px solid #eee;
-    }
-
-
-    .filter-panel.active {
-
-      display: grid;
-
-    }
-
-
-    .filter-group h4 {
-
-      margin-bottom: 15px;
-
-      font-size: 12px;
-
-      text-transform: uppercase;
-
-      letter-spacing: 1px;
-    }
-
-
-    .filter-group label {
-
-      display: block;
-
-      margin-bottom: 10px;
-
-      font-size: 13px;
-
-      color: #555;
-
-      cursor: pointer;
-    }
-
-
-    .filter-group input {
-
-      margin-right: 8px;
-
-    }
-
-
-    /* =====================================================
-       PRODUCT GRID
-    ===================================================== */
-
-    .product-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      border-left: 1px solid #eeeeee;
-    }
-
-
-    /* =====================================================
-       PRODUCT CARD
-    ===================================================== */
-
-    .product-card {
-
-      position: relative;
-
-      border-right: 1px solid #eeeeee;
-      border-bottom: 1px solid #eeeeee;
-
-      background: #fff;
-
-      min-width: 0;
-    }
-
-
-    /* =====================================================
-       PRODUCT IMAGE
-    ===================================================== */
-
-    .product-image {
-
-      position: relative;
-
-      width: 100%;
-
-      height: 475px;
-
-      background: #faf9f7;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      overflow: hidden;
-    }
-
-
-    .product-image img {
-
-      width: 82%;
-      height: 82%;
-
-      object-fit: contain;
-
-      transition: transform .45s ease;
-    }
-
-
-    .product-card:hover
-    .product-image img {
-
-      transform: scale(1.04);
-
-    }
-
-
-    /* =====================================================
-       BADGES
-    ===================================================== */
-
-    .badge {
-
-      position: absolute;
-
-      top: 10px;
-
-      z-index: 5;
-
-      padding: 7px 15px;
-
-      border-radius: 20px;
-
-      font-size: 11px;
-
-      letter-spacing: .5px;
-    }
-
-
-    .best-seller {
-
-      left: 0;
-
-      background: #eeeeee;
-
-      color: #222;
-    }
-
-
-    .sale {
-
-      right: 52px;
-
-      background: #efd8c7;
-
-      color: #111;
-    }
-
-
-    /* =====================================================
-       WISHLIST
-    ===================================================== */
-
-    .product-wishlist {
-
-      position: absolute;
-
-      top: 8px;
-      right: 10px;
-
-      z-index: 10;
-
-      width: 38px;
-      height: 38px;
-
-      border: none;
-
-      border-radius: 50%;
-
-      background: #fff;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      cursor: pointer;
-
-      box-shadow:
-        0 3px 12px rgba(0,0,0,.06);
-    }
-
-
-    .product-wishlist svg {
-
-      width: 20px;
-      height: 20px;
-
-      fill: none;
-
-      stroke: #ed174d;
-
-      stroke-width: 1.7;
-
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-
-    /* =====================================================
-       PRODUCT DETAILS
-    ===================================================== */
-
-    .product-info {
-
-      padding: 17px 15px 25px;
-
-      text-align: center;
-    }
-
-
-    .product-name {
-
-      font-size: 15px;
-
-      font-weight: 400;
-
-      margin-bottom: 9px;
-    }
-
-
-    .product-price {
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      gap: 10px;
-
-      font-size: 14px;
-    }
-
-
-    .current-price {
-
-      font-weight: 600;
-    }
-
-
-    .old-price {
-
-      color: #777;
-
-      text-decoration: line-through;
-
-      font-size: 13px;
-    }
-
-
-    /* =====================================================
-       REVIEWS
-    ===================================================== */
-
-    .reviews {
-
-      padding: 30px;
-
-      font-size: 16px;
-
-      font-weight: 600;
-
-      border-bottom: 1px solid #eee;
-    }
-
-
-    /* =====================================================
-       FLOATING REWARDS
-    ===================================================== */
-
-    .rewards {
-
-      position: fixed;
-
-      left: 18px;
-      bottom: 18px;
-
-      z-index: 100;
-
-      height: 62px;
-
-      padding: 0 25px;
-
-      background: #000;
-
-      color: #fff;
-
-      border-radius: 40px;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      font-size: 16px;
-
-      font-weight: 600;
-
-      box-shadow:
-        0 5px 20px rgba(0,0,0,.2);
-
-      cursor: pointer;
-    }
-
-
-    /* =====================================================
-       CHAT
-    ===================================================== */
-
-    .chat {
-
-      position: fixed;
-
-      right: 18px;
-      bottom: 18px;
-
-      z-index: 100;
-
-      width: 62px;
-      height: 62px;
-
-      background: #000;
-
-      color: #fff;
-
-      border-radius: 50%;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      box-shadow:
-        0 5px 20px rgba(0,0,0,.2);
-
-      cursor: pointer;
-    }
-
-
-    .chat svg {
-
-      width: 24px;
-      height: 24px;
-
-      fill: none;
-
-      stroke: white;
-
-      stroke-width: 1.5;
-
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-
-    @media (max-width: 1100px) {
-
-      .navigation {
-
-        gap: 22px;
-
-      }
-
-
-      .product-grid {
-
-        grid-template-columns:
-          repeat(3, 1fr);
-      }
-
-    }
-
-
-    @media (max-width: 800px) {
-
-      .header-main {
-
-        height: 75px;
-
-      }
-
-
-      .logo {
-
-        font-size: 32px;
-
-      }
-
-
-      .header-icons {
-
-        right: 18px;
-
-        gap: 15px;
-
-      }
-
-
-      .navigation {
-
         overflow-x: auto;
 
         justify-content: flex-start;
+    }
 
-      }
+    .product-grid {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
 
 
-      .page-heading {
+@media (max-width: 650px) {
 
+    .announcement {
+        height: 42px;
+    }
+
+    .header-main {
+        height: 75px;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .header-icons {
+        right: 15px;
+        gap: 12px;
+    }
+
+    .navigation {
+        gap: 25px;
+        min-height: 48px;
+    }
+
+    .navigation a {
+        font-size: 13px;
+        padding: 16px 0;
+    }
+
+    .navigation a.active::after {
+        bottom: 5px;
+    }
+
+    .page-heading {
         height: 140px;
+    }
 
-      }
-
-
-      .page-heading h1 {
-
+    .page-heading h1 {
         font-size: 28px;
+    }
 
-      }
+    .filter-bar {
+        height: 58px;
+        padding: 0 20px;
+    }
 
+    .product-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
 
-      .product-grid {
-
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-
-      .product-image {
-
+    .product-image {
         height: 380px;
-
-      }
-
     }
 
-
-    @media (max-width: 520px) {
-
-      .header-icons {
-
-        position: static;
-
-        margin-left: 20px;
-
-      }
-
-
-      .header-main {
-
-        justify-content: space-between;
-
-        padding: 0 18px;
-
-      }
-
-
-      .logo {
-
-        font-size: 28px;
-
-      }
-
-
-      .product-grid {
-
+    .footer-grid {
         grid-template-columns: 1fr;
-      }
-
-
-      .product-image {
-
-        height: 420px;
-
-      }
-
-
-      .filter-bar {
-
-        padding: 0 15px;
-
-      }
-
-
-      .rewards {
-
-        height: 54px;
-
-        padding: 0 18px;
-
-        font-size: 14px;
-
-      }
-
-
-      .chat {
-
-        width: 54px;
-        height: 54px;
-
-      }
-
     }
 
-  </style>
+    .floating.join.member {
+        padding: 13px 18px;
+    }
 
+}
+
+
+@media (max-width: 520px) {
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 420px;
+    }
+
+    .filter-bar {
+        padding: 0 15px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .cart-drawer-header {
+        padding: 0 20px;
+    }
+
+    .cart-items {
+        padding: 20px;
+    }
+
+    .cart-drawer-footer {
+        padding: 20px;
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- =====================================================
-       ANNOUNCEMENT
-  ====================================================== -->
+<!-- =====================================================
+     ANNOUNCEMENT
+===================================================== -->
 
-  <div class="announcement">
+<div class="announcement">
 
     <div class="announcement-track">
 
-      <span>THE ART OF SCENT</span>
-      <span>A SYMPHONY FOR THE SENSES</span>
-      <span>DISCOVER SNS FRAGRANCE</span>
+        <span>THE ART OF SCENT</span>
+        <span>A SYMPHONY FOR THE SENSES</span>
+        <span>DISCOVER SNS FRAGRANCE</span>
 
-      <span>THE ART OF SCENT</span>
-      <span>A SYMPHONY FOR THE SENSES</span>
-      <span>DISCOVER SNS FRAGRANCE</span>
+        <span>THE ART OF SCENT</span>
+        <span>A SYMPHONY FOR THE SENSES</span>
+        <span>DISCOVER SNS FRAGRANCE</span>
 
     </div>
 
-  </div>
+</div>
 
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
-
-  <header>
+<header>
 
     <div class="header-main">
 
-
-      <!-- LOGO -->
-
-      <div class="logo">
-
-        SNS <span>Fragrance</span>
-
-      </div>
+        <div class="logo">
+            SNS <span>Fragrance</span>
+        </div>
 
 
-
-      <!-- ICONS -->
-
-      <div class="header-icons">
+        <div class="header-icons">
 
 
-        <!-- ACCOUNT -->
+            <!-- ACCOUNT -->
 
-        <button class="header-icon">
+            <a
+                href="login.html"
+                class="header-icon"
+                aria-label="Account"
+            >
 
-          <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24">
 
-            <circle
-              cx="12"
-              cy="7"
-              r="3.2">
-            </circle>
+                    <circle
+                        cx="12"
+                        cy="7"
+                        r="3.2"
+                    ></circle>
 
-            <path
-              d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5">
-            </path>
+                    <path
+                        d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5"
+                    ></path>
 
-          </svg>
+                </svg>
 
-        </button>
-
-
-
-        <!-- WISHLIST -->
-
-        <button class="header-icon wishlist-icon">
-
-          <svg viewBox="0 0 24 24">
-
-            <path
-              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-              -1.8 0-3.4 1-4.1 2.4
-              C11.3 5 9.7 4 7.9 4
-              5.2 4 3.2 6 3.2 8.8
-              c0 4.9 8.8 10.2 8.8 10.2
-              s8.8-5.3 8.8-10.2z">
-            </path>
-
-          </svg>
-
-        </button>
+            </a>
 
 
+            <!-- WISHLIST -->
 
-        <!-- SEARCH -->
+            <a
+                href="wishlist.html"
+                class="header-icon wishlist-icon"
+                aria-label="Wishlist"
+            >
 
-        <button class="header-icon">
+                <svg viewBox="0 0 24 24">
 
-          <svg viewBox="0 0 24 24">
+                    <path
+                        d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+                        -1.8 0-3.4 1-4.1 2.4
+                        C11.3 5 9.7 4 7.9 4
+                        5.2 4 3.2 6 3.2 8.8
+                        c0 4.9 8.8 10.2 8.8 10.2
+                        s8.8-5.3 8.8-10.2z"
+                    ></path>
 
-            <circle
-              cx="10.5"
-              cy="10.5"
-              r="6.3">
-            </circle>
+                </svg>
 
-            <path
-              d="M15.3 15.3L20.5 20.5">
-            </path>
-
-          </svg>
-
-        </button>
-
-
-
-        <!-- CART -->
-
-        <button class="header-icon">
-
-          <svg viewBox="0 0 24 24">
-
-            <path
-              d="M3 4h2l2.1 11.2h10.8L20 7H6">
-            </path>
-
-            <path d="M9 19.5h.01"></path>
-
-            <path d="M17 19.5h.01"></path>
-
-            <path d="M7.1 15.2h10.8"></path>
-
-          </svg>
-
-        </button>
+            </a>
 
 
-      </div>
+            <!-- SEARCH -->
+
+            <button
+                type="button"
+                class="header-icon"
+                id="searchTrigger"
+                aria-label="Search"
+            >
+
+                <svg viewBox="0 0 24 24">
+
+                    <circle
+                        cx="10.5"
+                        cy="10.5"
+                        r="6.3"
+                    ></circle>
+
+                    <path
+                        d="M15.3 15.3L20.5 20.5"
+                    ></path>
+
+                </svg>
+
+            </button>
+
+
+            <!-- CART -->
+
+            <button
+                type="button"
+                class="header-icon"
+                id="cartTrigger"
+                aria-label="Shopping Cart"
+            >
+
+                <svg viewBox="0 0 24 24">
+
+                    <path
+                        d="M3 4h2l2.1 11.2h10.8L20 7H6"
+                    ></path>
+
+                    <path
+                        d="M9 19.5h.01"
+                    ></path>
+
+                    <path
+                        d="M17 19.5h.01"
+                    ></path>
+
+                    <path
+                        d="M7.1 15.2h10.8"
+                    ></path>
+
+                </svg>
+
+                <span
+                    class="cart-count"
+                    id="cartCount"
+                >
+                    0
+                </span>
+
+            </button>
+
+
+        </div>
 
     </div>
 
 
-
-    <!-- =====================================================
-         NAVIGATION
-    ====================================================== -->
+    <!-- NAVIGATION -->
 
     <nav class="navigation">
-      
-    <a href="bestsellers.html" class="active">Bestsellers</a>
-    <a href="extrait.html">Extrait de Parfum</a>
-    <a href="edp.html">Eau de Parfum</a>
-    <a href="edt.html">Eau de Toilette</a>
-    <a href="loyalty.html">Loyalty</a>
+
+        <a
+            href="bestsellers.html"
+            class="active"
+        >
+            Bestsellers
+        </a>
+
+        <a href="extrait.html">
+            Extrait de Parfum
+        </a>
+
+        <a href="edp.html">
+            Eau de Parfum
+        </a>
+
+        <a href="edt.html">
+            Eau de Toilette
+        </a>
+
+        <a href="loyalty.html">
+            Loyalty
+        </a>
 
     </nav>
 
-  </header>
+</header>
 
 
+<!-- =====================================================
+     SEARCH
+===================================================== -->
 
-  <!-- =====================================================
-       TITLE
-  ====================================================== -->
+<div
+    class="search-overlay"
+    id="searchOverlay"
+></div>
 
-  <section class="page-heading">
+
+<div
+    class="search-panel"
+    id="searchPanel"
+>
+
+    <form
+        class="search-form"
+        id="searchForm"
+    >
+
+        <button
+            type="submit"
+            class="search-submit"
+            aria-label="Submit Search"
+        >
+
+            <svg viewBox="0 0 24 24">
+
+                <circle
+                    cx="10.5"
+                    cy="10.5"
+                    r="6.3"
+                ></circle>
+
+                <path
+                    d="M15.3 15.3L20.5 20.5"
+                ></path>
+
+            </svg>
+
+        </button>
+
+
+        <input
+            type="text"
+            id="searchInput"
+            autocomplete="off"
+        >
+
+
+        <button
+            type="button"
+            class="search-close"
+            id="searchClose"
+            aria-label="Close Search"
+        >
+            ×
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- =====================================================
+     CART
+===================================================== -->
+
+<div
+    class="cart-overlay"
+    id="cartOverlay"
+></div>
+
+
+<aside
+    class="cart-drawer"
+    id="cartDrawer"
+>
+
+    <div class="cart-drawer-header">
+
+        <h2>
+            Your Cart
+        </h2>
+
+        <button
+            type="button"
+            class="cart-close"
+            id="cartClose"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-items"
+        id="cartItems"
+    >
+
+        <div class="cart-empty">
+            <p>Your cart is empty.</p>
+        </div>
+
+    </div>
+
+
+    <div class="cart-drawer-footer">
+
+        <div class="cart-total-row">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="cartTotal">
+                Rp 0
+            </strong>
+
+        </div>
+
+        <button
+            type="button"
+            class="cart-checkout"
+        >
+            CHECKOUT
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     BESTSELLERS TITLE
+===================================================== -->
+
+<section class="page-heading">
 
     <h1>
-      EVERYONE'S FAVOURITE
+        EVERYONE'S FAVOURITE
     </h1>
 
-  </section>
+</section>
 
 
+<!-- =====================================================
+     FILTERS
+===================================================== -->
 
-  <!-- =====================================================
-       FILTER BAR
-  ====================================================== -->
-
-  <div class="filter-bar">
-
+<div class="filter-bar">
 
     <button
-      class="filter-button"
-      onclick="toggleFilters()">
+        type="button"
+        class="filter-button"
+        id="filterButton"
+    >
 
-      <svg viewBox="0 0 24 24">
+        <svg viewBox="0 0 24 24">
 
-        <path
-          d="M4 5h16L14 12v6l-2 1v-7L4 5z">
-        </path>
+            <path
+                d="M4 5h16L14 12v6l-2 1v-7L4 5z"
+            ></path>
 
-      </svg>
+        </svg>
 
-      FILTERS
+        <span>
+            FILTERS
+        </span>
 
     </button>
 
-
-    <div></div>
-
-  </div>
+</div>
 
 
-
-  <!-- =====================================================
-       FILTER PANEL
-  ====================================================== -->
-
-  <div
+<div
+    class="filter-panel"
     id="filterPanel"
-    class="filter-panel">
-
+>
 
     <div class="filter-group">
 
-      <h4>
-        Fragrance Type
-      </h4>
+        <h4>
+            Fragrance Type
+        </h4>
 
-      <label>
-        <input type="checkbox">
-        Extrait de Parfum
-      </label>
+        <label>
+            <input type="checkbox">
+            Extrait de Parfum
+        </label>
 
-      <label>
-        <input type="checkbox">
-        Eau de Parfum
-      </label>
+        <label>
+            <input type="checkbox">
+            Eau de Parfum
+        </label>
 
     </div>
 
 
-
     <div class="filter-group">
 
-      <h4>
-        Fragrance Family
-      </h4>
+        <h4>
+            Fragrance Family
+        </h4>
 
-      <label>
-        <input type="checkbox">
-        Fresh
-      </label>
+        <label>
+            <input type="checkbox">
+            Fresh
+        </label>
 
-      <label>
-        <input type="checkbox">
-        Floral
-      </label>
+        <label>
+            <input type="checkbox">
+            Floral
+        </label>
 
-      <label>
-        <input type="checkbox">
-        Woody
-      </label>
+        <label>
+            <input type="checkbox">
+            Woody
+        </label>
 
-      <label>
-        <input type="checkbox">
-        Sweet
-      </label>
+        <label>
+            <input type="checkbox">
+            Sweet
+        </label>
 
     </div>
 
 
-
     <div class="filter-group">
 
-      <h4>
-        Price
-      </h4>
+        <h4>
+            Price
+        </h4>
 
-      <label>
-        <input type="checkbox">
-        Under Rp 300.000
-      </label>
+        <label>
+            <input type="checkbox">
+            Under Rp 300.000
+        </label>
 
-      <label>
-        <input type="checkbox">
-        Rp 300.000 – Rp 500.000
-      </label>
+        <label>
+            <input type="checkbox">
+            Rp 300.000 – Rp 500.000
+        </label>
 
-      <label>
-        <input type="checkbox">
-        Above Rp 500.000
-      </label>
+        <label>
+            <input type="checkbox">
+            Above Rp 500.000
+        </label>
 
     </div>
 
-  </div>
+</div>
 
 
+<!-- =====================================================
+     PRODUCTS
+===================================================== -->
 
-  <!-- =====================================================
-       PRODUCTS
-  ====================================================== -->
-
-  <main class="product-grid">
-
+<main class="product-grid">
 
 
-    <!-- =================================================
-         PRODUCT 1
-    ================================================== -->
+    <!-- PRODUCT 1 -->
 
     <article class="product-card">
 
-      <div class="product-image">
+        <div class="product-image">
 
+            <span class="badge best-seller">
+                BEST SELLER
+            </span>
 
-        <span class="badge best-seller">
-          BEST SELLER
-        </span>
+            <span class="badge sale">
+                SALE
+            </span>
 
+            <button
+                class="product-wishlist"
+                type="button"
+            >
 
-        <span class="badge sale">
-          SALE
-        </span>
+                <svg viewBox="0 0 24 24">
 
+                    <path
+                        d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+                        -1.8 0-3.4 1-4.1 2.4
+                        C11.3 5 9.7 4 7.9 4
+                        5.2 4 3.2 6 3.2 8.8
+                        c0 4.9 8.8 10.2 8.8 10.2
+                        s8.8-5.3 8.8-10.2z"
+                    ></path>
 
-        <button class="product-wishlist">
+                </svg>
 
-          <svg viewBox="0 0 24 24">
+            </button>
 
-            <path
-              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-              -1.8 0-3.4 1-4.1 2.4
-              C11.3 5 9.7 4 7.9 4
-              5.2 4 3.2 6 3.2 8.8
-              c0 4.9 8.8 10.2 8.8 10.2
-              s8.8-5.3 8.8-10.2z">
-            </path>
-
-          </svg>
-
-        </button>
-
-
-        <img
-          src="images/ophir.png"
-          alt="SNS Ophir">
-
-      </div>
-
-
-      <div class="product-info">
-
-        <div class="product-name">
-
-          Extrait de Parfum OPHIR
+            <img
+                src="images/ophir.png"
+                alt="SNS Ophir"
+            >
 
         </div>
 
 
-        <div class="product-price">
+        <div class="product-info">
 
-          <span class="current-price">
-            Rp 299,000
-          </span>
+            <div class="product-name">
+                Extrait de Parfum OPHIR
+            </div>
 
-          <span class="old-price">
-            Rp 349,000
-          </span>
+            <div class="product-price">
+
+                <span class="current-price">
+                    Rp 299,000
+                </span>
+
+                <span class="old-price">
+                    Rp 349,000
+                </span>
+
+            </div>
 
         </div>
-
-      </div>
 
     </article>
 
 
-
-    <!-- =================================================
-         PRODUCT 2
-    ================================================== -->
+    <!-- PRODUCT 2 -->
 
     <article class="product-card">
 
-      <div class="product-image">
+        <div class="product-image">
 
+            <span class="badge best-seller">
+                BEST SELLER
+            </span>
 
-        <span class="badge best-seller">
-          BEST SELLER
-        </span>
+            <span class="badge sale">
+                SALE
+            </span>
 
+            <button
+                class="product-wishlist"
+                type="button"
+            >
 
-        <span class="badge sale">
-          SALE
-        </span>
+                <svg viewBox="0 0 24 24">
 
+                    <path
+                        d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+                        -1.8 0-3.4 1-4.1 2.4
+                        C11.3 5 9.7 4 7.9 4
+                        5.2 4 3.2 6 3.2 8.8
+                        c0 4.9 8.8 10.2 8.8 10.2
+                        s8.8-5.3 8.8-10.2z"
+                    ></path>
 
-        <button class="product-wishlist">
+                </svg>
 
-          <svg viewBox="0 0 24 24">
+            </button>
 
-            <path
-              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-              -1.8 0-3.4 1-4.1 2.4
-              C11.3 5 9.7 4 7.9 4
-              5.2 4 3.2 6 3.2 8.8
-              c0 4.9 8.8 10.2 8.8 10.2
-              s8.8-5.3 8.8-10.2z">
-            </path>
-
-          </svg>
-
-        </button>
-
-
-        <img
-          src="images/tranquility.png"
-          alt="SNS Tranquility">
-
-      </div>
-
-
-      <div class="product-info">
-
-        <div class="product-name">
-
-          Extrait de Parfum TRANQUILITY
+            <img
+                src="images/tranquility.png"
+                alt="SNS Tranquility"
+            >
 
         </div>
 
 
-        <div class="product-price">
+        <div class="product-info">
 
-          <span class="current-price">
-            Rp 299,000
-          </span>
+            <div class="product-name">
+                Extrait de Parfum TRANQUILITY
+            </div>
 
-          <span class="old-price">
-            Rp 349,000
-          </span>
+            <div class="product-price">
+
+                <span class="current-price">
+                    Rp 299,000
+                </span>
+
+                <span class="old-price">
+                    Rp 349,000
+                </span>
+
+            </div>
 
         </div>
-
-      </div>
 
     </article>
 
 
-
-    <!-- =================================================
-         PRODUCT 3
-    ================================================== -->
+    <!-- PRODUCT 3 -->
 
     <article class="product-card">
 
-      <div class="product-image">
+        <div class="product-image">
 
+            <span class="badge best-seller">
+                BEST SELLER
+            </span>
 
-        <span class="badge best-seller">
-          BEST SELLER
-        </span>
+            <span class="badge sale">
+                SALE
+            </span>
 
+            <button
+                class="product-wishlist"
+                type="button"
+            >
 
-        <span class="badge sale">
-          SALE
-        </span>
+                <svg viewBox="0 0 24 24">
 
+                    <path
+                        d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+                        -1.8 0-3.4 1-4.1 2.4
+                        C11.3 5 9.7 4 7.9 4
+                        5.2 4 3.2 6 3.2 8.8
+                        c0 4.9 8.8 10.2 8.8 10.2
+                        s8.8-5.3 8.8-10.2z"
+                    ></path>
 
-        <button class="product-wishlist">
+                </svg>
 
-          <svg viewBox="0 0 24 24">
+            </button>
 
-            <path
-              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-              -1.8 0-3.4 1-4.1 2.4
-              C11.3 5 9.7 4 7.9 4
-              5.2 4 3.2 6 3.2 8.8
-              c0 4.9 8.8 10.2 8.8 10.2
-              s8.8-5.3 8.8-10.2z">
-            </path>
-
-          </svg>
-
-        </button>
-
-
-        <img
-          src="images/rapha.png"
-          alt="SNS Rapha">
-
-      </div>
-
-
-      <div class="product-info">
-
-        <div class="product-name">
-
-          Extrait de Parfum RAPHA
+            <img
+                src="images/rapha.png"
+                alt="SNS Rapha"
+            >
 
         </div>
 
 
-        <div class="product-price">
+        <div class="product-info">
 
-          <span class="current-price">
-            Rp 285,000
-          </span>
+            <div class="product-name">
+                Extrait de Parfum RAPHA
+            </div>
 
-          <span class="old-price">
-            Rp 359,000
-          </span>
+            <div class="product-price">
+
+                <span class="current-price">
+                    Rp 285,000
+                </span>
+
+                <span class="old-price">
+                    Rp 359,000
+                </span>
+
+            </div>
 
         </div>
-
-      </div>
 
     </article>
 
 
-
-    <!-- =================================================
-         PRODUCT 4
-    ================================================== -->
+    <!-- PRODUCT 4 -->
 
     <article class="product-card">
 
-      <div class="product-image">
+        <div class="product-image">
 
+            <span class="badge best-seller">
+                BEST SELLER
+            </span>
 
-        <span class="badge best-seller">
-          BEST SELLER
-        </span>
+            <span class="badge sale">
+                SALE
+            </span>
 
+            <button
+                class="product-wishlist"
+                type="button"
+            >
 
-        <span class="sale badge">
-          SALE
-        </span>
+                <svg viewBox="0 0 24 24">
 
+                    <path
+                        d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+                        -1.8 0-3.4 1-4.1 2.4
+                        C11.3 5 9.7 4 7.9 4
+                        5.2 4 3.2 6 3.2 8.8
+                        c0 4.9 8.8 10.2 8.8 10.2
+                        s8.8-5.3 8.8-10.2z"
+                    ></path>
 
-        <button class="product-wishlist">
+                </svg>
 
-          <svg viewBox="0 0 24 24">
+            </button>
 
-            <path
-              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-              -1.8 0-3.4 1-4.1 2.4
-              C11.3 5 9.7 4 7.9 4
-              5.2 4 3.2 6 3.2 8.8
-              c0 4.9 8.8 10.2 8.8 10.2
-              s8.8-5.3 8.8-10.2z">
-            </path>
-
-          </svg>
-
-        </button>
-
-
-        <img
-          src="images/cocoa-amore.png"
-          alt="SNS Cocoa Amore">
-
-      </div>
-
-
-      <div class="product-info">
-
-        <div class="product-name">
-
-          Extrait de Parfum COCOA AMORE
+            <img
+                src="images/cocoa-amore.png"
+                alt="SNS Cocoa Amore"
+            >
 
         </div>
 
 
-        <div class="product-price">
+        <div class="product-info">
 
-          <span class="current-price">
-            Rp 289,000
-          </span>
+            <div class="product-name">
+                Extrait de Parfum COCOA AMORE
+            </div>
 
-          <span class="old-price">
-            Rp 349,000
-          </span>
+            <div class="product-price">
+
+                <span class="current-price">
+                    Rp 289,000
+                </span>
+
+                <span class="old-price">
+                    Rp 349,000
+                </span>
+
+            </div>
 
         </div>
-
-      </div>
 
     </article>
 
 
-
-    <!-- =================================================
-         PRODUCT 5
-    ================================================== -->
+    <!-- PRODUCT 5 -->
 
     <article class="product-card">
 
-      <div class="product-image">
+        <div class="product-image">
 
-        <span class="badge best-seller">
-          BEST SELLER
-        </span>
+            <span class="badge best-seller">
+                BEST SELLER
+            </span>
 
-        <button class="product-wishlist">
+            <button
+                class="product-wishlist"
+                type="button"
+            >
 
-          <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24">
 
-            <path
-              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-              -1.8 0-3.4 1-4.1 2.4
-              C11.3 5 9.7 4 7.9 4
-              5.2 4 3.2 6 3.2 8.8
-              c0 4.9 8.8 10.2 8.8 10.2
-              s8.8-5.3 8.8-10.2z">
-            </path>
+                    <path
+                        d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+                        -1.8 0-3.4 1-4.1 2.4
+                        C11.3 5 9.7 4 7.9 4
+                        5.2 4 3.2 6 3.2 8.8
+                        c0 4.9 8.8 10.2 8.8 10.2
+                        s8.8-5.3 8.8-10.2z"
+                    ></path>
 
-          </svg>
+                </svg>
 
-        </button>
+            </button>
 
-
-        <img
-          src="images/forte.png"
-          alt="SNS Forte">
-
-      </div>
-
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Extrait de Parfum FORTE
-        </div>
-
-        <div class="product-price">
-
-          <span class="current-price">
-            Rp 299,000
-          </span>
-
-          <span class="old-price">
-            Rp 349,000
-          </span>
+            <img
+                src="images/forte.png"
+                alt="SNS Forte"
+            >
 
         </div>
 
-      </div>
+
+        <div class="product-info">
+
+            <div class="product-name">
+                Extrait de Parfum FORTE
+            </div>
+
+            <div class="product-price">
+
+                <span class="current-price">
+                    Rp 299,000
+                </span>
+
+                <span class="old-price">
+                    Rp 349,000
+                </span>
+
+            </div>
+
+        </div>
 
     </article>
-
 
 
     <!-- PRODUCT 6 -->
 
     <article class="product-card">
 
-      <div class="product-image">
+        <div class="product-image">
 
-        <span class="badge best-seller">
-          BEST SELLER
-        </span>
+            <span class="badge best-seller">
+                BEST SELLER
+            </span>
 
-        <button class="product-wishlist">
+            <button
+                class="product-wishlist"
+                type="button"
+            >
 
-          <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24">
 
-            <path
-              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-              -1.8 0-3.4 1-4.1 2.4
-              C11.3 5 9.7 4 7.9 4
-              5.2 4 3.2 6 3.2 8.8
-              c0 4.9 8.8 10.2 8.8 10.2
-              s8.8-5.3 8.8-10.2z">
-            </path>
+                    <path
+                        d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+                        -1.8 0-3.4 1-4.1 2.4
+                        C11.3 5 9.7 4 7.9 4
+                        5.2 4 3.2 6 3.2 8.8
+                        c0 4.9 8.8 10.2 8.8 10.2
+                        s8.8-5.3 8.8-10.2z"
+                    ></path>
 
-          </svg>
+                </svg>
 
-        </button>
+            </button>
 
-
-        <img
-          src="images/intense.png"
-          alt="SNS Intense">
-
-      </div>
-
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Extrait de Parfum INTENSE
-        </div>
-
-        <div class="product-price">
-
-          <span class="current-price">
-            Rp 299,000
-          </span>
-
-          <span class="old-price">
-            Rp 349,000
-          </span>
+            <img
+                src="images/intense.png"
+                alt="SNS Intense"
+            >
 
         </div>
 
-      </div>
+
+        <div class="product-info">
+
+            <div class="product-name">
+                Extrait de Parfum INTENSE
+            </div>
+
+            <div class="product-price">
+
+                <span class="current-price">
+                    Rp 299,000
+                </span>
+
+                <span class="old-price">
+                    Rp 349,000
+                </span>
+
+            </div>
+
+        </div>
 
     </article>
-
 
 
     <!-- PRODUCT 7 -->
 
     <article class="product-card">
 
-      <div class="product-image">
+        <div class="product-image">
 
-        <span class="badge best-seller">
-          BEST SELLER
-        </span>
+            <span class="badge best-seller">
+                BEST SELLER
+            </span>
 
-        <span class="badge sale">
-          SALE
-        </span>
+            <span class="badge sale">
+                SALE
+            </span>
 
-        <button class="product-wishlist">
+            <button
+                class="product-wishlist"
+                type="button"
+            >
 
-          <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24">
 
-            <path
-              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-              -1.8 0-3.4 1-4.1 2.4
-              C11.3 5 9.7 4 7.9 4
-              5.2 4 3.2 6 3.2 8.8
-              c0 4.9 8.8 10.2 8.8 10.2
-              s8.8-5.3 8.8-10.2z">
-            </path>
+                    <path
+                        d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+                        -1.8 0-3.4 1-4.1 2.4
+                        C11.3 5 9.7 4 7.9 4
+                        5.2 4 3.2 6 3.2 8.8
+                        c0 4.9 8.8 10.2 8.8 10.2
+                        s8.8-5.3 8.8-10.2z"
+                    ></path>
 
-          </svg>
+                </svg>
 
-        </button>
+            </button>
 
-
-        <img
-          src="images/memories.png"
-          alt="SNS Memories">
-
-      </div>
-
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Extrait de Parfum MEMORIES
-        </div>
-
-        <div class="product-price">
-
-          <span class="current-price">
-            Rp 299,000
-          </span>
-
-          <span class="old-price">
-            Rp 349,000
-          </span>
+            <img
+                src="images/memories.png"
+                alt="SNS Memories"
+            >
 
         </div>
 
-      </div>
+
+        <div class="product-info">
+
+            <div class="product-name">
+                Extrait de Parfum MEMORIES
+            </div>
+
+            <div class="product-price">
+
+                <span class="current-price">
+                    Rp 299,000
+                </span>
+
+                <span class="old-price">
+                    Rp 349,000
+                </span>
+
+            </div>
+
+        </div>
 
     </article>
-
 
 
     <!-- PRODUCT 8 -->
 
     <article class="product-card">
 
-      <div class="product-image">
+        <div class="product-image">
 
-        <span class="badge best-seller">
-          BEST SELLER
-        </span>
+            <span class="badge best-seller">
+                BEST SELLER
+            </span>
 
-        <button class="product-wishlist">
+            <button
+                class="product-wishlist"
+                type="button"
+            >
 
-          <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24">
 
-            <path
-              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-              -1.8 0-3.4 1-4.1 2.4
-              C11.3 5 9.7 4 7.9 4
-              5.2 4 3.2 6 3.2 8.8
-              c0 4.9 8.8 10.2 8.8 10.2
-              s8.8-5.3 8.8-10.2z">
-            </path>
+                    <path
+                        d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+                        -1.8 0-3.4 1-4.1 2.4
+                        C11.3 5 9.7 4 7.9 4
+                        5.2 4 3.2 6 3.2 8.8
+                        c0 4.9 8.8 10.2 8.8 10.2
+                        s8.8-5.3 8.8-10.2z"
+                    ></path>
 
-          </svg>
+                </svg>
 
-        </button>
+            </button>
 
-
-        <img
-          src="images/seduction.png"
-          alt="SNS Seduction">
-
-      </div>
-
-
-      <div class="product-info">
-
-        <div class="product-name">
-          Extrait de Parfum SEDUCTION
-        </div>
-
-        <div class="product-price">
-
-          <span class="current-price">
-            Rp 299,000
-          </span>
-
-          <span class="old-price">
-            Rp 349,000
-          </span>
+            <img
+                src="images/seduction.png"
+                alt="SNS Seduction"
+            >
 
         </div>
 
-      </div>
+
+        <div class="product-info">
+
+            <div class="product-name">
+                Extrait de Parfum SEDUCTION
+            </div>
+
+            <div class="product-price">
+
+                <span class="current-price">
+                    Rp 299,000
+                </span>
+
+                <span class="old-price">
+                    Rp 349,000
+                </span>
+
+            </div>
+
+        </div>
 
     </article>
 
 
-  </main>
+</main>
 
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-  <!-- =====================================================
-       REVIEWS
-  ====================================================== -->
+<footer>
 
-  <div class="reviews">
-
-    ★ &nbsp; Reviews
-
-  </div>
+    <div class="footer-grid">
 
 
+        <!-- BRAND -->
 
-  <!-- =====================================================
-       REWARDS
-  ====================================================== -->
+        <div class="footer-brand">
 
-  <div class="rewards">
+            <h2>
+                SNS Fragrance
+            </h2>
 
-    🎁
+            <p>
+                A contemporary fragrance house creating
+                expressive scents for every individual,
+                every story, and every moment.
+            </p>
 
-    <span>
-      Rewards
-    </span>
-
-  </div>
+        </div>
 
 
+        <!-- ABOUT -->
 
-  <!-- =====================================================
-       CHAT
-  ====================================================== -->
+        <div>
 
-  <div class="chat">
+            <h4>
+                ABOUT
+            </h4>
 
-    <svg viewBox="0 0 24 24">
+            <a href="about.html">
+                Our Story
+            </a>
 
-      <path
-        d="M5 5.5h14v10H10l-4 3v-13z">
-      </path>
+        </div>
 
-      <path
-        d="M9 10h.01M12 10h.01M15 10h.01">
-      </path>
+
+        <!-- FOLLOW -->
+
+        <div>
+
+            <h4>
+                FOLLOW
+            </h4>
+
+            <a
+                href="https://www.instagram.com/snsfragrance.id"
+            >
+                Instagram
+            </a>
+
+            <a
+                href="https://www.tiktok.com/@snsfragrance.id"
+            >
+                TikTok
+            </a>
+
+            <a
+                href="https://wa.me/message/TZMPXSMPC6XHM1"
+            >
+                WhatsApp
+            </a>
+
+        </div>
+
+
+        <!-- INFO -->
+
+        <div>
+
+            <h4>
+                INFO
+            </h4>
+
+            <a href="faq.html">
+                FAQ
+            </a>
+
+            <a href="terms.html">
+                Terms of Service
+            </a>
+
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="returns.html">
+                Returns &amp; Exchanges
+            </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div>
+
+            <h4>
+                CONTACT
+            </h4>
+
+            <a href="mailto:snsfragranceid@gmail.com">
+                snsfragranceid@gmail.com
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 SNS Fragrance. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     FLOATING REVIEWS
+===================================================== -->
+
+<a
+    href="review.html"
+    class="floating review-button"
+    aria-label="Reviews"
+>
+
+    <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+    >
+
+        <path
+            d="M12 3.5
+               L14.5 8.5
+               L20 9.3
+               L16 13.2
+               L17 18.7
+               L12 16.1
+               L7 18.7
+               L8 13.2
+               L4 9.3
+               L9.5 8.5 Z"
+        ></path>
 
     </svg>
 
-  </div>
+    <span>
+        Reviews
+    </span>
+
+</a>
 
 
+<!-- =====================================================
+     FLOATING JOIN MEMBER
+===================================================== -->
 
-  <!-- =====================================================
-       JAVASCRIPT
-  ====================================================== -->
-
-  <script>
-
-
-    /* FILTER */
-
-    function toggleFilters() {
-
-      const panel =
-        document.getElementById(
-          "filterPanel"
-        );
-
-      panel.classList.toggle(
-        "active"
-      );
-
-    }
+<a
+    href="member.html"
+    class="floating join member"
+>
+    Join Member
+</a>
 
 
-    /* WISHLIST */
+<!-- =====================================================
+     FLOATING CHAT
+===================================================== -->
 
-    document
-      .querySelectorAll(".product-wishlist")
-      .forEach(button => {
+<a
+    href="https://wa.me/message/TZMPXSMPC6XHM1"
+    class="floating chat"
+>
+
+    <svg viewBox="0 0 24 24">
+
+        <path
+            d="M5 5.5
+               h14
+               a2 2 0 0 1 2 2
+               v8
+               a2 2 0 0 1-2 2
+               h-7
+               l-4 3
+               v-3
+               H5
+               a2 2 0 0 1-2-2
+               v-8
+               a2 2 0 0 1 2-2z"
+        ></path>
+
+        <circle
+            cx="8"
+            cy="11.5"
+            r=".7"
+            fill="#fff"
+            stroke="none"
+        ></circle>
+
+        <circle
+            cx="12"
+            cy="11.5"
+            r=".7"
+            fill="#fff"
+            stroke="none"
+        ></circle>
+
+        <circle
+            cx="16"
+            cy="11.5"
+            r=".7"
+            fill="#fff"
+            stroke="none"
+        ></circle>
+
+    </svg>
+
+</a>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+const filterButton =
+    document.getElementById("filterButton");
+
+const filterPanel =
+    document.getElementById("filterPanel");
+
+if (filterButton && filterPanel) {
+
+    filterButton.addEventListener(
+        "click",
+        function () {
+
+            filterPanel.classList.toggle("active");
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   WISHLIST
+===================================================== */
+
+document
+    .querySelectorAll(".product-wishlist")
+    .forEach(function (button) {
 
         button.addEventListener(
-          "click",
-          function() {
+            "click",
+            function () {
 
-            this.classList.toggle(
-              "selected"
-            );
+                this.classList.toggle("selected");
 
-          }
+            }
         );
 
-      });
+    });
 
 
-  </script>
+/* =====================================================
+   SEARCH
+===================================================== */
+
+const searchTrigger =
+    document.getElementById("searchTrigger");
+
+const searchPanel =
+    document.getElementById("searchPanel");
+
+const searchOverlay =
+    document.getElementById("searchOverlay");
+
+const searchClose =
+    document.getElementById("searchClose");
+
+
+function openSearch() {
+
+    if (!searchPanel || !searchOverlay) return;
+
+    searchPanel.classList.add("active");
+
+    searchOverlay.classList.add("active");
+
+}
+
+
+function closeSearch() {
+
+    if (!searchPanel || !searchOverlay) return;
+
+    searchPanel.classList.remove("active");
+
+    searchOverlay.classList.remove("active");
+
+}
+
+
+if (searchTrigger) {
+
+    searchTrigger.addEventListener(
+        "click",
+        openSearch
+    );
+
+}
+
+
+if (searchClose) {
+
+    searchClose.addEventListener(
+        "click",
+        closeSearch
+    );
+
+}
+
+
+if (searchOverlay) {
+
+    searchOverlay.addEventListener(
+        "click",
+        closeSearch
+    );
+
+}
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+const cartTrigger =
+    document.getElementById("cartTrigger");
+
+const cartDrawer =
+    document.getElementById("cartDrawer");
+
+const cartOverlay =
+    document.getElementById("cartOverlay");
+
+const cartClose =
+    document.getElementById("cartClose");
+
+
+function openCart() {
+
+    if (!cartDrawer || !cartOverlay) return;
+
+    cartDrawer.classList.add("active");
+
+    cartOverlay.classList.add("active");
+
+}
+
+
+function closeCart() {
+
+    if (!cartDrawer || !cartOverlay) return;
+
+    cartDrawer.classList.remove("active");
+
+    cartOverlay.classList.remove("active");
+
+}
+
+
+if (cartTrigger) {
+
+    cartTrigger.addEventListener(
+        "click",
+        openCart
+    );
+
+}
+
+
+if (cartClose) {
+
+    cartClose.addEventListener(
+        "click",
+        closeCart
+    );
+
+}
+
+
+if (cartOverlay) {
+
+    cartOverlay.addEventListener(
+        "click",
+        closeCart
+    );
+
+}
+
+
+</script>
 
 
 </body>
-
 </html>
