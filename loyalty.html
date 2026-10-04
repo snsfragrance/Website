@@ -2,12 +2,20 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
   <title>SNS Fragrance — Loyalty</title>
 
+
   <style>
+
+    /* =====================================================
+       GLOBAL
+    ===================================================== */
 
     :root {
       --black: #111111;
@@ -16,12 +24,13 @@
       --gold: #9b7a42;
       --light-gray: #e8e6e1;
       --text-gray: #666666;
+      --navy: #152d58;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -30,8 +39,8 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--black);
-      background: var(--white);
+      color: #111;
+      background: #fff;
     }
 
     a {
@@ -41,11 +50,14 @@
 
 
     /* =====================================================
-       TOP ANNOUNCEMENT BAR
+       ANNOUNCEMENT BAR
+       EXACT SAME HEIGHT AS INDEX.HTML
     ===================================================== */
 
     .announcement {
+      width: 100%;
       height: 42px;
+
       background: #000;
       color: #fff;
 
@@ -98,11 +110,11 @@
 
     /* =====================================================
        HEADER
+       EXACT SAME HEIGHT AS INDEX.HTML
     ===================================================== */
 
     header {
       background: #fff;
-      border-bottom: 1px solid #eeeeee;
     }
 
     .header-main {
@@ -115,11 +127,21 @@
       position: relative;
     }
 
+
+    /* =====================================================
+       LOGO
+    ===================================================== */
+
     .logo {
       font-size: 42px;
+
       font-weight: 600;
+
       letter-spacing: -2px;
+
       line-height: 1;
+
+      color: #111;
     }
 
     .logo span {
@@ -129,15 +151,17 @@
 
     /* =====================================================
        HEADER ICONS
-       EXACTLY MATCHED TO INDEX.HTML
+       EXACT SAME POSITION/SIZE AS INDEX.HTML
     ===================================================== */
 
     .header-icons {
       position: absolute;
+
       right: 38px;
 
       display: flex;
       align-items: center;
+
       gap: 25px;
     }
 
@@ -150,6 +174,7 @@
 
       border: none;
       outline: none;
+
       background: transparent;
 
       display: flex;
@@ -157,7 +182,9 @@
       justify-content: center;
 
       cursor: pointer;
+
       text-decoration: none;
+
       color: #111;
     }
 
@@ -166,7 +193,9 @@
       height: 25px;
 
       fill: none !important;
+
       stroke: #111 !important;
+
       stroke-width: 1.7;
 
       stroke-linecap: round;
@@ -174,7 +203,7 @@
 
       display: block;
 
-      transition: transform 0.2s ease;
+      transition: transform .2s ease;
     }
 
     .header-icon:hover svg {
@@ -183,20 +212,80 @@
 
     .wishlist-icon svg {
       fill: none !important;
+
       stroke: #e90046 !important;
+
       stroke-width: 1.8;
     }
 
 
     /* =====================================================
-       SEARCH OVERLAY
-       EXACTLY MATCHED TO INDEX.HTML
+       NAVIGATION
+       EXACT SAME HEIGHT AS INDEX.HTML
+    ===================================================== */
+
+    .navigation {
+      height: 57px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 36px;
+
+      border-bottom: 1px solid #ededed;
+
+      padding: 0 25px;
+    }
+
+    .navigation a {
+      position: relative;
+
+      color: #111;
+
+      text-decoration: none;
+
+      font-size: 15px;
+
+      white-space: nowrap;
+
+      padding: 20px 0;
+    }
+
+    .navigation a:hover {
+      color: #8b6736;
+    }
+
+    .navigation a.active {
+      font-weight: 500;
+    }
+
+    .navigation a.active::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+
+      bottom: 7px;
+
+      height: 1px;
+
+      background: #111;
+    }
+
+
+    /* =====================================================
+       SEARCH PANEL
     ===================================================== */
 
     .search-panel {
       position: fixed;
+
       top: 42px;
       left: 0;
+
       width: 100%;
       height: 122px;
 
@@ -210,40 +299,47 @@
       transform: translateY(-8px);
 
       transition:
-        opacity 0.2s ease,
-        transform 0.25s ease,
-        visibility 0.2s ease;
+        opacity .2s ease,
+        transform .25s ease,
+        visibility .2s ease;
     }
 
     .search-panel.active {
       opacity: 1;
+
       visibility: visible;
+
       transform: translateY(0);
     }
 
     .search-overlay {
       position: fixed;
+
       top: 164px;
       left: 0;
       right: 0;
       bottom: 0;
 
-      background: rgba(0, 0, 0, 0.36);
+      background: rgba(0,0,0,.36);
 
       z-index: 2000;
 
       opacity: 0;
+
       visibility: hidden;
+
       pointer-events: none;
 
       transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease;
+        opacity .2s ease,
+        visibility .2s ease;
     }
 
     .search-overlay.active {
       opacity: 1;
+
       visibility: visible;
+
       pointer-events: auto;
     }
 
@@ -252,6 +348,7 @@
       height: 100%;
 
       display: flex;
+
       align-items: center;
 
       position: relative;
@@ -269,16 +366,18 @@
       background: transparent;
 
       font-family: Arial, Helvetica, sans-serif;
+
       font-size: 14px;
-      font-weight: 400;
 
       color: #111;
 
-      padding: 0 75px 0 39px;
+      padding:
+        0 75px 0 39px;
     }
 
     .search-form input::placeholder {
       color: #111;
+
       opacity: 1;
     }
 
@@ -291,11 +390,15 @@
       height: 24px;
 
       padding: 0;
+
       border: none;
+
       background: transparent;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       cursor: pointer;
@@ -306,10 +409,13 @@
       height: 20px;
 
       fill: none;
+
       stroke: #d0d0d0;
+
       stroke-width: 1.7;
 
       stroke-linecap: round;
+
       stroke-linejoin: round;
     }
 
@@ -324,12 +430,13 @@
       padding: 0;
 
       border: none;
+
       background: transparent;
 
       color: #111;
 
-      font-family: Arial, Helvetica, sans-serif;
       font-size: 29px;
+
       font-weight: 300;
 
       line-height: 28px;
@@ -337,46 +444,10 @@
       cursor: pointer;
 
       display: flex;
-      align-items: center;
-      justify-content: center;
-    }
 
-    .search-close:hover {
-      opacity: 0.55;
-    }
-
-
-    /* =====================================================
-       NAVIGATION
-       EXACTLY MATCHED TO INDEX.HTML
-    ===================================================== */
-
-    .navigation {
-      display: flex;
-      justify-content: center;
       align-items: center;
 
-      gap: 38px;
-
-      min-height: 58px;
-      padding: 0 25px;
-
-      border-bottom: 1px solid #e7e7e7;
-    }
-
-    .navigation a {
-      color: #111;
-      text-decoration: none;
-
-      font-size: 15px;
-
-      white-space: nowrap;
-
-      transition: 0.2s;
-    }
-
-    .navigation a:hover {
-      color: var(--gold);
+      justify-content: center;
     }
 
 
@@ -388,17 +459,20 @@
       position: relative;
 
       width: 100%;
+
       height: 465px;
 
       background:
         linear-gradient(
           90deg,
-          rgba(255,255,255,0.05),
-          rgba(255,255,255,0.18)
+          rgba(255,255,255,.05),
+          rgba(255,255,255,.18)
         ),
-        url("assets/hero.jpg") center/cover no-repeat;
+        url("assets/hero.jpg")
+        center/cover no-repeat;
 
       display: flex;
+
       align-items: center;
     }
 
@@ -406,11 +480,13 @@
       width: 58%;
 
       padding-left: 4%;
+
       padding-bottom: 10px;
     }
 
     .hero-kicker {
       font-size: 30px;
+
       margin-bottom: 12px;
     }
 
@@ -420,7 +496,8 @@
 
     .loyalty-hero h1 {
       font-size: 72px;
-      line-height: 0.95;
+
+      line-height: .95;
 
       letter-spacing: 1px;
 
@@ -429,6 +506,7 @@
 
     .hero-point {
       font-size: 38px;
+
       margin-bottom: 26px;
     }
 
@@ -449,11 +527,12 @@
 
       background: #fff;
 
-      transition: 0.2s ease;
+      transition: .2s ease;
     }
 
     .join-btn:hover {
       background: #111;
+
       color: #fff;
     }
 
@@ -476,6 +555,7 @@
       height: 460px;
 
       background-position: center;
+
       background-size: cover;
 
       background-color: #f1f1f1;
@@ -487,22 +567,27 @@
 
     .intro-copy h2 {
       font-size: 40px;
+
       margin-bottom: 38px;
     }
 
     .steps {
       display: grid;
+
       gap: 42px;
     }
 
     .step h3 {
       font-size: 16px;
+
       margin-bottom: 8px;
     }
 
     .step p {
       font-size: 17px;
+
       line-height: 1.45;
+
       color: #444;
     }
 
@@ -512,6 +597,7 @@
       margin-top: 30px;
 
       background: #000;
+
       color: #fff;
 
       border-radius: 22px;
@@ -519,9 +605,10 @@
       padding: 13px 22px;
 
       font-size: 14px;
+
       font-weight: 600;
 
-      transition: 0.2s ease;
+      transition: .2s ease;
     }
 
     .cta:hover {
@@ -539,14 +626,17 @@
 
     .earn h2 {
       font-size: 22px;
-      color: #152d58;
+
+      color: var(--navy);
+
       margin-bottom: 28px;
     }
 
     .earn-grid {
       display: grid;
 
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns:
+        repeat(4,1fr);
 
       gap: 6px;
     }
@@ -558,7 +648,8 @@
 
       border-radius: 16px;
 
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow:
+        0 2px 8px rgba(0,0,0,.06);
 
       display: flex;
 
@@ -572,7 +663,7 @@
 
       padding: 20px;
 
-      color: #152d58;
+      color: var(--navy);
     }
 
     .earn-icon {
@@ -598,12 +689,15 @@
 
     .earn-card h3 {
       font-size: 15px;
+
       line-height: 1.35;
+
       margin-bottom: 8px;
     }
 
     .earn-card p {
       font-size: 14px;
+
       color: #60708d;
     }
 
@@ -620,13 +714,15 @@
 
     .claim h2 {
       font-size: 30px;
+
       margin-bottom: 55px;
     }
 
     .reward-grid {
       display: grid;
 
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns:
+        repeat(4,1fr);
     }
 
     .reward-card {
@@ -648,7 +744,7 @@
       display: block;
     }
 
-    .reward-card:after {
+    .reward-card::after {
       content: "";
 
       position: absolute;
@@ -658,7 +754,7 @@
       background:
         linear-gradient(
           transparent,
-          rgba(0,0,0,0.65)
+          rgba(0,0,0,.65)
         );
     }
 
@@ -694,7 +790,7 @@
     }
 
     .vip h2 {
-      color: #152d58;
+      color: var(--navy);
 
       font-size: 23px;
 
@@ -704,7 +800,8 @@
     .vip-grid {
       display: grid;
 
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns:
+        repeat(3,1fr);
 
       gap: 12px;
     }
@@ -714,7 +811,8 @@
 
       border-radius: 16px;
 
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow:
+        0 2px 10px rgba(0,0,0,.08);
 
       overflow: hidden;
 
@@ -734,16 +832,17 @@
 
       display: block;
 
-      opacity: 0.72;
+      opacity: .72;
     }
 
     .vip-card h3 {
       position: absolute;
 
       top: 35px;
+
       left: 17px;
 
-      color: #152d58;
+      color: var(--navy);
 
       font-size: 25px;
     }
@@ -818,11 +917,11 @@
 
     /* =====================================================
        FOOTER
-       MATCHED TO INDEX.HTML
     ===================================================== */
 
     footer {
       background: #111;
+
       color: #fff;
 
       padding: 65px 7% 30px;
@@ -841,6 +940,7 @@
 
     .footer-brand h2 {
       font-size: 30px;
+
       font-weight: 500;
     }
 
@@ -891,27 +991,29 @@
 
     /* =====================================================
        CART DRAWER
-       EXACTLY MATCHED TO INDEX.HTML
     ===================================================== */
 
     .cart-overlay {
       position: fixed;
+
       inset: 0;
 
-      background: rgba(0,0,0,0.38);
+      background: rgba(0,0,0,.38);
 
       z-index: 1998;
 
       opacity: 0;
+
       visibility: hidden;
 
       transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+        opacity .3s ease,
+        visibility .3s ease;
     }
 
     .cart-overlay.active {
       opacity: 1;
+
       visibility: visible;
     }
 
@@ -921,7 +1023,8 @@
       top: 0;
       right: 0;
 
-      width: min(420px, 92vw);
+      width: min(420px,92vw);
+
       height: 100vh;
 
       background: #fff;
@@ -929,13 +1032,16 @@
       z-index: 1999;
 
       display: flex;
+
       flex-direction: column;
 
-      box-shadow: -10px 0 35px rgba(0,0,0,0.12);
+      box-shadow:
+        -10px 0 35px rgba(0,0,0,.12);
 
       transform: translateX(100%);
 
-      transition: transform 0.35s ease;
+      transition:
+        transform .35s ease;
     }
 
     .cart-drawer.active {
@@ -948,7 +1054,9 @@
       padding: 0 28px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
 
       border-bottom: 1px solid #e8e8e8;
@@ -985,12 +1093,10 @@
       cursor: pointer;
 
       display: flex;
-      align-items: center;
-      justify-content: center;
-    }
 
-    .cart-close:hover {
-      opacity: 0.55;
+      align-items: center;
+
+      justify-content: center;
     }
 
     .cart-items {
@@ -1007,6 +1113,7 @@
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
       text-align: center;
@@ -1020,13 +1127,14 @@
       display: flex;
 
       align-items: center;
+
       justify-content: space-between;
 
       gap: 20px;
 
       padding: 18px 0;
 
-      border-bottom: 1px solid #eeeeee;
+      border-bottom: 1px solid #eee;
     }
 
     .cart-item-info {
@@ -1094,7 +1202,7 @@
 
       font-size: 13px;
 
-      letter-spacing: 0.5px;
+      letter-spacing: .5px;
 
       cursor: pointer;
     }
@@ -1121,6 +1229,7 @@
       border-radius: 50%;
 
       background: #111;
+
       color: #fff;
 
       font-size: 9px;
@@ -1139,7 +1248,6 @@
 
     /* =====================================================
        FLOATING BUTTONS
-       EXACTLY MATCHED TO INDEX.HTML
     ===================================================== */
 
     .floating {
@@ -1152,11 +1260,9 @@
       box-sizing: border-box;
     }
 
-
-    /* REVIEWS */
-
     .floating.review-button {
       left: 18px;
+
       bottom: 80px;
 
       height: 52px;
@@ -1177,23 +1283,20 @@
 
       gap: 10px;
 
-      font-family: Arial, Helvetica, sans-serif;
-
       font-size: 16px;
 
       font-weight: 600;
 
       line-height: 1;
 
-      box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+      box-shadow:
+        0 6px 25px rgba(0,0,0,.12);
 
       cursor: pointer;
     }
 
     .floating.review-button:hover {
       color: #111;
-
-      text-decoration: none;
 
       transform: translateY(-1px);
     }
@@ -1209,11 +1312,9 @@
       fill: #111;
     }
 
-
-    /* JOIN MEMBER */
-
     .floating.join.member {
       left: 18px;
+
       bottom: 18px;
 
       background: #000;
@@ -1232,15 +1333,14 @@
 
       gap: 10px;
 
-      font-family: Arial, Helvetica, sans-serif;
-
       font-size: 16px;
 
       font-weight: 600;
 
       line-height: 1;
 
-      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
+      box-shadow:
+        0 6px 25px rgba(0,0,0,.20);
 
       cursor: pointer;
     }
@@ -1248,16 +1348,12 @@
     .floating.join.member:hover {
       color: #fff;
 
-      text-decoration: none;
-
       transform: translateY(-1px);
     }
 
-
-    /* CHAT */
-
     .floating.chat {
       right: 18px;
+
       bottom: 18px;
 
       width: 50px;
@@ -1275,15 +1371,14 @@
 
       justify-content: center;
 
-      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
+      box-shadow:
+        0 6px 25px rgba(0,0,0,.20);
 
       cursor: pointer;
     }
 
     .floating.chat:hover {
       color: #fff;
-
-      text-decoration: none;
 
       transform: translateY(-1px);
     }
@@ -1301,19 +1396,13 @@
       stroke-width: 1.6;
 
       stroke-linecap: round;
+
       stroke-linejoin: round;
-    }
-
-    .floating.chat circle {
-      fill: #fff;
-
-      stroke: none;
     }
 
 
     /* =====================================================
        RESPONSIVE
-       MATCHED TO INDEX.HTML
     ===================================================== */
 
     @media (max-width: 1000px) {
@@ -1325,11 +1414,13 @@
       }
 
       .earn-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2,1fr);
       }
 
       .reward-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2,1fr);
       }
 
       .loyalty-hero-content {
@@ -1337,7 +1428,8 @@
       }
 
       .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2,1fr);
       }
 
     }
@@ -1346,9 +1438,13 @@
     @media (max-width: 650px) {
 
       .announcement {
-        font-size: 10px;
+        height: 42px;
+      }
 
-        padding: 0 12px;
+      .announcement-track span {
+        font-size: 11px;
+
+        margin-right: 100px;
       }
 
       .header-main {
@@ -1376,6 +1472,8 @@
       }
 
       .search-panel {
+        top: 42px;
+
         height: 100px;
       }
 
@@ -1417,7 +1515,7 @@
         background:
           linear-gradient(
             transparent,
-            rgba(255,255,255,0.95)
+            rgba(255,255,255,.95)
           );
       }
 
@@ -1437,23 +1535,6 @@
 
       .floating.join.member {
         padding: 13px 18px;
-      }
-
-    }
-
-
-    @media (max-width: 600px) {
-
-      .cart-drawer-header {
-        padding: 0 20px;
-      }
-
-      .cart-items {
-        padding: 20px;
-      }
-
-      .cart-drawer-footer {
-        padding: 20px;
       }
 
     }
@@ -1535,6 +1616,7 @@
 
       .reward-tiers {
         padding-left: 5%;
+
         padding-right: 5%;
       }
 
@@ -1542,13 +1624,27 @@
         grid-template-columns: 1fr;
       }
 
-      .footer-contact a {
-        margin-left: 0;
+    }
+
+
+    @media (max-width: 600px) {
+
+      .cart-drawer-header {
+        padding: 0 20px;
+      }
+
+      .cart-items {
+        padding: 20px;
+      }
+
+      .cart-drawer-footer {
+        padding: 20px;
       }
 
     }
 
   </style>
+
 </head>
 
 
@@ -1563,17 +1659,35 @@
 
     <div class="announcement-track">
 
-      <span>THE ART OF SCENT</span>
-      <span>A SYMPHONY FOR THE SENSES</span>
-      <span>DISCOVER SNS FRAGRANCE</span>
+      <span>
+        THE ART OF SCENT
+      </span>
 
-      <span>THE ART OF SCENT</span>
-      <span>A SYMPHONY FOR THE SENSES</span>
-      <span>DISCOVER SNS FRAGRANCE</span>
+      <span>
+        A SYMPHONY FOR THE SENSES
+      </span>
+
+      <span>
+        DISCOVER SNS FRAGRANCE
+      </span>
+
+
+      <span>
+        THE ART OF SCENT
+      </span>
+
+      <span>
+        A SYMPHONY FOR THE SENSES
+      </span>
+
+      <span>
+        DISCOVER SNS FRAGRANCE
+      </span>
 
     </div>
 
   </div>
+
 
 
   <!-- =====================================================
@@ -1584,10 +1698,19 @@
 
     <div class="header-main">
 
-      <div class="logo">
-        SNS <span>Fragrance</span>
-      </div>
 
+      <!-- LOGO -->
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+        SNS <span>Fragrance</span>
+      </a>
+
+
+
+      <!-- HEADER ICONS -->
 
       <div class="header-icons">
 
@@ -1617,23 +1740,24 @@
         </a>
 
 
+
         <!-- WISHLIST -->
 
         <a
           href="wishlist.html"
           class="header-icon wishlist-icon"
-          aria-label="Add to wishlist"
+          aria-label="Wishlist"
         >
 
           <svg viewBox="0 0 24 24">
 
             <path
               d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-                 -1.8 0-3.4 1-4.1 2.4
-                 C11.3 5 9.7 4 7.9 4
-                 5.2 4 3.2 6 3.2 8.8
-                 c0 4.9 8.8 10.2 8.8 10.2
-                 s8.8-5.3 8.8-10.2z"
+              -1.8 0-3.4 1-4.1 2.4
+              C11.3 5 9.7 4 7.9 4
+              5.2 4 3.2 6 3.2 8.8
+              c0 4.9 8.8 10.2 8.8 10.2
+              s8.8-5.3 8.8-10.2z"
             ></path>
 
           </svg>
@@ -1641,11 +1765,12 @@
         </a>
 
 
+
         <!-- SEARCH -->
 
         <button
           type="button"
-          class="header-icon search-trigger"
+          class="header-icon"
           id="searchTrigger"
           aria-label="Search"
         >
@@ -1667,13 +1792,14 @@
         </button>
 
 
-        <!-- SHOPPING CART -->
+
+        <!-- CART -->
 
         <button
+          type="button"
           class="header-icon"
           id="cartTrigger"
           aria-label="Shopping Cart"
-          type="button"
         >
 
           <svg viewBox="0 0 24 24">
@@ -1699,7 +1825,9 @@
           <span
             class="cart-count"
             id="cartCount"
-          >0</span>
+          >
+            0
+          </span>
 
         </button>
 
@@ -1709,7 +1837,10 @@
     </div>
 
 
-    <!-- NAVIGATION -->
+
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
 
     <nav class="navigation">
 
@@ -1729,7 +1860,10 @@
         Eau de Toilette
       </a>
 
-      <a href="loyalty.html">
+      <a
+        href="loyalty.html"
+        class="active"
+      >
         Loyalty
       </a>
 
@@ -1738,8 +1872,9 @@
   </header>
 
 
+
   <!-- =====================================================
-       SEARCH OVERLAY
+       SEARCH
   ===================================================== -->
 
   <div
@@ -1761,7 +1896,7 @@
       <button
         type="submit"
         class="search-submit"
-        aria-label="Submit Search"
+        aria-label="Search"
       >
 
         <svg viewBox="0 0 24 24">
@@ -1784,9 +1919,8 @@
       <input
         type="text"
         id="searchInput"
-        placeholder=""
         autocomplete="off"
-      />
+      >
 
 
       <button
@@ -1803,8 +1937,9 @@
   </div>
 
 
+
   <!-- =====================================================
-       CART DRAWER
+       CART
   ===================================================== -->
 
   <div
@@ -1816,7 +1951,6 @@
   <aside
     class="cart-drawer"
     id="cartDrawer"
-    aria-label="Shopping Cart"
   >
 
     <div class="cart-drawer-header">
@@ -1829,7 +1963,6 @@
         type="button"
         class="cart-close"
         id="cartClose"
-        aria-label="Close Cart"
       >
         ×
       </button>
@@ -1881,8 +2014,9 @@
   </aside>
 
 
+
   <!-- =====================================================
-       HERO
+       LOYALTY HERO
   ===================================================== -->
 
   <section class="loyalty-hero">
@@ -1893,16 +2027,13 @@
         Start Your <em>Journey</em>
       </div>
 
-
       <h1>
         SNS REWARDS
       </h1>
 
-
       <div class="hero-point">
         ◉ Rp.1 = 1 Points
       </div>
-
 
       <a
         href="#join"
@@ -1917,6 +2048,7 @@
   </section>
 
 
+
   <!-- =====================================================
        UNLOCK MORE PERKS
   ===================================================== -->
@@ -1928,7 +2060,9 @@
 
     <div
       class="intro-image"
-      style="background-image:url('assets/perk-left-1.jpg')"
+      style="
+        background-image:url('assets/perk-left-1.jpg');
+      "
     ></div>
 
 
@@ -2008,6 +2142,7 @@
     </div>
 
   </section>
+
 
 
   <!-- =====================================================
@@ -2187,6 +2322,7 @@
   </section>
 
 
+
   <!-- =====================================================
        CLAIM YOUR REWARD
   ===================================================== -->
@@ -2262,6 +2398,7 @@
   </section>
 
 
+
   <!-- =====================================================
        VIP TIERS
   ===================================================== -->
@@ -2290,9 +2427,11 @@
         <div class="vip-info">
 
           –
+
           <br>
 
           2x
+
           <br>
 
           –
@@ -2316,9 +2455,11 @@
         <div class="vip-info">
 
           Spend Rp 1,000,000
+
           <br>
 
           2x
+
           <br>
 
           Rp 25,000 off discount
@@ -2342,9 +2483,11 @@
         <div class="vip-info">
 
           Spend Rp 3,000,000
+
           <br>
 
           2.5x
+
           <br>
 
           Rp 100,000 off discount
@@ -2357,6 +2500,7 @@
     </div>
 
   </section>
+
 
 
   <!-- =====================================================
@@ -2661,9 +2805,9 @@
   </section>
 
 
+
   <!-- =====================================================
        FOOTER
-       MATCHED TO INDEX.HTML
   ===================================================== -->
 
   <footer>
@@ -2705,21 +2849,15 @@
           FOLLOW
         </h4>
 
-        <a
-          href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
-        >
+        <a href="https://www.instagram.com/snsfragrance.id">
           Instagram
         </a>
 
-        <a
-          href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z"
-        >
+        <a href="https://www.tiktok.com/@snsfragrance.id">
           TikTok
         </a>
 
-        <a
-          href="https://wa.me/message/TZMPXSMPC6XHM1"
-        >
+        <a href="https://wa.me/message/TZMPXSMPC6XHM1">
           WhatsApp
         </a>
 
@@ -2751,7 +2889,7 @@
       </div>
 
 
-      <div class="footer-contact">
+      <div>
 
         <h4>
           CONTACT
@@ -2776,8 +2914,9 @@
   </footer>
 
 
+
   <!-- =====================================================
-       FLOATING BUTTONS
+       FLOATING REVIEWS
   ===================================================== -->
 
   <a
@@ -2792,16 +2931,19 @@
     >
 
       <path
-        d="M12 3.5
-           L14.5 8.5
-           L20 9.3
-           L16 13.2
-           L17 18.7
-           L12 16.1
-           L7 18.7
-           L8 13.2
-           L4 9.3
-           L9.5 8.5 Z"
+        d="
+          M12 3.5
+          L14.5 8.5
+          L20 9.3
+          L16 13.2
+          L17 18.7
+          L12 16.1
+          L7 18.7
+          L8 13.2
+          L4 9.3
+          L9.5 8.5
+          Z
+        "
       ></path>
 
     </svg>
@@ -2813,12 +2955,18 @@
   </a>
 
 
+
+  <!-- =====================================================
+       JOIN MEMBER
+  ===================================================== -->
+
   <a
     href="member.html"
     class="floating join member"
   >
     Join Member
   </a>
+
 
 
   <!-- =====================================================
@@ -2834,20 +2982,22 @@
     <svg viewBox="0 0 24 24">
 
       <path
-        d="M5 5.5
-           h14
-           a2 2 0 0 1 2 2
-           v8
-           a2 2 0 0 1-2 2
-           h-7
-           l-4 3
-           v-3
-           H5
-           a2 2 0 0 1-2-2
-           v-8
-           a2 2 0 0 1 2-2z"
+        d="
+          M5 5.5
+          h14
+          a2 2 0 0 1 2 2
+          v8
+          a2 2 0 0 1-2 2
+          h-7
+          l-4 3
+          v-3
+          H5
+          a2 2 0 0 1-2-2
+          v-8
+          a2 2 0 0 1 2-2
+          z
+        "
       ></path>
-
 
       <circle
         cx="8"
@@ -2856,14 +3006,12 @@
         fill="white"
       ></circle>
 
-
       <circle
         cx="12"
         cy="11.5"
         r=".7"
         fill="white"
       ></circle>
-
 
       <circle
         cx="16"
@@ -2875,6 +3023,7 @@
     </svg>
 
   </a>
+
 
 
   <!-- =====================================================
@@ -2913,7 +3062,7 @@
 
       searchOverlay.classList.add("active");
 
-      setTimeout(function () {
+      setTimeout(() => {
 
         searchInput.focus();
 
@@ -2957,39 +3106,24 @@
 
         event.preventDefault();
 
-        const searchValue =
+        const value =
           searchInput.value.trim();
 
-        if (!searchValue) return;
+        if (!value) {
+          return;
+        }
 
         console.log(
-          "Searching for:",
-          searchValue
+          "Search:",
+          value
         );
 
       }
     );
 
 
-    document.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (
-          event.key === "Escape" &&
-          searchPanel.classList.contains("active")
-        ) {
-
-          closeSearch();
-
-        }
-
-      }
-    );
-
-
     /* =====================================================
-       CART FUNCTIONALITY
+       CART
     ===================================================== */
 
     let cart = [];
@@ -3020,19 +3154,6 @@
       document.getElementById("cartCheckout");
 
 
-    const productPrices = {
-
-      "Tranquility": 299000,
-
-      "Cocoa Amore": 299000,
-
-      "Rapha": 299000,
-
-      "Ophir": 299000
-
-    };
-
-
     function formatPrice(price) {
 
       return "Rp " +
@@ -3047,7 +3168,8 @@
 
       cartOverlay.classList.add("active");
 
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow =
+        "hidden";
 
     }
 
@@ -3058,7 +3180,8 @@
 
       cartOverlay.classList.remove("active");
 
-      document.body.style.overflow = "";
+      document.body.style.overflow =
+        "";
 
     }
 
@@ -3067,16 +3190,20 @@
 
       if (!cart.length) {
 
-        cartItems.innerHTML =
-          '<div class="cart-empty">' +
-          '<p>Your cart is empty.</p>' +
-          '</div>';
+        cartItems.innerHTML = `
+
+          <div class="cart-empty">
+
+            <p>
+              Your cart is empty.
+            </p>
+
+          </div>
+
+        `;
 
         cartTotal.textContent =
           "Rp 0";
-
-        cartCount.textContent =
-          "0";
 
         cartCount.classList.remove(
           "active"
@@ -3087,48 +3214,14 @@
       }
 
 
-      const grouped = {};
-
-
-      cart.forEach(function(product) {
-
-        if (!grouped[product]) {
-
-          grouped[product] = {
-
-            name: product,
-
-            quantity: 0
-
-          };
-
-        }
-
-        grouped[product].quantity++;
-
-      });
-
-
       let total = 0;
-
-      let quantityTotal = 0;
 
 
       cartItems.innerHTML =
-        Object.values(grouped)
-          .map(function(item) {
+        cart.map(
+          item => {
 
-            const price =
-              productPrices[item.name] || 0;
-
-            const itemTotal =
-              price * item.quantity;
-
-            total += itemTotal;
-
-            quantityTotal +=
-              item.quantity;
-
+            total += item.price;
 
             return `
 
@@ -3141,43 +3234,32 @@
                   </div>
 
                   <div class="cart-item-meta">
-                    Extrait de Parfum · Qty ${item.quantity}
+                    Qty 1
                   </div>
 
                 </div>
 
                 <div class="cart-item-price">
-                  ${formatPrice(itemTotal)}
+                  ${formatPrice(item.price)}
                 </div>
 
               </div>
 
             `;
 
-          })
-          .join("");
+          }
+        ).join("");
 
 
       cartTotal.textContent =
         formatPrice(total);
 
       cartCount.textContent =
-        quantityTotal;
+        cart.length;
 
       cartCount.classList.add(
         "active"
       );
-
-    }
-
-
-    function addToCart(product) {
-
-      cart.push(product);
-
-      renderCart();
-
-      openCart();
 
     }
 
@@ -3206,28 +3288,15 @@
     );
 
 
-    document.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (
-          event.key === "Escape" &&
-          cartDrawer.classList.contains("active")
-        ) {
-
-          closeCart();
-
-        }
-
-      }
-    );
-
-
     cartCheckout.addEventListener(
       "click",
       function() {
 
-        if (!cart.length) return;
+        if (!cart.length) {
+
+          return;
+
+        }
 
         alert(
           "Checkout functionality will be connected here."
@@ -3237,7 +3306,26 @@
     );
 
 
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeSearch();
+
+          closeCart();
+
+        }
+
+      }
+    );
+
+
     renderCart();
+
 
   </script>
 
