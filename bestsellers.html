@@ -8,78 +8,87 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>SNS Fragrance — Bestsellers</title>
+<title>SNS Fragrance — Extrait de Parfum</title>
+
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html,
-body {
-    margin: 0;
-    padding: 0;
+:root {
+  --black: #111;
+  --white: #fff;
+  --gold: #8b6736;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #111;
-    background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  background: var(--white);
 }
 
 
 /* =====================================================
-   TOP ANNOUNCEMENT
+   ANNOUNCEMENT BAR
 ===================================================== */
 
 .announcement {
-    height: 42px;
-    background: #000;
-    color: #fff;
+  height: 42px;
+  background: #000;
+  color: #fff;
 
-    overflow: hidden;
-    position: relative;
+  overflow: hidden;
+  position: relative;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .announcement-track {
-    display: flex;
-    align-items: center;
-    width: max-content;
+  display: flex;
+  align-items: center;
 
-    animation: announcementScroll 30s linear infinite;
+  width: max-content;
+
+  animation: announcementScroll 30s linear infinite;
 }
 
 .announcement-track span {
-    display: inline-flex;
-    align-items: center;
+  display: inline-flex;
+  align-items: center;
 
-    margin-right: 140px;
+  margin-right: 140px;
 
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: 400;
+
+  letter-spacing: 1px;
 }
 
 @keyframes announcementScroll {
-    0% {
-        transform: translateX(0);
-    }
 
-    100% {
-        transform: translateX(-50%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
 }
 
 .announcement:hover .announcement-track {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 
@@ -102,69 +111,81 @@ header {
   position: relative;
 }
 
+
+/* =====================================================
+   LOGO
+===================================================== */
+
 .logo {
-    font-size: 42px;
-    font-weight: 600;
-    letter-spacing: -2px;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -2px;
 }
 
 .logo span {
-    font-weight: 300;
+  font-weight: 300;
 }
 
-.header-icons {
-    position: absolute;
-    right: 38px;
 
-    display: flex;
-    align-items: center;
-    gap: 25px;
+/* =====================================================
+   HEADER ICONS
+===================================================== */
+
+.header-icons {
+  position: absolute;
+  right: 38px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 25px;
 }
 
 .header-icon {
-    width: 26px;
-    height: 26px;
+  width: 26px;
+  height: 26px;
 
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 
-    border: none;
-    outline: none;
-    background: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    cursor: pointer;
-    text-decoration: none;
-    color: #111;
+  cursor: pointer;
+  text-decoration: none;
+  color: #111;
 }
 
 .header-icon svg {
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 
-    fill: none !important;
-    stroke: #111 !important;
-    stroke-width: 1.7;
+  fill: none !important;
+  stroke: #111 !important;
 
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  stroke-width: 1.7;
 
-    display: block;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 
-    transition: transform .2s ease;
+  display: block;
+
+  transition: transform 0.2s ease;
 }
 
 .header-icon:hover svg {
-    transform: scale(1.08);
+  transform: scale(1.08);
 }
 
 .wishlist-icon svg {
-    fill: none !important;
-    stroke: #e90046 !important;
-    stroke-width: 1.8;
+  fill: none !important;
+  stroke: #e90046 !important;
+  stroke-width: 1.8;
 }
 
 
@@ -173,54 +194,55 @@ header {
 ===================================================== */
 
 .navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
 
-    gap: 38px;
+  justify-content: center;
+  align-items: center;
 
-    min-height: 58px;
+  gap: 38px;
 
-    padding: 0 25px;
+  min-height: 58px;
 
-    border-bottom: 1px solid #e7e7e7;
+  padding: 0 25px;
+
+  border-bottom: 1px solid #e7e7e7;
 }
 
 .navigation a {
-    position: relative;
+  position: relative;
 
-    color: #111;
-    text-decoration: none;
+  color: #111;
 
-    font-size: 15px;
-    font-weight: 400;
+  text-decoration: none;
 
-    white-space: nowrap;
+  font-size: 15px;
 
-    padding: 20px 0;
+  white-space: nowrap;
+
+  transition: 0.2s;
 }
 
 .navigation a:hover {
-    color: #9b7a42;
+  color: var(--gold);
 }
 
 .navigation a.active {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .navigation a.active::after {
-    content: "";
+  content: "";
 
-    position: absolute;
+  position: absolute;
 
-    left: 0;
-    right: 0;
+  left: 0;
+  right: 0;
 
-    bottom: 7px;
+  bottom: -8px;
 
-    height: 2px;
+  height: 2px;
 
-    background: #111;
+  background: #111;
 }
 
 
@@ -229,160 +251,172 @@ header {
 ===================================================== */
 
 .search-panel {
-    position: fixed;
+  position: fixed;
 
-    top: 42px;
-    left: 0;
+  top: 42px;
+  left: 0;
 
-    width: 100%;
-    height: 122px;
+  width: 100%;
+  height: 122px;
 
-    background: #fff;
+  background: #fff;
 
-    z-index: 2001;
+  z-index: 2001;
 
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 
-    transform: translateY(-8px);
+  transform: translateY(-8px);
 
-    transition:
-        opacity .2s ease,
-        transform .25s ease,
-        visibility .2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.25s ease,
+    visibility 0.2s ease;
 }
 
 .search-panel.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
 }
 
 .search-overlay {
-    position: fixed;
+  position: fixed;
 
-    top: 164px;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  top: 164px;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
-    background: rgba(0,0,0,.36);
+  background: rgba(0, 0, 0, 0.36);
 
-    z-index: 2000;
+  z-index: 2000;
 
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 
-    pointer-events: none;
+  pointer-events: none;
 
-    transition:
-        opacity .2s ease,
-        visibility .2s ease;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
 }
 
 .search-overlay.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
 }
 
 .search-form {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    position: relative;
+  position: relative;
 
-    padding: 0 11.8%;
+  padding: 0 11.8%;
 }
 
 .search-form input {
-    width: 100%;
-    height: 50px;
+  width: 100%;
+  height: 50px;
 
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 
-    background: transparent;
+  background: transparent;
 
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
 
-    color: #111;
+  font-size: 14px;
+  font-weight: 400;
 
-    padding: 0 75px 0 39px;
+  color: #111;
+
+  padding:
+    0
+    75px
+    0
+    39px;
 }
 
 .search-form input::placeholder {
-    color: #111;
-    opacity: 1;
+  color: #111;
+  opacity: 1;
 }
 
 .search-submit {
-    position: absolute;
+  position: absolute;
 
-    left: calc(11.8% - 1px);
+  left: calc(11.8% - 1px);
 
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 
-    padding: 0;
+  padding: 0;
 
-    border: none;
+  border: none;
 
-    background: transparent;
+  background: transparent;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .search-submit svg {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 
-    fill: none;
+  fill: none;
 
-    stroke: #d0d0d0;
+  stroke: #d0d0d0;
 
-    stroke-width: 1.7;
+  stroke-width: 1.7;
 
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .search-close {
-    position: absolute;
+  position: absolute;
 
-    right: 11.8%;
+  right: 11.8%;
 
-    width: 28px;
-    height: 28px;
+  width: 28px;
+  height: 28px;
 
-    padding: 0;
+  padding: 0;
 
-    border: none;
+  border: none;
 
-    background: transparent;
+  background: transparent;
 
-    color: #111;
+  color: #111;
 
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 29px;
-    font-weight: 300;
+  font-family: Arial, Helvetica, sans-serif;
 
-    line-height: 28px;
+  font-size: 29px;
+  font-weight: 300;
 
-    cursor: pointer;
+  line-height: 28px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-close:hover {
+  opacity: 0.55;
 }
 
 
@@ -391,212 +425,369 @@ header {
 ===================================================== */
 
 .cart-overlay {
-    position: fixed;
+  position: fixed;
 
-    inset: 0;
+  inset: 0;
 
-    background: rgba(0,0,0,.38);
+  background: rgba(0, 0, 0, 0.38);
 
-    z-index: 1998;
+  z-index: 1998;
 
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 
-    transition:
-        opacity .3s ease,
-        visibility .3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .cart-overlay.active {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .cart-drawer {
-    position: fixed;
+  position: fixed;
 
-    top: 0;
-    right: 0;
+  top: 0;
+  right: 0;
 
-    width: min(420px,92vw);
-    height: 100vh;
+  width: min(420px, 92vw);
+  height: 100vh;
 
-    background: #fff;
+  background: #fff;
 
-    z-index: 1999;
+  z-index: 1999;
 
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    box-shadow: -10px 0 35px rgba(0,0,0,.12);
+  box-shadow:
+    -10px 0 35px rgba(0,0,0,0.12);
 
-    transform: translateX(100%);
+  transform: translateX(100%);
 
-    transition: transform .35s ease;
+  transition:
+    transform 0.35s ease;
 }
 
 .cart-drawer.active {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 .cart-drawer-header {
-    height: 82px;
+  height: 82px;
 
-    padding: 0 28px;
+  padding: 0 28px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+
+  flex: 0 0 82px;
 }
 
 .cart-drawer-header h2 {
-    font-family: Georgia, serif;
+  font-family: Georgia, serif;
 
-    font-size: 27px;
-    font-weight: 400;
+  font-size: 27px;
+
+  font-weight: 400;
 }
 
 .cart-close {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 
-    padding: 0;
+  padding: 0;
 
-    border: none;
+  border: none;
 
-    background: transparent;
+  background: transparent;
 
-    color: #111;
+  color: #111;
 
-    font-size: 29px;
-    font-weight: 300;
+  font-size: 29px;
 
-    cursor: pointer;
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-close:hover {
+  opacity: 0.55;
 }
 
 .cart-items {
-    flex: 1;
+  flex: 1;
 
-    overflow-y: auto;
+  overflow-y: auto;
 
-    padding: 25px 28px;
+  padding: 25px 28px;
 }
 
 .cart-empty {
-    min-height: 240px;
+  min-height: 240px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    text-align: center;
+  text-align: center;
 
-    color: #777;
+  color: #777;
 
-    font-size: 14px;
+  font-size: 14px;
+}
+
+.cart-item {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.cart-item-info {
+  min-width: 0;
+}
+
+.cart-item-name {
+  font-family: Georgia, serif;
+
+  font-size: 18px;
+
+  margin-bottom: 6px;
+}
+
+.cart-item-meta {
+  color: #777;
+
+  font-size: 12px;
+}
+
+.cart-item-price {
+  font-size: 14px;
+
+  font-weight: 600;
+
+  white-space: nowrap;
 }
 
 .cart-drawer-footer {
-    border-top: 1px solid #e8e8e8;
+  border-top: 1px solid #e8e8e8;
 
-    padding: 22px 28px 28px;
+  padding: 22px 28px 28px;
 
-    background: #fff;
+  flex: 0 0 auto;
+
+  background: #fff;
 }
 
 .cart-total-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
 
-    margin-bottom: 18px;
+  align-items: center;
+  justify-content: space-between;
 
-    font-size: 15px;
+  margin-bottom: 18px;
+
+  font-size: 15px;
+}
+
+.cart-total-row strong {
+  font-size: 16px;
 }
 
 .cart-checkout {
-    width: 100%;
-    height: 48px;
+  width: 100%;
+  height: 48px;
 
-    border: none;
+  border: none;
 
-    background: #111;
-    color: #fff;
+  background: #111;
 
-    font-size: 13px;
-    letter-spacing: .5px;
+  color: #fff;
 
-    cursor: pointer;
+  font-size: 13px;
+
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
 }
 
-.cart-count {
-    position: absolute;
-
-    top: -5px;
-    right: -7px;
-
-    min-width: 16px;
-    height: 16px;
-
-    padding: 0 4px;
-
-    border-radius: 50%;
-
-    background: #111;
-    color: #fff;
-
-    font-size: 9px;
-    line-height: 16px;
-
-    text-align: center;
-
-    display: none;
-}
-
-.cart-count.active {
-    display: block;
+.cart-checkout:hover {
+  background: var(--gold);
 }
 
 #cartTrigger {
-    position: relative;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+
+  top: -5px;
+  right: -7px;
+
+  min-width: 16px;
+  height: 16px;
+
+  padding: 0 4px;
+
+  border-radius: 50%;
+
+  background: #111;
+
+  color: #fff;
+
+  font-size: 9px;
+
+  line-height: 16px;
+
+  text-align: center;
+
+  display: none;
+}
+
+.cart-count.active {
+  display: block;
 }
 
 
 /* =====================================================
-   BESTSELLERS TITLE
+   HERO
 ===================================================== */
 
-.page-heading {
-    width: 100%;
-    height: 190px;
+.extrait-hero {
+  width: 100%;
 
-    background: #fff !important;
-    color: #111 !important;
+  height: 465px;
 
-    display: flex;
+  display: grid;
 
-    align-items: center;
-    justify-content: center;
+  grid-template-columns: 65% 35%;
 
-    text-align: center;
+  overflow: hidden;
 }
 
-.page-heading h1 {
-    margin: 0;
 
-    color: #111 !important;
+/* =====================================================
+   HERO IMAGE
+===================================================== */
 
-    background: transparent !important;
+.extrait-hero-image {
+  position: relative;
 
-    font-family: Arial, Helvetica, sans-serif;
+  background-image:
+    url("images/hero-extrait.jpg");
 
-    font-size: 34px;
+  background-size: cover;
 
-    font-weight: 600;
+  background-position: center;
 
-    letter-spacing: -1.2px;
+  min-width: 0;
+}
+
+.extrait-hero-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.35),
+      transparent 65%
+    );
+}
+
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
+.hero-copy {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 12%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: #fff;
+}
+
+.hero-small {
+  display: inline-block;
+
+  padding: 7px 25px;
+
+  background: rgba(255,255,255,.14);
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 18px;
+}
+
+.hero-copy h1 {
+  font-size: 53px;
+
+  font-weight: 400;
+
+  letter-spacing: 5px;
+
+  margin-bottom: 20px;
+}
+
+.hero-copy p {
+  font-size: 16px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   HERO RIGHT SIDE
+===================================================== */
+
+.extrait-hero-title {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background: #fff;
+}
+
+.extrait-hero-title h2 {
+  font-size: 31px;
+
+  font-weight: 600;
+
+  letter-spacing: -.5px;
 }
 
 
@@ -605,66 +796,49 @@ header {
 ===================================================== */
 
 .filter-bar {
-    width: 100%;
-    height: 58px;
+  height: 68px;
 
-    background: #fff !important;
-    color: #111 !important;
+  display: flex;
 
-    border-top: 1px solid #eeeeee !important;
-    border-bottom: 1px solid #eeeeee !important;
+  align-items: center;
 
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  padding: 0 30px;
 
-    padding: 0 50px;
+  border-bottom: 1px solid #eee;
 
-    position: relative;
-    z-index: 1;
+  border-top: 1px solid #eee;
 }
 
 .filter-button {
-    width: auto;
-    height: 100%;
+  display: flex;
 
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  align-items: center;
 
-    gap: 12px;
+  gap: 10px;
 
-    padding: 0;
+  border: none;
 
-    border: none !important;
-    outline: none !important;
+  background: transparent;
 
-    background: transparent !important;
+  font-family: Arial, Helvetica, sans-serif;
 
-    color: #111 !important;
+  font-size: 14px;
 
-    font-family: Arial, Helvetica, sans-serif;
-
-    font-size: 14px;
-    font-weight: 400;
-
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .filter-button svg {
-    width: 17px;
-    height: 17px;
+  width: 16px;
+  height: 16px;
 
-    display: block;
+  fill: none;
 
-    fill: none !important;
+  stroke: #111;
 
-    stroke: #111 !important;
+  stroke-width: 1.5;
 
-    stroke-width: 1.5;
-
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
@@ -673,53 +847,48 @@ header {
 ===================================================== */
 
 .filter-panel {
-    width: 100%;
+  display: none;
 
-    display: none;
+  grid-template-columns:
+    repeat(3, 1fr);
 
-    background: #fff !important;
-    color: #111 !important;
+  gap: 40px;
 
-    border: none !important;
+  padding: 30px;
 
-    grid-template-columns: repeat(3,1fr);
+  background: #fafafa;
 
-    gap: 40px;
-
-    padding: 30px 50px;
+  border-bottom: 1px solid #eee;
 }
 
 .filter-panel.active {
-    display: grid;
+  display: grid;
 }
 
 .filter-group h4 {
-    margin: 0 0 15px;
+  font-size: 12px;
 
-    color: #111;
+  text-transform: uppercase;
 
-    font-size: 12px;
-    font-weight: 600;
+  letter-spacing: 1px;
 
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
+  margin-bottom: 15px;
 }
 
 .filter-group label {
-    display: block;
+  display: block;
 
-    margin-bottom: 10px;
+  font-size: 13px;
 
-    color: #555;
+  color: #555;
 
-    font-size: 13px;
+  margin-bottom: 10px;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .filter-group input {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 
@@ -728,15 +897,12 @@ header {
 ===================================================== */
 
 .product-grid {
-    width: 100%;
+  display: grid;
 
-    background: #fff !important;
+  grid-template-columns:
+    repeat(4, 1fr);
 
-    display: grid;
-
-    grid-template-columns: repeat(4,1fr);
-
-    border-left: 1px solid #eeeeee;
+  border-left: 1px solid #eee;
 }
 
 
@@ -745,14 +911,13 @@ header {
 ===================================================== */
 
 .product-card {
-    position: relative;
+  border-right: 1px solid #eee;
 
-    background: #fff !important;
+  border-bottom: 1px solid #eee;
 
-    border-right: 1px solid #eeeeee;
-    border-bottom: 1px solid #eeeeee;
+  background: #fff;
 
-    min-width: 0;
+  min-width: 0;
 }
 
 
@@ -761,32 +926,35 @@ header {
 ===================================================== */
 
 .product-image {
-    position: relative;
+  position: relative;
 
-    width: 100%;
-    height: 475px;
+  width: 100%;
 
-    background: #faf9f7;
+  height: 475px;
 
-    display: flex;
+  background: #faf9f7;
 
-    align-items: center;
-    justify-content: center;
+  display: flex;
 
-    overflow: hidden;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
 }
 
 .product-image img {
-    width: 82%;
-    height: 82%;
+  width: 82%;
+  height: 82%;
 
-    object-fit: contain;
+  object-fit: contain;
 
-    transition: transform .45s ease;
+  transition:
+    transform .45s ease;
 }
 
-.product-card:hover .product-image img {
-    transform: scale(1.04);
+.product-card:hover
+.product-image img {
+  transform: scale(1.04);
 }
 
 
@@ -795,35 +963,37 @@ header {
 ===================================================== */
 
 .badge {
-    position: absolute;
+  position: absolute;
 
-    top: 10px;
+  top: 10px;
 
-    z-index: 5;
+  z-index: 5;
 
-    padding: 7px 15px;
+  padding: 7px 15px;
 
-    border-radius: 20px;
+  border-radius: 20px;
 
-    font-size: 11px;
+  font-size: 11px;
 
-    letter-spacing: .5px;
+  letter-spacing: .5px;
+}
+
+.new-arrival {
+  left: 0;
+
+  background: #eeeeee;
 }
 
 .best-seller {
-    left: 0;
+  left: 0;
 
-    background: #eeeeee;
-
-    color: #222;
+  background: #eeeeee;
 }
 
 .sale {
-    right: 52px;
+  right: 52px;
 
-    background: #efd8c7;
-
-    color: #111;
+  background: #efd8c7;
 }
 
 
@@ -832,44 +1002,49 @@ header {
 ===================================================== */
 
 .product-wishlist {
-    position: absolute;
+  position: absolute;
 
-    top: 8px;
-    right: 10px;
+  top: 8px;
+  right: 10px;
 
-    z-index: 10;
+  z-index: 10;
 
-    width: 38px;
-    height: 38px;
+  width: 38px;
+  height: 38px;
 
-    border: none;
+  border: none;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    background: #fff;
+  background: #fff;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    box-shadow: 0 3px 12px rgba(0,0,0,.06);
+  box-shadow:
+    0 3px 12px rgba(0,0,0,.06);
 }
 
 .product-wishlist svg {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 
-    fill: none;
+  fill: none;
 
-    stroke: #ed174d;
+  stroke: #ed174d;
 
-    stroke-width: 1.7;
+  stroke-width: 1.7;
 
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.product-wishlist.selected {
+  background: #fff0f3;
 }
 
 
@@ -878,112 +1053,60 @@ header {
 ===================================================== */
 
 .product-info {
-    padding: 17px 15px 25px;
+  padding:
+    17px
+    15px
+    25px;
 
-    text-align: center;
-
-    background: #fff;
+  text-align: center;
 }
 
 .product-name {
-    font-size: 15px;
+  font-size: 15px;
 
-    font-weight: 400;
+  font-weight: 400;
 
-    margin-bottom: 9px;
+  margin-bottom: 9px;
 }
 
 .product-price {
-    display: flex;
+  display: flex;
 
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-    gap: 10px;
+  gap: 10px;
 
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .current-price {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .old-price {
-    color: #777;
+  color: #777;
 
-    text-decoration: line-through;
+  text-decoration: line-through;
 
-    font-size: 13px;
+  font-size: 13px;
 }
 
 
 /* =====================================================
-   FOOTER
+   REVIEWS
 ===================================================== */
 
-footer {
-    background: #111;
-    color: #fff;
+.reviews {
+  padding: 45px 40px;
 
-    padding: 65px 7% 30px;
-}
+  border-top: 1px solid #eee;
 
-.footer-grid {
-    display: grid;
+  border-bottom: 1px solid #eee;
 
-    grid-template-columns:
-        2.2fr 1fr 1fr 1fr 1.6fr;
+  font-size: 16px;
 
-    gap: 45px;
-}
-
-.footer-brand h2 {
-    font-size: 30px;
-    font-weight: 500;
-}
-
-.footer-brand p {
-    margin-top: 15px;
-
-    max-width: 350px;
-
-    color: #aaa;
-
-    line-height: 1.7;
-}
-
-footer h4 {
-    margin-bottom: 18px;
-
-    font-size: 14px;
-}
-
-footer a {
-    display: block;
-
-    color: #aaa;
-
-    text-decoration: none;
-
-    margin-bottom: 12px;
-
-    font-size: 13px;
-}
-
-footer a:hover {
-    color: #fff;
-}
-
-.copyright {
-    border-top: 1px solid #333;
-
-    margin-top: 50px;
-
-    padding-top: 25px;
-
-    color: #777;
-
-    font-size: 12px;
+  font-weight: 600;
 }
 
 
@@ -992,133 +1115,266 @@ footer a:hover {
 ===================================================== */
 
 .floating {
-    position: fixed;
+  position: fixed;
 
-    z-index: 1000;
+  z-index: 1000;
 
-    text-decoration: none;
+  text-decoration: none;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 
-/* REVIEWS */
+/* =====================================================
+   REVIEWS BUTTON
+===================================================== */
 
 .floating.review-button {
-    left: 18px;
-    bottom: 80px;
+  left: 18px;
 
-    height: 52px;
+  bottom: 80px;
 
-    padding: 0 20px;
+  height: 52px;
 
-    background: #fff;
-    color: #111;
+  padding: 0 20px;
 
-    border-radius: 40px;
+  background: #fff;
 
-    display: flex;
+  color: #111;
 
-    align-items: center;
-    justify-content: center;
+  border-radius: 40px;
 
-    gap: 10px;
+  display: flex;
 
-    font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
+  justify-content: center;
 
-    font-size: 16px;
-    font-weight: 600;
+  gap: 10px;
 
-    line-height: 1;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-    box-shadow: 0 6px 25px rgba(0,0,0,.12);
+  font-size: 16px;
 
-    cursor: pointer;
+  font-weight: 600;
+
+  line-height: 1;
+
+  box-shadow:
+    0 6px 25px rgba(0,0,0,0.12);
+
+  cursor: pointer;
+}
+
+.floating.review-button:hover {
+  color: #111;
+
+  text-decoration: none;
+
+  transform: translateY(-1px);
 }
 
 .floating.review-button svg {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 
-    flex: 0 0 18px;
+  flex: 0 0 18px;
 
-    display: block;
+  display: block;
 
-    fill: #111;
+  fill: #111;
 }
 
 
-/* JOIN MEMBER */
+/* =====================================================
+   JOIN MEMBER
+===================================================== */
 
 .floating.join.member {
-    left: 18px;
-    bottom: 18px;
+  left: 18px;
 
-    background: #000;
-    color: #fff;
+  bottom: 18px;
 
-    padding: 15px 24px;
+  background: #000;
 
-    border-radius: 40px;
+  color: #fff;
 
-    display: flex;
+  padding: 15px 24px;
 
-    align-items: center;
-    justify-content: center;
+  border-radius: 40px;
 
-    gap: 10px;
+  display: flex;
 
-    font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
+  justify-content: center;
 
-    font-size: 16px;
-    font-weight: 600;
+  gap: 10px;
 
-    line-height: 1;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-    box-shadow: 0 6px 25px rgba(0,0,0,.20);
+  font-size: 16px;
 
-    cursor: pointer;
+  font-weight: 600;
+
+  line-height: 1;
+
+  box-shadow:
+    0 6px 25px rgba(0,0,0,0.20);
+
+  cursor: pointer;
+}
+
+.floating.join.member:hover {
+  color: #fff;
+
+  text-decoration: none;
+
+  transform: translateY(-1px);
 }
 
 
-/* CHAT */
+/* =====================================================
+   CHAT
+===================================================== */
 
 .floating.chat {
-    right: 18px;
-    bottom: 18px;
+  right: 18px;
 
-    width: 50px;
-    height: 50px;
+  bottom: 18px;
 
-    border-radius: 50%;
+  width: 50px;
+  height: 50px;
 
-    background: #000;
-    color: #fff;
+  border-radius: 50%;
 
-    display: flex;
+  background: #000;
 
-    align-items: center;
-    justify-content: center;
+  color: #fff;
 
-    box-shadow: 0 6px 25px rgba(0,0,0,.20);
+  display: flex;
 
-    cursor: pointer;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 6px 25px rgba(0,0,0,0.20);
+
+  cursor: pointer;
+}
+
+.floating.chat:hover {
+  color: #fff;
+
+  text-decoration: none;
+
+  transform: translateY(-1px);
 }
 
 .floating.chat svg {
-    width: 23px;
-    height: 23px;
+  width: 23px;
+  height: 23px;
 
-    display: block;
+  display: block;
 
-    fill: none;
+  fill: none;
 
-    stroke: #fff;
+  stroke: #fff;
 
-    stroke-width: 1.6;
+  stroke-width: 1.6;
 
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+}
+
+.floating.chat circle {
+  fill: #fff;
+
+  stroke: none;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+  background: #111;
+
+  color: #fff;
+
+  padding:
+    65px
+    7%
+    30px;
+}
+
+.footer-grid {
+  display: grid;
+
+  grid-template-columns:
+    2.2fr
+    1fr
+    1fr
+    1fr
+    1.6fr;
+
+  gap: 45px;
+}
+
+.footer-brand h2 {
+  font-size: 30px;
+
+  font-weight: 500;
+}
+
+.footer-brand p {
+  margin-top: 15px;
+
+  max-width: 350px;
+
+  color: #aaa;
+
+  line-height: 1.7;
+}
+
+footer h4 {
+  margin-bottom: 18px;
+
+  font-size: 14px;
+}
+
+footer a {
+  display: block;
+
+  color: #aaa;
+
+  text-decoration: none;
+
+  margin-bottom: 12px;
+
+  font-size: 13px;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+.copyright {
+  border-top: 1px solid #333;
+
+  margin-top: 50px;
+
+  padding-top: 25px;
+
+  color: #777;
+
+  font-size: 12px;
 }
 
 
@@ -1128,122 +1384,207 @@ footer a:hover {
 
 @media (max-width: 1000px) {
 
-    .navigation {
-        overflow-x: auto;
+  .navigation {
+    overflow-x: auto;
 
-        justify-content: flex-start;
-    }
+    justify-content: flex-start;
+  }
 
-    .product-grid {
-        grid-template-columns: repeat(3,1fr);
-    }
+  .product-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
 
-    .footer-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
+  .footer-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .header-main {
+    height: 75px;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+
+  .header-icons {
+    right: 18px;
+
+    gap: 15px;
+  }
+
+  .navigation {
+    overflow-x: auto;
+
+    justify-content: flex-start;
+  }
+
+  .extrait-hero {
+    grid-template-columns: 1fr;
+
+    height: 600px;
+  }
+
+  .extrait-hero-image {
+    height: 430px;
+  }
+
+  .extrait-hero-title {
+    height: 170px;
+  }
+
+  .product-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .product-image {
+    height: 380px;
+  }
 
 }
 
 
 @media (max-width: 650px) {
 
-    .announcement {
-        height: 42px;
-    }
+  .search-panel {
+    height: 100px;
+  }
 
-    .header-main {
-        height: 75px;
-    }
+  .search-overlay {
+    top: 142px;
+  }
 
-    .logo {
-        font-size: 30px;
-    }
+  .search-form {
+    padding: 0 20px;
+  }
 
-    .header-icons {
-        right: 15px;
-        gap: 12px;
-    }
+  .search-form input {
+    font-size: 14px;
 
-    .navigation {
-        gap: 25px;
-        min-height: 48px;
-    }
+    padding-left: 38px;
+  }
 
-    .navigation a {
-        font-size: 13px;
-        padding: 16px 0;
-    }
+  .search-submit {
+    left: 19px;
+  }
 
-    .navigation a.active::after {
-        bottom: 5px;
-    }
+  .search-close {
+    right: 18px;
+  }
 
-    .page-heading {
-        height: 140px;
-    }
+  .announcement {
+    font-size: 10px;
 
-    .page-heading h1 {
-        font-size: 28px;
-    }
+    padding: 0 12px;
+  }
 
-    .filter-bar {
-        height: 58px;
-        padding: 0 20px;
-    }
+  .header-main {
+    height: 75px;
+  }
 
-    .product-grid {
-        grid-template-columns: repeat(2,1fr);
-    }
+  .logo {
+    font-size: 30px;
+  }
 
-    .product-image {
-        height: 380px;
-    }
+  .header-icons {
+    right: 15px;
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
+    gap: 12px;
+  }
 
-    .floating.join.member {
-        padding: 13px 18px;
-    }
+  .navigation {
+    gap: 25px;
+
+    min-height: 48px;
+  }
+
+  .navigation a {
+    font-size: 13px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image {
+    height: 420px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .floating.join.member {
+    padding:
+      13px
+      18px;
+  }
 
 }
 
 
 @media (max-width: 520px) {
 
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
+  .header-main {
+    justify-content: space-between;
 
-    .product-image {
-        height: 420px;
-    }
+    padding: 0 18px;
+  }
 
-    .filter-bar {
-        padding: 0 15px;
-    }
+  .logo {
+    font-size: 28px;
+  }
+
+  .header-icons {
+    position: static;
+
+    gap: 12px;
+  }
+
+  .extrait-hero {
+    height: 600px;
+  }
+
+  .hero-copy {
+    left: 8%;
+  }
+
+  .hero-copy h1 {
+    font-size: 38px;
+  }
 
 }
 
 
+/* =====================================================
+   CART MOBILE
+===================================================== */
+
 @media (max-width: 600px) {
 
-    .cart-drawer-header {
-        padding: 0 20px;
-    }
+  .cart-drawer-header {
+    padding: 0 20px;
+  }
 
-    .cart-items {
-        padding: 20px;
-    }
+  .cart-items {
+    padding: 20px;
+  }
 
-    .cart-drawer-footer {
-        padding: 20px;
-    }
+  .cart-drawer-footer {
+    padding: 20px;
+  }
 
 }
 
 </style>
+
 </head>
 
 
@@ -1256,17 +1597,21 @@ footer a:hover {
 
 <div class="announcement">
 
-    <div class="announcement-track">
+  <div class="announcement-track">
 
-        <span>THE ART OF SCENT</span>
-        <span>A SYMPHONY FOR THE SENSES</span>
-        <span>DISCOVER SNS FRAGRANCE</span>
+    <span>THE ART OF SCENT</span>
 
-        <span>THE ART OF SCENT</span>
-        <span>A SYMPHONY FOR THE SENSES</span>
-        <span>DISCOVER SNS FRAGRANCE</span>
+    <span>A SYMPHONY FOR THE SENSES</span>
 
-    </div>
+    <span>DISCOVER SNS FRAGRANCE</span>
+
+    <span>THE ART OF SCENT</span>
+
+    <span>A SYMPHONY FOR THE SENSES</span>
+
+    <span>DISCOVER SNS FRAGRANCE</span>
+
+  </div>
 
 </div>
 
@@ -1277,163 +1622,159 @@ footer a:hover {
 
 <header>
 
-    <div class="header-main">
-
-        <div class="logo">
-            SNS <span>Fragrance</span>
-        </div>
+  <div class="header-main">
 
 
-        <div class="header-icons">
-
-
-            <!-- ACCOUNT -->
-
-            <a
-                href="login.html"
-                class="header-icon"
-                aria-label="Account"
-            >
-
-                <svg viewBox="0 0 24 24">
-
-                    <circle
-                        cx="12"
-                        cy="7"
-                        r="3.2"
-                    ></circle>
-
-                    <path
-                        d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5"
-                    ></path>
-
-                </svg>
-
-            </a>
-
-
-            <!-- WISHLIST -->
-
-            <a
-                href="wishlist.html"
-                class="header-icon wishlist-icon"
-                aria-label="Wishlist"
-            >
-
-                <svg viewBox="0 0 24 24">
-
-                    <path
-                        d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-                        -1.8 0-3.4 1-4.1 2.4
-                        C11.3 5 9.7 4 7.9 4
-                        5.2 4 3.2 6 3.2 8.8
-                        c0 4.9 8.8 10.2 8.8 10.2
-                        s8.8-5.3 8.8-10.2z"
-                    ></path>
-
-                </svg>
-
-            </a>
-
-
-            <!-- SEARCH -->
-
-            <button
-                type="button"
-                class="header-icon"
-                id="searchTrigger"
-                aria-label="Search"
-            >
-
-                <svg viewBox="0 0 24 24">
-
-                    <circle
-                        cx="10.5"
-                        cy="10.5"
-                        r="6.3"
-                    ></circle>
-
-                    <path
-                        d="M15.3 15.3L20.5 20.5"
-                    ></path>
-
-                </svg>
-
-            </button>
-
-
-            <!-- CART -->
-
-            <button
-                type="button"
-                class="header-icon"
-                id="cartTrigger"
-                aria-label="Shopping Cart"
-            >
-
-                <svg viewBox="0 0 24 24">
-
-                    <path
-                        d="M3 4h2l2.1 11.2h10.8L20 7H6"
-                    ></path>
-
-                    <path
-                        d="M9 19.5h.01"
-                    ></path>
-
-                    <path
-                        d="M17 19.5h.01"
-                    ></path>
-
-                    <path
-                        d="M7.1 15.2h10.8"
-                    ></path>
-
-                </svg>
-
-                <span
-                    class="cart-count"
-                    id="cartCount"
-                >
-                    0
-                </span>
-
-            </button>
-
-
-        </div>
-
+    <div class="logo">
+      SNS <span>Fragrance</span>
     </div>
 
 
-    <!-- NAVIGATION -->
+    <div class="header-icons">
 
-    <nav class="navigation">
 
-        <a
-            href="bestsellers.html"
-            class="active"
+      <!-- ACCOUNT -->
+
+      <a
+        href="login.html"
+        class="header-icon"
+        aria-label="Account"
+      >
+
+        <svg viewBox="0 0 24 24">
+
+          <circle
+            cx="12"
+            cy="8"
+            r="3.2"
+          ></circle>
+
+          <path
+            d="M5 20
+               c.7-4
+               3-6
+               7-6
+               s6.3 2
+               7 6"
+          ></path>
+
+        </svg>
+
+      </a>
+
+
+      <!-- WISHLIST -->
+
+      <a
+        href="wishlist.html"
+        class="header-icon wishlist-icon"
+        aria-label="Add to wishlist"
+      >
+
+        <svg viewBox="0 0 24 24">
+
+          <path
+            d="M20.8 8.8
+               c0-2.8-2-4.8-4.7-4.8
+               -1.8 0-3.4 1-4.1 2.4
+               C11.3 5 9.7 4 7.9 4
+               5.2 4 3.2 6 3.2 8.8
+               c0 4.9 8.8 10.2 8.8 10.2
+               s8.8-5.3 8.8-10.2z"
+          ></path>
+
+        </svg>
+
+      </a>
+
+
+      <!-- SEARCH -->
+
+      <button
+        type="button"
+        class="header-icon search-trigger"
+        id="searchTrigger"
+        aria-label="Search"
+      >
+
+        <svg viewBox="0 0 24 24">
+
+          <circle
+            cx="10.5"
+            cy="10.5"
+            r="6.3"
+          ></circle>
+
+          <path
+            d="M15.3 15.3
+               L20.5 20.5"
+          ></path>
+
+        </svg>
+
+      </button>
+
+
+      <!-- CART -->
+
+      <button
+        class="header-icon"
+        id="cartTrigger"
+        aria-label="Shopping Cart"
+        type="button"
+      >
+
+        <svg viewBox="0 0 24 24">
+
+          <path
+            d="M3 4
+               h2
+               l2.1 11.2
+               h10.8
+               L20 7
+               H6"
+          ></path>
+
+          <path
+            d="M9 19.5h.01"
+          ></path>
+
+          <path
+            d="M17 19.5h.01"
+          ></path>
+
+          <path
+            d="M7.1 15.2h10.8"
+          ></path>
+
+        </svg>
+
+        <span
+          class="cart-count"
+          id="cartCount"
         >
-            Bestsellers
-        </a>
+          0
+        </span>
 
-        <a href="extrait.html">
-            Extrait de Parfum
-        </a>
+      </button>
 
-        <a href="edp.html">
-            Eau de Parfum
-        </a>
 
-        <a href="edt.html">
-            Eau de Toilette
-        </a>
+    </div>
 
-        <a href="loyalty.html">
-            Loyalty
-        </a>
+  </div>
 
-    </nav>
+
+  <!-- NAVIGATION -->
+
+  <nav class="navigation">
+
+      <a href="bestsellers.html">Bestsellers</a>
+      <a href="extrait.html">Extrait de Parfum</a>
+      <a href="edp.html">Eau de Parfum</a>
+      <a href="edt.html" class="active">Eau de Toilette</a>
+      <a href="loyalty.html">Loyalty</a>
+
+  </nav>
 
 </header>
 
@@ -1443,61 +1784,65 @@ footer a:hover {
 ===================================================== -->
 
 <div
-    class="search-overlay"
-    id="searchOverlay"
+  class="search-overlay"
+  id="searchOverlay"
 ></div>
 
 
 <div
-    class="search-panel"
-    id="searchPanel"
+  class="search-panel"
+  id="searchPanel"
 >
 
-    <form
-        class="search-form"
-        id="searchForm"
+  <form
+    class="search-form"
+    id="searchForm"
+  >
+
+
+    <button
+      type="submit"
+      class="search-submit"
+      aria-label="Submit Search"
     >
 
-        <button
-            type="submit"
-            class="search-submit"
-            aria-label="Submit Search"
-        >
+      <svg viewBox="0 0 24 24">
 
-            <svg viewBox="0 0 24 24">
+        <circle
+          cx="10.5"
+          cy="10.5"
+          r="6.3"
+        ></circle>
 
-                <circle
-                    cx="10.5"
-                    cy="10.5"
-                    r="6.3"
-                ></circle>
+        <path
+          d="M15.3 15.3
+             L20.5 20.5"
+        ></path>
 
-                <path
-                    d="M15.3 15.3L20.5 20.5"
-                ></path>
+      </svg>
 
-            </svg>
-
-        </button>
+    </button>
 
 
-        <input
-            type="text"
-            id="searchInput"
-            autocomplete="off"
-        >
+    <input
+      type="text"
+      id="searchInput"
+      placeholder=""
+      autocomplete="off"
+    />
 
 
-        <button
-            type="button"
-            class="search-close"
-            id="searchClose"
-            aria-label="Close Search"
-        >
-            ×
-        </button>
+    <button
+      type="button"
+      class="search-close"
+      id="searchClose"
+      aria-label="Close Search"
+    >
+      ×
+    </button>
 
-    </form>
+
+  </form>
 
 </div>
 
@@ -1507,67 +1852,77 @@ footer a:hover {
 ===================================================== -->
 
 <div
-    class="cart-overlay"
-    id="cartOverlay"
+  class="cart-overlay"
+  id="cartOverlay"
 ></div>
 
 
 <aside
-    class="cart-drawer"
-    id="cartDrawer"
+  class="cart-drawer"
+  id="cartDrawer"
+  aria-label="Shopping Cart"
 >
 
-    <div class="cart-drawer-header">
 
-        <h2>
-            Your Cart
-        </h2>
+  <div class="cart-drawer-header">
 
-        <button
-            type="button"
-            class="cart-close"
-            id="cartClose"
-        >
-            ×
-        </button>
+    <h2>
+      Your Cart
+    </h2>
 
-    </div>
-
-
-    <div
-        class="cart-items"
-        id="cartItems"
+    <button
+      type="button"
+      class="cart-close"
+      id="cartClose"
+      aria-label="Close Cart"
     >
+      ×
+    </button>
 
-        <div class="cart-empty">
-            <p>Your cart is empty.</p>
-        </div>
+  </div>
+
+
+  <div
+    class="cart-items"
+    id="cartItems"
+  >
+
+    <div class="cart-empty">
+
+      <p>
+        Your cart is empty.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="cart-drawer-footer">
+
+    <div class="cart-total-row">
+
+      <span>
+        Total
+      </span>
+
+      <strong id="cartTotal">
+        Rp 0
+      </strong>
 
     </div>
 
 
-    <div class="cart-drawer-footer">
+    <button
+      type="button"
+      class="cart-checkout"
+      id="cartCheckout"
+    >
+      CHECKOUT
+    </button>
 
-        <div class="cart-total-row">
+  </div>
 
-            <span>
-                Total
-            </span>
-
-            <strong id="cartTotal">
-                Rp 0
-            </strong>
-
-        </div>
-
-        <button
-            type="button"
-            class="cart-checkout"
-        >
-            CHECKOUT
-        </button>
-
-    </div>
 
 </aside>
 
