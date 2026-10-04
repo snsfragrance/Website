@@ -1,2058 +1,2460 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SNS Fragrance — Loyalty</title>
-<style>
-:root {
---black: #111111;
---white: #ffffff;
---cream: #f7f5f0;
---gold: #9b7a42;
---light-gray: #e8e6e1;
---text-gray: #666666;
-}
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-body {
-font-family: Arial, Helvetica, sans-serif;
-color: var(--black);
-background: var(--white);
-}
-.announcement {
-height: 42px;
-background: #000;
-color: #fff;
-overflow: hidden;
-position: relative;
-display: flex;
-align-items: center;
-white-space: nowrap;
-}
-.announcement-track {
-display: flex;
-align-items: center;
-width: max-content;
-animation: announcementScroll 30s linear infinite;
-}
-.announcement-track span {
-display: inline-flex;
-align-items: center;
-margin-right: 140px;
-font-size: 12px;
-font-weight: 400;
-letter-spacing: 1px;
-}
-@keyframes announcementScroll {
-0% {
-transform: translateX(0);
-}
-100% {
-transform: translateX(-50%);
-}
-}
-.announcement:hover .announcement-track {
-animation-play-state: paused;
-}
-header {
-background: #fff;
-border-bottom: 1px solid #eeeeee;
-}
-.header-main {
-height: 96px;
-display: flex;
-align-items: center;
-justify-content: center;
-position: relative;
-}
-.logo {
-font-size: 42px;
-font-weight: 600;
-letter-spacing: -2px;
-}
-.logo span {
-font-weight: 300;
-}
-.header-icons {
-position: absolute;
-right: 38px;
-display: flex;
-align-items: center;
-gap: 25px;
-}
-.header-icon {
-width: 26px;
-height: 26px;
-padding: 0;
-margin: 0;
-border: none;
-outline: none;
-background: transparent;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-text-decoration: none;
-color: #111;
-}
-.header-icon svg {
-width: 25px;
-height: 25px;
-fill: none !important;
-stroke: #111 !important;
-stroke-width: 1.7;
-stroke-linecap: round;
-stroke-linejoin: round;
-display: block;
-transition: transform 0.2s ease;
-}
-.header-icon:hover svg {
-transform: scale(1.08);
-}
-.wishlist-icon svg {
-fill: none !important;
-stroke: #e90046 !important;
-stroke-width: 1.8;
-}
-.search-panel {
-position: fixed;
-top: 42px;
-left: 0;
-width: 100%;
-height: 122px;
-background: #fff;
-z-index: 2001;
-opacity: 0;
-visibility: hidden;
-transform: translateY(-8px);
-transition: opacity 0.2s ease, transform 0.25s ease, visibility 0.2s ease;
-}
-.search-panel.active {
-opacity: 1;
-visibility: visible;
-transform: translateY(0);
-}
-.search-overlay {
-position: fixed;
-top: 164px;
-left: 0;
-right: 0;
-bottom: 0;
-background: rgba(0, 0, 0, 0.36);
-z-index: 2000;
-opacity: 0;
-visibility: hidden;
-pointer-events: none;
-transition: opacity 0.2s ease, visibility 0.2s ease;
-}
-.search-overlay.active {
-opacity: 1;
-visibility: visible;
-pointer-events: auto;
-}
-.search-form {
-width: 100%;
-height: 100%;
-display: flex;
-align-items: center;
-position: relative;
-padding: 0 11.8%;
-}
-.search-form input {
-width: 100%;
-height: 50px;
-border: none;
-outline: none;
-background: transparent;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 14px;
-font-weight: 400;
-color: #111;
-padding: 0 75px 0 39px;
-}
-.search-form input::placeholder {
-color: #111;
-opacity: 1;
-}
-.search-submit {
-position: absolute;
-left: calc(11.8% - 1px);
-width: 24px;
-height: 24px;
-padding: 0;
-border: none;
-background: transparent;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-}
-.search-submit svg {
-width: 20px;
-height: 20px;
-fill: none;
-stroke: #d0d0d0;
-stroke-width: 1.7;
-stroke-linecap: round;
-stroke-linejoin: round;
-}
-.search-close {
-position: absolute;
-right: 11.8%;
-width: 28px;
-height: 28px;
-padding: 0;
-border: none;
-background: transparent;
-color: #111;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 29px;
-font-weight: 300;
-line-height: 28px;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.search-close:hover {
-opacity: 0.55;
-}
-.navigation {
-display: flex;
-justify-content: center;
-align-items: center;
-gap: 38px;
-min-height: 58px;
-padding: 0 25px;
-border-bottom: 1px solid #e7e7e7;
-}
-.navigation a {
-position: relative;
-color: #111;
-text-decoration: none;
-font-size: 15px;
-white-space: nowrap;
-transition: 0.2s;
-}
-.navigation a:hover {
-color: var(--gold);
-}
-.navigation a.active {
-color: #111;
-}
-.navigation a.active::after {
-content: "";
-position: absolute;
-left: 0;
-right: 0;
-bottom: -17px;
-height: 3px;
-background: #111;
-}
-.hero {
-position: relative;
-width: 100%;
-min-height: 530px;
-background:
-linear-gradient(
-90deg,
-rgba(245, 243, 237, 0.15),
-rgba(245, 243, 237, 0.95)
-),
-url("https://sl.bing.net/fy7g5510Fhc");
-background-size: cover;
-background-position: center;
-display: flex;
-align-items: center;
-}
-.hero-content {
-width: 50%;
-margin-left: auto;
-padding: 50px 8% 50px 30px;
-text-align: center;
-}
-.hero-small {
-font-size: 15px;
-letter-spacing: 4px;
-margin-bottom: 15px;
-}
-.hero-title {
-font-family: Georgia, serif;
-font-size: clamp(48px, 6vw, 86px);
-line-height: 0.95;
-font-weight: 400;
-letter-spacing: -3px;
-margin-bottom: 22px;
-}
-.hero-description {
-font-size: 16px;
-line-height: 1.7;
-max-width: 470px;
-margin: 0 auto 28px;
-color: #333;
-}
-.hero-button {
-display: inline-block;
-padding: 14px 32px;
-background: #111;
-color: #fff;
-border-radius: 2px;
-text-decoration: none;
-font-size: 14px;
-letter-spacing: 0.5px;
-transition: 0.25s;
-}
-.hero-button:hover {
-background: var(--gold);
-}
-.section {
-padding: 75px 5%;
-}
-.section-heading {
-text-align: center;
-margin-bottom: 42px;
-}
-.section-heading span {
-font-size: 12px;
-letter-spacing: 3px;
-color: var(--gold);
-text-transform: uppercase;
-}
-.section-heading h2 {
-margin-top: 10px;
-font-family: Georgia, serif;
-font-weight: 400;
-font-size: 40px;
-}
-.categories {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 18px;
-}
-.category {
-position: relative;
-min-height: 270px;
-overflow: hidden;
-background: #eee;
-display: flex;
-align-items: flex-end;
-cursor: pointer;
-}
-.category img {
-position: absolute;
-width: 100%;
-height: 100%;
-object-fit: cover;
-transition: 0.5s;
-}
-.category:hover img {
-transform: scale(1.05);
-}
-.category-overlay {
-position: absolute;
-inset: 0;
-background: linear-gradient(
-transparent 40%,
-rgba(0,0,0,0.65)
-);
-}
-.category-content {
-position: relative;
-color: #fff;
-padding: 25px;
-z-index: 2;
-}
-.category-content h3 {
-font-family: Georgia, serif;
-font-size: 27px;
-font-weight: 400;
-}
-.category-content p {
-margin-top: 7px;
-font-size: 13px;
-opacity: 0.9;
-}
-.products {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 25px;
-}
-.product-card {
-position: relative;
-cursor: pointer;
-}
-.product-image {
-height: 360px;
-background: var(--cream);
-display: flex;
-justify-content: center;
-align-items: center;
-overflow: hidden;
-}
-.product-image img {
-width: 75%;
-height: 85%;
-object-fit: contain;
-transition: 0.4s;
-}
-.product-card:hover img {
-transform: scale(1.05);
-}
-.product-info {
-padding-top: 17px;
-}
-.product-category {
-font-size: 11px;
-letter-spacing: 2px;
-text-transform: uppercase;
-color: var(--text-gray);
-}
-.product-name {
-margin-top: 7px;
-font-family: Georgia, serif;
-font-size: 20px;
-}
-.product-price {
-margin-top: 8px;
-font-size: 14px;
-font-weight: 600;
-}
-.add-cart {
-position: absolute;
-top: 15px;
-right: 15px;
-width: 38px;
-height: 38px;
-border-radius: 50%;
-background: #fff;
-border: none;
-cursor: pointer;
-box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-font-size: 16px;
-}
-.statement {
-padding: 100px 10%;
-text-align: center;
-background: #f6f4ef;
-}
-.statement h2 {
-font-family: Georgia, serif;
-font-weight: 400;
-font-size: clamp(36px, 5vw, 65px);
-line-height: 1.1;
-max-width: 900px;
-margin: auto;
-}
-.statement p {
-max-width: 650px;
-margin: 25px auto 0;
-color: #666;
-line-height: 1.8;
-}
-.reviews {
-padding: 45px 40px;
-border-top: 1px solid #eee;
-border-bottom: 1px solid #eee;
-font-size: 16px;
-font-weight: 600;
-}
-.floating {
-position: fixed;
-z-index: 1000;
-text-decoration: none;
-box-sizing: border-box;
-}
-.floating.review-button {
-left: 18px;
-bottom: 80px;
-height: 52px;
-padding: 0 20px;
-background: #fff;
-color: #111;
-border-radius: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 16px;
-font-weight: 600;
-line-height: 1;
-box-shadow: 0 6px 25px rgba(0,0,0,0.12);
-cursor: pointer;
-}
-.floating.review-button:hover {
-color: #111;
-text-decoration: none;
-transform: translateY(-1px);
-}
-.floating.review-button svg {
-width: 18px;
-height: 18px;
-flex: 0 0 18px;
-display: block;
-fill: #111;
-}
-.floating.join.member {
-left: 18px;
-bottom: 18px;
-background: #000;
-color: #fff;
-padding: 15px 24px;
-border-radius: 40px;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 16px;
-font-weight: 600;
-line-height: 1;
-box-shadow: 0 6px 25px rgba(0,0,0,0.20);
-cursor: pointer;
-}
-.floating.join.member:hover {
-color: #fff;
-text-decoration: none;
-transform: translateY(-1px);
-}
-.floating.chat {
-right: 18px;
-bottom: 18px;
-width: 50px;
-height: 50px;
-border-radius: 50%;
-background: #000;
-color: #fff;
-display: flex;
-align-items: center;
-justify-content: center;
-box-shadow: 0 6px 25px rgba(0,0,0,0.20);
-cursor: pointer;
-}
-.floating.chat:hover {
-color: #fff;
-text-decoration: none;
-transform: translateY(-1px);
-}
-.floating.chat svg {
-width: 23px;
-height: 23px;
-display: block;
-fill: none;
-stroke: #fff;
-stroke-width: 1.6;
-stroke-linecap: round;
-stroke-linejoin: round;
-}
-.floating.chat circle {
-fill: #fff;
-stroke: none;
-}
-footer {
-background: #111;
-color: #fff;
-padding: 65px 7% 30px;
-}
-.footer-grid {
-display: grid;
-grid-template-columns: 2.2fr 1fr 1fr 1fr 1.6fr;
-gap: 45px;
-}
-.footer-brand h2 {
-font-size: 30px;
-font-weight: 500;
-}
-.footer-brand p {
-margin-top: 15px;
-max-width: 350px;
-color: #aaa;
-line-height: 1.7;
-}
-footer h4 {
-margin-bottom: 18px;
-font-size: 14px;
-}
-footer a {
-display: block;
-color: #aaa;
-text-decoration: none;
-margin-bottom: 12px;
-font-size: 13px;
-}
-footer a:hover {
-color: #fff;
-}
-.copyright {
-border-top: 1px solid #333;
-margin-top: 50px;
-padding-top: 25px;
-color: #777;
-font-size: 12px;
-}
-.cart-overlay {
-position: fixed;
-inset: 0;
-background: rgba(0, 0, 0, 0.38);
-z-index: 1998;
-opacity: 0;
-visibility: hidden;
-transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-.cart-overlay.active {
-opacity: 1;
-visibility: visible;
-}
-.cart-drawer {
-position: fixed;
-top: 0;
-right: 0;
-width: min(420px, 92vw);
-height: 100vh;
-background: #fff;
-z-index: 1999;
-display: flex;
-flex-direction: column;
-box-shadow: -10px 0 35px rgba(0,0,0,0.12);
-transform: translateX(100%);
-transition: transform 0.35s ease;
-}
-.cart-drawer.active {
-transform: translateX(0);
-}
-.cart-drawer-header {
-height: 82px;
-padding: 0 28px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-border-bottom: 1px solid #e8e8e8;
-flex: 0 0 82px;
-}
-.cart-drawer-header h2 {
-font-family: Georgia, serif;
-font-size: 27px;
-font-weight: 400;
-}
-.cart-close {
-width: 30px;
-height: 30px;
-padding: 0;
-border: none;
-background: transparent;
-color: #111;
-font-size: 29px;
-font-weight: 300;
-line-height: 1;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.cart-close:hover {
-opacity: 0.55;
-}
-.cart-items {
-flex: 1;
-overflow-y: auto;
-padding: 25px 28px;
-}
-.cart-empty {
-min-height: 240px;
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
-color: #777;
-font-size: 14px;
-}
-.cart-item {
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 20px;
-padding: 18px 0;
-border-bottom: 1px solid #eeeeee;
-}
-.cart-item-info {
-min-width: 0;
-}
-.cart-item-name {
-font-family: Georgia, serif;
-font-size: 18px;
-margin-bottom: 6px;
-}
-.cart-item-meta {
-color: #777;
-font-size: 12px;
-}
-.cart-item-price {
-font-size: 14px;
-font-weight: 600;
-white-space: nowrap;
-}
-.cart-drawer-footer {
-border-top: 1px solid #e8e8e8;
-padding: 22px 28px 28px;
-flex: 0 0 auto;
-background: #fff;
-}
-.cart-total-row {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 18px;
-font-size: 15px;
-}
-.cart-total-row strong {
-font-size: 16px;
-}
-.cart-checkout {
-width: 100%;
-height: 48px;
-border: none;
-background: #111;
-color: #fff;
-font-size: 13px;
-letter-spacing: 0.5px;
-cursor: pointer;
-}
-.cart-checkout:hover {
-background: var(--gold);
-}
-#cartTrigger {
-position: relative;
-}
-.cart-count {
-position: absolute;
-top: -5px;
-right: -7px;
-min-width: 16px;
-height: 16px;
-padding: 0 4px;
-border-radius: 50%;
-background: #111;
-color: #fff;
-font-size: 9px;
-line-height: 16px;
-text-align: center;
-display: none;
-}
-.cart-count.active {
-display: block;
-}
-/* LOYALTY CONTENT */
-.loyalty-hero {
-position: relative;
-width: 100%;
-height: 560px;
-background:
-linear-gradient(90deg, rgba(255,255,255,.10), rgba(255,255,255,.05)),
-url("assets/loyalty-hero.jpg") center/cover no-repeat;
-display: flex;
-align-items: center;
-}
-.loyalty-hero-content {
-width: 100%;
-padding: 0 4%;
-}
-.loyalty-hero-kicker {
-font-size: 38px;
-line-height: 1.1;
-margin-bottom: 12px;
-}
-.loyalty-hero-kicker em {
-font-family: Georgia, serif;
-font-weight: 400;
-}
-.loyalty-hero h1 {
-font-size: clamp(58px, 6vw, 92px);
-line-height: .95;
-font-weight: 700;
-letter-spacing: -3px;
-margin-bottom: 24px;
-}
-.loyalty-hero-points {
-display: flex;
-align-items: center;
-gap: 10px;
-font-size: 34px;
-line-height: 1.1;
-font-weight: 400;
-}
-.loyalty-hero-points .point-icon {
-width: 32px;
-height: 32px;
-border: 3px solid #111;
-border-radius: 50%;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-font-size: 18px;
-font-weight: 700;
-}
-.loyalty-join {
-position: absolute;
-right: 8%;
-top: 50%;
-transform: translateY(-50%);
-min-width: 350px;
-height: 72px;
-padding: 0 30px;
-border: 2px solid #111;
-border-radius: 45px;
-background: rgba(255,255,255,.25);
-color: #111;
-text-decoration: none;
-display: flex;
-align-items: center;
-justify-content: space-between;
-font-size: 28px;
-transition: .2s ease;
-}
-.loyalty-join:hover {
-background: #fff;
-color: #111;
-transform: translateY(-50%) scale(1.01);
-}
-.loyalty-join-arrow {
-font-size: 38px;
-line-height: 1;
-}
-.loyalty-intro {
-min-height: 190px;
-padding: 45px 5%;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 28px;
-text-align: center;
-}
-.loyalty-intro h2 {
-font-size: 52px;
-line-height: 1;
-font-weight: 400;
-}
-.loyalty-intro-points {
-display: inline-flex;
-align-items: center;
-gap: 9px;
-font-size: 17px;
-white-space: nowrap;
-}
-.loyalty-intro-points .point-icon {
-width: 25px;
-height: 25px;
-border: 2px solid #111;
-border-radius: 50%;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-font-size: 13px;
-font-weight: 700;
-}
-.perks-section {
-display: grid;
-grid-template-columns: 47% 53%;
-min-height: 610px;
-padding: 0;
-}
-.perks-image {
-min-height: 610px;
-background: url("assets/loyalty-perks.jpg") center/cover no-repeat;
-}
-.perks-content {
-padding: 95px 9% 80px 7%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-}
-.perks-content h2 {
-font-size: 42px;
-line-height: 1;
-margin-bottom: 38px;
-}
-.perk-item {
-margin-bottom: 31px;
-}
-.perk-item h3 {
-font-size: 19px;
-margin-bottom: 7px;
-}
-.perk-item p {
-font-size: 18px;
-line-height: 1.4;
-}
-.earn-section {
-padding: 65px 12% 75px;
-background: #fff;
-}
-.earn-header {
-display: flex;
-align-items: flex-end;
-justify-content: space-between;
-margin-bottom: 28px;
-}
-.earn-header h2 {
-font-size: 30px;
-color: #152d58;
-line-height: 1.1;
-}
-.earn-balance {
-margin-top: 8px;
-color: #152d58;
-font-size: 17px;
-}
-.earn-expiration {
-color: #152d58;
-font-size: 17px;
-}
-.earn-grid {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 10px;
-margin: 0;
-}
-.earn-card {
-min-height: 260px;
-padding: 38px 20px 25px;
-border: 0;
-border-radius: 18px;
-background: #fff;
-box-shadow: 0 4px 15px rgba(0,0,0,.09);
-color: #152d58;
-text-align: center;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-}
-.earn-card .earn-icon {
-width: 56px;
-height: 56px;
-margin-bottom: 16px;
-border: 1px solid #e8e8e8;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #111;
-font-size: 25px;
-background: #fff;
-}
-.earn-card h3 {
-font-family: Arial, Helvetica, sans-serif;
-font-size: 17px;
-line-height: 1.25;
-font-weight: 700;
-margin: 0 0 10px;
-}
-.earn-card p {
-color: #405276;
-font-size: 17px;
-line-height: 1.25;
-}
-.earn-card.completed {
-opacity: .45;
-background: #f0f1f4;
-}
-.claim-section {
-padding: 55px 0 0;
-background: #fff;
-}
-.claim-title {
-text-align: center;
-font-size: 38px;
-margin-bottom: 48px;
-}
-.claim-grid {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-width: 100%;
-}
-.claim-card {
-position: relative;
-height: 475px;
-overflow: hidden;
-border-right: 1px solid #fff;
-background: #ddd;
-}
-.claim-card:last-child {
-border-right: 0;
-}
-.claim-card img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-display: block;
-}
-.claim-card::after {
-content: "";
-position: absolute;
-inset: 40% 0 0;
-background: linear-gradient(transparent, rgba(0,0,0,.72));
-}
-.claim-card h3 {
-position: absolute;
-left: 8%;
-right: 8%;
-bottom: 27px;
-z-index: 2;
-color: #fff;
-font-size: 31px;
-font-weight: 400;
-line-height: 1.05;
-text-align: left;
-}
-.vip-section {
-padding: 65px 12% 70px;
-text-align: left;
-background: #fff;
-}
-.vip-section > h2 {
-color: #152d58;
-font-size: 30px;
-margin-bottom: 30px;
-}
-.vip-grid {
-display: grid;
-grid-template-columns: 200px repeat(3, 1fr);
-gap: 10px;
-max-width: 100%;
-margin: 0;
-align-items: stretch;
-}
-.vip-labels {
-margin-top: 145px;
-display: grid;
-grid-template-rows: repeat(3, 78px);
-}
-.vip-label {
-background: #333;
-color: #fff;
-padding: 24px 20px;
-font-size: 15px;
-display: flex;
-align-items: center;
-}
-.vip-card {
-min-height: 340px;
-padding: 0;
-border: 0;
-border-radius: 18px;
-box-shadow: 0 4px 15px rgba(0,0,0,.09);
-overflow: hidden;
-background: #fff;
-color: #152d58;
-display: flex;
-flex-direction: column;
-}
-.vip-card-head {
-height: 145px;
-display: flex;
-align-items: center;
-justify-content: center;
-position: relative;
-padding: 15px;
-text-align: center;
-}
-.vip-card-head.dark {
-background: #303030;
-color: #fff;
-}
-.vip-card-head .stars {
-position: absolute;
-font-size: 120px;
-line-height: .8;
-opacity: .65;
-z-index: 0;
-}
-.vip-card-head h3 {
-position: relative;
-z-index: 1;
-font-family: Arial, Helvetica, sans-serif;
-font-size: 25px;
-font-weight: 700;
-margin: 0;
-}
-.vip-card-body {
-display: grid;
-grid-template-rows: repeat(3, 78px);
-}
-.vip-card-row {
-padding: 20px;
-display: flex;
-align-items: center;
-font-size: 16px;
-border-bottom: 1px solid #eee;
-}
-.vip-progress {
-grid-column: 2 / 5;
-margin-top: 24px;
-padding: 0 0 0 0;
-color: #152d58;
-text-align: right;
-font-size: 14px;
-}
-.vip-progress-bar {
-height: 5px;
-border-radius: 4px;
-background: #eeeeee;
-margin-top: 10px;
-overflow: hidden;
-}
-.vip-progress-bar span {
-display: block;
-width: 0%;
-height: 100%;
-background: #e5e7eb;
-}
-.history-section {
-padding: 0 12% 75px;
-}
-.history-section h2 {
-color: #152d58;
-font-size: 30px;
-margin-bottom: 28px;
-}
-.history-table-wrap {
-border: 1px solid #d9dfe8;
-border-radius: 18px;
-overflow: hidden;
-}
-.history-table {
-width: 100%;
-border-collapse: collapse;
-color: #152d58;
-}
-.history-table th,
-.history-table td {
-padding: 16px 22px;
-text-align: left;
-font-size: 15px;
-}
-.history-table th {
-background: #f7f8fa;
-font-weight: 400;
-}
-.history-table td {
-border-top: 1px solid #eef0f3;
-}
-.history-main {
-font-weight: 700;
-margin-bottom: 6px;
-}
-.history-sub {
-font-weight: 400;
-}
-.history-pager {
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-top: 40px;
-color: #152d58;
-}
-.pager-arrows {
-display: flex;
-gap: 24px;
-font-size: 26px;
-color: #aab4c6;
-}
-.tier-section {
-padding: 0 10% 90px;
-background: #fff;
-}
-.tier-title {
-text-align: center;
-font-size: 38px;
-margin-bottom: 50px;
-}
-.tier-table {
-width: 100%;
-border-collapse: collapse;
-color: #333;
-}
-.tier-table th,
-.tier-table td {
-padding: 17px 25px;
-border-bottom: 2px solid #b9b9b9;
-text-align: left;
-font-size: 16px;
-}
-.tier-table th {
-font-weight: 700;
-}
-.tier-table td:not(:first-child) {
-color: #999;
-text-align: center;
-}
-@media (max-width: 900px) {
-.perks-section {
-grid-template-columns: 1fr;
-}
-.perks-image {
-min-height: 450px;
-}
-.earn-grid,
-.claim-grid {
-grid-template-columns: repeat(2, 1fr);
-}
-.vip-grid {
-grid-template-columns: 1fr;
-}
-.vip-labels {
-display: none;
-}
-.vip-progress {
-grid-column: 1;
-}
-.earn-header {
-align-items: flex-start;
-gap: 20px;
-}
-}
-@media (max-width: 650px) {
-.loyalty-hero {
-height: 500px;
-}
-.loyalty-hero-kicker {
-font-size: 27px;
-}
-.loyalty-hero h1 {
-font-size: 50px;
-}
-.loyalty-hero-points {
-font-size: 25px;
-}
-.loyalty-join {
-right: 6%;
-left: 6%;
-min-width: 0;
-top: auto;
-bottom: 35px;
-transform: none;
-}
-.loyalty-join:hover {
-transform: scale(1.01);
-}
-.loyalty-intro {
-flex-direction: column;
-gap: 15px;
-}
-.loyalty-intro h2 {
-font-size: 38px;
-}
-.earn-section,
-.vip-section,
-.history-section {
-padding-left: 6%;
-padding-right: 6%;
-}
-.earn-header {
-display: block;
-}
-.earn-expiration {
-margin-top: 15px;
-}
-.earn-grid,
-.claim-grid {
-grid-template-columns: 1fr;
-}
-.claim-card {
-height: 360px;
-border-right: 0;
-border-bottom: 1px solid #fff;
-}
-.tier-section {
-padding-left: 6%;
-padding-right: 6%;
-overflow-x: auto;
-}
-.tier-table {
-min-width: 760px;
-}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNS Fragrance — Loyalty</title>
+  <style>
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --cream: #f7f5f0;
+      --gold: #9b7a42;
+      --light-gray: #e8e6e1;
+      --text-gray: #666666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    .announcement {
+      height: 42px;
+      background: #000;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .announcement-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: announcementScroll 30s linear infinite;
+    }
+
+    .announcement-track span {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 140px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    @keyframes announcementScroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .announcement:hover .announcement-track {
+      animation-play-state: paused;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .header-main {
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 42px;
+      font-weight: 600;
+      letter-spacing: -2px;
+    }
+
+    .logo span {
+      font-weight: 300;
+    }
+
+    .header-icons {
+      position: absolute;
+      right: 38px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .header-icon {
+      width: 26px;
+      height: 26px;
+      padding: 0;
+      margin: 0;
+      border: none;
+      outline: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+      color: #111;
+    }
+
+    .header-icon svg {
+      width: 25px;
+      height: 25px;
+      fill: none !important;
+      stroke: #111 !important;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .header-icon:hover svg {
+      transform: scale(1.08);
+    }
+
+    .wishlist-icon svg {
+      fill: none !important;
+      stroke: #e90046 !important;
+      stroke-width: 1.8;
+    }
+
+    .search-panel {
+      position: fixed;
+      top: 42px;
+      left: 0;
+      width: 100%;
+      height: 122px;
+      background: #fff;
+      z-index: 2001;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity 0.2s ease, transform 0.25s ease, visibility 0.2s ease;
+    }
+
+    .search-panel.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .search-overlay {
+      position: fixed;
+      top: 164px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.36);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    .search-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .search-form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 0 11.8%;
+    }
+
+    .search-form input {
+      width: 100%;
+      height: 50px;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #111;
+      padding: 0 75px 0 39px;
+    }
+
+    .search-form input::placeholder {
+      color: #111;
+      opacity: 1;
+    }
+
+    .search-submit {
+      position: absolute;
+      left: calc(11.8% - 1px);
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .search-submit svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: #d0d0d0;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .search-close {
+      position: absolute;
+      right: 11.8%;
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 29px;
+      font-weight: 300;
+      line-height: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-close:hover {
+      opacity: 0.55;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 38px;
+      min-height: 58px;
+      padding: 0 25px;
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    .navigation a {
+      position: relative;
+      color: #111;
+      text-decoration: none;
+      font-size: 15px;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+
+    .navigation a:hover {
+      color: var(--gold);
+    }
+
+    .navigation a.active {
+      color: #111;
+    }
+
+    .navigation a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -17px;
+      height: 3px;
+      background: #111;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 530px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(245, 243, 237, 0.15),
+          rgba(245, 243, 237, 0.95)
+        ),
+        url("https://sl.bing.net/fy7g5510Fhc");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      width: 50%;
+      margin-left: auto;
+      padding: 50px 8% 50px 30px;
+      text-align: center;
+    }
+
+    .hero-small {
+      font-size: 15px;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
+
+    .hero-title {
+      font-family: Georgia, serif;
+      font-size: clamp(48px, 6vw, 86px);
+      line-height: 0.95;
+      font-weight: 400;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+    }
+
+    .hero-description {
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 470px;
+      margin: 0 auto 28px;
+      color: #333;
+    }
+
+    .hero-button {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #111;
+      color: #fff;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      transition: 0.25s;
+    }
+
+    .hero-button:hover {
+      background: var(--gold);
+    }
+
+    .section {
+      padding: 75px 5%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-heading span {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin-top: 10px;
+      font-family: Georgia, serif;
+      font-weight: 400;
+      font-size: 40px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .category {
+      position: relative;
+      min-height: 270px;
+      overflow: hidden;
+      background: #eee;
+      display: flex;
+      align-items: flex-end;
+      cursor: pointer;
+    }
+
+    .category img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .category:hover img {
+      transform: scale(1.05);
+    }
+
+    .category-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        transparent 40%,
+        rgba(0,0,0,0.65)
+      );
+    }
+
+    .category-content {
+      position: relative;
+      color: #fff;
+      padding: 25px;
+      z-index: 2;
+    }
+
+    .category-content h3 {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: 400;
+    }
+
+    .category-content p {
+      margin-top: 7px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .product-card {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .product-image {
+      height: 360px;
+      background: var(--cream);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 75%;
+      height: 85%;
+      object-fit: contain;
+      transition: 0.4s;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding-top: 17px;
+    }
+
+    .product-category {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-gray);
+    }
+
+    .product-name {
+      margin-top: 7px;
+      font-family: Georgia, serif;
+      font-size: 20px;
+    }
+
+    .product-price {
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .add-cart {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      font-size: 16px;
+    }
+
+    .statement {
+      padding: 100px 10%;
+      text-align: center;
+      background: #f6f4ef;
+    }
+
+    .statement h2 {
+      font-family: Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(36px, 5vw, 65px);
+      line-height: 1.1;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .statement p {
+      max-width: 650px;
+      margin: 25px auto 0;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .reviews {
+      padding: 45px 40px;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .floating {
+      position: fixed;
+      z-index: 1000;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+
+    .floating.review-button {
+      left: 18px;
+      bottom: 80px;
+      height: 52px;
+      padding: 0 20px;
+      background: #fff;
+      color: #111;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+      cursor: pointer;
+    }
+
+    .floating.review-button:hover {
+      color: #111;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .floating.review-button svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      display: block;
+      fill: #111;
+    }
+
+    .floating.join.member {
+      left: 18px;
+      bottom: 18px;
+      background: #000;
+      color: #fff;
+      padding: 15px 24px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
+      cursor: pointer;
+    }
+
+    .floating.join.member:hover {
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .floating.chat {
+      right: 18px;
+      bottom: 18px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
+      cursor: pointer;
+    }
+
+    .floating.chat:hover {
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .floating.chat svg {
+      width: 23px;
+      height: 23px;
+      display: block;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .floating.chat circle {
+      fill: #fff;
+      stroke: none;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      padding: 65px 7% 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 1fr 1fr 1.6fr;
+      gap: 45px;
+    }
+
+    .footer-brand h2 {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .footer-brand p {
+      margin-top: 15px;
+      max-width: 350px;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    footer h4 {
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    footer a {
+      display: block;
+      color: #aaa;
+      text-decoration: none;
+      margin-bottom: 12px;
+      font-size: 13px;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    .copyright {
+      border-top: 1px solid #333;
+      margin-top: 50px;
+      padding-top: 25px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.38);
+      z-index: 1998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .cart-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(420px, 92vw);
+      height: 100vh;
+      background: #fff;
+      z-index: 1999;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 35px rgba(0,0,0,0.12);
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+    }
+
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+
+    .cart-drawer-header {
+      height: 82px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e8e8e8;
+      flex: 0 0 82px;
+    }
+
+    .cart-drawer-header h2 {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: 400;
+    }
+
+    .cart-close {
+      width: 30px;
+      height: 30px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: #111;
+      font-size: 29px;
+      font-weight: 300;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-close:hover {
+      opacity: 0.55;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 25px 28px;
+    }
+
+    .cart-empty {
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .cart-item-info {
+      min-width: 0;
+    }
+
+    .cart-item-name {
+      font-family: Georgia, serif;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .cart-item-meta {
+      color: #777;
+      font-size: 12px;
+    }
+
+    .cart-item-price {
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .cart-drawer-footer {
+      border-top: 1px solid #e8e8e8;
+      padding: 22px 28px 28px;
+      flex: 0 0 auto;
+      background: #fff;
+    }
+
+    .cart-total-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .cart-total-row strong {
+      font-size: 16px;
+    }
+
+    .cart-checkout {
+      width: 100%;
+      height: 48px;
+      border: none;
+      background: #111;
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+
+    .cart-checkout:hover {
+      background: var(--gold);
+    }
+
+    #cartTrigger {
+      position: relative;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -5px;
+      right: -7px;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      border-radius: 50%;
+      background: #111;
+      color: #fff;
+      font-size: 9px;
+      line-height: 16px;
+      text-align: center;
+      display: none;
+    }
+
+    .cart-count.active {
+      display: block;
+    }
+
+
+
+    /* LOYALTY CONTENT */
+    .loyalty-hero {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.10), rgba(255,255,255,.05)),
+        url("assets/loyalty-hero.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+    }
+
+    .loyalty-hero-content {
+      width: 100%;
+      padding: 0 4%;
+    }
+
+    .loyalty-hero-kicker {
+      font-size: 38px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .loyalty-hero-kicker em {
+      font-family: Georgia, serif;
+      font-weight: 400;
+    }
+
+    .loyalty-hero h1 {
+      font-size: clamp(58px, 6vw, 92px);
+      line-height: .95;
+      font-weight: 700;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+    }
+
+    .loyalty-hero-points {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 34px;
+      line-height: 1.1;
+      font-weight: 400;
+    }
+
+    .loyalty-hero-points .point-icon {
+      width: 32px;
+      height: 32px;
+      border: 3px solid #111;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .loyalty-join {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      min-width: 350px;
+      height: 72px;
+      padding: 0 30px;
+      border: 2px solid #111;
+      border-radius: 45px;
+      background: rgba(255,255,255,.25);
+      color: #111;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 28px;
+      transition: .2s ease;
+    }
+
+    .loyalty-join:hover {
+      background: #fff;
+      color: #111;
+      transform: translateY(-50%) scale(1.01);
+    }
+
+    .loyalty-join-arrow {
+      font-size: 38px;
+      line-height: 1;
+    }
+
+    .loyalty-intro {
+      min-height: 190px;
+      padding: 45px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      text-align: center;
+    }
+
+    .loyalty-intro h2 {
+      font-size: 52px;
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .loyalty-intro-points {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 17px;
+      white-space: nowrap;
+    }
+
+    .loyalty-intro-points .point-icon {
+      width: 25px;
+      height: 25px;
+      border: 2px solid #111;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .perks-section {
+      display: grid;
+      grid-template-columns: 47% 53%;
+      min-height: 610px;
+      padding: 0;
+    }
+
+    .perks-image {
+      min-height: 610px;
+      background: url("assets/loyalty-perks.jpg") center/cover no-repeat;
+    }
+
+    .perks-content {
+      padding: 95px 9% 80px 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .perks-content h2 {
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 38px;
+    }
+
+    .perk-item {
+      margin-bottom: 31px;
+    }
+
+    .perk-item h3 {
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .perk-item p {
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .earn-section {
+      padding: 65px 12% 75px;
+      background: #fff;
+    }
+
+    .earn-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .earn-header h2 {
+      font-size: 30px;
+      color: #152d58;
+      line-height: 1.1;
+    }
+
+    .earn-balance {
+      margin-top: 8px;
+      color: #152d58;
+      font-size: 17px;
+    }
+
+    .earn-expiration {
+      color: #152d58;
+      font-size: 17px;
+    }
+
+    .earn-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 0;
+    }
+
+    .earn-card {
+      min-height: 260px;
+      padding: 38px 20px 25px;
+      border: 0;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,.09);
+      color: #152d58;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .earn-card .earn-icon {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 16px;
+      border: 1px solid #e8e8e8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111;
+      font-size: 25px;
+      background: #fff;
+    }
+
+    .earn-card h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 17px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin: 0 0 10px;
+    }
+
+    .earn-card p {
+      color: #405276;
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .earn-card.completed {
+      opacity: .45;
+      background: #f0f1f4;
+    }
+
+    .claim-section {
+      padding: 55px 0 0;
+      background: #fff;
+    }
+
+    .claim-title {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 48px;
+    }
+
+    .claim-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      width: 100%;
+    }
+
+    .claim-card {
+      position: relative;
+      height: 475px;
+      overflow: hidden;
+      border-right: 1px solid #fff;
+      background: #ddd;
+    }
+
+    .claim-card:last-child {
+      border-right: 0;
+    }
+
+    .claim-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .claim-card::after {
+      content: "";
+      position: absolute;
+      inset: 40% 0 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.72));
+    }
+
+    .claim-card h3 {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: 27px;
+      z-index: 2;
+      color: #fff;
+      font-size: 31px;
+      font-weight: 400;
+      line-height: 1.05;
+      text-align: left;
+    }
+
+    .vip-section {
+      padding: 65px 12% 70px;
+      text-align: left;
+      background: #fff;
+    }
+
+    .vip-section > h2 {
+      color: #152d58;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .vip-grid {
+      display: grid;
+      grid-template-columns: 200px repeat(3, 1fr);
+      gap: 10px;
+      max-width: 100%;
+      margin: 0;
+      align-items: stretch;
+    }
+
+    .vip-labels {
+      margin-top: 145px;
+      display: grid;
+      grid-template-rows: repeat(3, 78px);
+    }
+
+    .vip-label {
+      background: #333;
+      color: #fff;
+      padding: 24px 20px;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .vip-card {
+      min-height: 340px;
+      padding: 0;
+      border: 0;
+      border-radius: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,.09);
+      overflow: hidden;
+      background: #fff;
+      color: #152d58;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vip-card-head {
+      height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .vip-card-head.dark {
+      background: #303030;
+      color: #fff;
+    }
+
+    .vip-card-head .stars {
+      position: absolute;
+      font-size: 120px;
+      line-height: .8;
+      opacity: .65;
+      z-index: 0;
+    }
+
+    .vip-card-head h3 {
+      position: relative;
+      z-index: 1;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 25px;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .vip-card-body {
+      display: grid;
+      grid-template-rows: repeat(3, 78px);
+    }
+
+    .vip-card-row {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .vip-progress {
+      grid-column: 2 / 5;
+      margin-top: 24px;
+      padding: 0 0 0 0;
+      color: #152d58;
+      text-align: right;
+      font-size: 14px;
+    }
+
+    .vip-progress-bar {
+      height: 5px;
+      border-radius: 4px;
+      background: #eeeeee;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .vip-progress-bar span {
+      display: block;
+      width: 0%;
+      height: 100%;
+      background: #e5e7eb;
+    }
+
+    .history-section {
+      padding: 0 12% 75px;
+    }
+
+    .history-section h2 {
+      color: #152d58;
+      font-size: 30px;
+      margin-bottom: 28px;
+    }
+
+    .history-table-wrap {
+      border: 1px solid #d9dfe8;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #152d58;
+    }
+
+    .history-table th,
+    .history-table td {
+      padding: 16px 22px;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    .history-table th {
+      background: #f7f8fa;
+      font-weight: 400;
+    }
+
+    .history-table td {
+      border-top: 1px solid #eef0f3;
+    }
+
+    .history-main {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .history-sub {
+      font-weight: 400;
+    }
+
+    .history-pager {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 40px;
+      color: #152d58;
+    }
+
+    .pager-arrows {
+      display: flex;
+      gap: 24px;
+      font-size: 26px;
+      color: #aab4c6;
+    }
+
+    .tier-section {
+      padding: 0 10% 90px;
+      background: #fff;
+    }
+
+    .tier-title {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 50px;
+    }
+
+    .tier-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #333;
+    }
+
+    .tier-table th,
+    .tier-table td {
+      padding: 17px 25px;
+      border-bottom: 2px solid #b9b9b9;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    .tier-table th {
+      font-weight: 700;
+    }
+
+    .tier-table td:not(:first-child) {
+      color: #999;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .perks-section {
+        grid-template-columns: 1fr;
+      }
+
+      .perks-image {
+        min-height: 450px;
+      }
+
+      .earn-grid,
+      .claim-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .vip-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vip-labels {
+        display: none;
+      }
+
+      .vip-progress {
+        grid-column: 1;
+      }
+
+      .earn-header {
+        align-items: flex-start;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .loyalty-hero {
+        height: 500px;
+      }
+
+      .loyalty-hero-kicker {
+        font-size: 27px;
+      }
+
+      .loyalty-hero h1 {
+        font-size: 50px;
+      }
+
+      .loyalty-hero-points {
+        font-size: 25px;
+      }
+
+      .loyalty-join {
+        right: 6%;
+        left: 6%;
+        min-width: 0;
+        top: auto;
+        bottom: 35px;
+        transform: none;
+      }
+
+      .loyalty-join:hover {
+        transform: scale(1.01);
+      }
+
+      .loyalty-intro {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .loyalty-intro h2 {
+        font-size: 38px;
+      }
+
+      .earn-section,
+      .vip-section,
+      .history-section {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+
+      .earn-header {
+        display: block;
+      }
+
+      .earn-expiration {
+        margin-top: 15px;
+      }
+
+      .earn-grid,
+      .claim-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .claim-card {
+        height: 360px;
+        border-right: 0;
+        border-bottom: 1px solid #fff;
+      }
+
+      .tier-section {
+        padding-left: 6%;
+        padding-right: 6%;
+        overflow-x: auto;
+      }
+
+      .tier-table {
+        min-width: 760px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="announcement">
-<div class="announcement-track">
-<span>THE ART OF SCENT</span>
-<span>A SYMPHONY FOR THE SENSES</span>
-<span>DISCOVER SNS FRAGRANCE</span>
-<span>THE ART OF SCENT</span>
-<span>A SYMPHONY FOR THE SENSES</span>
-<span>DISCOVER SNS FRAGRANCE</span>
-</div>
-</div>
-<header>
-<div class="header-main">
-<div class="logo">
-SNS <span>Fragrance</span>
-</div>
-<div class="header-icons">
-<a
-href="login.html"
-class="header-icon"
-aria-label="Account"
->
-<svg viewBox="0 0 24 24">
-<circle cx="12" cy="7" r="3.2"></circle>
-<path d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5"></path>
-</svg>
-</a>
-<a
-href="wishlist.html"
-class="header-icon wishlist-icon"
-aria-label="Add to wishlist"
->
-<svg viewBox="0 0 24 24">
-<path d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8 -1.8 0-3.4 1-4.1 2.4 C11.3 5 9.7 4 7.9 4 C5.2 4 3.2 6 3.2 8.8 c0 4.9 8.8 10.2 8.8 10.2 s8.8-5.3 8.8-10.2z"></path>
-</svg>
-</a>
-<button
-type="button"
-class="header-icon search-trigger"
-id="searchTrigger"
-aria-label="Search"
->
-<svg viewBox="0 0 24 24">
-<circle cx="10.5" cy="10.5" r="6.3"></circle>
-<path d="M15.3 15.3L20.5 20.5"></path>
-</svg>
-</button>
-<button
-class="header-icon"
-id="cartTrigger"
-aria-label="Shopping Cart"
-type="button"
->
-<svg viewBox="0 0 24 24">
-<path d="M3 4h2l2.1 11.2h10.8L20 7H6"></path>
-<path d="M9 19.5h.01"></path>
-<path d="M17 19.5h.01"></path>
-<path d="M7.1 15.2h10.8"></path>
-</svg>
-<span
-class="cart-count"
-id="cartCount"
->0</span>
-</button>
-</div>
-</div>
-<nav class="navigation">
-<a href="bestsellers.html">Bestsellers</a>
-<a href="extrait.html">Extrait de Parfum</a>
-<a href="edp.html">Eau de Parfum</a>
-<a href="edt.html">Eau de Toilette</a>
-<a
-href="loyalty.html"
-class="active"
-aria-current="page"
->Loyalty</a>
-</nav>
-</header>
-<div
-class="search-panel"
-id="searchPanel"
->
-<form
-class="search-form"
-id="searchForm"
->
-<button
-type="submit"
-class="search-submit"
-aria-label="Submit Search"
->
-<svg viewBox="0 0 24 24">
-<circle cx="10.5" cy="10.5" r="6.3"></circle>
-<path d="M15.3 15.3L20.5 20.5"></path>
-</svg>
-</button>
-<input
-type="text"
-id="searchInput"
-placeholder="Search"
-autocomplete="off"
-/>
-<button
-type="button"
-class="search-close"
-id="searchClose"
-aria-label="Close Search"
->
-×
-</button>
-</form>
-</div>
-<div
-class="search-overlay"
-id="searchOverlay"
-></div>
-<div
-class="cart-overlay"
-id="cartOverlay"
-></div>
-<aside
-class="cart-drawer"
-id="cartDrawer"
->
-<div class="cart-drawer-header">
-<h2>Your Cart</h2>
-<button
-type="button"
-class="cart-close"
-id="cartClose"
-aria-label="Close Cart"
->
-×
-</button>
-</div>
-<div
-class="cart-items"
-id="cartItems"
-></div>
-<div class="cart-drawer-footer">
-<div class="cart-total-row">
-<span>Total</span>
-<strong id="cartTotal">
-Rp 0
-</strong>
-</div>
-<button
-type="button"
-class="cart-checkout"
-id="cartCheckout"
->
-CHECKOUT
-</button>
-</div>
-</aside>
-<main>
-<!-- 1. HERO -->
-<section class="loyalty-hero">
-<div class="loyalty-hero-content">
-<div class="loyalty-hero-kicker">Start Your <em>Journey</em></div>
-<h1>SAFF REWARDS</h1>
-<div class="loyalty-hero-points">
-<span class="point-icon">★</span>
-<span>Rp.1 = 1 Points</span>
-</div>
-</div>
-<a href="member.html" class="loyalty-join">
-<span>Join Now</span>
-<span class="loyalty-join-arrow">→</span>
-</a>
-</section>
-<!-- 2. INTRO -->
-<section class="loyalty-intro">
-<h2>Join. Earn. Reedem</h2>
-<div class="loyalty-intro-points">
-<span class="point-icon">★</span>
-<span>Rp.1 = 1 Points</span>
-</div>
-</section>
-<!-- 3. PERKS -->
-<section class="perks-section">
-<div class="perks-image"></div>
-<div class="perks-content">
-<h2>UNLOCK MORE PERKS</h2>
-<div class="perk-item">
-<h3>1. Sign Up</h3>
-<p>Join for free and start earning rewards as our member</p>
-</div>
-<div class="perk-item">
-<h3>2. Earn Points</h3>
-<p>Collect points every time you shop or complete special actions</p>
-</div>
-<div class="perk-item">
-<h3>3. Redeem Points</h3>
-<p>Redeem your points for exclusive discounts or free products</p>
-</div>
-<div class="perk-item">
-<h3>4. Unlock Exclusive Perks</h3>
-<p>You can earn points and enjoy exclusive perks, including early access, special offers and gifts.</p>
-</div>
-</div>
-</section>
-<!-- 4. WAYS TO EARN POINTS -->
-<section class="earn-section">
-<div class="earn-header">
-<div>
-<h2>Ways to earn points</h2>
-<div class="earn-balance">Balance: 15,000 points</div>
-</div>
-<div class="earn-expiration">Expiration: May 4, 2027</div>
-</div>
-<div class="earn-grid">
-<div class="earn-card">
-<div class="earn-icon">◉</div>
-<h3>Shop Our Newest Deo Potion for Women &amp; Get 20,000 Points</h3>
-<p>20,000 points</p>
-</div>
-<div class="earn-card">
-<div class="earn-icon">◉</div>
-<h3>Shop Our Newest Deo Potion for Men &amp; Get 20,000 Points</h3>
-<p>20,000 points</p>
-</div>
-<div class="earn-card">
-<div class="earn-icon">🛒</div>
-<h3>Place 3X orders - Punch card</h3>
-<p>20,000 points</p>
-</div>
-<div class="earn-card">
-<div class="earn-icon">♪</div>
-<h3>Follow us on TikTok</h3>
-<p>1,000 points</p>
-</div>
-<div class="earn-card">
-<div class="earn-icon">◎</div>
-<h3>Follow us on Instagram</h3>
-<p>1,000 points</p>
-</div>
-<div class="earn-card">
-<div class="earn-icon">✧</div>
-<h3>Celebrate birthday</h3>
-<p>50,000 points</p>
-</div>
-<div class="earn-card">
-<div class="earn-icon">☆</div>
-<h3>Leave review</h3>
-<p>1,000 points</p>
-</div>
-<div class="earn-card">
-<div class="earn-icon">🛒</div>
-<h3>Place order</h3>
-<p>10 points for every Rp 1,000</p>
-</div>
-<div class="earn-card completed">
-<div class="earn-icon">♙</div>
-<h3>Sign Up</h3>
-<p>✓ Completed</p>
-</div>
-</div>
-</section>
-<!-- 5. CLAIM YOUR REWARD -->
-<section class="claim-section">
-<h2 class="claim-title">Claim Your Reward</h2>
-<div class="claim-grid">
-<div class="claim-card">
-<img src="assets/reward-voucher.jpg" alt="Exclusive Voucher">
-<h3>Exclusive Voucher</h3>
-</div>
-<div class="claim-card">
-<img src="assets/reward-free-product.jpg" alt="Free Product">
-<h3>Free Product</h3>
-</div>
-<div class="claim-card">
-<img src="assets/reward-gift-card.jpg" alt="Rp. 250.000 Gift Card">
-<h3>Rp. 250.000 Gift Card</h3>
-</div>
-<div class="claim-card">
-<img src="assets/reward-free-shipping.jpg" alt="Free Shipping">
-<h3>Free Shipping</h3>
-</div>
-</div>
-</section>
-<!-- 6. VIP TIERS -->
-<section class="vip-section">
-<h2>VIP Tiers</h2>
-<div class="vip-grid">
-<div class="vip-labels">
-<div class="vip-label">Goal</div>
-<div class="vip-label">Points multiplier</div>
-<div class="vip-label">Reward</div>
-</div>
-<div class="vip-card">
-<div class="vip-card-head dark">
-<div class="stars">★</div>
-<h3>SAFF-Discoverer</h3>
-</div>
-<div class="vip-card-body">
-<div class="vip-card-row">Achieved on May 4, 2026</div>
-<div class="vip-card-row">2x</div>
-<div class="vip-card-row">—</div>
-</div>
-</div>
-<div class="vip-card">
-<div class="vip-card-head">
-<div class="stars">★★</div>
-<h3>SAFF-Admirer</h3>
-</div>
-<div class="vip-card-body">
-<div class="vip-card-row">Spent Rp 0 of <strong>&nbsp;Rp 1,000,000</strong></div>
-<div class="vip-card-row">2x</div>
-<div class="vip-card-row">Rp 25,000 off discount</div>
-</div>
-</div>
-<div class="vip-card">
-<div class="vip-card-head">
-<div class="stars">★★★</div>
-<h3>SAFF-Lover</h3>
-</div>
-<div class="vip-card-body">
-<div class="vip-card-row">Spent Rp 0 of <strong>&nbsp;Rp 3,000,000</strong></div>
-<div class="vip-card-row">2.5x</div>
-<div class="vip-card-row">Rp 100,000 off discount</div>
-</div>
-</div>
-<div class="vip-progress">
-Rp 0/Rp 1,000,000 to <strong>SAFF-Admirer</strong>
-<div class="vip-progress-bar"><span></span></div>
-</div>
-</div>
-</section>
-<!-- 7. HISTORY -->
-<section class="history-section">
-<h2>History</h2>
-<div class="history-table-wrap">
-<table class="history-table">
-<thead>
-<tr>
-<th>Action</th>
-<th>Reward</th>
-<th>Summary</th>
-<th>Status</th>
-<th>Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<div class="history-main">Reward earned</div>
-<div class="history-sub">Sign Up</div>
-</td>
-<td></td>
-<td><strong>+15,000 points</strong></td>
-<td></td>
-<td>May 4, 2026</td>
-</tr>
-<tr>
-<td>
-<div class="history-main">Tier achieved</div>
-<div class="history-sub">SAFF-Discover</div>
-</td>
-<td></td>
-<td>No reward set</td>
-<td></td>
-<td>May 4, 2026</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="history-pager">
-<span>1-2 of 2</span>
-<div class="pager-arrows">
-<span>‹</span>
-<span>›</span>
-</div>
-</div>
-</section>
-<!-- 8. REWARD TIERS -->
-<section class="tier-section">
-<h2 class="tier-title">Reward Tiers</h2>
-<table class="tier-table">
-<thead>
-<tr>
-<th></th>
-<th>Rewards Name</th>
-<th>Mechanisms</th>
-<th>Points Earned</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>Point</th>
-<td>15.000 Points</td>
-<td>Points Multiplier 1.5x</td>
-<td>Points Multiplier 2x</td>
-</tr>
-<tr>
-<th>Reward</th>
-<td>-</td>
-<td>Rp. 25.000 Discount</td>
-<td>Rp. 250.000 Gift Card</td>
-</tr>
-<tr>
-<th>Points Expiry Period</th>
-<td>365 Days</td>
-<td>365 Days</td>
-<td>365 Days</td>
-</tr>
-<tr>
-<th>Make a Purchase</th>
-<td>10 Points for Every Rp. 1.000</td>
-<td>10 Points for Every Rp. 1.000</td>
-<td>10 Points for Every Rp. 1.000</td>
-</tr>
-<tr>
-<th>Leave Review</th>
-<td>1.000 Points</td>
-<td>1.000 Points</td>
-<td>1.000 Points</td>
-</tr>
-<tr>
-<th>Place 3x Orders</th>
-<td>20.000 Points</td>
-<td>20.000 Points</td>
-<td>20.000 Points</td>
-</tr>
-<tr>
-<th>Referred Friend Reward</th>
-<td>Disc Rp. 5.000</td>
-<td>Disc Rp. 5.000</td>
-<td>Disc Rp. 5.000</td>
-</tr>
-<tr>
-<th>Referring Customer Reward</th>
-<td>10.000 Points</td>
-<td>10.000 Points</td>
-<td>10.000 Points</td>
-</tr>
-<tr>
-<th>Celebrate Birthday</th>
-<td>50.000 Points</td>
-<td>50.000 Points</td>
-<td>50.000 Points</td>
-</tr>
-<tr>
-<th>Sign Up</th>
-<td>15.000 Points</td>
-<td>15.000 Points</td>
-<td>15.000 Points</td>
-</tr>
-<tr>
-<th>Follow Us On Instagram</th>
-<td>1.000 Points</td>
-<td>1.000 Points</td>
-<td>1.000 Points</td>
-</tr>
-<tr>
-<th>Follow Us On TikTok</th>
-<td>1.000 Points</td>
-<td>1.000 Points</td>
-<td>1.000 Points</td>
-</tr>
-</tbody>
-</table>
-</section>
-</main>
-<footer>
-<div class="footer-grid">
-<div class="footer-brand">
-<h2>
-SNS Fragrance
-</h2>
-<p>
-A contemporary fragrance house creating
-expressive scents for every individual,
-every story, and every moment.
-</p>
-</div>
-<div>
-<h4>
-ABOUT
-</h4>
-<a href="about.html">
-Our Story
-</a>
-</div>
-<div>
-<h4>
-FOLLOW
-</h4>
-<a href="https://www.instagram.com/snsfragrance.id">
-Instagram
-</a>
-<a href="https://www.tiktok.com/@snsfragrance.id">
-TikTok
-</a>
-<a href="https://wa.me/message/TZMPXSMPC6XHM1">
-WhatsApp
-</a>
-</div>
-<div>
-<h4>
-INFO
-</h4>
-<a href="faq.html">
-FAQ
-</a>
-<a href="terms.html">
-Terms of Service
-</a>
-<a href="privacy.html">
-Privacy Policy
-</a>
-<a href="returns.html">
-Returns &amp; Exchanges
-</a>
-</div>
-<div>
-<h4>
-CONTACT
-</h4>
-<a href="mailto:snsfragranceid@gmail.com">
-snsfragranceid@gmail.com
-</a>
-</div>
-</div>
-<div class="copyright">
-© 2026 SNS Fragrance. All rights reserved.
-</div>
-</footer>
-<a
-href="review.html"
-class="floating review-button"
-aria-label="Reviews"
->
-<svg
-viewBox="0 0 24 24"
-aria-hidden="true"
->
-<path
-d="
-M12 3.5
-L14.5 8.5
-L20 9.3
-L16 13.2
-L17 18.7
-L12 16.1
-L7 18.7
-L8 13.2
-L4 9.3
-L9.5 8.5
-Z
-"
-></path>
-</svg>
-<span>
-Reviews
-</span>
-</a>
-<a
-href="member.html"
-class="floating join member"
->
-Join Member
-</a>
-<a
-href="https://wa.me/message/TZMPXSMPC6XHM1"
-class="floating chat"
-aria-label="Chat"
->
-<svg viewBox="0 0 24 24">
-<path
-d="
-M5 5.5
-h14
-a2 2 0 0 1 2 2
-v8
-a2 2 0 0 1-2 2
-h-7
-l-4 3
-v-3
-H5
-a2 2 0 0 1-2-2
-v-8
-a2 2 0 0 1 2-2
-z
-"
-></path>
-<circle
-cx="8"
-cy="11.5"
-r=".7"
-fill="white"
-></circle>
-<circle
-cx="12"
-cy="11.5"
-r=".7"
-fill="white"
-></circle>
-<circle
-cx="16"
-cy="11.5"
-r=".7"
-fill="white"
-></circle>
-</svg>
-</a>
-<script>
-const searchTrigger =
-document.getElementById("searchTrigger");
-const searchPanel =
-document.getElementById("searchPanel");
-const searchOverlay =
-document.getElementById("searchOverlay");
-const searchInput =
-document.getElementById("searchInput");
-const searchClose =
-document.getElementById("searchClose");
-const searchForm =
-document.getElementById("searchForm");
-function openSearch() {
-searchPanel.classList.add("active");
-searchOverlay.classList.add("active");
-setTimeout(() => {
-searchInput.focus();
-}, 180);
-}
-function closeSearch() {
-searchPanel.classList.remove("active");
-searchOverlay.classList.remove("active");
-searchInput.value = "";
-}
-searchTrigger.addEventListener(
-"click",
-openSearch
-);
-searchClose.addEventListener(
-"click",
-closeSearch
-);
-searchOverlay.addEventListener(
-"click",
-closeSearch
-);
-searchForm.addEventListener(
-"submit",
-function(event) {
-event.preventDefault();
-const value =
-searchInput.value.trim();
-if (!value) {
-return;
-}
-console.log(
-"Search:",
-value
-);
-}
-);
-let cart = [];
-const cartTrigger =
-document.getElementById("cartTrigger");
-const cartDrawer =
-document.getElementById("cartDrawer");
-const cartOverlay =
-document.getElementById("cartOverlay");
-const cartClose =
-document.getElementById("cartClose");
-const cartItems =
-document.getElementById("cartItems");
-const cartTotal =
-document.getElementById("cartTotal");
-const cartCount =
-document.getElementById("cartCount");
-const cartCheckout =
-document.getElementById("cartCheckout");
-function formatPrice(price) {
-return "Rp " +
-price.toLocaleString("id-ID");
-}
-function openCart() {
-cartDrawer.classList.add("active");
-cartOverlay.classList.add("active");
-document.body.style.overflow =
-"hidden";
-}
-function closeCart() {
-cartDrawer.classList.remove("active");
-cartOverlay.classList.remove("active");
-document.body.style.overflow =
-"";
-}
-function renderCart() {
-if (!cart.length) {
-cartItems.innerHTML = `
-<div class="cart-empty">
-<p>
-Your cart is empty.
-</p>
-</div>
-`;
-cartTotal.textContent =
-"Rp 0";
-cartCount.classList.remove(
-"active"
-);
-return;
-}
-let total = 0;
-cartItems.innerHTML =
-cart.map(
-item => {
-total += item.price;
-return `
-<div class="cart-item">
-<div class="cart-item-info">
-<div class="cart-item-name">
-${item.name}
-</div>
-<div class="cart-item-meta">
-Qty 1
-</div>
-</div>
-<div class="cart-item-price">
-${formatPrice(item.price)}
-</div>
-</div>
-`;
-}
-).join("");
-cartTotal.textContent =
-formatPrice(total);
-cartCount.textContent =
-cart.length;
-cartCount.classList.add(
-"active"
-);
-}
-cartTrigger.addEventListener(
-"click",
-function() {
-renderCart();
-openCart();
-}
-);
-cartClose.addEventListener(
-"click",
-closeCart
-);
-cartOverlay.addEventListener(
-"click",
-closeCart
-);
-cartCheckout.addEventListener(
-"click",
-function() {
-if (!cart.length) {
-return;
-}
-alert(
-"Checkout functionality will be connected here."
-);
-}
-);
-document.addEventListener(
-"keydown",
-function(event) {
-if (
-event.key === "Escape"
-) {
-closeSearch();
-closeCart();
-}
-}
-);
-renderCart();
-</script>
+
+  <div class="announcement">
+    <div class="announcement-track">
+      <span>THE ART OF SCENT</span>
+      <span>A SYMPHONY FOR THE SENSES</span>
+      <span>DISCOVER SNS FRAGRANCE</span>
+      <span>THE ART OF SCENT</span>
+      <span>A SYMPHONY FOR THE SENSES</span>
+      <span>DISCOVER SNS FRAGRANCE</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-main">
+      <div class="logo">
+        SNS <span>Fragrance</span>
+      </div>
+
+      <div class="header-icons">
+
+        <a
+          href="login.html"
+          class="header-icon"
+          aria-label="Account"
+        >
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="7" r="3.2"></circle>
+            <path d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5"></path>
+          </svg>
+        </a>
+
+        <a
+          href="wishlist.html"
+          class="header-icon wishlist-icon"
+          aria-label="Add to wishlist"
+        >
+          <svg viewBox="0 0 24 24">
+            <path d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8 -1.8 0-3.4 1-4.1 2.4 C11.3 5 9.7 4 7.9 4 C5.2 4 3.2 6 3.2 8.8 c0 4.9 8.8 10.2 8.8 10.2 s8.8-5.3 8.8-10.2z"></path>
+          </svg>
+        </a>
+
+        <button
+          type="button"
+          class="header-icon search-trigger"
+          id="searchTrigger"
+          aria-label="Search"
+        >
+          <svg viewBox="0 0 24 24">
+            <circle cx="10.5" cy="10.5" r="6.3"></circle>
+            <path d="M15.3 15.3L20.5 20.5"></path>
+          </svg>
+        </button>
+
+        <button
+          class="header-icon"
+          id="cartTrigger"
+          aria-label="Shopping Cart"
+          type="button"
+        >
+          <svg viewBox="0 0 24 24">
+            <path d="M3 4h2l2.1 11.2h10.8L20 7H6"></path>
+            <path d="M9 19.5h.01"></path>
+            <path d="M17 19.5h.01"></path>
+            <path d="M7.1 15.2h10.8"></path>
+          </svg>
+
+          <span
+            class="cart-count"
+            id="cartCount"
+          >0</span>
+        </button>
+
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a href="bestsellers.html">Bestsellers</a>
+      <a href="extrait.html">Extrait de Parfum</a>
+      <a href="edp.html">Eau de Parfum</a>
+      <a href="edt.html">Eau de Toilette</a>
+      <a
+        href="loyalty.html"
+        class="active"
+        aria-current="page"
+      >Loyalty</a>
+    </nav>
+  </header>
+
+  <div
+    class="search-panel"
+    id="searchPanel"
+  >
+    <form
+      class="search-form"
+      id="searchForm"
+    >
+      <button
+        type="submit"
+        class="search-submit"
+        aria-label="Submit Search"
+      >
+        <svg viewBox="0 0 24 24">
+          <circle cx="10.5" cy="10.5" r="6.3"></circle>
+          <path d="M15.3 15.3L20.5 20.5"></path>
+        </svg>
+      </button>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search"
+        autocomplete="off"
+      />
+
+      <button
+        type="button"
+        class="search-close"
+        id="searchClose"
+        aria-label="Close Search"
+      >
+        ×
+      </button>
+    </form>
+  </div>
+
+  <div
+    class="search-overlay"
+    id="searchOverlay"
+  ></div>
+
+  <div
+    class="cart-overlay"
+    id="cartOverlay"
+  ></div>
+
+  <aside
+    class="cart-drawer"
+    id="cartDrawer"
+  >
+    <div class="cart-drawer-header">
+      <h2>Your Cart</h2>
+
+      <button
+        type="button"
+        class="cart-close"
+        id="cartClose"
+        aria-label="Close Cart"
+      >
+        ×
+      </button>
+    </div>
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    ></div>
+
+    <div class="cart-drawer-footer">
+
+      <div class="cart-total-row">
+        <span>Total</span>
+
+        <strong id="cartTotal">
+          Rp 0
+        </strong>
+      </div>
+
+      <button
+        type="button"
+        class="cart-checkout"
+        id="cartCheckout"
+      >
+        CHECKOUT
+      </button>
+
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- 1. HERO -->
+    <section class="loyalty-hero">
+      <div class="loyalty-hero-content">
+        <div class="loyalty-hero-kicker">Start Your <em>Journey</em></div>
+        <h1>SAFF REWARDS</h1>
+        <div class="loyalty-hero-points">
+          <span class="point-icon">★</span>
+          <span>Rp.1 = 1 Points</span>
+        </div>
+      </div>
+
+      <a href="member.html" class="loyalty-join">
+        <span>Join Now</span>
+        <span class="loyalty-join-arrow">→</span>
+      </a>
+    </section>
+
+    <!-- 2. INTRO -->
+    <section class="loyalty-intro">
+      <h2>Join. Earn. Reedem</h2>
+      <div class="loyalty-intro-points">
+        <span class="point-icon">★</span>
+        <span>Rp.1 = 1 Points</span>
+      </div>
+    </section>
+
+    <!-- 3. PERKS -->
+    <section class="perks-section">
+      <div class="perks-image"></div>
+
+      <div class="perks-content">
+        <h2>UNLOCK MORE PERKS</h2>
+
+        <div class="perk-item">
+          <h3>1. Sign Up</h3>
+          <p>Join for free and start earning rewards as our member</p>
+        </div>
+
+        <div class="perk-item">
+          <h3>2. Earn Points</h3>
+          <p>Collect points every time you shop or complete special actions</p>
+        </div>
+
+        <div class="perk-item">
+          <h3>3. Redeem Points</h3>
+          <p>Redeem your points for exclusive discounts or free products</p>
+        </div>
+
+        <div class="perk-item">
+          <h3>4. Unlock Exclusive Perks</h3>
+          <p>You can earn points and enjoy exclusive perks, including early access, special offers and gifts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. WAYS TO EARN POINTS -->
+    <section class="earn-section">
+      <div class="earn-header">
+        <div>
+          <h2>Ways to earn points</h2>
+          <div class="earn-balance">Balance: 15,000 points</div>
+        </div>
+        <div class="earn-expiration">Expiration: May 4, 2027</div>
+      </div>
+
+      <div class="earn-grid">
+
+        <div class="earn-card">
+          <div class="earn-icon">◉</div>
+          <h3>Shop Our Newest Deo Potion for Women &amp; Get 20,000 Points</h3>
+          <p>20,000 points</p>
+        </div>
+
+        <div class="earn-card">
+          <div class="earn-icon">◉</div>
+          <h3>Shop Our Newest Deo Potion for Men &amp; Get 20,000 Points</h3>
+          <p>20,000 points</p>
+        </div>
+
+        <div class="earn-card">
+          <div class="earn-icon">🛒</div>
+          <h3>Place 3X orders - Punch card</h3>
+          <p>20,000 points</p>
+        </div>
+
+        <div class="earn-card">
+          <div class="earn-icon">♪</div>
+          <h3>Follow us on TikTok</h3>
+          <p>1,000 points</p>
+        </div>
+
+        <div class="earn-card">
+          <div class="earn-icon">◎</div>
+          <h3>Follow us on Instagram</h3>
+          <p>1,000 points</p>
+        </div>
+
+        <div class="earn-card">
+          <div class="earn-icon">✧</div>
+          <h3>Celebrate birthday</h3>
+          <p>50,000 points</p>
+        </div>
+
+        <div class="earn-card">
+          <div class="earn-icon">☆</div>
+          <h3>Leave review</h3>
+          <p>1,000 points</p>
+        </div>
+
+        <div class="earn-card">
+          <div class="earn-icon">🛒</div>
+          <h3>Place order</h3>
+          <p>10 points for every Rp 1,000</p>
+        </div>
+
+        <div class="earn-card">
+          <div class="earn-icon">♙</div>
+          <h3>Sign Up</h3>
+          <p>1,000 points</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. CLAIM YOUR REWARD -->
+    <section class="claim-section">
+      <h2 class="claim-title">Claim Your Reward</h2>
+
+      <div class="claim-grid">
+
+        <div class="claim-card">
+          <img src="assets/reward-voucher.jpg" alt="Exclusive Voucher">
+          <h3>Exclusive Voucher</h3>
+        </div>
+
+        <div class="claim-card">
+          <img src="assets/reward-free-product.jpg" alt="Free Product">
+          <h3>Free Product</h3>
+        </div>
+
+        <div class="claim-card">
+          <img src="assets/reward-gift-card.jpg" alt="Rp. 250.000 Gift Card">
+          <h3>Rp. 250.000 Gift Card</h3>
+        </div>
+
+        <div class="claim-card">
+          <img src="assets/reward-free-shipping.jpg" alt="Free Shipping">
+          <h3>Free Shipping</h3>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. VIP TIERS -->
+    <section class="vip-section">
+
+      <h2>VIP Tiers</h2>
+
+      <div class="vip-grid">
+
+        <div class="vip-labels">
+          <div class="vip-label">Goal</div>
+          <div class="vip-label">Points multiplier</div>
+          <div class="vip-label">Reward</div>
+        </div>
+
+        <div class="vip-card">
+
+          <div class="vip-card-head dark">
+            <div class="stars">★</div>
+            <h3>SAFF-Discoverer</h3>
+          </div>
+
+          <div class="vip-card-body">
+            <div class="vip-card-row">Achieved on May 4, 2026</div>
+            <div class="vip-card-row">2x</div>
+            <div class="vip-card-row">—</div>
+          </div>
+
+        </div>
+
+        <div class="vip-card">
+
+          <div class="vip-card-head">
+            <div class="stars">★★</div>
+            <h3>SAFF-Admirer</h3>
+          </div>
+
+          <div class="vip-card-body">
+            <div class="vip-card-row">Spent Rp 0 of <strong>&nbsp;Rp 1,000,000</strong></div>
+            <div class="vip-card-row">2x</div>
+            <div class="vip-card-row">Rp 25,000 off discount</div>
+          </div>
+
+        </div>
+
+        <div class="vip-card">
+
+          <div class="vip-card-head">
+            <div class="stars">★★★</div>
+            <h3>SAFF-Lover</h3>
+          </div>
+
+          <div class="vip-card-body">
+            <div class="vip-card-row">Spent Rp 0 of <strong>&nbsp;Rp 3,000,000</strong></div>
+            <div class="vip-card-row">2.5x</div>
+            <div class="vip-card-row">Rp 100,000 off discount</div>
+          </div>
+
+        </div>
+
+        <div class="vip-progress">
+          Rp 0/Rp 1,000,000 to <strong>SAFF-Admirer</strong>
+          <div class="vip-progress-bar"><span></span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. HISTORY -->
+    <section class="history-section">
+
+      <h2>History</h2>
+
+      <div class="history-table-wrap">
+        <table class="history-table">
+
+          <thead>
+            <tr>
+              <th>Action</th>
+              <th>Reward</th>
+              <th>Summary</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>
+                <div class="history-main">Reward earned</div>
+                <div class="history-sub">Sign Up</div>
+              </td>
+              <td></td>
+              <td><strong>+15,000 points</strong></td>
+              <td></td>
+              <td>May 4, 2026</td>
+            </tr>
+
+            <tr>
+              <td>
+                <div class="history-main">Tier achieved</div>
+                <div class="history-sub">SAFF-Discover</div>
+              </td>
+              <td></td>
+              <td>No reward set</td>
+              <td></td>
+              <td>May 4, 2026</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+      </div>
+
+      <div class="history-pager">
+        <span>1-2 of 2</span>
+        <div class="pager-arrows">
+          <span>‹</span>
+          <span>›</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 8. REWARD TIERS -->
+    <section class="tier-section">
+
+      <h2 class="tier-title">Reward Tiers</h2>
+
+      <table class="tier-table">
+
+        <thead>
+          <tr>
+            <th></th>
+            <th>Rewards Name</th>
+            <th>Mechanisms</th>
+            <th>Points Earned</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <th>Point</th>
+            <td>15.000 Points</td>
+            <td>Points Multiplier 1.5x</td>
+            <td>Points Multiplier 2x</td>
+          </tr>
+
+          <tr>
+            <th>Reward</th>
+            <td>-</td>
+            <td>Rp. 25.000 Discount</td>
+            <td>Rp. 250.000 Gift Card</td>
+          </tr>
+
+          <tr>
+            <th>Points Expiry Period</th>
+            <td>365 Days</td>
+            <td>365 Days</td>
+            <td>365 Days</td>
+          </tr>
+
+          <tr>
+            <th>Make a Purchase</th>
+            <td>10 Points for Every Rp. 1.000</td>
+            <td>10 Points for Every Rp. 1.000</td>
+            <td>10 Points for Every Rp. 1.000</td>
+          </tr>
+
+          <tr>
+            <th>Leave Review</th>
+            <td>1.000 Points</td>
+            <td>1.000 Points</td>
+            <td>1.000 Points</td>
+          </tr>
+
+          <tr>
+            <th>Place 3x Orders</th>
+            <td>20.000 Points</td>
+            <td>20.000 Points</td>
+            <td>20.000 Points</td>
+          </tr>
+
+          <tr>
+            <th>Referred Friend Reward</th>
+            <td>Disc Rp. 5.000</td>
+            <td>Disc Rp. 5.000</td>
+            <td>Disc Rp. 5.000</td>
+          </tr>
+
+          <tr>
+            <th>Referring Customer Reward</th>
+            <td>10.000 Points</td>
+            <td>10.000 Points</td>
+            <td>10.000 Points</td>
+          </tr>
+
+          <tr>
+            <th>Celebrate Birthday</th>
+            <td>50.000 Points</td>
+            <td>50.000 Points</td>
+            <td>50.000 Points</td>
+          </tr>
+
+          <tr>
+            <th>Sign Up</th>
+            <td>15.000 Points</td>
+            <td>15.000 Points</td>
+            <td>15.000 Points</td>
+          </tr>
+
+          <tr>
+            <th>Follow Us On Instagram</th>
+            <td>1.000 Points</td>
+            <td>1.000 Points</td>
+            <td>1.000 Points</td>
+          </tr>
+
+          <tr>
+            <th>Follow Us On TikTok</th>
+            <td>1.000 Points</td>
+            <td>1.000 Points</td>
+            <td>1.000 Points</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+
+        <h2>
+          SNS Fragrance
+        </h2>
+
+        <p>
+          A contemporary fragrance house creating
+          expressive scents for every individual,
+          every story, and every moment.
+        </p>
+
+      </div>
+
+      <div>
+
+        <h4>
+          ABOUT
+        </h4>
+
+        <a href="about.html">
+          Our Story
+        </a>
+
+      </div>
+
+      <div>
+
+        <h4>
+          FOLLOW
+        </h4>
+
+        <a href="https://www.instagram.com/snsfragrance.id">
+          Instagram
+        </a>
+
+        <a href="https://www.tiktok.com/@snsfragrance.id">
+          TikTok
+        </a>
+
+        <a href="https://wa.me/message/TZMPXSMPC6XHM1">
+          WhatsApp
+        </a>
+
+      </div>
+
+      <div>
+
+        <h4>
+          INFO
+        </h4>
+
+        <a href="faq.html">
+          FAQ
+        </a>
+
+        <a href="terms.html">
+          Terms of Service
+        </a>
+
+        <a href="privacy.html">
+          Privacy Policy
+        </a>
+
+        <a href="returns.html">
+          Returns &amp; Exchanges
+        </a>
+
+      </div>
+
+      <div>
+
+        <h4>
+          CONTACT
+        </h4>
+
+        <a href="mailto:snsfragranceid@gmail.com">
+          snsfragranceid@gmail.com
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 SNS Fragrance. All rights reserved.
+    </div>
+
+  </footer>
+
+  <a
+    href="review.html"
+    class="floating review-button"
+    aria-label="Reviews"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path
+        d="
+          M12 3.5
+          L14.5 8.5
+          L20 9.3
+          L16 13.2
+          L17 18.7
+          L12 16.1
+          L7 18.7
+          L8 13.2
+          L4 9.3
+          L9.5 8.5
+          Z
+        "
+      ></path>
+    </svg>
+
+    <span>
+      Reviews
+    </span>
+  </a>
+
+  <a
+    href="member.html"
+    class="floating join member"
+  >
+    Join Member
+  </a>
+
+  <a
+    href="https://wa.me/message/TZMPXSMPC6XHM1"
+    class="floating chat"
+    aria-label="Chat"
+  >
+    <svg viewBox="0 0 24 24">
+      <path
+        d="
+          M5 5.5
+          h14
+          a2 2 0 0 1 2 2
+          v8
+          a2 2 0 0 1-2 2
+          h-7
+          l-4 3
+          v-3
+          H5
+          a2 2 0 0 1-2-2
+          v-8
+          a2 2 0 0 1 2-2
+          z
+        "
+      ></path>
+
+      <circle
+        cx="8"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
+
+      <circle
+        cx="12"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
+
+      <circle
+        cx="16"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
+    </svg>
+  </a>
+
+  <script>
+    const searchTrigger =
+      document.getElementById("searchTrigger");
+
+    const searchPanel =
+      document.getElementById("searchPanel");
+
+    const searchOverlay =
+      document.getElementById("searchOverlay");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const searchClose =
+      document.getElementById("searchClose");
+
+    const searchForm =
+      document.getElementById("searchForm");
+
+    function openSearch() {
+      searchPanel.classList.add("active");
+      searchOverlay.classList.add("active");
+
+      setTimeout(() => {
+        searchInput.focus();
+      }, 180);
+    }
+
+    function closeSearch() {
+      searchPanel.classList.remove("active");
+      searchOverlay.classList.remove("active");
+      searchInput.value = "";
+    }
+
+    searchTrigger.addEventListener(
+      "click",
+      openSearch
+    );
+
+    searchClose.addEventListener(
+      "click",
+      closeSearch
+    );
+
+    searchOverlay.addEventListener(
+      "click",
+      closeSearch
+    );
+
+    searchForm.addEventListener(
+      "submit",
+      function(event) {
+        event.preventDefault();
+
+        const value =
+          searchInput.value.trim();
+
+        if (!value) {
+          return;
+        }
+
+        console.log(
+          "Search:",
+          value
+        );
+      }
+    );
+
+    let cart = [];
+
+    const cartTrigger =
+      document.getElementById("cartTrigger");
+
+    const cartDrawer =
+      document.getElementById("cartDrawer");
+
+    const cartOverlay =
+      document.getElementById("cartOverlay");
+
+    const cartClose =
+      document.getElementById("cartClose");
+
+    const cartItems =
+      document.getElementById("cartItems");
+
+    const cartTotal =
+      document.getElementById("cartTotal");
+
+    const cartCount =
+      document.getElementById("cartCount");
+
+    const cartCheckout =
+      document.getElementById("cartCheckout");
+
+    function formatPrice(price) {
+      return "Rp " +
+        price.toLocaleString("id-ID");
+    }
+
+    function openCart() {
+      cartDrawer.classList.add("active");
+      cartOverlay.classList.add("active");
+      document.body.style.overflow =
+        "hidden";
+    }
+
+    function closeCart() {
+      cartDrawer.classList.remove("active");
+      cartOverlay.classList.remove("active");
+      document.body.style.overflow =
+        "";
+    }
+
+    function renderCart() {
+
+      if (!cart.length) {
+
+        cartItems.innerHTML = `
+          <div class="cart-empty">
+            <p>
+              Your cart is empty.
+            </p>
+          </div>
+        `;
+
+        cartTotal.textContent =
+          "Rp 0";
+
+        cartCount.classList.remove(
+          "active"
+        );
+
+        return;
+      }
+
+      let total = 0;
+
+      cartItems.innerHTML =
+        cart.map(
+          item => {
+
+            total += item.price;
+
+            return `
+              <div class="cart-item">
+
+                <div class="cart-item-info">
+
+                  <div class="cart-item-name">
+                    ${item.name}
+                  </div>
+
+                  <div class="cart-item-meta">
+                    Qty 1
+                  </div>
+
+                </div>
+
+                <div class="cart-item-price">
+                  ${formatPrice(item.price)}
+                </div>
+
+              </div>
+            `;
+
+          }
+        ).join("");
+
+      cartTotal.textContent =
+        formatPrice(total);
+
+      cartCount.textContent =
+        cart.length;
+
+      cartCount.classList.add(
+        "active"
+      );
+    }
+
+    cartTrigger.addEventListener(
+      "click",
+      function() {
+        renderCart();
+        openCart();
+      }
+    );
+
+    cartClose.addEventListener(
+      "click",
+      closeCart
+    );
+
+    cartOverlay.addEventListener(
+      "click",
+      closeCart
+    );
+
+    cartCheckout.addEventListener(
+      "click",
+      function() {
+
+        if (!cart.length) {
+          return;
+        }
+
+        alert(
+          "Checkout functionality will be connected here."
+        );
+      }
+    );
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "Escape"
+        ) {
+          closeSearch();
+          closeCart();
+        }
+
+      }
+    );
+
+    renderCart();
+  </script>
+
 </body>
 </html>
