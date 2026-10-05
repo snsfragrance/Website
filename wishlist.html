@@ -25,17 +25,22 @@
     }
 
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+
     body {
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       color: #111;
-
       background: #fff;
-
       min-height: 100vh;
+    }
+
+
+    button,
+    input {
+      font-family: Arial, Helvetica, sans-serif;
     }
 
 
@@ -44,42 +49,35 @@
     ===================================================== */
 
     .announcement {
-      height: 36px;
+      height: 42px;
 
       background: #000;
-
       color: #fff;
 
       overflow: hidden;
-
       white-space: nowrap;
 
       display: flex;
-
       align-items: center;
     }
 
 
     .announcement-track {
-
       display: flex;
-
       width: max-content;
 
       animation:
-        marquee 28s linear infinite;
+        marquee 30s linear infinite;
     }
 
 
     .announcement-track span {
-
       margin-right: 140px;
 
-      font-size: 13px;
+      font-size: 12px;
+      font-weight: 400;
 
-      font-weight: 500;
-
-      letter-spacing: .2px;
+      letter-spacing: 1px;
     }
 
 
@@ -102,36 +100,36 @@
 
     header {
       background: #fff;
+      border-bottom: 1px solid #eee;
     }
 
 
     .header-main {
-
-      height: 75px;
+      height: 96px;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
       position: relative;
     }
 
 
-    /* LOGO */
+    /* =====================================================
+       LOGO
+    ===================================================== */
 
     .logo {
-
       color: #222;
 
-      font-size: 36px;
-
+      font-size: 42px;
       font-weight: 600;
 
       letter-spacing: -2px;
 
       text-decoration: none;
+
+      line-height: 1;
     }
 
 
@@ -145,21 +143,18 @@
     ===================================================== */
 
     .header-icons {
-
       position: absolute;
 
-      right: 40px;
+      right: 38px;
 
       display: flex;
-
       align-items: center;
 
-      gap: 24px;
+      gap: 25px;
     }
 
 
     .header-icon {
-
       width: 26px;
       height: 26px;
 
@@ -172,7 +167,6 @@
       background: transparent;
 
       display: flex;
-
       align-items: center;
       justify-content: center;
 
@@ -185,7 +179,6 @@
 
 
     .header-icon svg {
-
       width: 25px;
       height: 25px;
 
@@ -196,7 +189,6 @@
       stroke-width: 1.7;
 
       stroke-linecap: round;
-
       stroke-linejoin: round;
 
       display: block;
@@ -207,7 +199,6 @@
 
 
     .header-icon:hover svg {
-
       transform: scale(1.08);
     }
 
@@ -215,11 +206,8 @@
     /* ACTIVE WISHLIST */
 
     .wishlist-icon svg {
-
       fill: none !important;
-
       stroke: #e90046 !important;
-
       stroke-width: 1.8;
     }
 
@@ -229,16 +217,13 @@
     ===================================================== */
 
     .navigation {
-
-      height: 48px;
+      height: 58px;
 
       display: flex;
-
       align-items: center;
-
       justify-content: center;
 
-      gap: 34px;
+      gap: 38px;
 
       border-bottom: 1px solid #ededed;
 
@@ -247,12 +232,14 @@
 
 
     .navigation a {
+      position: relative;
 
       color: #111;
 
       text-decoration: none;
 
-      font-size: 14px;
+      font-size: 15px;
+      font-weight: 400;
 
       white-space: nowrap;
 
@@ -261,8 +248,25 @@
 
 
     .navigation a:hover {
-
       color: #777;
+    }
+
+
+    /* ACTIVE PAGE */
+
+    .navigation a.active::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      right: 0;
+
+      bottom: -9px;
+
+      height: 3px;
+
+      background: #111;
     }
 
 
@@ -271,7 +275,6 @@
     ===================================================== */
 
     .wishlist-page {
-
       width: 100%;
 
       max-width: 1110px;
@@ -288,7 +291,6 @@
     ===================================================== */
 
     .wishlist-title {
-
       text-align: center;
 
       margin-bottom: 14px;
@@ -296,7 +298,6 @@
 
 
     .wishlist-title h1 {
-
       font-size: 30px;
 
       font-weight: 600;
@@ -312,11 +313,9 @@
     ===================================================== */
 
     .wishlist-list-header {
-
       display: flex;
 
       align-items: center;
-
       justify-content: space-between;
 
       margin-bottom: 31px;
@@ -324,17 +323,17 @@
 
 
     .wishlist-list-name {
-
       font-size: 20px;
 
       font-weight: 600;
     }
 
 
-    /* ADD NEW LIST */
+    /* =====================================================
+       ADD NEW LIST
+    ===================================================== */
 
     .new-list-button {
-
       border: none;
 
       background: transparent;
@@ -356,9 +355,7 @@
 
 
     .new-list-button svg {
-
       width: 18px;
-
       height: 18px;
 
       fill: none;
@@ -368,13 +365,11 @@
       stroke-width: 1.5;
 
       stroke-linecap: round;
-
       stroke-linejoin: round;
     }
 
 
     .new-list-button:hover {
-
       opacity: .65;
     }
 
@@ -384,7 +379,6 @@
     ===================================================== */
 
     .wishlist-empty {
-
       width: 100%;
 
       min-height: 315px;
@@ -398,7 +392,6 @@
       flex-direction: column;
 
       align-items: center;
-
       justify-content: center;
 
       text-align: center;
@@ -407,12 +400,12 @@
     }
 
 
-    /* LARGE HEART */
+    /* =====================================================
+       LARGE HEART
+    ===================================================== */
 
     .empty-heart {
-
       width: 52px;
-
       height: 52px;
 
       margin-bottom: 14px;
@@ -420,9 +413,7 @@
 
 
     .empty-heart svg {
-
       width: 52px;
-
       height: 52px;
 
       fill: #102956;
@@ -433,10 +424,11 @@
     }
 
 
-    /* EMPTY TITLE */
+    /* =====================================================
+       EMPTY TITLE
+    ===================================================== */
 
     .empty-title {
-
       font-size: 14px;
 
       font-weight: 600;
@@ -445,10 +437,11 @@
     }
 
 
-    /* EMPTY DESCRIPTION */
+    /* =====================================================
+       EMPTY DESCRIPTION
+    ===================================================== */
 
     .empty-description {
-
       font-size: 13px;
 
       line-height: 1.5;
@@ -458,7 +451,6 @@
 
 
     .empty-description .small-heart {
-
       display: inline-block;
 
       font-size: 16px;
@@ -470,28 +462,257 @@
 
 
     /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .site-footer {
+      background: #000;
+
+      color: #fff;
+
+      padding:
+        65px 7% 30px;
+
+      margin-top: 100px;
+    }
+
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        2.2fr
+        1fr
+        1fr
+        1fr
+        1.6fr;
+
+      gap: 50px;
+
+      max-width: 1400px;
+
+      margin: 0 auto;
+    }
+
+
+    /* =====================================================
+       FOOTER BRAND
+    ===================================================== */
+
+    .footer-brand {
+      min-width: 0;
+    }
+
+
+    .footer-logo {
+      display: inline-block;
+
+      color: #fff;
+
+      text-decoration: none;
+
+      font-size: 34px;
+
+      font-weight: 600;
+
+      letter-spacing: -1.8px;
+    }
+
+
+    .footer-logo span {
+      font-weight: 300;
+    }
+
+
+    .footer-brand p {
+      margin-top: 20px;
+
+      color: #aaa;
+
+      font-size: 13px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FOOTER COLUMNS
+    ===================================================== */
+
+    .footer-column {
+      display: flex;
+
+      flex-direction: column;
+    }
+
+
+    .footer-column h4,
+    .footer-newsletter h4 {
+      margin: 0 0 22px;
+
+      font-size: 11px;
+
+      font-weight: 600;
+
+      letter-spacing: 1.5px;
+
+      color: #fff;
+    }
+
+
+    .footer-column a {
+      color: #aaa;
+
+      text-decoration: none;
+
+      font-size: 13px;
+
+      margin-bottom: 13px;
+
+      transition:
+        color .2s ease;
+    }
+
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+
+    /* =====================================================
+       NEWSLETTER
+    ===================================================== */
+
+    .footer-newsletter p {
+      color: #aaa;
+
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      margin-bottom: 20px;
+
+      max-width: 280px;
+    }
+
+
+    .newsletter-form {
+      display: flex;
+
+      width: 100%;
+
+      max-width: 300px;
+
+      border-bottom: 1px solid #666;
+    }
+
+
+    .newsletter-form input {
+      flex: 1;
+
+      height: 40px;
+
+      border: none;
+
+      outline: none;
+
+      background: transparent;
+
+      color: #fff;
+
+      font-size: 13px;
+    }
+
+
+    .newsletter-form input::placeholder {
+      color: #888;
+    }
+
+
+    .newsletter-form button {
+      width: 40px;
+
+      border: none;
+
+      background: transparent;
+
+      color: #fff;
+
+      font-size: 20px;
+
+      cursor: pointer;
+    }
+
+
+    /* =====================================================
+       FOOTER BOTTOM
+    ===================================================== */
+
+    .footer-bottom {
+      max-width: 1400px;
+
+      margin:
+        55px auto 0;
+
+      padding-top: 22px;
+
+      border-top:
+        1px solid #292929;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      color: #777;
+
+      font-size: 11px;
+    }
+
+
+    .footer-social {
+      display: flex;
+
+      gap: 22px;
+    }
+
+
+    .footer-social a {
+      color: #777;
+
+      text-decoration: none;
+
+      transition:
+        color .2s ease;
+    }
+
+
+    .footer-social a:hover {
+      color: #fff;
+    }
+
+
+    /* =====================================================
        REVIEWS
     ===================================================== */
 
     .reviews-button {
-
       position: fixed;
 
-      left: 0;
-
-      bottom: 65px;
+      left: 18px;
+      bottom: 80px;
 
       z-index: 100;
 
-      height: 50px;
+      height: 52px;
 
       padding:
-        0 22px 0 31px;
+        0 22px;
 
       border: none;
 
-      border-radius:
-        0 28px 28px 0;
+      border-radius: 28px;
 
       background: #fff;
 
@@ -514,7 +735,6 @@
 
 
     .reviews-star {
-
       font-size: 20px;
 
       line-height: 1;
@@ -526,16 +746,14 @@
     ===================================================== */
 
     .rewards-button {
-
       position: fixed;
 
-      left: 14px;
-
-      bottom: 10px;
+      left: 18px;
+      bottom: 18px;
 
       z-index: 101;
 
-      height: 54px;
+      height: 50px;
 
       padding:
         0 23px;
@@ -567,7 +785,6 @@
 
 
     .reward-icon {
-
       font-size: 17px;
     }
 
@@ -577,17 +794,14 @@
     ===================================================== */
 
     .chat-button {
-
       position: fixed;
 
       right: 18px;
-
-      bottom: 10px;
+      bottom: 18px;
 
       z-index: 100;
 
       width: 50px;
-
       height: 50px;
 
       border: none;
@@ -599,7 +813,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       cursor: pointer;
@@ -611,9 +824,7 @@
 
 
     .chat-button svg {
-
       width: 22px;
-
       height: 22px;
 
       fill: none;
@@ -623,114 +834,193 @@
       stroke-width: 1.5;
 
       stroke-linecap: round;
-
       stroke-linejoin: round;
     }
 
 
     /* =====================================================
-       RESPONSIVE
+       RESPONSIVE — 1000PX
     ===================================================== */
 
     @media (max-width: 1000px) {
 
       .wishlist-page {
-
         padding-left: 30px;
-
         padding-right: 30px;
       }
 
 
       .navigation {
-
-        gap: 20px;
+        gap: 25px;
 
         overflow-x: auto;
 
         justify-content: flex-start;
+
+        scrollbar-width: none;
+      }
+
+
+      .navigation::-webkit-scrollbar {
+        display: none;
+      }
+
+
+      .footer-grid {
+        grid-template-columns:
+          1.5fr
+          1fr
+          1fr;
+      }
+
+
+      .footer-newsletter {
+        grid-column: span 2;
       }
 
     }
 
 
+    /* =====================================================
+       RESPONSIVE — 700PX
+    ===================================================== */
+
     @media (max-width: 700px) {
 
-      .header-main {
+      .announcement {
+        height: 36px;
+      }
 
+
+      .announcement-track span {
+        font-size: 11px;
+      }
+
+
+      .header-main {
         height: 70px;
 
         justify-content: space-between;
 
-        padding: 0 20px;
+        padding:
+          0 20px;
       }
 
 
       .logo {
-
         font-size: 28px;
       }
 
 
       .header-icons {
-
         position: static;
 
         gap: 14px;
       }
 
 
+      .header-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+
+      .header-icon svg {
+        width: 23px;
+        height: 23px;
+      }
+
+
       .navigation {
+        height: 48px;
 
-        height: 45px;
+        padding:
+          0 20px;
 
-        padding-left: 20px;
+        gap: 25px;
       }
 
 
       .navigation a {
-
         font-size: 13px;
       }
 
 
       .wishlist-page {
-
         padding:
-          35px 20px 100px;
+          35px 20px 80px;
       }
 
 
       .wishlist-title h1 {
-
         font-size: 26px;
       }
 
 
       .wishlist-list-header {
-
         margin-bottom: 20px;
       }
 
 
       .wishlist-empty {
-
         min-height: 280px;
+      }
+
+
+      /* FOOTER */
+
+      .site-footer {
+        padding:
+          50px 25px 25px;
+
+        margin-top: 70px;
+      }
+
+
+      .footer-grid {
+        grid-template-columns:
+          1fr 1fr;
+
+        gap:
+          40px 25px;
+      }
+
+
+      .footer-brand {
+        grid-column: span 2;
+      }
+
+
+      .footer-newsletter {
+        grid-column: span 2;
+      }
+
+
+      .footer-bottom {
+        margin-top: 40px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
       }
 
     }
 
 
+    /* =====================================================
+       RESPONSIVE — 450PX
+    ===================================================== */
+
     @media (max-width: 450px) {
 
       .wishlist-title {
-
         margin-bottom: 25px;
       }
 
 
       .wishlist-list-header {
-
         align-items: flex-start;
 
         gap: 15px;
@@ -738,24 +1028,22 @@
 
 
       .wishlist-list-name {
-
         font-size: 18px;
       }
 
 
       .new-list-button {
-
         font-size: 12px;
       }
 
 
       .wishlist-empty {
-
         min-height: 300px;
       }
 
 
       .reviews-button {
+        left: 0;
 
         bottom: 68px;
 
@@ -763,6 +1051,30 @@
 
         padding:
           0 18px 0 22px;
+
+        border-radius:
+          0 25px 25px 0;
+      }
+
+
+      .rewards-button {
+        left: 14px;
+
+        bottom: 10px;
+
+        height: 46px;
+
+        font-size: 13px;
+      }
+
+
+      .chat-button {
+        right: 14px;
+
+        bottom: 10px;
+
+        width: 46px;
+        height: 46px;
       }
 
     }
@@ -954,44 +1266,24 @@
 
     <nav class="navigation">
 
-      <a href="index.html">
-        What's Your Persona?
-      </a>
-
       <a href="bestsellers.html">
-        Everyone's Favorite
-      </a>
-
-      <a href="#">
-        Deo Potion
+        Bestsellers
       </a>
 
       <a href="extrait.html">
         Extrait de Parfum
       </a>
 
-      <a href="#">
-        Home Fragrance
+      <a href="edp.html">
+        Eau de Parfum
       </a>
 
-      <a href="#">
-        Cloud Mist
+      <a href="edt.html">
+        Eau de Toilette
       </a>
 
-      <a href="#">
-        Body Care
-      </a>
-
-      <a href="#">
-        Hand Dew
-      </a>
-
-      <a href="#">
+      <a href="loyalty.html">
         Loyalty
-      </a>
-
-      <a href="#">
-        Store
       </a>
 
     </nav>
@@ -1118,6 +1410,192 @@
 
 
   <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="site-footer">
+
+
+    <div class="footer-grid">
+
+
+      <!-- BRAND -->
+
+      <div class="footer-brand">
+
+        <a
+          href="index.html"
+          class="footer-logo">
+
+          SNS <span>Fragrance</span>
+
+        </a>
+
+
+        <p>
+          The art of scent,<br>
+          crafted for your presence.
+        </p>
+
+      </div>
+
+
+
+      <!-- SHOP -->
+
+      <div class="footer-column">
+
+        <h4>
+          SHOP
+        </h4>
+
+        <a href="bestsellers.html">
+          Bestsellers
+        </a>
+
+        <a href="extrait.html">
+          Extrait de Parfum
+        </a>
+
+        <a href="edp.html">
+          Eau de Parfum
+        </a>
+
+        <a href="edt.html">
+          Eau de Toilette
+        </a>
+
+      </div>
+
+
+
+      <!-- ABOUT -->
+
+      <div class="footer-column">
+
+        <h4>
+          ABOUT
+        </h4>
+
+        <a href="#">
+          Our Story
+        </a>
+
+        <a href="#">
+          Contact Us
+        </a>
+
+        <a href="#">
+          FAQ
+        </a>
+
+        <a href="#">
+          Shipping & Returns
+        </a>
+
+      </div>
+
+
+
+      <!-- CUSTOMER CARE -->
+
+      <div class="footer-column">
+
+        <h4>
+          CUSTOMER CARE
+        </h4>
+
+        <a href="login.html">
+          My Account
+        </a>
+
+        <a href="wishlist.html">
+          Wishlist
+        </a>
+
+        <a href="#">
+          Privacy Policy
+        </a>
+
+        <a href="#">
+          Terms & Conditions
+        </a>
+
+      </div>
+
+
+
+      <!-- NEWSLETTER -->
+
+      <div class="footer-newsletter">
+
+        <h4>
+          STAY IN THE SCENT
+        </h4>
+
+
+        <p>
+          Be the first to discover new fragrances,
+          stories and exclusive releases.
+        </p>
+
+
+        <form
+          class="newsletter-form"
+          onsubmit="return subscribeNewsletter(event)">
+
+          <input
+            type="email"
+            placeholder="Your email address"
+            aria-label="Your email address"
+            required>
+
+          <button
+            type="submit"
+            aria-label="Subscribe">
+
+            →
+
+          </button>
+
+        </form>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 SNS Fragrance. All rights reserved.
+      </span>
+
+
+      <div class="footer-social">
+
+        <a href="#">
+          Instagram
+        </a>
+
+        <a href="#">
+          TikTok
+        </a>
+
+      </div>
+
+    </div>
+
+
+  </footer>
+
+
+
+  <!-- =====================================================
        REVIEWS
   ====================================================== -->
 
@@ -1191,6 +1669,11 @@
 
   <script>
 
+
+    /* =====================================================
+       CREATE NEW WISHLIST
+    ===================================================== */
+
     function createNewList() {
 
       const name =
@@ -1213,6 +1696,40 @@
       }
 
     }
+
+
+
+    /* =====================================================
+       NEWSLETTER
+    ===================================================== */
+
+    function subscribeNewsletter(event) {
+
+      event.preventDefault();
+
+      const input =
+        event.target.querySelector(
+          'input[type="email"]'
+        );
+
+
+      if (
+        input.value.trim() !== ""
+      ) {
+
+        alert(
+          "Thank you for subscribing to SNS Fragrance."
+        );
+
+        input.value = "";
+
+      }
+
+
+      return false;
+
+    }
+
 
   </script>
 
