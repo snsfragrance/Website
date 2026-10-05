@@ -2555,152 +2555,124 @@ footer a:hover {
      REVIEWS
 ===================================================== -->
 
-<a
-  href="review.html"
-  class="floating review-button"
-  aria-label="Reviews"
->
+  .floating.review-button {
+      left: 18px;
+      bottom: 80px;
+      height: 52px;
+      padding: 0 20px;
 
-  <svg
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
+      background: #fff;
+      color: #111;
+      border-radius: 40px;
 
-    <path
-      d="
-        M12 3.5
-        L14.5 8.5
-        L20 9.3
-        L16 13.2
-        L17 18.7
-        L12 16.1
-        L7 18.7
-        L8 13.2
-        L4 9.3
-        L9.5 8.5
-        Z
-      "
-    ></path>
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
 
-  </svg>
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
 
-  <span>
-    Reviews
-  </span>
+      box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+      cursor: pointer;
+    }
 
-</a>
+    .floating.review-button:hover {
+      color: #111;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .floating.review-button svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 18px;
+      display: block;
+      fill: #111;
+    }
 
 
 <!-- =====================================================
-     REWARDS
+     JOIN MEMBER
 ===================================================== -->
 
-<a
-  href="member.html"
-  class="floating join member"
-  aria-label="Rewards"
->
+  .floating.join.member {
+      left: 18px;
+      bottom: 18px;
 
-  <svg
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
+      background: #000;
+      color: #fff;
 
-    <path
-      d="
-        M20 7h-2.4
-        A3.5 3.5 0 0 0 12 4.6
-        A3.5 3.5 0 0 0 6.4 7
-        H4a1 1 0 0 0-1 1v2h18V8a1 1 0 0 0-1-1Z
-      "
-    />
+      padding: 15px 24px;
+      border-radius: 40px;
 
-    <path
-      d="
-        M4 11v9h16v-9
-        M12 7v13
-        M8.5 7
-        C7.1 7 6 6 6 4.8
-        S7.1 3 8.5 3
-        C10.4 3 12 7 12 7
-        S10.4 7 8.5 7
-        Z
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
 
-        M15.5 7
-        C16.9 7 18 6 18 4.8
-        S16.9 3 15.5 3
-        C13.6 3 12 7 12 7
-        S13.6 7 15.5 7
-        Z
-      "
-    />
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1;
 
-  </svg>
+      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
+      cursor: pointer;
+    }
 
-  <span>
-    Rewards
-  </span>
-
-</a>
-
+    .floating.join.member:hover {
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
 
 <!-- =====================================================
      CHAT
 ===================================================== -->
 
-<a
-  href="https://wa.me/message/TZMPXSMPC6XHM1"
-  class="floating chat"
-  aria-label="Chat"
->
+ .floating.chat {
+      right: 18px;
+      bottom: 18px;
 
-  <svg viewBox="0 0 24 24">
+      width: 50px;
+      height: 50px;
 
-    <path
-      d="
-        M5 5.5
-        h14
-        a2 2 0 0 1 2 2
-        v8
-        a2 2 0 0 1-2 2
-        h-7
-        l-4 3
-        v-3
-        H5
-        a2 2 0 0 1-2-2
-        v-8
-        a2 2 0 0 1 2-2
-        z
-      "
-    ></path>
+      border-radius: 50%;
+      background: #000;
+      color: #fff;
 
-    <circle
-      cx="8"
-      cy="11.5"
-      r=".7"
-      fill="white"
-    ></circle>
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    <circle
-      cx="12"
-      cy="11.5"
-      r=".7"
-      fill="white"
-    ></circle>
+      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
+      cursor: pointer;
+    }
 
-    <circle
-      cx="16"
-      cy="11.5"
-      r=".7"
-      fill="white"
-    ></circle>
+    .floating.chat:hover {
+      color: #fff;
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
 
-  </svg>
+    .floating.chat svg {
+      width: 23px;
+      height: 23px;
+      display: block;
 
-</a>
+      fill: none;
+      stroke: #fff;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
-
-<script>
+    .floating.chat circle {
+      fill: #fff;
+      stroke: none;
+    }
 
 /* =========================
    SEARCH
