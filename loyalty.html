@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SNS Fragrance — Loyalty</title>
 
-<style>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>SNS Fragrance — Website</title>
-
   <style>
     :root {
       --black: #111111;
@@ -41,45 +32,55 @@
     ========================= */
 
     .announcement {
-      height: 42px;
-      background: #000;
-      color: #fff;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-    }
+  height: 42px;
+  background: #000;
+  color: #fff;
 
-    .announcement-track {
-      display: flex;
-      align-items: center;
-      width: max-content;
-      animation: announcementScroll 30s linear infinite;
-    }
+  overflow: hidden;
+  position: relative;
 
-    .announcement-track span {
-      display: inline-flex;
-      align-items: center;
-      margin-right: 140px;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
+  display: flex;
+  align-items: center;
 
-    @keyframes announcementScroll {
-      0% {
-        transform: translateX(0);
-      }
+  white-space: nowrap;
+}
 
-      100% {
-        transform: translateX(-50%);
-      }
-    }
+.announcement-track {
+  display: flex;
+  align-items: center;
 
-    .announcement:hover .announcement-track {
-      animation-play-state: paused;
-    }
+  width: max-content;
+
+  animation: announcementScroll 30s linear infinite;
+}
+
+.announcement-track span {
+  display: inline-flex;
+  align-items: center;
+
+  margin-right: 140px;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  letter-spacing: 1px;
+}
+
+@keyframes announcementScroll {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+
+}
+
+.announcement:hover .announcement-track {
+  animation-play-state: paused;
+}
 
 
     /* =========================
@@ -93,9 +94,11 @@
 
     .header-main {
       height: 96px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       position: relative;
     }
 
@@ -110,50 +113,59 @@
     }
 
     .header-icons {
-      position: absolute;
-      right: 38px;
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
+  position: absolute;
+  right: 38px;
 
-    .header-icon {
-      width: 26px;
-      height: 26px;
-      padding: 0;
-      margin: 0;
-      border: none;
-      outline: none;
-      background: transparent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      text-decoration: none;
-      color: #111;
-    }
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
 
-    .header-icon svg {
-      width: 25px;
-      height: 25px;
-      fill: none !important;
-      stroke: #111 !important;
-      stroke-width: 1.7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      display: block;
-      transition: transform 0.2s ease;
-    }
+.header-icon {
+  width: 26px;
+  height: 26px;
 
-    .header-icon:hover svg {
-      transform: scale(1.08);
-    }
+  padding: 0;
+  margin: 0;
 
-    .wishlist-icon svg {
-      fill: none !important;
-      stroke: #e90046 !important;
-      stroke-width: 1.8;
-    }
+  border: none;
+  outline: none;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  text-decoration: none;
+  color: #111;
+}
+
+.header-icon svg {
+  width: 25px;
+  height: 25px;
+
+  fill: none !important;
+  stroke: #111 !important;
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  display: block;
+
+  transition: transform 0.2s ease;
+}
+
+.header-icon:hover svg {
+  transform: scale(1.08);
+}
+
+.wishlist-icon svg {
+  fill: none !important;
+  stroke: #e90046 !important;
+  stroke-width: 1.8;
+}
 
 
     /* =========================
