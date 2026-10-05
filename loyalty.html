@@ -2,87 +2,99 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SNS Fragrance — Loyalty</title>
 
 <style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 :root{
   --black:#050505;
+  --white:#ffffff;
   --navy:#152d58;
   --gray:#777;
-  --line:#dedede;
+  --line:#e7e7e7;
   --soft:#fafafa;
   --gold:#9b7a42;
 }
 
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
+  box-sizing:border-box;
 }
 
-html{scroll-behavior:smooth}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   color:#111;
   background:#fff;
 }
 
 a{
-  text-decoration:none;
   color:inherit;
+  text-decoration:none;
 }
 
-/* =========================
-   ANNOUNCEMENT
-========================= */
+
+/* =========================================================
+   ANNOUNCEMENT BAR
+========================================================= */
 
 .announcement{
   height:36px;
+  width:100%;
   background:#000;
   color:#fff;
   overflow:hidden;
   white-space:nowrap;
-  position:relative;
   display:flex;
   align-items:center;
 }
 
 .announcement-track{
+  width:max-content;
   height:100%;
   display:flex;
   align-items:center;
-  width:max-content;
-  animation:scroll 28s linear infinite;
+  animation:announcementScroll 28s linear infinite;
 }
 
 .announcement-track span{
   font-size:12px;
   font-weight:600;
-  letter-spacing:.2px;
+  letter-spacing:.15px;
   margin-right:170px;
 }
 
-@keyframes scroll{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
+@keyframes announcementScroll{
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
 }
 
-.announcement:hover .announcement-track{
-  animation-play-state:paused;
-}
 
-/* =========================
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .header{
   background:#fff;
 }
 
 .header-main{
-  height:85px;
+  height:65px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -90,9 +102,10 @@ a{
 }
 
 .logo{
-  font-size:40px;
+  font-size:36px;
   font-weight:600;
   letter-spacing:-2px;
+  line-height:1;
 }
 
 .logo span{
@@ -102,6 +115,9 @@ a{
 .header-icons{
   position:absolute;
   right:38px;
+  top:50%;
+  transform:translateY(-50%);
+
   display:flex;
   align-items:center;
   gap:25px;
@@ -110,67 +126,71 @@ a{
 .header-icon{
   width:26px;
   height:26px;
+
+  border:none;
   padding:0;
   margin:0;
-  border:none;
-  outline:none;
+
   background:transparent;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   cursor:pointer;
-  text-decoration:none;
-  color:#111;
 }
 
 .header-icon svg{
   width:25px;
   height:25px;
-  fill:none !important;
-  stroke:#111 !important;
+
+  fill:none;
+  stroke:#111;
+
   stroke-width:1.7;
   stroke-linecap:round;
   stroke-linejoin:round;
+
   display:block;
-  transition:.2s ease;
 }
 
-.header-icon:hover svg{
-  transform:scale(1.08);
-}
-
-.wishlist svg,
-.wishlist-icon svg{
-  fill:none !important;
-  stroke:#ed174d !important;
+.wishlist svg{
+  stroke:#ed174d;
   stroke-width:1.8;
 }
 
-/* =========================
+
+/* =========================================================
    NAVIGATION
-========================= */
+========================================================= */
 
 .navigation{
-  height:57px;
+  height:58px;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:36px;
-  border-bottom:1px solid #ededed;
+
+  gap:32px;
+
+  border-bottom:1px solid #e8e8e8;
+
   padding:0 25px;
 }
 
 .navigation a{
   position:relative;
-  color:#111;
-  text-decoration:none;
-  font-size:15px;
+
+  font-size:14px;
+  font-weight:400;
+
   white-space:nowrap;
-  padding:20px 0;
+
+  padding:21px 0;
 }
 
 .navigation a:hover{
-  color:#8b6736;
+  color:#777;
 }
 
 .navigation a.active{
@@ -179,30 +199,46 @@ a{
 
 .navigation a.active::after{
   content:"";
+
   position:absolute;
+
   left:0;
   right:0;
+
   bottom:8px;
+
   height:2px;
+
   background:#111;
 }
 
-/* =========================
+
+/* =========================================================
    SEARCH
-========================= */
+========================================================= */
 
 .search-panel{
   position:fixed;
+
   top:36px;
   left:0;
+
   width:100%;
   height:122px;
+
   background:#fff;
+
   z-index:2001;
+
   opacity:0;
   visibility:hidden;
+
   transform:translateY(-8px);
-  transition:opacity .2s ease,transform .25s ease,visibility .2s ease;
+
+  transition:
+    opacity .2s ease,
+    transform .25s ease,
+    visibility .2s ease;
 }
 
 .search-panel.active{
@@ -213,16 +249,23 @@ a{
 
 .search-overlay{
   position:fixed;
+
   top:158px;
   left:0;
   right:0;
   bottom:0;
+
   background:rgba(0,0,0,.36);
+
   z-index:2000;
+
   opacity:0;
   visibility:hidden;
   pointer-events:none;
-  transition:opacity .2s ease,visibility .2s ease;
+
+  transition:
+    opacity .2s ease,
+    visibility .2s ease;
 }
 
 .search-overlay.active{
@@ -234,43 +277,54 @@ a{
 .search-form{
   width:100%;
   height:100%;
+
   display:flex;
   align-items:center;
+
   position:relative;
+
   padding:0 11.8%;
 }
 
 .search-form input{
   width:100%;
   height:50px;
+
   border:none;
   outline:none;
+
   background:transparent;
-  font-family:Arial,Helvetica,sans-serif;
+
   font-size:14px;
-  color:#111;
+
   padding:0 75px 0 39px;
 }
 
 .search-submit{
   position:absolute;
+
   left:calc(11.8% - 1px);
+
   width:24px;
   height:24px;
-  padding:0;
+
   border:none;
   background:transparent;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   cursor:pointer;
 }
 
 .search-submit svg{
   width:20px;
   height:20px;
+
   fill:none;
-  stroke:#d0d0d0;
+  stroke:#aaa;
+
   stroke-width:1.7;
   stroke-linecap:round;
   stroke-linejoin:round;
@@ -278,48 +332,59 @@ a{
 
 .search-close{
   position:absolute;
+
   right:11.8%;
+
   width:28px;
   height:28px;
-  padding:0;
+
   border:none;
   background:transparent;
-  color:#111;
-  font-family:Arial,Helvetica,sans-serif;
+
   font-size:29px;
   font-weight:300;
-  line-height:28px;
+
   cursor:pointer;
 }
 
-/* =========================
-   LOYALTY HERO
-========================= */
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .loyalty-hero{
   position:relative;
+
   width:100%;
-  height:465px;
+
+  height:458px;
+
   background:
     linear-gradient(
       90deg,
-      rgba(255,255,255,.05),
-      rgba(255,255,255,.18)
+      rgba(255,255,255,.04),
+      rgba(255,255,255,.10)
     ),
-    url("assets/hero.jpg") center/cover no-repeat;
+    url("assets/hero.jpg")
+    center/cover no-repeat;
+
   display:flex;
   align-items:center;
 }
 
 .loyalty-hero-content{
-  width:58%;
+  width:52%;
+
   padding-left:4%;
-  padding-bottom:10px;
+
+  margin-top:5px;
 }
 
 .hero-kicker{
   font-size:30px;
-  margin-bottom:12px;
+  line-height:1.1;
+
+  margin-bottom:20px;
 }
 
 .hero-kicker em{
@@ -327,315 +392,568 @@ a{
 }
 
 .loyalty-hero h1{
-  font-size:72px;
+  font-size:70px;
   line-height:.95;
-  letter-spacing:1px;
-  margin-bottom:22px;
+
+  font-weight:700;
+
+  letter-spacing:.5px;
+
+  margin-bottom:20px;
 }
 
 .hero-point{
   font-size:38px;
-  margin-bottom:26px;
+
+  margin-bottom:0;
 }
+
+
+/* =========================================================
+   HERO JOIN BUTTON
+========================================================= */
 
 .join-btn{
-  display:inline-flex;
+  position:absolute;
+
+  right:6.7%;
+  top:50%;
+
+  transform:translateY(-50%);
+
+  min-width:250px;
+  height:52px;
+
+  border:1.5px solid #111;
+
+  border-radius:28px;
+
+  background:rgba(255,255,255,.55);
+
+  display:flex;
   align-items:center;
-  gap:12px;
-  border:1px solid #111;
-  border-radius:30px;
-  padding:13px 24px;
-  font-size:18px;
+  justify-content:space-between;
+
+  padding:0 22px;
+
+  font-size:24px;
+}
+
+.join-btn span{
+  font-size:31px;
+  line-height:1;
+}
+
+
+/* =========================================================
+   JOIN / EARN / REDEEM STRIP
+========================================================= */
+
+.loyalty-strip{
+  height:88px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  gap:25px;
+
   background:#fff;
-  transition:.2s ease;
 }
 
-.join-btn:hover{
-  background:#111;
+.loyalty-strip h2{
+  font-size:40px;
+  font-weight:400;
+  letter-spacing:-1px;
+}
+
+.strip-points{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  font-size:13px;
+}
+
+.strip-points-icon{
+  width:20px;
+  height:20px;
+
+  border:1.5px solid #111;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:11px;
+  font-weight:bold;
+}
+
+.strip-button{
+  height:43px;
+
+  background:#000;
   color:#fff;
+
+  border-radius:24px;
+
+  display:flex;
+  align-items:center;
+
+  padding:0 20px;
+
+  font-size:13px;
+  font-weight:600;
+
+  gap:10px;
 }
 
-/* =========================
-   INTRO
-========================= */
+.strip-button span{
+  font-size:19px;
+}
+
+
+/* =========================================================
+   UNLOCK MORE PERKS
+========================================================= */
 
 .intro{
   display:grid;
+
   grid-template-columns:1fr 1fr;
-  min-height:460px;
-  align-items:center;
+
+  min-height:470px;
 }
 
 .intro-image{
-  height:460px;
+  min-height:470px;
+
   background-position:center;
   background-size:cover;
-  background-color:#f1f1f1;
+  background-repeat:no-repeat;
+
+  background-color:#f3f3f3;
 }
 
 .intro-copy{
-  padding:50px 9%;
+  padding:42px 12% 35px 12%;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 }
 
 .intro-copy h2{
-  font-size:40px;
-  margin-bottom:38px;
+  font-size:38px;
+
+  line-height:1;
+
+  margin-bottom:52px;
 }
 
 .steps{
   display:grid;
-  gap:42px;
+
+  gap:45px;
 }
 
 .step h3{
   font-size:16px;
-  margin-bottom:8px;
+
+  margin-bottom:9px;
 }
 
 .step p{
-  font-size:17px;
+  font-size:16px;
+
   line-height:1.45;
-  color:#444;
+
+  color:#333;
 }
 
+.intro-copy .cta{
+  align-self:flex-start;
+
+  margin-top:34px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
 .cta{
-  display:inline-block;
-  margin-top:30px;
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:9px;
+
+  height:42px;
+
+  padding:0 20px;
+
   background:#000;
   color:#fff;
-  border-radius:22px;
-  padding:13px 22px;
-  font-size:14px;
+
+  border-radius:24px;
+
+  font-size:13px;
   font-weight:600;
-  transition:.2s ease;
 }
 
 .cta:hover{
-  background:var(--gold);
+  background:#222;
 }
 
-/* =========================
-   EARN
-========================= */
+
+/* =========================================================
+   WAYS TO EARN
+========================================================= */
 
 .earn{
-  padding:28px 9% 50px;
+  padding:0 9.2% 42px;
 }
 
 .earn h2{
-  font-size:22px;
   color:var(--navy);
-  margin-bottom:28px;
+
+  font-size:23px;
+
+  margin-bottom:26px;
 }
 
 .earn-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   gap:6px;
 }
 
 .earn-card{
   height:220px;
+
   border:1px solid #eee;
+
   border-radius:16px;
-  box-shadow:0 2px 8px rgba(0,0,0,.06);
+
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.06);
+
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
   justify-content:center;
+
   text-align:center;
+
   padding:20px;
+
   color:var(--navy);
+
+  position:relative;
 }
 
 .earn-icon{
   width:54px;
   height:54px;
-  border:1px solid #eee;
+
+  border:1px solid #e7e7e7;
+
   border-radius:50%;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  margin-bottom:18px;
+
+  margin-bottom:17px;
+
   font-size:25px;
+
   color:#111;
 }
 
+.earn-icon svg{
+  width:25px;
+  height:25px;
+
+  fill:none;
+  stroke:#111;
+
+  stroke-width:1.8;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
 .earn-card h3{
+  max-width:240px;
+
   font-size:15px;
   line-height:1.35;
+
   margin-bottom:8px;
 }
 
 .earn-card p{
   font-size:14px;
+
   color:#60708d;
 }
 
-/* =========================
-   REWARDS
-========================= */
+
+/* =========================================================
+   CLAIM YOUR REWARD
+========================================================= */
 
 .claim{
-  padding:15px 0 0;
+  padding:5px 0 0;
+
   text-align:center;
 }
 
 .claim h2{
   font-size:30px;
-  margin-bottom:55px;
+
+  font-weight:500;
+
+  margin-bottom:70px;
 }
 
 .reward-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  width:100%;
 }
 
 .reward-card{
   height:338px;
+
   position:relative;
+
   overflow:hidden;
+
   background:#ddd;
 }
 
 .reward-card img{
   width:100%;
   height:100%;
+
   object-fit:cover;
+
   display:block;
+
+  transition:transform .4s ease;
+}
+
+.reward-card:hover img{
+  transform:scale(1.03);
 }
 
 .reward-card::after{
   content:"";
+
   position:absolute;
+
   inset:45% 0 0;
-  background:linear-gradient(transparent,rgba(0,0,0,.65));
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0,0,0,.65)
+    );
 }
 
 .reward-card span{
   position:absolute;
+
   z-index:2;
-  bottom:20px;
+
+  bottom:19px;
+
   left:50%;
+
   transform:translateX(-50%);
-  width:90%;
-  text-align:center;
+
+  width:92%;
+
   color:#fff;
+
   font-size:28px;
+
+  text-align:center;
+
   white-space:nowrap;
 }
 
-/* =========================
-   VIP
-========================= */
+
+/* =========================================================
+   VIP TIERS
+========================================================= */
 
 .vip{
-  padding:70px 13% 35px;
+  padding:70px 12.7% 45px;
 }
 
 .vip h2{
   color:var(--navy);
+
   font-size:23px;
-  margin-bottom:25px;
+
+  margin-bottom:28px;
 }
 
 .vip-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:12px;
 }
 
 .vip-card{
   height:300px;
+
   border-radius:16px;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+  box-shadow:
+    0 2px 10px rgba(0,0,0,.08);
+
   overflow:hidden;
+
   position:relative;
+
   background:#fff;
 }
 
 .vip-card img{
   width:100%;
+
   height:145px;
+
   object-fit:cover;
+
   object-position:center top;
+
   display:block;
+
   opacity:.72;
 }
 
 .vip-card h3{
   position:absolute;
+
   top:35px;
   left:17px;
+
   color:var(--navy);
+
   font-size:25px;
+
+  font-weight:500;
 }
 
 .vip-info{
   padding:22px 18px;
+
   color:#344d76;
+
   line-height:2.5;
+
   font-size:14px;
 }
 
-/* =========================
+
+/* =========================================================
    REWARD TIERS
-========================= */
+========================================================= */
 
 .reward-tiers{
-  padding:55px 12% 0;
+  padding:10px 11.5% 0;
+
   text-align:center;
 }
 
 .reward-tiers h2{
   font-size:30px;
-  margin-bottom:50px;
+
+  font-weight:500;
+
+  margin-bottom:55px;
 }
 
 .table-wrap{
+  width:100%;
+
   overflow-x:auto;
 }
 
 table{
   width:100%;
+
   border-collapse:collapse;
+
   min-width:850px;
+
   font-size:14px;
 }
 
 th{
   font-weight:500;
+
   padding:12px;
-  color:#222;
 }
 
 td{
   padding:14px 22px;
-  border-bottom:1px solid #aaa;
+
+  border-bottom:1px solid #999;
+
   color:#999;
+
   text-align:center;
 }
 
 td:first-child{
   text-align:left;
+
   color:#222;
+
   font-weight:500;
 }
 
-/* =========================
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer{
   background:#111;
+
   color:#fff;
+
   padding:65px 7% 30px;
+
   margin-top:65px;
 }
 
 .footer-grid{
   display:grid;
-  grid-template-columns:2.2fr 1fr 1fr 1fr 1.6fr;
+
+  grid-template-columns:
+    2.2fr 1fr 1fr 1fr 1.6fr;
+
   gap:45px;
 }
 
@@ -646,21 +964,27 @@ footer{
 
 .footer-brand p{
   margin-top:15px;
+
   max-width:350px;
+
   color:#aaa;
+
   line-height:1.7;
 }
 
 footer h4{
   margin-bottom:18px;
+
   font-size:14px;
 }
 
 footer a{
   display:block;
+
   color:#aaa;
-  text-decoration:none;
+
   margin-bottom:12px;
+
   font-size:13px;
 }
 
@@ -670,24 +994,129 @@ footer a:hover{
 
 .copyright{
   border-top:1px solid #333;
+
   margin-top:50px;
+
   padding-top:25px;
+
   color:#777;
+
   font-size:12px;
 }
 
-/* =========================
+
+/* =========================================================
+   FLOATING BUTTONS
+========================================================= */
+
+.floating{
+  position:fixed;
+
+  z-index:1500;
+}
+
+.review-button{
+  left:14px;
+  bottom:56px;
+
+  height:52px;
+
+  display:flex;
+  align-items:center;
+  gap:9px;
+
+  padding:0 20px;
+
+  border-radius:28px;
+
+  background:#fff;
+
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.10);
+
+  font-size:16px;
+  font-weight:600;
+}
+
+.review-button svg{
+  width:19px;
+  height:19px;
+
+  fill:#111;
+}
+
+.join.member{
+  left:14px;
+  bottom:8px;
+
+  height:53px;
+
+  display:flex;
+  align-items:center;
+
+  gap:8px;
+
+  padding:0 20px;
+
+  border-radius:28px;
+
+  background:#000;
+  color:#fff;
+
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.15);
+
+  font-size:16px;
+  font-weight:600;
+}
+
+.chat{
+  right:20px;
+  bottom:18px;
+
+  width:56px;
+  height:56px;
+
+  border-radius:50%;
+
+  background:#222;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    0 3px 10px rgba(0,0,0,.15);
+}
+
+.chat svg{
+  width:27px;
+  height:27px;
+
+  fill:#fff;
+  stroke:#fff;
+}
+
+
+/* =========================================================
    CART
-========================= */
+========================================================= */
 
 .cart-overlay{
   position:fixed;
+
   inset:0;
+
   background:rgba(0,0,0,.38);
+
   z-index:1998;
+
   opacity:0;
   visibility:hidden;
-  transition:opacity .3s ease,visibility .3s ease;
+
+  transition:
+    opacity .3s ease,
+    visibility .3s ease;
 }
 
 .cart-overlay.active{
@@ -697,16 +1126,25 @@ footer a:hover{
 
 .cart-drawer{
   position:fixed;
+
   top:0;
   right:0;
+
   width:min(420px,92vw);
   height:100vh;
+
   background:#fff;
+
   z-index:1999;
+
   display:flex;
   flex-direction:column;
-  box-shadow:-10px 0 35px rgba(0,0,0,.12);
+
+  box-shadow:
+    -10px 0 35px rgba(0,0,0,.12);
+
   transform:translateX(100%);
+
   transition:transform .35s ease;
 }
 
@@ -716,115 +1154,118 @@ footer a:hover{
 
 .cart-drawer-header{
   height:82px;
+
   padding:0 28px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   border-bottom:1px solid #e8e8e8;
-  flex:0 0 82px;
 }
 
 .cart-drawer-header h2{
   font-family:Georgia,serif;
+
   font-size:27px;
+
   font-weight:400;
 }
 
 .cart-close{
   width:30px;
   height:30px;
-  padding:0;
+
   border:none;
+
   background:transparent;
-  color:#111;
+
   font-size:29px;
-  font-weight:300;
-  line-height:1;
+
   cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
 }
 
 .cart-items{
   flex:1;
+
   overflow-y:auto;
+
   padding:25px 28px;
 }
 
 .cart-empty{
   min-height:240px;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
+
   color:#777;
-  font-size:14px;
 }
 
 .cart-item{
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:18px 0;
-  border-bottom:1px solid #eee;
-}
 
-.cart-item-info{
-  min-width:0;
+  justify-content:space-between;
+
+  gap:20px;
+
+  padding:18px 0;
+
+  border-bottom:1px solid #eee;
 }
 
 .cart-item-name{
   font-family:Georgia,serif;
+
   font-size:18px;
+
   margin-bottom:6px;
 }
 
 .cart-item-meta{
   color:#777;
+
   font-size:12px;
 }
 
 .cart-item-price{
   font-size:14px;
   font-weight:600;
+
   white-space:nowrap;
 }
 
 .cart-drawer-footer{
   border-top:1px solid #e8e8e8;
+
   padding:22px 28px 28px;
-  flex:0 0 auto;
-  background:#fff;
 }
 
 .cart-total-row{
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:18px;
-  font-size:15px;
-}
 
-.cart-total-row strong{
-  font-size:16px;
+  justify-content:space-between;
+
+  margin-bottom:18px;
 }
 
 .cart-checkout{
   width:100%;
   height:48px;
+
   border:none;
+
   background:#111;
   color:#fff;
-  font-size:13px;
-  letter-spacing:.5px;
+
   cursor:pointer;
 }
 
-.cart-checkout:hover{
-  background:var(--gold);
-}
+
+/* =========================================================
+   CART COUNT
+========================================================= */
 
 #cartTrigger{
   position:relative;
@@ -832,17 +1273,24 @@ footer a:hover{
 
 .cart-count{
   position:absolute;
+
   top:-5px;
   right:-7px;
+
   min-width:16px;
   height:16px;
-  padding:0 4px;
+
   border-radius:50%;
+
   background:#111;
   color:#fff;
+
   font-size:9px;
+
   line-height:16px;
+
   text-align:center;
+
   display:none;
 }
 
@@ -850,71 +1298,24 @@ footer a:hover{
   display:block;
 }
 
-/* =========================
-   FLOATING BUTTONS
-========================= */
 
-.floating{
-  position:fixed;
-  z-index:1500;
-}
-
-.review-button{
-  right:24px;
-  bottom:95px;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  background:#111;
-  color:#fff;
-  padding:11px 16px;
-  border-radius:24px;
-  font-size:13px;
-}
-
-.review-button svg{
-  width:17px;
-  height:17px;
-  fill:none;
-  stroke:#fff;
-  stroke-width:1.5;
-}
-
-.join.member{
-  right:24px;
-  bottom:48px;
-  background:#fff;
-  color:#111;
-  border:1px solid #111;
-  border-radius:24px;
-  padding:11px 18px;
-  font-size:13px;
-}
-
-.chat{
-  right:24px;
-  bottom:20px;
-  width:22px;
-  height:22px;
-}
-
-.chat svg{
-  width:22px;
-  height:22px;
-  fill:#111;
-  stroke:#111;
-  stroke-width:1.2;
-}
-
-/* =========================
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
 
 @media(max-width:1000px){
 
   .navigation{
     overflow-x:auto;
     justify-content:flex-start;
+  }
+
+  .loyalty-hero h1{
+    font-size:58px;
+  }
+
+  .loyalty-strip h2{
+    font-size:32px;
   }
 
   .earn-grid{
@@ -925,8 +1326,8 @@ footer a:hover{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .loyalty-hero-content{
-    width:60%;
+  .vip-grid{
+    grid-template-columns:1fr;
   }
 
   .footer-grid{
@@ -934,16 +1335,8 @@ footer a:hover{
   }
 }
 
+
 @media(max-width:650px){
-
-  .announcement{
-    height:36px;
-  }
-
-  .announcement-track span{
-    font-size:11px;
-    margin-right:100px;
-  }
 
   .header-main{
     height:75px;
@@ -959,74 +1352,130 @@ footer a:hover{
   }
 
   .navigation{
+    height:48px;
     gap:25px;
-    min-height:48px;
+
+    justify-content:flex-start;
+    overflow-x:auto;
   }
 
   .navigation a{
     font-size:13px;
-  }
-
-  .search-panel{
-    top:36px;
-    height:100px;
-  }
-
-  .search-overlay{
-    top:136px;
-  }
-
-  .search-form{
-    padding:0 20px;
-  }
-
-  .search-form input{
-    font-size:14px;
-    padding-left:38px;
-  }
-
-  .search-submit{
-    left:19px;
-  }
-
-  .search-close{
-    right:18px;
+    padding:16px 0;
   }
 
   .loyalty-hero{
     height:600px;
-    background-position:35% center;
   }
 
   .loyalty-hero-content{
     width:100%;
-    margin-top:auto;
+
     padding:40px 20px;
-    background:linear-gradient(
-      transparent,
-      rgba(255,255,255,.95)
-    );
+
+    align-self:flex-end;
+
+    background:
+      linear-gradient(
+        transparent,
+        rgba(255,255,255,.95)
+      );
   }
 
-  .earn-grid,
-  .reward-grid,
-  .vip-grid{
+  .loyalty-hero h1{
+    font-size:48px;
+  }
+
+  .hero-point{
+    font-size:28px;
+  }
+
+  .join-btn{
+    right:20px;
+
+    min-width:190px;
+
+    height:46px;
+
+    font-size:18px;
+  }
+
+  .loyalty-strip{
+    height:auto;
+
+    min-height:100px;
+
+    flex-wrap:wrap;
+
+    padding:20px;
+  }
+
+  .loyalty-strip h2{
+    font-size:28px;
+  }
+
+  .intro{
+    grid-template-columns:1fr;
+  }
+
+  .intro-image{
+    min-height:360px;
+  }
+
+  .intro-copy{
+    padding:45px 8%;
+  }
+
+  .earn{
+    padding:30px 5%;
+  }
+
+  .earn-grid{
+    grid-template-columns:1fr;
+  }
+
+  .reward-grid{
     grid-template-columns:1fr;
   }
 
   .reward-card{
-    height:420px;
+    height:360px;
+  }
+
+  .vip{
+    padding:50px 7%;
+  }
+
+  .reward-tiers{
+    padding:30px 5%;
   }
 
   .footer-grid{
     grid-template-columns:1fr;
   }
+
+  .review-button{
+    left:14px;
+    bottom:63px;
+  }
+
+  .join.member{
+    left:14px;
+    bottom:8px;
+  }
+
 }
+
+
+/* =========================================================
+   VERY SMALL SCREEN
+========================================================= */
 
 @media(max-width:520px){
 
   .header-main{
     justify-content:space-between;
+
     padding:0 18px;
   }
 
@@ -1036,12 +1485,10 @@ footer a:hover{
 
   .header-icons{
     position:static;
-    gap:12px;
-  }
 
-  .navigation{
-    gap:22px;
-    font-size:12px;
+    transform:none;
+
+    gap:12px;
   }
 
   .loyalty-hero{
@@ -1053,64 +1500,75 @@ footer a:hover{
   }
 
   .loyalty-hero h1{
-    font-size:48px;
+    font-size:43px;
   }
 
   .hero-point{
+    font-size:25px;
+  }
+
+  .join-btn{
+    position:relative;
+
+    right:auto;
+    top:auto;
+
+    transform:none;
+
+    margin-top:25px;
+
+    min-width:180px;
+  }
+
+  .loyalty-strip{
+    flex-direction:column;
+
+    gap:12px;
+  }
+
+  .claim h2,
+  .reward-tiers h2{
     font-size:28px;
-  }
-
-  .intro{
-    grid-template-columns:1fr;
-  }
-
-  .intro-image{
-    height:360px;
-  }
-
-  .intro-copy{
-    padding:35px 7%;
-  }
-
-  .earn{
-    padding:25px 5%;
   }
 
   .reward-card{
     height:300px;
   }
 
-  .reward-card span{
-    font-size:24px;
-  }
-
-  .vip{
-    padding:50px 7%;
-  }
-
-  .reward-tiers{
-    padding-left:5%;
-    padding-right:5%;
-  }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- ANNOUNCEMENT -->
+
+<!-- =========================================================
+     ANNOUNCEMENT
+========================================================= -->
+
 <div class="announcement">
+
   <div class="announcement-track">
+
     <span>THE ART OF SCENT</span>
     <span>A SYMPHONY FOR THE SENSES</span>
-    <span>DISCOVER SNS FRAGRANCE</span>
+    <span>OLFACTORY ODYSSEY</span>
+
     <span>THE ART OF SCENT</span>
     <span>A SYMPHONY FOR THE SENSES</span>
-    <span>DISCOVER SNS FRAGRANCE</span>
+    <span>OLFACTORY ODYSSEY</span>
+
   </div>
+
 </div>
 
-<!-- HEADER -->
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header class="header">
 
   <div class="header-main">
@@ -1119,474 +1577,1103 @@ footer a:hover{
       SNS <span>Fragrance</span>
     </div>
 
+
     <div class="header-icons">
 
-      <!-- ACCOUNT / LOGIN -->
+      <!-- ACCOUNT -->
+
       <a href="login.html"
          class="header-icon"
          aria-label="Account">
 
         <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="7" r="3.2"></circle>
-          <path d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5"></path>
+
+          <circle
+            cx="12"
+            cy="7"
+            r="3.2">
+          </circle>
+
+          <path
+            d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5">
+          </path>
+
         </svg>
 
       </a>
 
+
       <!-- WISHLIST -->
+
       <a href="wishlist.html"
          class="header-icon wishlist"
          aria-label="Wishlist">
 
         <svg viewBox="0 0 24 24">
-          <path d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8-1.8 0-3.4 1-4.1 2.4C11.3 5 9.7 4 7.9 4 5.2 4 3.2 6 3.2 8.8c0 4.9 8.8 10.2 8.8 10.2s8.8-5.3 8.8-10.2z"></path>
+
+          <path
+            d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8-1.8 0-3.4 1-4.1 2.4C11.3 5 9.7 4 7.9 4 5.2 4 3.2 6 3.2 8.8c0 4.9 8.8 10.2 8.8 10.2s8.8-5.3 8.8-10.2z">
+          </path>
+
         </svg>
 
       </a>
 
+
       <!-- SEARCH -->
-      <button type="button"
-              class="header-icon search-trigger"
-              id="searchTrigger"
-              aria-label="Search">
+
+      <button
+        type="button"
+        class="header-icon"
+        id="searchTrigger"
+        aria-label="Search">
 
         <svg viewBox="0 0 24 24">
-          <circle cx="10.5" cy="10.5" r="6.3"></circle>
-          <path d="M15.3 15.3L20.5 20.5"></path>
+
+          <circle
+            cx="10.5"
+            cy="10.5"
+            r="6.3">
+          </circle>
+
+          <path
+            d="M15.3 15.3L20.5 20.5">
+          </path>
+
         </svg>
 
       </button>
 
+
       <!-- CART -->
-      <button type="button"
-              class="header-icon"
-              id="cartTrigger"
-              aria-label="Shopping Cart">
+
+      <button
+        type="button"
+        class="header-icon"
+        id="cartTrigger"
+        aria-label="Shopping Cart">
 
         <svg viewBox="0 0 24 24">
-          <path d="M3 4h2l2.1 11.2h10.8L20 7H6"></path>
-          <path d="M9 19.5h.01"></path>
-          <path d="M17 19.5h.01"></path>
-          <path d="M7.1 15.2h10.8"></path>
+
+          <path
+            d="M3 4h2l2.1 11.2h10.8L20 7H6">
+          </path>
+
+          <path
+            d="M9 19.5h.01">
+          </path>
+
+          <path
+            d="M17 19.5h.01">
+          </path>
+
+          <path
+            d="M7.1 15.2h10.8">
+          </path>
+
         </svg>
 
-        <span class="cart-count" id="cartCount">0</span>
+        <span
+          class="cart-count"
+          id="cartCount">
+          0
+        </span>
 
       </button>
 
     </div>
+
   </div>
 
+
+  <!-- NAVIGATION -->
+
   <nav class="navigation">
-    <a href="bestsellers.html">Bestsellers</a>
-    <a href="extrait.html">Extrait de Parfum</a>
-    <a href="edp.html">Eau de Parfum</a>
-    <a href="edt.html">Eau de Toilette</a>
-    <a href="loyalty.html" class="active">Loyalty</a>
+
+    <a href="bestsellers.html">
+      Bestsellers
+    </a>
+
+    <a href="extrait.html">
+      Extrait de Parfum
+    </a>
+
+    <a href="edp.html">
+      Eau de Parfum
+    </a>
+
+    <a href="edt.html">
+      Eau de Toilette
+    </a>
+
+    <a
+      href="loyalty.html"
+      class="active">
+      Loyalty
+    </a>
+
   </nav>
 
 </header>
 
-<!-- SEARCH -->
-<div class="search-overlay" id="searchOverlay"></div>
 
-<div class="search-panel" id="searchPanel">
-  <form class="search-form" id="searchForm">
+<!-- =========================================================
+     SEARCH
+========================================================= -->
 
-    <button type="submit"
-            class="search-submit"
-            aria-label="Submit Search">
-      <svg viewBox="0 0 24 24">
-        <circle cx="10.5" cy="10.5" r="6.3"></circle>
-        <path d="M15.3 15.3L20.5 20.5"></path>
-      </svg>
-    </button>
-
-    <input type="text"
-           id="searchInput"
-           autocomplete="off">
-
-    <button type="button"
-            class="search-close"
-            id="searchClose"
-            aria-label="Close Search">×</button>
-
-  </form>
+<div
+  class="search-overlay"
+  id="searchOverlay">
 </div>
 
-<!-- CART -->
-<div class="cart-overlay" id="cartOverlay"></div>
 
-<aside class="cart-drawer"
-       id="cartDrawer"
-       aria-label="Shopping Cart">
+<div
+  class="search-panel"
+  id="searchPanel">
+
+  <form
+    class="search-form"
+    id="searchForm">
+
+    <button
+      type="submit"
+      class="search-submit">
+
+      <svg viewBox="0 0 24 24">
+
+        <circle
+          cx="10.5"
+          cy="10.5"
+          r="6.3">
+        </circle>
+
+        <path
+          d="M15.3 15.3L20.5 20.5">
+        </path>
+
+      </svg>
+
+    </button>
+
+
+    <input
+      type="text"
+      id="searchInput"
+      autocomplete="off">
+
+
+    <button
+      type="button"
+      class="search-close"
+      id="searchClose">
+
+      ×
+
+    </button>
+
+  </form>
+
+</div>
+
+
+<!-- =========================================================
+     CART
+========================================================= -->
+
+<div
+  class="cart-overlay"
+  id="cartOverlay">
+</div>
+
+
+<aside
+  class="cart-drawer"
+  id="cartDrawer">
 
   <div class="cart-drawer-header">
-    <h2>Your Cart</h2>
 
-    <button type="button"
-            class="cart-close"
-            id="cartClose"
-            aria-label="Close Cart">×</button>
+    <h2>
+      Your Cart
+    </h2>
+
+    <button
+      class="cart-close"
+      id="cartClose">
+
+      ×
+
+    </button>
+
   </div>
 
-  <div class="cart-items" id="cartItems">
+
+  <div
+    class="cart-items"
+    id="cartItems">
+
     <div class="cart-empty">
-      <p>Your cart is empty.</p>
+
+      <p>
+        Your cart is empty.
+      </p>
+
     </div>
+
   </div>
+
 
   <div class="cart-drawer-footer">
 
     <div class="cart-total-row">
-      <span>Total</span>
-      <strong id="cartTotal">Rp 0</strong>
+
+      <span>
+        Total
+      </span>
+
+      <strong id="cartTotal">
+        Rp 0
+      </strong>
+
     </div>
 
-    <button type="button"
-            class="cart-checkout"
-            id="cartCheckout">
+
+    <button
+      class="cart-checkout"
+      id="cartCheckout">
+
       CHECKOUT
+
     </button>
 
   </div>
 
 </aside>
 
-<!-- =========================
-     LOYALTY HERO
-========================= -->
+
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="loyalty-hero">
 
   <div class="loyalty-hero-content">
 
     <div class="hero-kicker">
-      Start Your <em>Journey</em>
+
+      Start Your
+      <em>Journey</em>
+
     </div>
 
-    <h1>SNS REWARDS</h1>
+
+    <h1>
+      SNS REWARDS
+    </h1>
+
 
     <div class="hero-point">
+
       ◉ Rp.1 = 1 Points
+
     </div>
 
-    <a href="#join" class="join-btn">
-      Join Now <span>→</span>
-    </a>
-
   </div>
+
+
+  <a
+    href="#join"
+    class="join-btn">
+
+    <span>
+      Join Now
+    </span>
+
+    <span>
+      →
+    </span>
+
+  </a>
 
 </section>
 
-<!-- =========================
-     INTRO
-========================= -->
 
-<section class="intro" id="join">
+<!-- =========================================================
+     JOIN / EARN / REDEEM
+========================================================= -->
 
-  <div class="intro-image"
-       style="background-image:url('assets/perk-left-1.jpg');">
+<section class="loyalty-strip">
+
+  <h2>
+    Join. Earn. Redeem
+  </h2>
+
+
+  <div class="strip-points">
+
+    <span class="strip-points-icon">
+      ★
+    </span>
+
+    <span>
+      Rp.1 = 1 Points
+    </span>
+
   </div>
+
+
+  <a
+    href="#join"
+    class="strip-button">
+
+    JOIN NOW
+
+    <span>
+      →
+    </span>
+
+  </a>
+
+</section>
+
+
+<!-- =========================================================
+     UNLOCK MORE PERKS
+========================================================= -->
+
+<section
+  class="intro"
+  id="join">
+
+
+  <div
+    class="intro-image"
+    style="
+      background-image:
+      url('assets/perk-left-1.jpg');
+    ">
+  </div>
+
 
   <div class="intro-copy">
 
-    <h2>UNLOCK MORE PERKS</h2>
+    <h2>
+      UNLOCK MORE PERKS
+    </h2>
+
 
     <div class="steps">
 
-      <div class="step">
-        <h3>1. Sign Up</h3>
-        <p>Join for free and start earning rewards as our member</p>
-      </div>
 
       <div class="step">
-        <h3>2. Earn Points</h3>
-        <p>Collect points every time you shop or complete special actions</p>
+
+        <h3>
+          1. Sign Up
+        </h3>
+
+        <p>
+          Join for free and start earning rewards as our member
+        </p>
+
       </div>
 
-      <div class="step">
-        <h3>3. Redeem Points</h3>
-        <p>Redeem your points for exclusive discounts or free products</p>
-      </div>
 
       <div class="step">
-        <h3>4. Unlock Exclusive Perks</h3>
+
+        <h3>
+          2. Earn Points
+        </h3>
+
+        <p>
+          Collect points every time you shop or complete special actions
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <h3>
+          3. Redeem Points
+        </h3>
+
+        <p>
+          Redeem your points for exclusive discounts or free products
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <h3>
+          4. Unlock Exclusive Perks
+        </h3>
+
         <p>
           You can earn points and enjoy exclusive perks,
           including early access, special offers and gifts.
         </p>
+
       </div>
+
 
     </div>
 
-    <a href="#earn" class="cta">
-      JOIN NOW &amp; START EARNING&nbsp; →
+
+    <a
+      href="#earn"
+      class="cta">
+
+      JOIN NOW &amp; START EARNING
+      <span>→</span>
+
     </a>
 
   </div>
 
 </section>
 
-<!-- =========================
-     WAYS TO EARN
-========================= -->
 
-<section class="earn" id="earn">
+<!-- =========================================================
+     WAYS TO EARN POINTS
+========================================================= -->
 
-  <h2>Ways to earn points</h2>
+<section
+  class="earn"
+  id="earn">
+
+
+  <h2>
+    Ways to earn points
+  </h2>
+
 
   <div class="earn-grid">
 
-    <div class="earn-card">
-      <div class="earn-icon">◉</div>
-      <h3>Shop Our Newest Deo Potion for Women &amp; Get 20.000 Points</h3>
-      <p>20,000 points</p>
-    </div>
 
     <div class="earn-card">
-      <div class="earn-icon">◉</div>
-      <h3>Shop Our Newest Deo Potion for Men &amp; Get 20.000 Points</h3>
-      <p>20,000 points</p>
+
+      <div class="earn-icon">
+        ◉
+      </div>
+
+      <h3>
+        Shop Our Newest Deo Potion for Women &amp;
+        Get 20.000 Points
+      </h3>
+
+      <p>
+        20,000 points
+      </p>
+
     </div>
 
-    <div class="earn-card">
-      <div class="earn-icon">🛒</div>
-      <h3>Place 3X orders - Punch card</h3>
-      <p>20,000 points</p>
-    </div>
 
     <div class="earn-card">
-      <div class="earn-icon">♪</div>
-      <h3>Follow us on TikTok</h3>
-      <p>1,000 points</p>
+
+      <div class="earn-icon">
+        ◉
+      </div>
+
+      <h3>
+        Shop Our Newest Deo Potion for Men &amp;
+        Get 20.000 Points
+      </h3>
+
+      <p>
+        20,000 points
+      </p>
+
     </div>
 
-    <div class="earn-card">
-      <div class="earn-icon">◎</div>
-      <h3>Follow us on Instagram</h3>
-      <p>1,000 points</p>
-    </div>
 
     <div class="earn-card">
-      <div class="earn-icon">✧</div>
-      <h3>Celebrate birthday</h3>
-      <p>50,000 points</p>
+
+      <div class="earn-icon">
+        🛒
+      </div>
+
+      <h3>
+        Place 3X orders - Punch card
+      </h3>
+
+      <p>
+        20,000 points
+      </p>
+
     </div>
 
-    <div class="earn-card">
-      <div class="earn-icon">☆</div>
-      <h3>Leave review</h3>
-      <p>1,000 points</p>
-    </div>
 
     <div class="earn-card">
-      <div class="earn-icon">🛒</div>
-      <h3>Place order</h3>
-      <p>10 points for every Rp 1,000</p>
+
+      <div class="earn-icon">
+        ♪
+      </div>
+
+      <h3>
+        Follow us on TikTok
+      </h3>
+
+      <p>
+        1,000 points
+      </p>
+
     </div>
 
+
     <div class="earn-card">
-      <div class="earn-icon">♙</div>
-      <h3>Sign Up</h3>
-      <p>15,000 points</p>
+
+      <div class="earn-icon">
+        ◎
+      </div>
+
+      <h3>
+        Follow us on Instagram
+      </h3>
+
+      <p>
+        1,000 points
+      </p>
+
     </div>
+
+
+    <div class="earn-card">
+
+      <div class="earn-icon">
+        ✧
+      </div>
+
+      <h3>
+        Celebrate birthday
+      </h3>
+
+      <p>
+        50,000 points
+      </p>
+
+    </div>
+
+
+    <div class="earn-card">
+
+      <div class="earn-icon">
+        ☆
+      </div>
+
+      <h3>
+        Leave review
+      </h3>
+
+      <p>
+        1,000 points
+      </p>
+
+    </div>
+
+
+    <div class="earn-card">
+
+      <div class="earn-icon">
+        🛒
+      </div>
+
+      <h3>
+        Place order
+      </h3>
+
+      <p>
+        10 points for every Rp 1,000
+      </p>
+
+    </div>
+
+
+    <div class="earn-card">
+
+      <div class="earn-icon">
+        ♙
+      </div>
+
+      <h3>
+        Sign Up
+      </h3>
+
+      <p>
+        15,000 points
+      </p>
+
+    </div>
+
 
   </div>
 
 </section>
 
-<!-- =========================
+
+<!-- =========================================================
      CLAIM YOUR REWARD
-========================= -->
+========================================================= -->
 
 <section class="claim">
 
-  <h2>Claim Your Reward</h2>
+  <h2>
+    Claim Your Reward
+  </h2>
+
 
   <div class="reward-grid">
 
-    <a class="reward-card">
-      <img src="assets/reward-voucher.jpg"
-           alt="Exclusive Voucher">
-      <span>Exclusive Voucher</span>
-    </a>
 
     <a class="reward-card">
-      <img src="assets/reward-product.jpg"
-           alt="Free Product">
-      <span>Free Product</span>
+
+      <img
+        src="assets/reward-voucher.jpg"
+        alt="Exclusive Voucher">
+
+      <span>
+        Exclusive Voucher
+      </span>
+
     </a>
 
-    <a class="reward-card">
-      <img src="assets/reward-card.jpg"
-           alt="Rp. 250.000 Gift Card">
-      <span>Rp. 250.000 Gift Card</span>
-    </a>
 
     <a class="reward-card">
-      <img src="assets/reward-shipping.jpg"
-           alt="Free Shipping">
-      <span>Free Shipping</span>
+
+      <img
+        src="assets/reward-product.jpg"
+        alt="Free Product">
+
+      <span>
+        Free Product
+      </span>
+
     </a>
+
+
+    <a class="reward-card">
+
+      <img
+        src="assets/reward-card.jpg"
+        alt="Rp. 250.000 Gift Card">
+
+      <span>
+        Rp. 250.000 Gift Card
+      </span>
+
+    </a>
+
+
+    <a class="reward-card">
+
+      <img
+        src="assets/reward-shipping.jpg"
+        alt="Free Shipping">
+
+      <span>
+        Free Shipping
+      </span>
+
+    </a>
+
 
   </div>
 
 </section>
 
-<!-- =========================
+
+<!-- =========================================================
      VIP TIERS
-========================= -->
+========================================================= -->
 
 <section class="vip">
 
-  <h2>VIP Tiers</h2>
+  <h2>
+    VIP Tiers
+  </h2>
+
 
   <div class="vip-grid">
 
+
     <div class="vip-card">
-      <img src="assets/vip-1.jpg" alt="SAFF Discover">
-      <h3>SAFF-Discover</h3>
+
+      <img
+        src="assets/vip-1.jpg"
+        alt="SAFF Discover">
+
+      <h3>
+        SAFF-Discover
+      </h3>
 
       <div class="vip-info">
-        –<br>
-        2x<br>
+
         –
+
+        <br>
+
+        2x
+
+        <br>
+
+        –
+
       </div>
+
     </div>
 
+
     <div class="vip-card">
-      <img src="assets/vip-2.jpg" alt="SAFF Admirer">
-      <h3>SAFF-Admirer</h3>
+
+      <img
+        src="assets/vip-2.jpg"
+        alt="SAFF Admirer">
+
+      <h3>
+        SAFF-Admirer
+      </h3>
 
       <div class="vip-info">
-        Spend Rp 1,000,000<br>
-        2x<br>
+
+        Spend Rp 1,000,000
+
+        <br>
+
+        2x
+
+        <br>
+
         Rp 25,000 off discount
+
       </div>
+
     </div>
+
 
     <div class="vip-card">
-      <img src="assets/vip-3.jpg" alt="SAFF Lover">
-      <h3>SAFF-Lover</h3>
+
+      <img
+        src="assets/vip-3.jpg"
+        alt="SAFF Lover">
+
+      <h3>
+        SAFF-Lover
+      </h3>
 
       <div class="vip-info">
-        Spend Rp 3,000,000<br>
-        2.5x<br>
+
+        Spend Rp 3,000,000
+
+        <br>
+
+        2.5x
+
+        <br>
+
         Rp 100,000 off discount
+
       </div>
+
     </div>
+
 
   </div>
 
 </section>
 
-<!-- =========================
+
+<!-- =========================================================
      REWARD TIERS
-========================= -->
+========================================================= -->
 
 <section class="reward-tiers">
 
-  <h2>Reward Tiers</h2>
+  <h2>
+    Reward Tiers
+  </h2>
+
 
   <div class="table-wrap">
 
     <table>
 
       <thead>
+
         <tr>
+
           <th></th>
-          <th>Rewards Name</th>
-          <th>Mechanisms</th>
-          <th>Points Earned</th>
+
+          <th>
+            Rewards Name
+          </th>
+
+          <th>
+            Mechanisms
+          </th>
+
+          <th>
+            Points Earned
+          </th>
+
         </tr>
+
       </thead>
+
 
       <tbody>
 
-        <tr>
-          <td>Point</td>
-          <td>15.000 Points</td>
-          <td>Points Multiplier 1.5x</td>
-          <td>Points Multiplier 2x</td>
-        </tr>
 
         <tr>
-          <td>Reward</td>
-          <td>-</td>
-          <td>Rp. 25.000 Discount</td>
-          <td>Rp. 250.000 Gift Card</td>
+
+          <td>
+            Point
+          </td>
+
+          <td>
+            15.000 Points
+          </td>
+
+          <td>
+            Points Multiplier 1.5x
+          </td>
+
+          <td>
+            Points Multiplier 2x
+          </td>
+
         </tr>
 
-        <tr>
-          <td>Points Expiry Period</td>
-          <td>365 Days</td>
-          <td>365 Days</td>
-          <td>365 Days</td>
-        </tr>
 
         <tr>
-          <td>Make a Purchase</td>
-          <td>10 Points for Every Rp. 1.000</td>
-          <td>10 Points for Every Rp. 1.000</td>
-          <td>10 Points for Every Rp. 1.000</td>
+
+          <td>
+            Reward
+          </td>
+
+          <td>
+            -
+          </td>
+
+          <td>
+            Rp. 25.000 Discount
+          </td>
+
+          <td>
+            Rp. 250.000 Gift Card
+          </td>
+
         </tr>
 
-        <tr>
-          <td>Leave Review</td>
-          <td>1.000 Points</td>
-          <td>1.000 Points</td>
-          <td>1.000 Points</td>
-        </tr>
 
         <tr>
-          <td>Place 3x Orders</td>
-          <td>20.000 Points</td>
-          <td>20.000 Points</td>
-          <td>20.000 Points</td>
+
+          <td>
+            Points Expiry Period
+          </td>
+
+          <td>
+            365 Days
+          </td>
+
+          <td>
+            365 Days
+          </td>
+
+          <td>
+            365 Days
+          </td>
+
         </tr>
 
-        <tr>
-          <td>Referred Friend Reward</td>
-          <td>Disc Rp. 5.000</td>
-          <td>Disc Rp. 5.000</td>
-          <td>Disc Rp. 5.000</td>
-        </tr>
 
         <tr>
-          <td>Referring Customer Reward</td>
-          <td>10.000 Points</td>
-          <td>10.000 Points</td>
-          <td>10.000 Points</td>
+
+          <td>
+            Make a Purchase
+          </td>
+
+          <td>
+            10 Points for Every Rp. 1.000
+          </td>
+
+          <td>
+            10 Points for Every Rp. 1.000
+          </td>
+
+          <td>
+            10 Points for Every Rp. 1.000
+          </td>
+
         </tr>
 
-        <tr>
-          <td>Celebrate Birthday</td>
-          <td>50.000 Points</td>
-          <td>50.000 Points</td>
-          <td>50.000 Points</td>
-        </tr>
 
         <tr>
-          <td>Sign Up</td>
-          <td>15.000 Points</td>
-          <td>15.000 Points</td>
-          <td>15.000 Points</td>
+
+          <td>
+            Leave Review
+          </td>
+
+          <td>
+            1.000 Points
+          </td>
+
+          <td>
+            1.000 Points
+          </td>
+
+          <td>
+            1.000 Points
+          </td>
+
         </tr>
 
-        <tr>
-          <td>Follow Us On Instagram</td>
-          <td>1.000 Points</td>
-          <td>1.000 Points</td>
-          <td>1.000 Points</td>
-        </tr>
 
         <tr>
-          <td>Follow Us On TikTok</td>
-          <td>1.000 Points</td>
-          <td>1.000 Points</td>
-          <td>1.000 Points</td>
+
+          <td>
+            Place 3x Orders
+          </td>
+
+          <td>
+            20.000 Points
+          </td>
+
+          <td>
+            20.000 Points
+          </td>
+
+          <td>
+            20.000 Points
+          </td>
+
         </tr>
+
+
+        <tr>
+
+          <td>
+            Referred Friend Reward
+          </td>
+
+          <td>
+            Disc Rp. 5.000
+          </td>
+
+          <td>
+            Disc Rp. 5.000
+          </td>
+
+          <td>
+            Disc Rp. 5.000
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Referring Customer Reward
+          </td>
+
+          <td>
+            10.000 Points
+          </td>
+
+          <td>
+            10.000 Points
+          </td>
+
+          <td>
+            10.000 Points
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Celebrate Birthday
+          </td>
+
+          <td>
+            50.000 Points
+          </td>
+
+          <td>
+            50.000 Points
+          </td>
+
+          <td>
+            50.000 Points
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Sign Up
+          </td>
+
+          <td>
+            15.000 Points
+          </td>
+
+          <td>
+            15.000 Points
+          </td>
+
+          <td>
+            15.000 Points
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Follow Us On Instagram
+          </td>
+
+          <td>
+            1.000 Points
+          </td>
+
+          <td>
+            1.000 Points
+          </td>
+
+          <td>
+            1.000 Points
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Follow Us On TikTok
+          </td>
+
+          <td>
+            1.000 Points
+          </td>
+
+          <td>
+            1.000 Points
+          </td>
+
+          <td>
+            1.000 Points
+          </td>
+
+        </tr>
+
 
       </tbody>
 
@@ -1596,31 +2683,49 @@ footer a:hover{
 
 </section>
 
-<!-- =========================
+
+<!-- =========================================================
      FOOTER
-========================= -->
+========================================================= -->
 
 <footer>
 
   <div class="footer-grid">
 
+
     <div class="footer-brand">
-      <h2>SNS Fragrance</h2>
+
+      <h2>
+        SNS Fragrance
+      </h2>
 
       <p>
         A contemporary fragrance house creating
         expressive scents for every individual,
         every story, and every moment.
       </p>
+
     </div>
 
-    <div>
-      <h4>ABOUT</h4>
-      <a href="about.html">Our Story</a>
-    </div>
 
     <div>
-      <h4>FOLLOW</h4>
+
+      <h4>
+        ABOUT
+      </h4>
+
+      <a href="about.html">
+        Our Story
+      </a>
+
+    </div>
+
+
+    <div>
+
+      <h4>
+        FOLLOW
+      </h4>
 
       <a href="https://www.instagram.com/snsfragrance.id">
         Instagram
@@ -1633,298 +2738,504 @@ footer a:hover{
       <a href="https://wa.me/message/TZMPXSMPC6XHM1">
         WhatsApp
       </a>
+
     </div>
 
-    <div>
-      <h4>INFO</h4>
 
-      <a href="faq.html">FAQ</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="returns.html">Returns &amp; Exchanges</a>
+    <div>
+
+      <h4>
+        INFO
+      </h4>
+
+      <a href="faq.html">
+        FAQ
+      </a>
+
+      <a href="terms.html">
+        Terms of Service
+      </a>
+
+      <a href="privacy.html">
+        Privacy Policy
+      </a>
+
+      <a href="returns.html">
+        Returns &amp; Exchanges
+      </a>
+
     </div>
 
+
     <div>
-      <h4>CONTACT</h4>
+
+      <h4>
+        CONTACT
+      </h4>
 
       <a href="mailto:snsfragranceid@gmail.com">
         snsfragranceid@gmail.com
       </a>
+
     </div>
+
 
   </div>
 
+
   <div class="copyright">
+
     © 2026 SNS Fragrance. All rights reserved.
+
   </div>
 
 </footer>
 
-<!-- REVIEWS -->
-<a href="review.html"
-   class="floating review-button"
-   aria-label="Reviews">
 
-  <svg viewBox="0 0 24 24">
-    <path d="
-      M12 3.5
-      L14.5 8.5
-      L20 9.3
-      L16 13.2
-      L17 18.7
-      L12 16.1
-      L7 18.7
-      L8 13.2
-      L4 9.3
-      L9.5 8.5
-      Z
-    "></path>
-  </svg>
+<!-- =========================================================
+     FLOATING REVIEWS
+========================================================= -->
 
-  <span>Reviews</span>
-</a>
-
-<!-- JOIN MEMBER -->
-<a href="member.html"
-   class="floating join member">
-  Join Member
-</a>
-
-<!-- CHAT -->
-<a href="https://wa.me/message/TZMPXSMPC6XHM1"
-   class="floating chat"
-   aria-label="Chat">
+<a
+  href="review.html"
+  class="floating review-button">
 
   <svg viewBox="0 0 24 24">
 
-    <path d="
-      M5 5.5
-      h14
-      a2 2 0 0 1 2 2
-      v8
-      a2 2 0 0 1-2 2
-      h-7
-      l-4 3
-      v-3
-      H5
-      a2 2 0 0 1-2-2
-      v-8
-      a2 2 0 0 1 2-2
-      z
-    "></path>
+    <path
+      d="
+        M12 3.5
+        L14.5 8.5
+        L20 9.3
+        L16 13.2
+        L17 18.7
+        L12 16.1
+        L7 18.7
+        L8 13.2
+        L4 9.3
+        L9.5 8.5
+        Z
+      ">
+    </path>
 
-    <circle cx="8" cy="11.5" r=".7" fill="white"></circle>
-    <circle cx="12" cy="11.5" r=".7" fill="white"></circle>
-    <circle cx="16" cy="11.5" r=".7" fill="white"></circle>
+  </svg>
+
+  Reviews
+
+</a>
+
+
+<!-- =========================================================
+     REWARDS
+========================================================= -->
+
+<a
+  href="member.html"
+  class="floating join member">
+
+  <span>
+    🎁
+  </span>
+
+  Rewards
+
+</a>
+
+
+<!-- =========================================================
+     CHAT
+========================================================= -->
+
+<a
+  href="https://wa.me/message/TZMPXSMPC6XHM1"
+  class="floating chat">
+
+  <svg viewBox="0 0 24 24">
+
+    <path
+      d="
+        M5 5.5
+        h14
+        a2 2 0 0 1 2 2
+        v8
+        a2 2 0 0 1-2 2
+        h-7
+        l-4 3
+        v-3
+        H5
+        a2 2 0 0 1-2-2
+        v-8
+        a2 2 0 0 1 2-2
+        z
+      ">
+    </path>
+
+    <circle
+      cx="8"
+      cy="11.5"
+      r=".7"
+      fill="white">
+    </circle>
+
+    <circle
+      cx="12"
+      cy="11.5"
+      r=".7"
+      fill="white">
+    </circle>
+
+    <circle
+      cx="16"
+      cy="11.5"
+      r=".7"
+      fill="white">
+    </circle>
 
   </svg>
 
 </a>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
 
-/* =========================
+/* =========================================================
    SEARCH
-========================= */
+========================================================= */
 
-const searchTrigger=document.getElementById("searchTrigger");
-const searchPanel=document.getElementById("searchPanel");
-const searchOverlay=document.getElementById("searchOverlay");
-const searchInput=document.getElementById("searchInput");
-const searchClose=document.getElementById("searchClose");
-const searchForm=document.getElementById("searchForm");
+const searchTrigger =
+  document.getElementById("searchTrigger");
+
+const searchPanel =
+  document.getElementById("searchPanel");
+
+const searchOverlay =
+  document.getElementById("searchOverlay");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const searchClose =
+  document.getElementById("searchClose");
+
+const searchForm =
+  document.getElementById("searchForm");
+
 
 function openSearch(){
+
   searchPanel.classList.add("active");
+
   searchOverlay.classList.add("active");
 
   setTimeout(function(){
+
     searchInput.focus();
+
   },180);
+
 }
+
 
 function closeSearch(){
+
   searchPanel.classList.remove("active");
+
   searchOverlay.classList.remove("active");
+
   searchInput.value="";
+
 }
 
-searchTrigger.addEventListener("click",openSearch);
-searchClose.addEventListener("click",closeSearch);
-searchOverlay.addEventListener("click",closeSearch);
 
-searchForm.addEventListener("submit",function(event){
-  event.preventDefault();
+searchTrigger.addEventListener(
+  "click",
+  openSearch
+);
 
-  const searchValue=searchInput.value.trim();
 
-  if(!searchValue)return;
+searchClose.addEventListener(
+  "click",
+  closeSearch
+);
 
-  console.log("Searching for:",searchValue);
-});
 
-document.addEventListener("keydown",function(event){
+searchOverlay.addEventListener(
+  "click",
+  closeSearch
+);
 
-  if(
-    event.key==="Escape" &&
-    searchPanel.classList.contains("active")
-  ){
-    closeSearch();
+
+searchForm.addEventListener(
+  "submit",
+  function(event){
+
+    event.preventDefault();
+
+    const value =
+      searchInput.value.trim();
+
+    if(!value)return;
+
+    console.log(
+      "Searching for:",
+      value
+    );
+
   }
+);
 
-});
 
-/* =========================
+/* =========================================================
    CART
-========================= */
+========================================================= */
 
 let cart=[];
 
-const cartTrigger=document.getElementById("cartTrigger");
-const cartDrawer=document.getElementById("cartDrawer");
-const cartOverlay=document.getElementById("cartOverlay");
-const cartClose=document.getElementById("cartClose");
-const cartItems=document.getElementById("cartItems");
-const cartTotal=document.getElementById("cartTotal");
-const cartCount=document.getElementById("cartCount");
-const cartCheckout=document.getElementById("cartCheckout");
+
+const cartTrigger =
+  document.getElementById("cartTrigger");
+
+const cartDrawer =
+  document.getElementById("cartDrawer");
+
+const cartOverlay =
+  document.getElementById("cartOverlay");
+
+const cartClose =
+  document.getElementById("cartClose");
+
+const cartItems =
+  document.getElementById("cartItems");
+
+const cartTotal =
+  document.getElementById("cartTotal");
+
+const cartCount =
+  document.getElementById("cartCount");
+
+const cartCheckout =
+  document.getElementById("cartCheckout");
+
 
 const productPrices={
+
   "Tranquility":299000,
+
   "Cocoa Amore":299000,
+
   "Rapha":299000,
+
   "Ophir":299000
+
 };
 
+
 function formatPrice(price){
-  return "Rp "+price.toLocaleString("id-ID");
+
+  return "Rp "
+    + price.toLocaleString("id-ID");
+
 }
+
 
 function openCart(){
 
   cartDrawer.classList.add("active");
+
   cartOverlay.classList.add("active");
 
   document.body.style.overflow="hidden";
+
 }
+
 
 function closeCart(){
 
   cartDrawer.classList.remove("active");
+
   cartOverlay.classList.remove("active");
 
   document.body.style.overflow="";
+
 }
+
 
 function renderCart(){
 
   if(!cart.length){
 
-    cartItems.innerHTML=
-      '<div class="cart-empty"><p>Your cart is empty.</p></div>';
+    cartItems.innerHTML=`
+      <div class="cart-empty">
+        <p>Your cart is empty.</p>
+      </div>
+    `;
 
     cartTotal.textContent="Rp 0";
+
     cartCount.textContent="0";
 
     cartCount.classList.remove("active");
 
     return;
+
   }
 
+
   const grouped={};
+
 
   cart.forEach(function(product){
 
     if(!grouped[product]){
+
       grouped[product]={
         name:product,
         quantity:0
       };
+
     }
 
     grouped[product].quantity++;
+
   });
 
+
   let total=0;
+
   let quantityTotal=0;
+
 
   cartItems.innerHTML=
     Object.values(grouped)
     .map(function(item){
 
-      const price=productPrices[item.name]||0;
-      const itemTotal=price*item.quantity;
+      const price =
+        productPrices[item.name] || 0;
 
-      total+=itemTotal;
-      quantityTotal+=item.quantity;
+      const itemTotal =
+        price * item.quantity;
+
+      total += itemTotal;
+
+      quantityTotal +=
+        item.quantity;
+
 
       return `
+
         <div class="cart-item">
 
-          <div class="cart-item-info">
+          <div>
 
             <div class="cart-item-name">
+
               ${item.name}
+
             </div>
 
             <div class="cart-item-meta">
-              Extrait de Parfum · Qty ${item.quantity}
+
+              Extrait de Parfum · Qty
+              ${item.quantity}
+
             </div>
 
           </div>
 
           <div class="cart-item-price">
+
             ${formatPrice(itemTotal)}
+
           </div>
 
         </div>
+
       `;
 
     })
     .join("");
 
-  cartTotal.textContent=formatPrice(total);
-  cartCount.textContent=quantityTotal;
+
+  cartTotal.textContent =
+    formatPrice(total);
+
+  cartCount.textContent =
+    quantityTotal;
 
   cartCount.classList.add("active");
+
 }
 
-function addToCart(product){
 
-  cart.push(product);
+cartTrigger.addEventListener(
+  "click",
+  function(){
 
-  renderCart();
-  openCart();
-}
+    renderCart();
 
-cartTrigger.addEventListener("click",function(){
+    openCart();
 
-  renderCart();
-  openCart();
-
-});
-
-cartClose.addEventListener("click",closeCart);
-cartOverlay.addEventListener("click",closeCart);
-
-document.addEventListener("keydown",function(event){
-
-  if(
-    event.key==="Escape" &&
-    cartDrawer.classList.contains("active")
-  ){
-    closeCart();
   }
+);
 
-});
 
-cartCheckout.addEventListener("click",function(){
+cartClose.addEventListener(
+  "click",
+  closeCart
+);
 
-  if(!cart.length)return;
 
-  alert("Checkout functionality will be connected here.");
+cartOverlay.addEventListener(
+  "click",
+  closeCart
+);
 
-});
+
+cartCheckout.addEventListener(
+  "click",
+  function(){
+
+    if(!cart.length)return;
+
+    alert(
+      "Checkout functionality will be connected here."
+    );
+
+  }
+);
+
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key==="Escape"){
+
+      if(
+        searchPanel.classList.contains("active")
+      ){
+
+        closeSearch();
+
+      }
+
+      if(
+        cartDrawer.classList.contains("active")
+      ){
+
+        closeCart();
+
+      }
+
+    }
+
+  }
+);
+
 
 renderCart();
 
