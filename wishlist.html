@@ -15,13 +15,24 @@
   <style>
 
     /* =====================================================
-       RESET
+       GLOBAL
     ===================================================== */
 
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --cream: #f7f5f0;
+      --gold: #9b7a42;
+      --light-gray: #e8e6e1;
+      --text-gray: #666666;
+      --navy: #152d58;
+    }
+
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
 
@@ -38,6 +49,12 @@
     }
 
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
     button,
     input {
       font-family: Arial, Helvetica, sans-serif;
@@ -46,32 +63,41 @@
 
     /* =====================================================
        ANNOUNCEMENT BAR
+       SAME AS INDEX.HTML
     ===================================================== */
 
     .announcement {
+      width: 100%;
       height: 42px;
 
       background: #000;
       color: #fff;
 
       overflow: hidden;
-      white-space: nowrap;
+      position: relative;
 
       display: flex;
       align-items: center;
+
+      white-space: nowrap;
     }
 
 
     .announcement-track {
       display: flex;
+      align-items: center;
+
       width: max-content;
 
       animation:
-        marquee 30s linear infinite;
+        announcementScroll 30s linear infinite;
     }
 
 
     .announcement-track span {
+      display: inline-flex;
+      align-items: center;
+
       margin-right: 140px;
 
       font-size: 12px;
@@ -81,26 +107,31 @@
     }
 
 
-    @keyframes marquee {
+    @keyframes announcementScroll {
 
-      from {
+      0% {
         transform: translateX(0);
       }
 
-      to {
+      100% {
         transform: translateX(-50%);
       }
 
     }
 
 
+    .announcement:hover .announcement-track {
+      animation-play-state: paused;
+    }
+
+
     /* =====================================================
        HEADER
+       EXACT SAME AS INDEX.HTML
     ===================================================== */
 
     header {
       background: #fff;
-      border-bottom: 1px solid #eee;
     }
 
 
@@ -120,16 +151,15 @@
     ===================================================== */
 
     .logo {
-      color: #222;
-
       font-size: 42px;
+
       font-weight: 600;
 
       letter-spacing: -2px;
 
-      text-decoration: none;
-
       line-height: 1;
+
+      color: #111;
     }
 
 
@@ -140,6 +170,7 @@
 
     /* =====================================================
        HEADER ICONS
+       EXACT SAME AS INDEX.HTML
     ===================================================== */
 
     .header-icons {
@@ -175,6 +206,8 @@
       text-decoration: none;
 
       color: #111;
+
+      position: relative;
     }
 
 
@@ -203,27 +236,63 @@
     }
 
 
-    /* ACTIVE WISHLIST */
+    /* =====================================================
+       ACTIVE WISHLIST
+    ===================================================== */
 
     .wishlist-icon svg {
       fill: none !important;
+
       stroke: #e90046 !important;
+
       stroke-width: 1.8;
     }
 
 
     /* =====================================================
-       NAVIGATION
+       CART COUNT
     ===================================================== */
 
-    .navigation {
-      height: 58px;
+    .cart-count {
+      position: absolute;
+
+      top: -7px;
+      right: -8px;
+
+      min-width: 15px;
+      height: 15px;
+
+      padding: 0 4px;
+
+      border-radius: 50%;
+
+      background: #111;
+      color: #fff;
+
+      font-size: 9px;
+      font-weight: 500;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      gap: 38px;
+      line-height: 1;
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+       EXACT SAME AS INDEX.HTML
+    ===================================================== */
+
+    .navigation {
+      height: 57px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 36px;
 
       border-bottom: 1px solid #ededed;
 
@@ -239,20 +308,25 @@
       text-decoration: none;
 
       font-size: 15px;
-      font-weight: 400;
 
       white-space: nowrap;
 
-      transition: color .2s ease;
+      padding: 20px 0;
+
+      transition:
+        color .2s ease;
     }
 
 
     .navigation a:hover {
-      color: #777;
+      color: #8b6736;
     }
 
 
-    /* ACTIVE PAGE */
+    .navigation a.active {
+      font-weight: 500;
+    }
+
 
     .navigation a.active::after {
       content: "";
@@ -262,11 +336,196 @@
       left: 0;
       right: 0;
 
-      bottom: -9px;
+      bottom: 7px;
 
-      height: 3px;
+      height: 1px;
 
       background: #111;
+    }
+
+
+    /* =====================================================
+       SEARCH PANEL
+       EXACT SAME AS INDEX.HTML
+    ===================================================== */
+
+    .search-panel {
+      position: fixed;
+
+      top: 42px;
+      left: 0;
+
+      width: 100%;
+      height: 122px;
+
+      background: #fff;
+
+      z-index: 2001;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transform: translateY(-8px);
+
+      transition:
+        opacity .2s ease,
+        transform .25s ease,
+        visibility .2s ease;
+    }
+
+
+    .search-panel.active {
+      opacity: 1;
+
+      visibility: visible;
+
+      transform: translateY(0);
+    }
+
+
+    .search-overlay {
+      position: fixed;
+
+      top: 164px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      background: rgba(0,0,0,.36);
+
+      z-index: 2000;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      pointer-events: none;
+
+      transition:
+        opacity .2s ease,
+        visibility .2s ease;
+    }
+
+
+    .search-overlay.active {
+      opacity: 1;
+
+      visibility: visible;
+
+      pointer-events: auto;
+    }
+
+
+    .search-form {
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+
+      align-items: center;
+
+      position: relative;
+
+      padding: 0 11.8%;
+    }
+
+
+    .search-form input {
+      width: 100%;
+      height: 50px;
+
+      border: none;
+      outline: none;
+
+      background: transparent;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 14px;
+
+      color: #111;
+
+      padding:
+        0 75px 0 39px;
+    }
+
+
+    .search-form input::placeholder {
+      color: #111;
+
+      opacity: 1;
+    }
+
+
+    .search-submit {
+      position: absolute;
+
+      left: calc(11.8% - 1px);
+
+      width: 24px;
+      height: 24px;
+
+      padding: 0;
+
+      border: none;
+
+      background: transparent;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+    }
+
+
+    .search-submit svg {
+      width: 20px;
+      height: 20px;
+
+      fill: none;
+
+      stroke: #d0d0d0;
+
+      stroke-width: 1.7;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+
+    .search-close {
+      position: absolute;
+
+      right: 11.8%;
+
+      width: 28px;
+      height: 28px;
+
+      padding: 0;
+
+      border: none;
+
+      background: transparent;
+
+      color: #111;
+
+      font-size: 29px;
+
+      font-weight: 300;
+
+      line-height: 28px;
+
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
     }
 
 
@@ -316,6 +575,7 @@
       display: flex;
 
       align-items: center;
+
       justify-content: space-between;
 
       margin-bottom: 31px;
@@ -392,6 +652,7 @@
       flex-direction: column;
 
       align-items: center;
+
       justify-content: center;
 
       text-align: center;
@@ -495,15 +756,6 @@
     }
 
 
-    /* =====================================================
-       FOOTER BRAND
-    ===================================================== */
-
-    .footer-brand {
-      min-width: 0;
-    }
-
-
     .footer-logo {
       display: inline-block;
 
@@ -534,10 +786,6 @@
       line-height: 1.7;
     }
 
-
-    /* =====================================================
-       FOOTER COLUMNS
-    ===================================================== */
 
     .footer-column {
       display: flex;
@@ -578,10 +826,6 @@
       color: #fff;
     }
 
-
-    /* =====================================================
-       NEWSLETTER
-    ===================================================== */
 
     .footer-newsletter p {
       color: #aaa;
@@ -643,10 +887,6 @@
       cursor: pointer;
     }
 
-
-    /* =====================================================
-       FOOTER BOTTOM
-    ===================================================== */
 
     .footer-bottom {
       max-width: 1400px;
@@ -839,7 +1079,7 @@
 
 
     /* =====================================================
-       RESPONSIVE — 1000PX
+       TABLET
     ===================================================== */
 
     @media (max-width: 1000px) {
@@ -882,7 +1122,7 @@
 
 
     /* =====================================================
-       RESPONSIVE — 700PX
+       MOBILE
     ===================================================== */
 
     @media (max-width: 700px) {
@@ -919,18 +1159,6 @@
       }
 
 
-      .header-icon {
-        width: 24px;
-        height: 24px;
-      }
-
-
-      .header-icon svg {
-        width: 23px;
-        height: 23px;
-      }
-
-
       .navigation {
         height: 48px;
 
@@ -938,11 +1166,25 @@
           0 20px;
 
         gap: 25px;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
       }
 
 
       .navigation a {
         font-size: 13px;
+      }
+
+
+      .search-panel {
+        top: 36px;
+      }
+
+
+      .search-overlay {
+        top: 154px;
       }
 
 
@@ -966,8 +1208,6 @@
         min-height: 280px;
       }
 
-
-      /* FOOTER */
 
       .site-footer {
         padding:
@@ -1010,7 +1250,7 @@
 
 
     /* =====================================================
-       RESPONSIVE — 450PX
+       SMALL MOBILE
     ===================================================== */
 
     @media (max-width: 450px) {
@@ -1088,8 +1328,8 @@
 
 
   <!-- =====================================================
-       ANNOUNCEMENT BAR
-  ====================================================== -->
+       ANNOUNCEMENT
+  ===================================================== -->
 
   <div class="announcement">
 
@@ -1127,7 +1367,7 @@
 
   <!-- =====================================================
        HEADER
-  ====================================================== -->
+  ===================================================== -->
 
   <header>
 
@@ -1204,7 +1444,9 @@
         <!-- SEARCH -->
 
         <button
+          type="button"
           class="header-icon"
+          id="searchTrigger"
           aria-label="Search">
 
           <svg viewBox="0 0 24 24">
@@ -1228,8 +1470,10 @@
         <!-- CART -->
 
         <button
+          type="button"
           class="header-icon"
-          aria-label="Shopping cart">
+          id="cartTrigger"
+          aria-label="Shopping Cart">
 
           <svg viewBox="0 0 24 24">
 
@@ -1251,6 +1495,12 @@
 
           </svg>
 
+          <span
+            class="cart-count"
+            id="cartCount">
+            0
+          </span>
+
         </button>
 
 
@@ -1262,6 +1512,7 @@
 
     <!-- =================================================
          NAVIGATION
+         SAME AS INDEX.HTML
     ================================================== -->
 
     <nav class="navigation">
@@ -1293,8 +1544,76 @@
 
 
   <!-- =====================================================
+       SEARCH OVERLAY
+  ===================================================== -->
+
+  <div
+    class="search-overlay"
+    id="searchOverlay">
+  </div>
+
+
+
+  <div
+    class="search-panel"
+    id="searchPanel">
+
+    <form
+      class="search-form"
+      id="searchForm">
+
+
+      <button
+        type="submit"
+        class="search-submit"
+        aria-label="Search">
+
+        <svg viewBox="0 0 24 24">
+
+          <circle
+            cx="10.5"
+            cy="10.5"
+            r="6.3">
+          </circle>
+
+          <path
+            d="M15.3 15.3L20.5 20.5">
+          </path>
+
+        </svg>
+
+      </button>
+
+
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search"
+        autocomplete="off">
+
+
+
+      <button
+        type="button"
+        class="search-close"
+        id="searchClose"
+        aria-label="Close Search">
+
+        ×
+
+      </button>
+
+
+    </form>
+
+  </div>
+
+
+
+  <!-- =====================================================
        WISHLIST
-  ====================================================== -->
+  ===================================================== -->
 
   <main class="wishlist-page">
 
@@ -1361,8 +1680,6 @@
     <section class="wishlist-empty">
 
 
-      <!-- HEART -->
-
       <div class="empty-heart">
 
         <svg viewBox="0 0 24 24">
@@ -1411,7 +1728,7 @@
 
   <!-- =====================================================
        FOOTER
-  ====================================================== -->
+  ===================================================== -->
 
   <footer class="site-footer">
 
@@ -1550,6 +1867,7 @@
             aria-label="Your email address"
             required>
 
+
           <button
             type="submit"
             aria-label="Subscribe">
@@ -1597,7 +1915,7 @@
 
   <!-- =====================================================
        REVIEWS
-  ====================================================== -->
+  ===================================================== -->
 
   <div class="reviews-button">
 
@@ -1615,7 +1933,7 @@
 
   <!-- =====================================================
        REWARDS
-  ====================================================== -->
+  ===================================================== -->
 
   <button class="rewards-button">
 
@@ -1633,7 +1951,7 @@
 
   <!-- =====================================================
        CHAT
-  ====================================================== -->
+  ===================================================== -->
 
   <button
     class="chat-button"
@@ -1665,13 +1983,123 @@
 
   <!-- =====================================================
        JAVASCRIPT
-  ====================================================== -->
+  ===================================================== -->
 
   <script>
 
 
     /* =====================================================
-       CREATE NEW WISHLIST
+       SEARCH
+    ===================================================== */
+
+    const searchTrigger =
+      document.getElementById("searchTrigger");
+
+    const searchPanel =
+      document.getElementById("searchPanel");
+
+    const searchOverlay =
+      document.getElementById("searchOverlay");
+
+    const searchClose =
+      document.getElementById("searchClose");
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const searchForm =
+      document.getElementById("searchForm");
+
+
+    function openSearch() {
+
+      searchPanel.classList.add("active");
+
+      searchOverlay.classList.add("active");
+
+      setTimeout(() => {
+
+        searchInput.focus();
+
+      }, 150);
+
+    }
+
+
+    function closeSearch() {
+
+      searchPanel.classList.remove("active");
+
+      searchOverlay.classList.remove("active");
+
+      searchInput.value = "";
+
+    }
+
+
+    searchTrigger.addEventListener(
+      "click",
+      openSearch
+    );
+
+
+    searchClose.addEventListener(
+      "click",
+      closeSearch
+    );
+
+
+    searchOverlay.addEventListener(
+      "click",
+      closeSearch
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeSearch();
+
+        }
+
+      }
+    );
+
+
+    searchForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+        const query =
+          searchInput.value.trim();
+
+
+        if (!query) {
+          return;
+        }
+
+
+        /*
+          Change this URL later if your
+          search page has another filename.
+        */
+
+        window.location.href =
+          "search.html?q=" +
+          encodeURIComponent(query);
+
+      }
+    );
+
+
+
+    /* =====================================================
+       CREATE NEW LIST
     ===================================================== */
 
     function createNewList() {
