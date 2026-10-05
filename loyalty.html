@@ -7,21 +7,17 @@
 
 <style>
 :root{
-  --black:#111;
+  --black:#050505;
+  --navy:#152d58;
+  --gray:#777;
+  --line:#dedede;
+  --soft:#fafafa;
   --gold:#8b6736;
-  --cream:#f5f3ed;
-  --line:#e8e5df;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   font-family:Arial,Helvetica,sans-serif;
@@ -36,15 +32,18 @@ a{
 
 
 /* =====================================================
-   ANNOUNCEMENT
+   ANNOUNCEMENT BAR
 ===================================================== */
 
 .announcement{
   height:42px;
-  background:#111;
+  background:#000;
   color:#fff;
   overflow:hidden;
   white-space:nowrap;
+  position:relative;
+  display:flex;
+  align-items:center;
 }
 
 .announcement-track{
@@ -56,19 +55,22 @@ a{
 }
 
 .announcement-track span{
+  display:inline-flex;
+  align-items:center;
+  height:100%;
+  margin-right:140px;
   font-size:12px;
   font-weight:400;
   letter-spacing:1px;
-  margin-right:140px;
 }
 
 @keyframes scroll{
-  from{
-    transform:translateX(0);
-  }
-  to{
-    transform:translateX(-50%);
-  }
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+.announcement:hover .announcement-track{
+  animation-play-state:paused;
 }
 
 
@@ -89,6 +91,9 @@ a{
   position:relative;
 }
 
+
+/* LOGO */
+
 .logo{
   font-size:42px;
   font-weight:600;
@@ -100,9 +105,16 @@ a{
   font-weight:300;
 }
 
+
+/* =====================================================
+   HEADER ICONS
+   EXACT REFERENCE ICON STYLE
+===================================================== */
+
 .header-icons{
   position:absolute;
   right:38px;
+
   display:flex;
   align-items:center;
   gap:25px;
@@ -111,28 +123,46 @@ a{
 .header-icon{
   width:26px;
   height:26px;
+
   padding:0;
-  border:0;
+  margin:0;
+
+  border:none;
+  outline:none;
   background:transparent;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   cursor:pointer;
+  text-decoration:none;
   color:#111;
 }
 
 .header-icon svg{
   width:25px;
   height:25px;
-  fill:none;
-  stroke:#111;
+
+  fill:none !important;
+  stroke:#111 !important;
   stroke-width:1.7;
+
   stroke-linecap:round;
   stroke-linejoin:round;
+
+  display:block;
+  transition:transform .2s ease;
 }
 
-.wishlist svg{
-  stroke:#e90046;
+.header-icon:hover svg{
+  transform:scale(1.08);
+}
+
+.wishlist-icon svg{
+  fill:none !important;
+  stroke:#e90046 !important;
+  stroke-width:1.8;
 }
 
 
@@ -142,18 +172,27 @@ a{
 
 .navigation{
   height:58px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   gap:38px;
-  padding:0 25px;
+
   border-bottom:1px solid #ededed;
+
+  padding:0 25px;
 }
 
 .navigation a{
   position:relative;
+
+  color:#111;
+  text-decoration:none;
+
   font-size:15px;
   white-space:nowrap;
+
   padding:20px 0;
 }
 
@@ -167,86 +206,79 @@ a{
 
 .navigation a.active::after{
   content:"";
+
   position:absolute;
+
   left:0;
   right:0;
+
   bottom:-8px;
+
   height:2px;
+
   background:#111;
 }
 
 
 /* =====================================================
    HERO
-   INDEX STYLE
 ===================================================== */
 
 .hero{
-  position:relative;
-  width:100%;
-  min-height:530px;
+  height:465px;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(245,243,237,.15),
-      rgba(245,243,237,.95)
-    ),
-    url("assets/hero.jpg") center/cover no-repeat;
+  background:url("assets/hero.jpg") center/cover no-repeat;
+
+  position:relative;
 
   display:flex;
   align-items:center;
 }
 
 .hero-content{
-  width:50%;
-  margin-left:auto;
-  padding:50px 8% 50px 30px;
-  text-align:center;
+  width:58%;
+  padding-left:4%;
+  padding-bottom:10px;
 }
 
 .hero-kicker{
-  font-size:15px;
-  letter-spacing:4px;
-  margin-bottom:15px;
-  text-transform:uppercase;
+  font-size:30px;
+  margin-bottom:12px;
 }
 
 .hero-kicker em{
   font-family:Georgia,serif;
-  font-style:normal;
-  letter-spacing:0;
 }
 
 .hero h1{
-  font-family:Georgia,serif;
-  font-size:clamp(48px,6vw,86px);
+  font-size:72px;
   line-height:.95;
-  font-weight:400;
-  letter-spacing:-3px;
+  letter-spacing:1px;
   margin-bottom:22px;
 }
 
 .hero-point{
-  font-size:16px;
-  line-height:1.7;
-  max-width:470px;
-  margin:0 auto 28px;
-  color:#333;
+  font-size:38px;
+  margin-bottom:26px;
 }
 
 .join-btn{
-  display:inline-block;
-  padding:14px 32px;
-  background:#111;
-  color:#fff;
-  border-radius:2px;
-  font-size:14px;
-  letter-spacing:.5px;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+
+  border:1px solid #111;
+  border-radius:30px;
+
+  padding:13px 24px;
+
+  font-size:18px;
+  background:#fff;
 }
 
 .join-btn:hover{
-  background:var(--gold);
+  background:#111;
+  color:#fff;
 }
 
 
@@ -255,68 +287,61 @@ a{
 ===================================================== */
 
 .section{
-  padding:75px 5%;
+  padding:50px 9%;
 }
 
 .intro{
   display:grid;
   grid-template-columns:1fr 1fr;
   min-height:460px;
-  align-items:stretch;
+  align-items:center;
 }
 
 .intro-image{
   height:460px;
   background-position:center;
   background-size:cover;
-  background-color:var(--cream);
 }
 
 .intro-copy{
-  padding:65px 8%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+  padding:50px 9%;
 }
 
 .intro-copy h2{
-  font-family:Georgia,serif;
-  font-weight:400;
   font-size:40px;
-  line-height:1.1;
   margin-bottom:38px;
 }
 
 .steps{
   display:grid;
-  gap:30px;
+  gap:42px;
 }
 
 .step h3{
-  font-size:15px;
+  font-size:16px;
   margin-bottom:8px;
-  font-weight:600;
 }
 
 .step p{
-  font-size:15px;
-  line-height:1.7;
+  font-size:17px;
+  line-height:1.45;
   color:#444;
 }
 
 .cta{
   display:inline-block;
-  align-self:flex-start;
-  margin-top:30px;
-  background:#111;
-  color:#fff;
-  border-radius:2px;
-  padding:14px 24px;
-  font-size:14px;
-}
 
-.cta:hover{
-  background:var(--gold);
+  margin-top:30px;
+
+  background:#000;
+  color:#fff;
+
+  border-radius:22px;
+
+  padding:13px 22px;
+
+  font-size:14px;
+  font-weight:600;
 }
 
 
@@ -325,32 +350,28 @@ a{
 ===================================================== */
 
 .earn{
-  padding:75px 5%;
-  background:#fff;
+  padding:28px 9% 50px;
 }
 
 .earn h2{
-  font-family:Georgia,serif;
-  font-weight:400;
-  color:#111;
-  font-size:40px;
-  text-align:center;
-  line-height:1.1;
-  margin-bottom:42px;
+  font-size:22px;
+  color:var(--navy);
+  margin-bottom:28px;
 }
 
 .earn-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:25px;
+  gap:6px;
 }
 
 .earn-card{
-  min-height:220px;
+  height:220px;
 
-  border:1px solid var(--line);
+  border:1px solid #eee;
+  border-radius:16px;
 
-  background:#fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
 
   display:flex;
   flex-direction:column;
@@ -358,15 +379,16 @@ a{
   justify-content:center;
 
   text-align:center;
+  padding:20px;
 
-  padding:28px 20px;
+  color:var(--navy);
 }
 
 .earn-icon{
   width:54px;
   height:54px;
 
-  border:1px solid #d9d4cb;
+  border:1px solid #eee;
   border-radius:50%;
 
   display:flex;
@@ -375,20 +397,19 @@ a{
 
   margin-bottom:18px;
 
-  font-size:22px;
+  font-size:25px;
+  color:#111;
 }
 
 .earn-card h3{
-  font-family:Georgia,serif;
-  font-size:19px;
+  font-size:15px;
   line-height:1.35;
-  font-weight:400;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .earn-card p{
-  font-size:13px;
-  color:#777;
+  font-size:14px;
+  color:#60708d;
 }
 
 
@@ -397,56 +418,54 @@ a{
 ===================================================== */
 
 .claim{
-  padding:75px 5% 0;
+  padding:15px 0 0;
   text-align:center;
 }
 
 .claim h2{
-  font-family:Georgia,serif;
-  font-weight:400;
-  color:#111;
-  font-size:40px;
-  line-height:1.1;
-  margin-bottom:42px;
+  font-size:30px;
+  margin-bottom:55px;
 }
 
 .reward-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px;
 }
 
 .reward-card{
-  height:360px;
+  height:338px;
+
   position:relative;
   overflow:hidden;
-  background:var(--cream);
+
+  background:#ddd;
 }
 
 .reward-card img{
   width:100%;
   height:100%;
+
   object-fit:cover;
   display:block;
 }
 
-.reward-card::after{
+.reward-card:after{
   content:"";
+
   position:absolute;
   inset:45% 0 0;
 
-  background:
-    linear-gradient(
-      transparent,
-      rgba(0,0,0,.65)
-    );
+  background:linear-gradient(
+    transparent,
+    rgba(0,0,0,.65)
+  );
 }
 
 .reward-card span{
   position:absolute;
   z-index:2;
 
-  bottom:24px;
+  bottom:20px;
   left:50%;
 
   transform:translateX(-50%);
@@ -457,9 +476,8 @@ a{
 
   color:#fff;
 
-  font-family:Georgia,serif;
-  font-size:25px;
-  line-height:1.2;
+  font-size:28px;
+  white-space:nowrap;
 }
 
 
@@ -468,35 +486,29 @@ a{
 ===================================================== */
 
 .vip{
-  padding:75px 5% 35px;
+  padding:70px 13% 35px;
 }
 
 .vip h2{
-  font-family:Georgia,serif;
-  font-weight:400;
-  color:#111;
-
-  font-size:40px;
-  line-height:1.1;
-
-  text-align:center;
-
-  margin-bottom:42px;
+  color:var(--navy);
+  font-size:23px;
+  margin-bottom:25px;
 }
 
 .vip-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:25px;
+  gap:12px;
 }
 
 .vip-card{
-  height:330px;
+  height:300px;
 
-  border:1px solid var(--line);
+  border-radius:16px;
+
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
 
   overflow:hidden;
-
   position:relative;
 
   background:#fff;
@@ -504,40 +516,31 @@ a{
 
 .vip-card img{
   width:100%;
-  height:160px;
+  height:145px;
 
   object-fit:cover;
   object-position:center top;
 
   display:block;
-
-  opacity:.82;
+  opacity:.72;
 }
 
 .vip-card h3{
   position:absolute;
 
-  top:132px;
-  left:22px;
+  top:35px;
+  left:17px;
 
-  color:#111;
-
-  background:#fff;
-
-  padding:10px 14px;
-
-  font-family:Georgia,serif;
-  font-weight:400;
-  font-size:23px;
+  color:var(--navy);
+  font-size:25px;
 }
 
 .vip-info{
-  padding:50px 22px 22px;
+  padding:22px 18px;
 
-  color:#444;
+  color:#344d76;
 
-  line-height:2;
-
+  line-height:2.5;
   font-size:14px;
 }
 
@@ -547,19 +550,13 @@ a{
 ===================================================== */
 
 .reward-tiers{
-  padding:75px 5% 0;
+  padding:55px 12% 0;
   text-align:center;
 }
 
 .reward-tiers h2{
-  font-family:Georgia,serif;
-  font-weight:400;
-  color:#111;
-
-  font-size:40px;
-  line-height:1.1;
-
-  margin-bottom:42px;
+  font-size:30px;
+  margin-bottom:50px;
 }
 
 .table-wrap{
@@ -569,49 +566,38 @@ a{
 table{
   width:100%;
   border-collapse:collapse;
-
   min-width:850px;
-
   font-size:14px;
 }
 
 th{
-  font-weight:600;
-
-  padding:16px 12px;
-
-  border-bottom:2px solid #111;
+  font-weight:500;
+  padding:12px;
+  color:#222;
 }
 
 td{
-  padding:16px 22px;
-
-  border-bottom:1px solid #ddd;
-
-  color:#777;
-
+  padding:14px 22px;
+  border-bottom:1px solid #aaa;
+  color:#999;
   text-align:center;
-
-  line-height:1.5;
 }
 
 td:first-child{
   text-align:left;
   color:#222;
-  font-weight:600;
+  font-weight:500;
 }
 
 
 /* =====================================================
    FOOTER
-   SAME PROPORTION AS INDEX
 ===================================================== */
 
 .footer{
-  margin-top:75px;
+  margin-top:65px;
 
   background:#111;
-
   color:#fff;
 
   padding:65px 7% 30px;
@@ -627,39 +613,32 @@ td:first-child{
     1fr
     1.6fr;
 
-  column-gap:50px;
-
-  align-items:start;
+  gap:45px;
 }
 
 .footer-logo{
   font-size:38px;
   font-weight:400;
+  line-height:1.1;
   margin-bottom:20px;
 }
 
 .footer-description{
   max-width:390px;
-
   color:#aaa;
-
   font-size:16px;
   line-height:1.7;
 }
 
 .footer h4{
   font-size:14px;
-  letter-spacing:1px;
   margin-bottom:20px;
 }
 
 .footer a{
   display:block;
-
   font-size:14px;
-
   color:#aaa;
-
   margin-bottom:13px;
 }
 
@@ -669,13 +648,9 @@ td:first-child{
 
 .copyright{
   border-top:1px solid #333;
-
   margin-top:45px;
-
   padding-top:22px;
-
   color:#666;
-
   font-size:12px;
 }
 
@@ -687,65 +662,113 @@ td:first-child{
 .floating{
   position:fixed;
   z-index:1000;
+  text-decoration:none;
+  box-sizing:border-box;
 }
+
+
+/* REVIEWS */
 
 .review{
   position:fixed;
 
-  left:18px;
-  bottom:80px;
+  left:8px;
+  bottom:110px;
 
-  height:52px;
+  width:165px;
+  height:65px;
 
-  padding:0 20px;
+  padding:0;
 
   background:#fff;
   color:#111;
 
-  border:0;
+  border:none;
   border-radius:40px;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  gap:10px;
+  gap:14px;
 
-  font-size:16px;
-  font-weight:600;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:21px;
+  font-weight:700;
 
-  box-shadow:0 6px 25px rgba(0,0,0,.12);
+  line-height:1;
+
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
 
   cursor:pointer;
 
   z-index:1000;
+
+  transition:transform .2s ease;
 }
+
+.review svg{
+  width:18px;
+  height:18px;
+
+  flex-shrink:0;
+
+  fill:#111;
+  stroke:none;
+}
+
+.review:hover{
+  transform:translateY(-1px);
+}
+
+
+/* JOIN MEMBER */
 
 .member{
   position:fixed;
 
-  left:18px;
-  bottom:18px;
+  left:8px;
+  bottom:32px;
+
+  width:183px;
+  height:58px;
+
+  padding:0;
 
   background:#000;
   color:#fff;
 
-  padding:15px 24px;
-
-  border:0;
+  border:none;
   border-radius:40px;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  font-size:16px;
-  font-weight:600;
+  font-family:Arial,Helvetica,sans-serif;
 
-  box-shadow:0 6px 25px rgba(0,0,0,.2);
+  font-size:19px;
+  font-weight:700;
+
+  line-height:1;
+
+  box-shadow:0 8px 30px rgba(0,0,0,.22);
+
+  cursor:pointer;
 
   z-index:1000;
+
+  transition:transform .2s ease;
 }
+
+.member:hover{
+  transform:translateY(-1px);
+}
+
+
+/* =====================================================
+   CHAT
+===================================================== */
 
 .chat{
   position:fixed;
@@ -769,9 +792,13 @@ td:first-child{
   align-items:center;
   justify-content:center;
 
-  box-shadow:0 6px 25px rgba(0,0,0,.2);
+  box-shadow:0 6px 25px rgba(0,0,0,.20);
 
   cursor:pointer;
+}
+
+.chat:hover{
+  transform:translateY(-1px);
 }
 
 .chat svg{
@@ -779,7 +806,6 @@ td:first-child{
   height:23px;
 
   fill:none;
-
   stroke:#fff;
 
   stroke-width:1.6;
@@ -813,18 +839,55 @@ td:first-child{
   }
 
   .footer-grid{
-    grid-template-columns:
-      1.6fr
-      1fr
-      1fr;
-
-    row-gap:35px;
+    grid-template-columns:repeat(2,1fr);
   }
-
 }
 
 
 @media(max-width:800px){
+
+  .header-main{
+    height:75px;
+  }
+
+  .logo{
+    font-size:32px;
+  }
+
+  .header-icons{
+    right:18px;
+    gap:15px;
+  }
+
+  .navigation{
+    overflow-x:auto;
+    justify-content:flex-start;
+  }
+
+  .hero-content{
+    width:100%;
+    padding:40px 6%;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .intro{
+    grid-template-columns:1fr;
+  }
+
+  .intro-image{
+    height:380px;
+  }
+
+  .footer-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+
+@media(max-width:650px){
 
   .header-main{
     height:75px;
@@ -839,38 +902,18 @@ td:first-child{
     gap:12px;
   }
 
+  .header-icon{
+    width:25px;
+    height:25px;
+  }
+
+  .header-icon svg{
+    width:24px;
+    height:24px;
+  }
+
   .navigation{
-    overflow-x:auto;
-    justify-content:flex-start;
-    padding:0 20px;
     gap:25px;
-  }
-
-  .hero-content{
-    width:100%;
-    margin:0;
-    padding:55px 6%;
-  }
-
-  .hero h1{
-    font-size:clamp(48px,10vw,70px);
-  }
-
-  .intro{
-    grid-template-columns:1fr;
-  }
-
-  .intro-image{
-    height:380px;
-  }
-
-}
-
-
-@media(max-width:650px){
-
-  .navigation{
-    height:48px;
     min-height:48px;
   }
 
@@ -878,57 +921,22 @@ td:first-child{
     font-size:13px;
   }
 
-  .hero{
-    min-height:500px;
+  .earn-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .hero-kicker{
-    font-size:13px;
-    letter-spacing:3px;
-  }
-
-  .hero h1{
-    font-size:48px;
-  }
-
-  .hero-point{
-    font-size:15px;
-  }
-
-  .intro-copy{
-    padding:50px 7%;
-  }
-
-  .intro-copy h2,
-  .earn h2,
-  .claim h2,
-  .vip h2,
-  .reward-tiers h2{
-    font-size:34px;
-  }
-
-  .earn-grid,
-  .reward-grid,
-  .vip-grid{
-    grid-template-columns:1fr;
-  }
-
-  .reward-card{
-    height:300px;
-  }
-
-  .reward-card span{
-    font-size:24px;
+  .reward-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
   .footer-grid{
     grid-template-columns:1fr;
   }
 
-  .footer{
-    padding:55px 7% 25px;
+  .member{
+    width:183px;
+    height:58px;
   }
-
 }
 
 
@@ -953,53 +961,77 @@ td:first-child{
   }
 
   .hero{
-    min-height:500px;
+    height:500px;
+  }
+
+  .hero-kicker{
+    font-size:22px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  .hero-point{
+    font-size:28px;
+  }
+
+  .section{
+    padding:35px 5%;
   }
 
   .intro-copy{
-    padding:40px 7%;
+    padding:35px 7%;
   }
 
+  .earn{
+    padding:25px 5%;
+  }
+
+  .earn-grid,
+  .reward-grid,
+  .vip-grid{
+    grid-template-columns:1fr;
+  }
+
+  .reward-card{
+    height:300px;
+  }
+
+  .reward-card span{
+    font-size:24px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-contact a{
+    margin-left:0;
+  }
 }
 </style>
 </head>
 
 <body>
 
+
 <!-- =====================================================
-     ANNOUNCEMENT
+     ANNOUNCEMENT BAR
 ===================================================== -->
 
 <div class="announcement">
-
   <div class="announcement-track">
 
-    <span>
-      THE ART OF SCENT
-    </span>
+    <span>THE ART OF SCENT</span>
+    <span>A SYMPHONY FOR THE SENSES</span>
+    <span>DISCOVER SNS FRAGRANCE</span>
 
-    <span>
-      A SYMPHONY FOR THE SENSES
-    </span>
-
-    <span>
-      DISCOVER SNS FRAGRANCE
-    </span>
-
-    <span>
-      THE ART OF SCENT
-    </span>
-
-    <span>
-      A SYMPHONY FOR THE SENSES
-    </span>
-
-    <span>
-      DISCOVER SNS FRAGRANCE
-    </span>
+    <span>THE ART OF SCENT</span>
+    <span>A SYMPHONY FOR THE SENSES</span>
+    <span>DISCOVER SNS FRAGRANCE</span>
 
   </div>
-
 </div>
 
 
@@ -1015,38 +1047,58 @@ td:first-child{
       SNS <span>Fragrance</span>
     </div>
 
+
+    <!-- =================================================
+         HEADER ICONS
+         REPLACED WITH YOUR REFERENCE ICONS
+    ================================================= -->
+
     <div class="header-icons">
+
+
+      <!-- ACCOUNT -->
 
       <a
         href="login.html"
         class="header-icon"
         aria-label="Account"
       >
+
         <svg viewBox="0 0 24 24">
 
           <circle
             cx="12"
-            cy="7"
+            cy="8"
             r="3.2"
           ></circle>
 
           <path
-            d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5"
+            d="M5 20
+               c.7-4
+               3-6
+               7-6
+               s6.3 2
+               7 6"
           ></path>
 
         </svg>
+
       </a>
 
 
+      <!-- WISHLIST -->
+
       <a
         href="wishlist.html"
-        class="header-icon wishlist"
+        class="header-icon wishlist-icon"
         aria-label="Wishlist"
       >
+
         <svg viewBox="0 0 24 24">
 
           <path
-            d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
+            d="M20.8 8.8
+               c0-2.8-2-4.8-4.7-4.8
                -1.8 0-3.4 1-4.1 2.4
                C11.3 5 9.7 4 7.9 4
                5.2 4 3.2 6 3.2 8.8
@@ -1055,14 +1107,18 @@ td:first-child{
           ></path>
 
         </svg>
+
       </a>
 
+
+      <!-- SEARCH -->
 
       <a
         href="index.html#search"
         class="header-icon"
         aria-label="Search"
       >
+
         <svg viewBox="0 0 24 24">
 
           <circle
@@ -1072,37 +1128,56 @@ td:first-child{
           ></circle>
 
           <path
-            d="M15.3 15.3L20.5 20.5"
+            d="M15.3 15.3
+               L20.5 20.5"
           ></path>
 
         </svg>
+
       </a>
 
+
+      <!-- CART -->
 
       <a
         href="index.html#cart"
         class="header-icon"
         aria-label="Cart"
       >
+
         <svg viewBox="0 0 24 24">
 
           <path
-            d="M3 4h2l2.1 11.2h10.8L20 7H6"
+            d="M3 4
+               h2
+               l2.1 11.2
+               h10.8
+               L20 7
+               H6"
           ></path>
 
-          <path d="M9 19.5h.01"></path>
+          <path
+            d="M9 19.5h.01"
+          ></path>
 
-          <path d="M17 19.5h.01"></path>
+          <path
+            d="M17 19.5h.01"
+          ></path>
 
-          <path d="M7.1 15.2h10.8"></path>
+          <path
+            d="M7.1 15.2h10.8"
+          ></path>
 
         </svg>
+
       </a>
 
     </div>
 
   </div>
 
+
+  <!-- NAVIGATION -->
 
   <nav class="navigation">
 
@@ -1188,63 +1263,38 @@ td:first-child{
       UNLOCK MORE PERKS
     </h2>
 
-
     <div class="steps">
 
       <div class="step">
-
-        <h3>
-          1. Sign Up
-        </h3>
-
+        <h3>1. Sign Up</h3>
         <p>
           Join for free and start earning rewards as our member
         </p>
-
       </div>
 
-
       <div class="step">
-
-        <h3>
-          2. Earn Points
-        </h3>
-
+        <h3>2. Earn Points</h3>
         <p>
           Collect points every time you shop or complete special actions
         </p>
-
       </div>
 
-
       <div class="step">
-
-        <h3>
-          3. Redeem Points
-        </h3>
-
+        <h3>3. Redeem Points</h3>
         <p>
           Redeem your points for exclusive discounts or free products
         </p>
-
       </div>
 
-
       <div class="step">
-
-        <h3>
-          4. Unlock Exclusive Perks
-        </h3>
-
+        <h3>4. Unlock Exclusive Perks</h3>
         <p>
           You can earn points and enjoy exclusive perks,
           including early access, special offers and gifts.
         </p>
-
       </div>
 
     </div>
-
 
     <a
       href="#earn"
@@ -1271,161 +1321,82 @@ td:first-child{
     Ways to earn points
   </h2>
 
-
   <div class="earn-grid">
 
     <div class="earn-card">
-
-      <div class="earn-icon">
-        ◉
-      </div>
-
+      <div class="earn-icon">◉</div>
       <h3>
         Shop Our Newest Deo Potion for Women &amp;
         Get 20.000 Points
       </h3>
-
-      <p>
-        20,000 points
-      </p>
-
+      <p>20,000 points</p>
     </div>
 
-
     <div class="earn-card">
-
-      <div class="earn-icon">
-        ◉
-      </div>
-
+      <div class="earn-icon">◉</div>
       <h3>
         Shop Our Newest Deo Potion for Men &amp;
         Get 20.000 Points
       </h3>
-
-      <p>
-        20,000 points
-      </p>
-
+      <p>20,000 points</p>
     </div>
 
-
     <div class="earn-card">
-
-      <div class="earn-icon">
-        🛒
-      </div>
-
+      <div class="earn-icon">🛒</div>
       <h3>
         Place 3X orders - Punch card
       </h3>
-
-      <p>
-        20,000 points
-      </p>
-
+      <p>20,000 points</p>
     </div>
 
-
     <div class="earn-card">
-
-      <div class="earn-icon">
-        ♪
-      </div>
-
+      <div class="earn-icon">♪</div>
       <h3>
         Follow us on TikTok
       </h3>
-
-      <p>
-        1,000 points
-      </p>
-
+      <p>1,000 points</p>
     </div>
 
-
     <div class="earn-card">
-
-      <div class="earn-icon">
-        ◎
-      </div>
-
+      <div class="earn-icon">◎</div>
       <h3>
         Follow us on Instagram
       </h3>
-
-      <p>
-        1,000 points
-      </p>
-
+      <p>1,000 points</p>
     </div>
 
-
     <div class="earn-card">
-
-      <div class="earn-icon">
-        ✧
-      </div>
-
+      <div class="earn-icon">✧</div>
       <h3>
         Celebrate birthday
       </h3>
-
-      <p>
-        50,000 points
-      </p>
-
+      <p>50,000 points</p>
     </div>
 
-
     <div class="earn-card">
-
-      <div class="earn-icon">
-        ☆
-      </div>
-
+      <div class="earn-icon">☆</div>
       <h3>
         Leave review
       </h3>
-
-      <p>
-        1,000 points
-      </p>
-
+      <p>1,000 points</p>
     </div>
 
-
     <div class="earn-card">
-
-      <div class="earn-icon">
-        🛒
-      </div>
-
+      <div class="earn-icon">🛒</div>
       <h3>
         Place order
       </h3>
-
       <p>
         10 points for every Rp 1,000
       </p>
-
     </div>
 
-
     <div class="earn-card">
-
-      <div class="earn-icon">
-        ♙
-      </div>
-
+      <div class="earn-icon">♙</div>
       <h3>
         Sign Up
       </h3>
-
-      <p>
-        15,000 points
-      </p>
-
+      <p>15,000 points</p>
     </div>
 
   </div>
@@ -1443,62 +1414,38 @@ td:first-child{
     Claim Your Reward
   </h2>
 
-
   <div class="reward-grid">
 
     <a class="reward-card">
-
       <img
         src="assets/reward-voucher.jpg"
         alt="Exclusive Voucher"
       >
-
-      <span>
-        Exclusive Voucher
-      </span>
-
+      <span>Exclusive Voucher</span>
     </a>
 
-
     <a class="reward-card">
-
       <img
         src="assets/reward-product.jpg"
         alt="Free Product"
       >
-
-      <span>
-        Free Product
-      </span>
-
+      <span>Free Product</span>
     </a>
 
-
     <a class="reward-card">
-
       <img
         src="assets/reward-card.jpg"
         alt="Rp. 250.000 Gift Card"
       >
-
-      <span>
-        Rp. 250.000 Gift Card
-      </span>
-
+      <span>Rp. 250.000 Gift Card</span>
     </a>
 
-
     <a class="reward-card">
-
       <img
         src="assets/reward-shipping.jpg"
         alt="Free Shipping"
       >
-
-      <span>
-        Free Shipping
-      </span>
-
+      <span>Free Shipping</span>
     </a>
 
   </div>
@@ -1516,7 +1463,6 @@ td:first-child{
     VIP Tiers
   </h2>
 
-
   <div class="vip-grid">
 
     <div class="vip-card">
@@ -1531,15 +1477,9 @@ td:first-child{
       </h3>
 
       <div class="vip-info">
-
+        –<br>
+        2x<br>
         –
-        <br>
-
-        2x
-        <br>
-
-        –
-
       </div>
 
     </div>
@@ -1557,15 +1497,9 @@ td:first-child{
       </h3>
 
       <div class="vip-info">
-
-        Spend Rp 1,000,000
-        <br>
-
-        2x
-        <br>
-
+        Spend Rp 1,000,000<br>
+        2x<br>
         Rp 25,000 off discount
-
       </div>
 
     </div>
@@ -1583,15 +1517,9 @@ td:first-child{
       </h3>
 
       <div class="vip-info">
-
-        Spend Rp 3,000,000
-        <br>
-
-        2.5x
-        <br>
-
+        Spend Rp 3,000,000<br>
+        2.5x<br>
         Rp 100,000 off discount
-
       </div>
 
     </div>
@@ -1611,285 +1539,103 @@ td:first-child{
     Reward Tiers
   </h2>
 
-
   <div class="table-wrap">
 
     <table>
 
       <thead>
-
         <tr>
-
           <th></th>
-
-          <th>
-            Rewards Name
-          </th>
-
-          <th>
-            Mechanisms
-          </th>
-
-          <th>
-            Points Earned
-          </th>
-
+          <th>Rewards Name</th>
+          <th>Mechanisms</th>
+          <th>Points Earned</th>
         </tr>
-
       </thead>
-
 
       <tbody>
 
         <tr>
-
-          <td>
-            Point
-          </td>
-
-          <td>
-            15.000 Points
-          </td>
-
-          <td>
-            Points Multiplier 1.5x
-          </td>
-
-          <td>
-            Points Multiplier 2x
-          </td>
-
+          <td>Point</td>
+          <td>15.000 Points</td>
+          <td>Points Multiplier 1.5x</td>
+          <td>Points Multiplier 2x</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Reward
-          </td>
-
-          <td>
-            -
-          </td>
-
-          <td>
-            Rp. 25.000 Discount
-          </td>
-
-          <td>
-            Rp. 250.000 Gift Card
-          </td>
-
+          <td>Reward</td>
+          <td>-</td>
+          <td>Rp. 25.000 Discount</td>
+          <td>Rp. 250.000 Gift Card</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Points Expiry Period
-          </td>
-
-          <td>
-            365 Days
-          </td>
-
-          <td>
-            365 Days
-          </td>
-
-          <td>
-            365 Days
-          </td>
-
+          <td>Points Expiry Period</td>
+          <td>365 Days</td>
+          <td>365 Days</td>
+          <td>365 Days</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Make a Purchase
-          </td>
-
-          <td>
-            10 Points for Every Rp. 1.000
-          </td>
-
-          <td>
-            10 Points for Every Rp. 1.000
-          </td>
-
-          <td>
-            10 Points for Every Rp. 1.000
-          </td>
-
+          <td>Make a Purchase</td>
+          <td>10 Points for Every Rp. 1.000</td>
+          <td>10 Points for Every Rp. 1.000</td>
+          <td>10 Points for Every Rp. 1.000</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Leave Review
-          </td>
-
-          <td>
-            1.000 Points
-          </td>
-
-          <td>
-            1.000 Points
-          </td>
-
-          <td>
-            1.000 Points
-          </td>
-
+          <td>Leave Review</td>
+          <td>1.000 Points</td>
+          <td>1.000 Points</td>
+          <td>1.000 Points</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Place 3x Orders
-          </td>
-
-          <td>
-            20.000 Points
-          </td>
-
-          <td>
-            20.000 Points
-          </td>
-
-          <td>
-            20.000 Points
-          </td>
-
+          <td>Place 3x Orders</td>
+          <td>20.000 Points</td>
+          <td>20.000 Points</td>
+          <td>20.000 Points</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Referred Friend Reward
-          </td>
-
-          <td>
-            Disc Rp. 5.000
-          </td>
-
-          <td>
-            Disc Rp. 5.000
-          </td>
-
-          <td>
-            Disc Rp. 5.000
-          </td>
-
+          <td>Referred Friend Reward</td>
+          <td>Disc Rp. 5.000</td>
+          <td>Disc Rp. 5.000</td>
+          <td>Disc Rp. 5.000</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Referring Customer Reward
-          </td>
-
-          <td>
-            10.000 Points
-          </td>
-
-          <td>
-            10.000 Points
-          </td>
-
-          <td>
-            10.000 Points
-          </td>
-
+          <td>Referring Customer Reward</td>
+          <td>10.000 Points</td>
+          <td>10.000 Points</td>
+          <td>10.000 Points</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Celebrate Birthday
-          </td>
-
-          <td>
-            50.000 Points
-          </td>
-
-          <td>
-            50.000 Points
-          </td>
-
-          <td>
-            50.000 Points
-          </td>
-
+          <td>Celebrate Birthday</td>
+          <td>50.000 Points</td>
+          <td>50.000 Points</td>
+          <td>50.000 Points</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Sign Up
-          </td>
-
-          <td>
-            15.000 Points
-          </td>
-
-          <td>
-            15.000 Points
-          </td>
-
-          <td>
-            15.000 Points
-          </td>
-
+          <td>Sign Up</td>
+          <td>15.000 Points</td>
+          <td>15.000 Points</td>
+          <td>15.000 Points</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Follow Us On Instagram
-          </td>
-
-          <td>
-            1.000 Points
-          </td>
-
-          <td>
-            1.000 Points
-          </td>
-
-          <td>
-            1.000 Points
-          </td>
-
+          <td>Follow Us On Instagram</td>
+          <td>1.000 Points</td>
+          <td>1.000 Points</td>
+          <td>1.000 Points</td>
         </tr>
 
-
         <tr>
-
-          <td>
-            Follow Us On TikTok
-          </td>
-
-          <td>
-            1.000 Points
-          </td>
-
-          <td>
-            1.000 Points
-          </td>
-
-          <td>
-            1.000 Points
-          </td>
-
+          <td>Follow Us On TikTok</td>
+          <td>1.000 Points</td>
+          <td>1.000 Points</td>
+          <td>1.000 Points</td>
         </tr>
 
       </tbody>
@@ -1916,13 +1662,9 @@ td:first-child{
       </div>
 
       <div class="footer-description">
-
         A contemporary fragrance house creating<br>
-
         expressive scents for every individual, every<br>
-
         story, and every moment.
-
       </div>
 
     </div>
@@ -1930,9 +1672,7 @@ td:first-child{
 
     <div>
 
-      <h4>
-        ABOUT
-      </h4>
+      <h4>ABOUT</h4>
 
       <a href="#">
         Our Story
@@ -1943,9 +1683,7 @@ td:first-child{
 
     <div>
 
-      <h4>
-        FOLLOW
-      </h4>
+      <h4>FOLLOW</h4>
 
       <a href="#">
         Instagram
@@ -1964,9 +1702,7 @@ td:first-child{
 
     <div>
 
-      <h4>
-        INFO
-      </h4>
+      <h4>INFO</h4>
 
       <a href="faq.html">
         FAQ
@@ -1989,9 +1725,7 @@ td:first-child{
 
     <div>
 
-      <h4>
-        CONTACT
-      </h4>
+      <h4>CONTACT</h4>
 
       <a href="mailto:snsfragranceid@gmail.com">
         snsfragranceid@gmail.com
@@ -2010,52 +1744,52 @@ td:first-child{
 
 
 <!-- =====================================================
-     FLOATING BUTTONS
+     REVIEWS
 ===================================================== -->
 
-<div class="floating">
+<button
+  class="review"
+  type="button"
+  aria-label="Reviews"
+>
 
-  <button
-    class="float-btn review"
-    type="button"
-    aria-label="Reviews"
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
   >
 
-    <svg
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
+    <path
+      d="M12 3.5
+         L14.5 8.5
+         L20 9.3
+         L16 13.2
+         L17 18.7
+         L12 16.1
+         L7 18.7
+         L8 13.2
+         L4 9.3
+         L9.5 8.5 Z"
+    ></path>
 
-      <path
-        d="M12 3.5
-           L14.5 8.5
-           L20 9.3
-           L16 13.2
-           L17 18.7
-           L12 16.1
-           L7 18.7
-           L8 13.2
-           L4 9.3
-           L9.5 8.5 Z"
-      ></path>
+  </svg>
 
-    </svg>
+  <span>
+    Reviews
+  </span>
 
-    <span>
-      Reviews
-    </span>
-
-  </button>
+</button>
 
 
-  <a
-    href="member.html"
-    class="float-btn member"
-  >
-    Join Member
-  </a>
+<!-- =====================================================
+     JOIN MEMBER
+===================================================== -->
 
-</div>
+<a
+  href="member.html"
+  class="member"
+>
+  Join Member
+</a>
 
 
 <!-- =====================================================
@@ -2064,6 +1798,7 @@ td:first-child{
 
 <button
   class="chat"
+  type="button"
   aria-label="Chat"
 >
 
@@ -2088,24 +1823,18 @@ td:first-child{
       cx="8"
       cy="11.5"
       r=".7"
-      fill="#fff"
-      stroke="none"
     ></circle>
 
     <circle
       cx="12"
       cy="11.5"
       r=".7"
-      fill="#fff"
-      stroke="none"
     ></circle>
 
     <circle
       cx="16"
       cy="11.5"
       r=".7"
-      fill="#fff"
-      stroke="none"
     ></circle>
 
   </svg>
