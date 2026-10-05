@@ -2447,583 +2447,291 @@ footer a:hover {
 </section>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+  <!-- =========================
+       REVIEWS
+  ========================== -->
 
-<footer>
+  <a href="review.html" class="floating review-button" aria-label="Reviews">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3.5 L14.5 8.5 L20 9.3 L16 13.2 L17 18.7 L12 16.1 L7 18.7 L8 13.2 L4 9.3 L9.5 8.5 Z"></path>
+    </svg>
+    <span>Reviews</span>
+  </a>
 
-  <div class="footer-grid">
 
-    <div class="footer-brand">
 
-      <h2>
-        SNS Fragrance
-      </h2>
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
-      <p>
-        A contemporary fragrance house creating
-        expressive scents for every individual,
-        every story, and every moment.
-      </p>
+  <footer>
 
+    <div class="footer-grid">
+
+
+      <div class="footer-brand">
+
+        <h2>SNS Fragrance</h2>
+
+        <p>
+          A contemporary fragrance house creating
+          expressive scents for every individual,
+          every story, and every moment.
+        </p>
+
+      </div>
+      <div>
+        <h4>ABOUT</h4>
+        <a href="about.html">Our Story</a>
+      </div>
+      <div>
+
+        <h4>FOLLOW</h4>
+
+        <a href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==">Instagram</a>
+        <a href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z">TikTok</a>
+        <a href="https://wa.me/message/TZMPXSMPC6XHM1">WhatsApp</a>
+
+      </div>
+
+      <div>
+
+        <h4>INFO</h4>
+
+        <a href="faq.html">FAQ</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="returns.html">Returns & Exchanges</a>
+    </div>
+      
+      <div class="footer-contact">
+
+        <h4>CONTACT</h4>
+        <a href="mailto:snsfragranceid@gmail.com">snsfragranceid@gmail.com</a>
+      </div>
     </div>
 
 
-    <div>
+    <div class="copyright">
 
-      <h4>
-        ABOUT
-      </h4>
-
-      <a href="about.html">
-        Our Story
-      </a>
+      © 2026 SNS Fragrance. All rights reserved.
 
     </div>
 
-
-    <div>
-
-      <h4>
-        FOLLOW
-      </h4>
-
-      <a href="https://www.instagram.com/snsfragrance.id">
-        Instagram
-      </a>
-
-      <a href="https://www.tiktok.com/@snsfragrance.id">
-        TikTok
-      </a>
-
-      <a href="https://wa.me/message/TZMPXSMPC6XHM1">
-        WhatsApp
-      </a>
-
-    </div>
+  </footer>
 
 
-    <div>
 
-      <h4>
-        INFO
-      </h4>
+  <!-- =========================
+       FLOATING BUTTONS
+  ========================== -->
 
-      <a href="faq.html">
-        FAQ
-      </a>
+  <a href="member.html" class="floating join member">
+  Join Member
+  </a>
+  
+  <a href="https://wa.me/message/TZMPXSMPC6XHM1" class="floating chat">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M5 5.5
+           h14
+           a2 2 0 0 1 2 2
+           v8
+           a2 2 0 0 1-2 2
+           h-7
+           l-4 3
+           v-3
+           H5
+           a2 2 0 0 1-2-2
+           v-8
+           a2 2 0 0 1 2-2z"
+      ></path>
 
-      <a href="terms.html">
-        Terms of Service
-      </a>
+      <circle
+        cx="8"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
 
-      <a href="privacy.html">
-        Privacy Policy
-      </a>
+      <circle
+        cx="12"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
 
-      <a href="returns.html">
-        Returns &amp; Exchanges
-      </a>
-
-    </div>
-
-
-    <div>
-
-      <h4>
-        CONTACT
-      </h4>
-
-      <a href="mailto:snsfragranceid@gmail.com">
-        snsfragranceid@gmail.com
-      </a>
-
-    </div>
-
-  </div>
+      <circle
+        cx="16"
+        cy="11.5"
+        r=".7"
+        fill="white"
+      ></circle>
+    </svg>
+  </a>
 
 
-  <div class="copyright">
-    © 2026 SNS Fragrance. All rights reserved.
-  </div>
 
-</footer>
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
 
+  <script>
 
-<!-- =====================================================
-     REVIEWS
-===================================================== -->
+    /* =========================
+       SEARCH
+    ========================== */
 
-  .floating.review-button {
-      left: 18px;
-      bottom: 80px;
-      height: 52px;
-      padding: 0 20px;
+    const searchTrigger = document.getElementById("searchTrigger");
+    const searchPanel = document.getElementById("searchPanel");
+    const searchOverlay = document.getElementById("searchOverlay");
+    const searchInput = document.getElementById("searchInput");
+    const searchClose = document.getElementById("searchClose");
+    const searchForm = document.getElementById("searchForm");
 
-      background: #fff;
-      color: #111;
-      border-radius: 40px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1;
-
-      box-shadow: 0 6px 25px rgba(0,0,0,0.12);
-      cursor: pointer;
+    function openSearch() {
+      searchPanel.classList.add("active");
+      searchOverlay.classList.add("active");
+      setTimeout(function () {
+        searchInput.focus();
+      }, 180);
     }
 
-    .floating.review-button:hover {
-      color: #111;
-      text-decoration: none;
-      transform: translateY(-1px);
+    function closeSearch() {
+      searchPanel.classList.remove("active");
+      searchOverlay.classList.remove("active");
+      searchInput.value = "";
     }
 
-    .floating.review-button svg {
-      width: 18px;
-      height: 18px;
-      flex: 0 0 18px;
-      display: block;
-      fill: #111;
+    searchTrigger.addEventListener("click", openSearch);
+    searchClose.addEventListener("click", closeSearch);
+    searchOverlay.addEventListener("click", closeSearch);
+
+    searchForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const searchValue = searchInput.value.trim();
+      if (!searchValue) return;
+      console.log("Searching for:", searchValue);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && searchPanel.classList.contains("active")) {
+        closeSearch();
+      }
+    });
+
+    /* =========================
+       CART
+    ========================== */
+
+
+
+    /* =========================
+       CART FUNCTIONALITY
+    ========================== */
+
+    let cart = [];
+
+    const cartTrigger = document.getElementById("cartTrigger");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const cartClose = document.getElementById("cartClose");
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+    const cartCount = document.getElementById("cartCount");
+    const cartCheckout = document.getElementById("cartCheckout");
+
+    const productPrices = {
+      "Tranquility": 299000,
+      "Cocoa Amore": 299000,
+      "Rapha": 299000,
+      "Ophir": 299000
+    };
+
+    function formatPrice(price) {
+      return "Rp " + price.toLocaleString("id-ID");
     }
 
-
-<!-- =====================================================
-     JOIN MEMBER
-===================================================== -->
-
-  .floating.join.member {
-      left: 18px;
-      bottom: 18px;
-
-      background: #000;
-      color: #fff;
-
-      padding: 15px 24px;
-      border-radius: 40px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1;
-
-      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
-      cursor: pointer;
+    function openCart() {
+      cartDrawer.classList.add("active");
+      cartOverlay.classList.add("active");
+      document.body.style.overflow = "hidden";
     }
 
-    .floating.join.member:hover {
-      color: #fff;
-      text-decoration: none;
-      transform: translateY(-1px);
+    function closeCart() {
+      cartDrawer.classList.remove("active");
+      cartOverlay.classList.remove("active");
+      document.body.style.overflow = "";
     }
 
-<!-- =====================================================
-     CHAT
-===================================================== -->
-
- .floating.chat {
-      right: 18px;
-      bottom: 18px;
-
-      width: 50px;
-      height: 50px;
-
-      border-radius: 50%;
-      background: #000;
-      color: #fff;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
-      cursor: pointer;
-    }
-
-    .floating.chat:hover {
-      color: #fff;
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-
-    .floating.chat svg {
-      width: 23px;
-      height: 23px;
-      display: block;
-
-      fill: none;
-      stroke: #fff;
-      stroke-width: 1.6;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .floating.chat circle {
-      fill: #fff;
-      stroke: none;
-    }
-
-/* =========================
-   SEARCH
-========================= */
-
-const searchTrigger =
-  document.getElementById("searchTrigger");
-
-const searchPanel =
-  document.getElementById("searchPanel");
-
-const searchOverlay =
-  document.getElementById("searchOverlay");
-
-const searchInput =
-  document.getElementById("searchInput");
-
-const searchClose =
-  document.getElementById("searchClose");
-
-const searchForm =
-  document.getElementById("searchForm");
-
-
-function openSearch() {
-
-  searchPanel.classList.add("active");
-
-  searchOverlay.classList.add("active");
-
-  setTimeout(function () {
-
-    searchInput.focus();
-
-  }, 180);
-
-}
-
-
-function closeSearch() {
-
-  searchPanel.classList.remove("active");
-
-  searchOverlay.classList.remove("active");
-
-  searchInput.value = "";
-
-}
-
-
-searchTrigger.addEventListener(
-  "click",
-  openSearch
-);
-
-searchClose.addEventListener(
-  "click",
-  closeSearch
-);
-
-searchOverlay.addEventListener(
-  "click",
-  closeSearch
-);
-
-
-searchForm.addEventListener(
-  "submit",
-  function(event) {
-
-    event.preventDefault();
-
-    const searchValue =
-      searchInput.value.trim();
-
-    if (!searchValue) return;
-
-    console.log(
-      "Searching for:",
-      searchValue
-    );
-
-  }
-);
-
-
-document.addEventListener(
-  "keydown",
-  function(event) {
-
-    if (
-      event.key === "Escape" &&
-      searchPanel.classList.contains("active")
-    ) {
-
-      closeSearch();
-
-    }
-
-  }
-);
-
-
-/* =========================
-   CART
-========================= */
-
-let cart = [];
-
-const cartTrigger =
-  document.getElementById("cartTrigger");
-
-const cartDrawer =
-  document.getElementById("cartDrawer");
-
-const cartOverlay =
-  document.getElementById("cartOverlay");
-
-const cartClose =
-  document.getElementById("cartClose");
-
-const cartItems =
-  document.getElementById("cartItems");
-
-const cartTotal =
-  document.getElementById("cartTotal");
-
-const cartCount =
-  document.getElementById("cartCount");
-
-const cartCheckout =
-  document.getElementById("cartCheckout");
-
-
-const productPrices = {
-
-  "Tranquility": 299000,
-
-  "Cocoa Amore": 299000,
-
-  "Rapha": 299000,
-
-  "Ophir": 299000
-
-};
-
-
-function formatPrice(price) {
-
-  return (
-    "Rp " +
-    price.toLocaleString("id-ID")
-  );
-
-}
-
-
-function openCart() {
-
-  cartDrawer.classList.add("active");
-
-  cartOverlay.classList.add("active");
-
-  document.body.style.overflow =
-    "hidden";
-
-}
-
-
-function closeCart() {
-
-  cartDrawer.classList.remove("active");
-
-  cartOverlay.classList.remove("active");
-
-  document.body.style.overflow =
-    "";
-
-}
-
-
-function renderCart() {
-
-  if (!cart.length) {
-
-    cartItems.innerHTML =
-      '<div class="cart-empty"><p>Your cart is empty.</p></div>';
-
-    cartTotal.textContent =
-      "Rp 0";
-
-    cartCount.textContent =
-      "0";
-
-    cartCount.classList.remove(
-      "active"
-    );
-
-    return;
-
-  }
-
-
-  const grouped = {};
-
-
-  cart.forEach(function(product) {
-
-    if (!grouped[product]) {
-
-      grouped[product] = {
-        name: product,
-        quantity: 0
-      };
-
-    }
-
-    grouped[product].quantity++;
-
-  });
-
-
-  let total = 0;
-
-  let quantityTotal = 0;
-
-
-  cartItems.innerHTML =
-    Object.values(grouped)
-      .map(function(item) {
-
-        const price =
-          productPrices[item.name] || 0;
-
-        const itemTotal =
-          price * item.quantity;
-
+    function renderCart() {
+      if (!cart.length) {
+        cartItems.innerHTML = '<div class="cart-empty"><p>Your cart is empty.</p></div>';
+        cartTotal.textContent = "Rp 0";
+        cartCount.textContent = "0";
+        cartCount.classList.remove("active");
+        return;
+      }
+
+      const grouped = {};
+      cart.forEach(function(product) {
+        if (!grouped[product]) grouped[product] = { name: product, quantity: 0 };
+        grouped[product].quantity++;
+      });
+
+      let total = 0;
+      let quantityTotal = 0;
+
+      cartItems.innerHTML = Object.values(grouped).map(function(item) {
+        const price = productPrices[item.name] || 0;
+        const itemTotal = price * item.quantity;
         total += itemTotal;
-
-        quantityTotal +=
-          item.quantity;
-
+        quantityTotal += item.quantity;
 
         return `
           <div class="cart-item">
-
             <div class="cart-item-info">
-
-              <div class="cart-item-name">
-                ${item.name}
-              </div>
-
-              <div class="cart-item-meta">
-                Extrait de Parfum · Qty ${item.quantity}
-              </div>
-
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-meta">Extrait de Parfum · Qty ${item.quantity}</div>
             </div>
-
-            <div class="cart-item-price">
-              ${formatPrice(itemTotal)}
-            </div>
-
+            <div class="cart-item-price">${formatPrice(itemTotal)}</div>
           </div>
         `;
+      }).join("");
 
-      })
-      .join("");
+      cartTotal.textContent = formatPrice(total);
+      cartCount.textContent = quantityTotal;
+      cartCount.classList.add("active");
+    }
 
+    function addToCart(product) {
+      cart.push(product);
+      renderCart();
+      openCart();
+    }
 
-  cartTotal.textContent =
-    formatPrice(total);
+    cartTrigger.addEventListener("click", function() {
+      renderCart();
+      openCart();
+    });
 
-  cartCount.textContent =
-    quantityTotal;
+    cartClose.addEventListener("click", closeCart);
+    cartOverlay.addEventListener("click", closeCart);
 
-  cartCount.classList.add(
-    "active"
-  );
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape" && cartDrawer.classList.contains("active")) {
+        closeCart();
+      }
+    });
 
-}
-
-
-function addToCart(product) {
-
-  cart.push(product);
-
-  renderCart();
-
-  openCart();
-
-}
-
-
-cartTrigger.addEventListener(
-  "click",
-  function() {
+    cartCheckout.addEventListener("click", function() {
+      if (!cart.length) return;
+      alert("Checkout functionality will be connected here.");
+    });
 
     renderCart();
 
-    openCart();
-
-  }
-);
-
-
-cartClose.addEventListener(
-  "click",
-  closeCart
-);
-
-
-cartOverlay.addEventListener(
-  "click",
-  closeCart
-);
-
-
-document.addEventListener(
-  "keydown",
-  function(event) {
-
-    if (
-      event.key === "Escape" &&
-      cartDrawer.classList.contains("active")
-    ) {
-
-      closeCart();
-
-    }
-
-  }
-);
-
-
-cartCheckout.addEventListener(
-  "click",
-  function() {
-
-    if (!cart.length) return;
-
-    alert(
-      "Checkout functionality will be connected here."
-    );
-
-  }
-);
-
-
-renderCart();
-
-</script>
+  </script>
 
 </body>
 </html>
