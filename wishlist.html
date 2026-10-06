@@ -67,63 +67,55 @@
     ===================================================== */
 
     .announcement {
-      width: 100%;
-      height: 42px;
+  height: 42px;
+  background: #000;
+  color: #fff;
 
-      background: #000;
-      color: #fff;
+  overflow: hidden;
+  position: relative;
 
-      overflow: hidden;
-      position: relative;
+  display: flex;
+  align-items: center;
 
-      display: flex;
-      align-items: center;
+  white-space: nowrap;
+}
 
-      white-space: nowrap;
-    }
+.announcement-track {
+  display: flex;
+  align-items: center;
 
+  width: max-content;
 
-    .announcement-track {
-      display: flex;
-      align-items: center;
+  animation: announcementScroll 30s linear infinite;
+}
 
-      width: max-content;
+.announcement-track span {
+  display: inline-flex;
+  align-items: center;
 
-      animation:
-        announcementScroll 30s linear infinite;
-    }
+  margin-right: 140px;
 
+  font-size: 12px;
+  font-weight: 400;
 
-    .announcement-track span {
-      display: inline-flex;
-      align-items: center;
+  letter-spacing: 1px;
+}
 
-      margin-right: 140px;
+@keyframes announcementScroll {
 
-      font-size: 12px;
-      font-weight: 400;
+  0% {
+    transform: translateX(0);
+  }
 
-      letter-spacing: 1px;
-    }
+  100% {
+    transform: translateX(-50%);
+  }
 
+}
 
-    @keyframes announcementScroll {
-
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-
-    }
-
-
-    .announcement:hover .announcement-track {
-      animation-play-state: paused;
-    }
-
+.announcement:hover .announcement-track {
+  animation-play-state: paused;
+}
 
     /* =====================================================
        HEADER
@@ -136,14 +128,14 @@
 
 
     .header-main {
-      height: 96px;
+  height: 96px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      position: relative;
-    }
+  position: relative;
+}
 
 
     /* =====================================================
@@ -151,21 +143,14 @@
     ===================================================== */
 
     .logo {
-      font-size: 42px;
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: -2px;
+}
 
-      font-weight: 600;
-
-      letter-spacing: -2px;
-
-      line-height: 1;
-
-      color: #111;
-    }
-
-
-    .logo span {
-      font-weight: 300;
-    }
+.logo span {
+  font-weight: 300;
+}
 
 
     /* =====================================================
@@ -180,9 +165,8 @@
   display: flex;
   align-items: center;
 
-  gap: 38px;
+  gap: 25px;
 }
-
 
     .header-icon {
       width: 26px;
@@ -193,7 +177,6 @@
 
       border: none;
       outline: none;
-
       background: transparent;
 
       display: flex;
@@ -201,9 +184,7 @@
       justify-content: center;
 
       cursor: pointer;
-
       text-decoration: none;
-
       color: #111;
 
       position: relative;
@@ -226,7 +207,7 @@
       display: block;
 
       transition:
-        transform .2s ease;
+        transform 0.2s ease;
     }
 
 
@@ -241,9 +222,7 @@
 
     .wishlist-icon svg {
       fill: none !important;
-
       stroke: #e90046 !important;
-
       stroke-width: 1.8;
     }
 
@@ -285,41 +264,31 @@
     ===================================================== */
 
     .navigation {
-  height: 57px;
-
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
   gap: 38px;
 
-  border-bottom: 1px solid #ededed;
-
+  min-height: 58px;
   padding: 0 25px;
+
+  border-bottom: 1px solid #e7e7e7;
 }
 
+.navigation a {
+  color: #111;
+  text-decoration: none;
 
-    .navigation a {
-      position: relative;
+  font-size: 15px;
+  white-space: nowrap;
 
-      color: #111;
+  transition: 0.2s;
+}
 
-      text-decoration: none;
-
-      font-size: 15px;
-
-      white-space: nowrap;
-
-      padding: 20px 0;
-
-      transition:
-        color .2s ease;
-    }
-
-
-    .navigation a:hover {
-      color: #8b6736;
-    }
+.navigation a:hover {
+  color: var(--gold);
+}
 
 
     .navigation a.active {
@@ -1331,210 +1300,76 @@
   ===================================================== -->
 
   <div class="announcement">
+  <div class="announcement-track">
 
-    <div class="announcement-track">
+    <span>THE ART OF SCENT</span>
+    <span>A SYMPHONY FOR THE SENSES</span>
+    <span>DISCOVER SNS FRAGRANCE</span>
 
-      <span>
-        THE ART OF SCENT
-      </span>
-
-      <span>
-        A SYMPHONY FOR THE SENSES
-      </span>
-
-      <span>
-        DISCOVER SNS FRAGRANCE
-      </span>
-
-      <span>
-        THE ART OF SCENT
-      </span>
-
-      <span>
-        A SYMPHONY FOR THE SENSES
-      </span>
-
-      <span>
-        DISCOVER SNS FRAGRANCE
-      </span>
-
-    </div>
+    <span>THE ART OF SCENT</span>
+    <span>A SYMPHONY FOR THE SENSES</span>
+    <span>DISCOVER SNS FRAGRANCE</span>
 
   </div>
-
+</div>
 
 
   <!-- =====================================================
        HEADER
   ===================================================== -->
 
-  <header>
-
+ <header>
 
     <div class="header-main">
 
-
-      <!-- LOGO -->
-
-      <a
-        href="index.html"
-        class="logo">
-
+      <div class="logo">
         SNS <span>Fragrance</span>
-
-      </a>
-
-
-
-      <!-- HEADER ICONS -->
+      </div>
 
       <div class="header-icons">
 
-
         <!-- ACCOUNT -->
-
-        <a
-          href="login.html"
-          class="header-icon"
-          aria-label="Account">
-
-          <svg viewBox="0 0 24 24">
-
-            <circle
-              cx="12"
-              cy="7"
-              r="3.2">
-            </circle>
-
-            <path
-              d="M5 20.5c.5-3.5 3.1-5.5 7-5.5s6.5 2 7 5.5">
-            </path>
-
-          </svg>
-
+        <a href="login.html" class="header-icon" aria-label="Account">
+          ...
         </a>
-
-
 
         <!-- WISHLIST -->
-
-        <a
-          href="wishlist.html"
-          class="header-icon wishlist-icon"
-          aria-label="Wishlist">
-
-          <svg viewBox="0 0 24 24">
-
-            <path
-              d="M20.8 8.8c0-2.8-2-4.8-4.7-4.8
-              -1.8 0-3.4 1-4.1 2.4
-              C11.3 5 9.7 4 7.9 4
-              5.2 4 3.2 6 3.2 8.8
-              c0 4.9 8.8 10.2 8.8 10.2
-              s8.8-5.3 8.8-10.2z">
-            </path>
-
-          </svg>
-
+        <a href="wishlist.html"
+           class="header-icon wishlist-icon"
+           aria-label="Add to wishlist">
+          ...
         </a>
 
-
-
         <!-- SEARCH -->
-
         <button
           type="button"
-          class="header-icon"
+          class="header-icon search-trigger"
           id="searchTrigger"
           aria-label="Search">
-
-          <svg viewBox="0 0 24 24">
-
-            <circle
-              cx="10.5"
-              cy="10.5"
-              r="6.3">
-            </circle>
-
-            <path
-              d="M15.3 15.3L20.5 20.5">
-            </path>
-
-          </svg>
-
+          ...
         </button>
-
-
 
         <!-- CART -->
-
         <button
-          type="button"
           class="header-icon"
           id="cartTrigger"
-          aria-label="Shopping Cart">
-
-          <svg viewBox="0 0 24 24">
-
-            <path
-              d="M3 4h2l2.1 11.2h10.8L20 7H6">
-            </path>
-
-            <path
-              d="M9 19.5h.01">
-            </path>
-
-            <path
-              d="M17 19.5h.01">
-            </path>
-
-            <path
-              d="M7.1 15.2h10.8">
-            </path>
-
-          </svg>
-
-          <span
-            class="cart-count"
-            id="cartCount">
-            0
-          </span>
-
+          aria-label="Shopping Cart"
+          type="button">
+          ...
         </button>
-
 
       </div>
 
     </div>
 
 
-
-    <!-- =================================================
-         NAVIGATION
-         SAME AS INDEX.HTML
-    ================================================== -->
-
     <nav class="navigation">
 
-      <a href="bestsellers.html">
-        Bestsellers
-      </a>
-
-      <a href="extrait.html">
-        Extrait de Parfum
-      </a>
-
-      <a href="edp.html">
-        Eau de Parfum
-      </a>
-
-      <a href="edt.html">
-        Eau de Toilette
-      </a>
-
-      <a href="loyalty.html">
-        Loyalty
-      </a>
+      <a href="bestsellers.html">Bestsellers</a>
+      <a href="extrait.html">Extrait de Parfum</a>
+      <a href="edp.html">Eau de Parfum</a>
+      <a href="edt.html">Eau de Toilette</a>
+      <a href="loyalty.html">Loyalty</a>
 
     </nav>
 
