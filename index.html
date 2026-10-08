@@ -45,7 +45,6 @@
 
 .announcement-track {
   display: flex;
-  align-items: center;
   width: max-content;
   flex-shrink: 0;
   animation: announcementLoop 30s linear infinite;
@@ -77,12 +76,12 @@
 }
 
 @keyframes announcementLoop {
-  0% {
-    transform: translateX(0);
+  from {
+    transform: translate3d(0, 0, 0);
   }
 
-  100% {
-    transform: translateX(-50%);
+  to {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -1287,31 +1286,20 @@
   <!-- =========================
      ANNOUNCEMENT BAR
 ========================== -->
-
 <div class="announcement-bar">
   <div class="announcement-track">
 
-    <!-- SET 1 -->
     <div class="announcement-content">
       <span>DISCOVER SNS FRAGRANCE</span>
       <span>THE ART OF SCENT</span>
       <span>A SYMPHONY FOR THE SENSES</span>
     </div>
 
-    <!-- SET 2 -->
     <div class="announcement-content" aria-hidden="true">
       <span>DISCOVER SNS FRAGRANCE</span>
       <span>THE ART OF SCENT</span>
       <span>A SYMPHONY FOR THE SENSES</span>
     </div>
-
-    <!-- SET 3 -->
-    <div class="announcement-content" aria-hidden="true">
-      <span>DISCOVER SNS FRAGRANCE</span>
-      <span>THE ART OF SCENT</span>
-      <span>A SYMPHONY FOR THE SENSES</span>
-    </div>
-
   </div>
 </div>
 
