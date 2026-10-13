@@ -35,97 +35,74 @@
     }
 
 
-    /* =====================================================
-       TOP ANNOUNCEMENT BAR
-    ===================================================== */
+    
+/* ANNOUNCEMENT BAR */
+.announcement,
+.announcement-bar {
+  width: 100%;
+  height: 38px;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
 
-    .announcement-bar {
-      width: 100%;
-      height: 38px;
+.announcement-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: announcementMove 35s linear infinite;
+}
 
-      background: #000;
-      color: #fff;
+.announcement-track span {
+  display: inline-block;
+  margin-right: 180px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
 
-      overflow: hidden;
-      white-space: nowrap;
+@keyframes announcementMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
-      display: flex;
-      align-items: center;
-    }
+/* MAIN HEADER */
+header {
+  position: relative;
+  width: 100%;
+  height: 93px;
+  background: #fff;
+}
 
-    .announcement-track {
-      display: flex;
-      align-items: center;
+.header-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-      width: max-content;
+/* LOGO */
+.logo {
+  color: #111;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  line-height: 1;
+}
 
-      animation: announcementMove 35s linear infinite;
-    }
-
-    .announcement-track span {
-      display: inline-block;
-
-      margin-right: 180px;
-
-      font-size: 14px;
-      font-weight: 500;
-
-      letter-spacing: 0.2px;
-    }
-
-    @keyframes announcementMove {
-
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-
-    }
-
-
-    /* =====================================================
-       MAIN HEADER
-    ===================================================== */
-
-    .site-header {
-
-      position: relative;
-
-      width: 100%;
-      height: 88px;
-
-      background: #fff;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-    }
-
-
-    /* =====================================================
-       LOGO
-    ===================================================== */
-
-    .site-logo {
-
-      font-family: Arial, Helvetica, sans-serif;
-
-      font-size: 39px;
-
-      font-weight: 600;
-
-      letter-spacing: -2.2px;
-
-      color: #111;
-
-      line-height: 1;
-    }
-
-
+.logo span {
+  font-weight: 400;
+}
     /* =====================================================
        HEADER ICONS
     ===================================================== */
@@ -1136,63 +1113,27 @@
 
 <body>
 
- <!-- =====================================================
-       ANNOUNCEMENT BAR
-  ===================================================== -->
 
-  <div class="announcement">
-
-    <div class="announcement-track">
-
-      <span>
-        THE ART OF SCENT
-      </span>
-
-      <span>
-        A SYMPHONY FOR THE SENSES
-      </span>
-
-      <span>
-        DISCOVER SNS FRAGRANCE
-      </span>
-
-      <span>
-        THE ART OF SCENT
-      </span>
-
-      <span>
-        A SYMPHONY FOR THE SENSES
-      </span>
-
-      <span>
-        DISCOVER SNS FRAGRANCE
-      </span>
-
-    </div>
-
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement">
+  <div class="announcement-track">
+    <span>THE ART OF SCENT</span>
+    <span>A SYMPHONY FOR THE SENSES</span>
+    <span>DISCOVER SNS FRAGRANCE</span>
+    <span>THE ART OF SCENT</span>
+    <span>A SYMPHONY FOR THE SENSES</span>
+    <span>DISCOVER SNS FRAGRANCE</span>
   </div>
+</div>
 
-  <!-- =====================================================
-       HEADER
-  ===================================================== -->
-
-  <header>
-
-    <div class="header-main">
-
-
-      <!-- LOGO -->
-
-      <a
-        href="index.html"
-        class="logo"
-      >
-
-        SNS <span>Fragrance</span>
-
-      </a>
-      </div>
-    </div>
+<!-- MAIN HEADER -->
+<header>
+  <div class="header-main">
+    <a href="index.html" class="logo">
+      SNS <span>Fragrance</span>
+    </a>
+  </div>
+</header>
     
   <!-- ==================================================
        LANGUAGE SWITCHER
