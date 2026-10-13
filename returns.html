@@ -421,378 +421,89 @@
        FOOTER
     ===================================================== */
 
-    footer {
-
-      background: #111;
-
-      color: #fff;
-
-      padding:
-        65px
-        7%
-        30px;
-    }
-
-    .footer-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        2.2fr
-        1fr
-        1fr
-        1fr
-        1.6fr;
-
-      gap: 45px;
-    }
-
-    .footer-brand h2 {
-
-      font-size: 30px;
-
-      font-weight: 500;
-    }
-
-    .footer-brand p {
-
-      margin-top: 15px;
-
-      max-width: 350px;
-
-      color: #aaa;
-
-      line-height: 1.7;
-
-      font-size: 14px;
-    }
-
-    footer h4 {
-
-      margin-bottom: 18px;
-
-      font-size: 14px;
-
-      font-weight: 600;
-    }
-
-    footer a {
-
-      display: block;
-
-      color: #aaa;
-
-      margin-bottom: 12px;
-
-      font-size: 13px;
-
-      transition:
-        color 0.2s ease;
-    }
-
-    footer a:hover {
-
-      color: #fff;
-    }
-
-    .copyright {
-
-      border-top:
-        1px solid #333;
-
-      margin-top: 50px;
-
-      padding-top: 25px;
-
-      color: #777;
-
-      font-size: 12px;
-    }
-
-
-    /* =====================================================
-       FLOATING BUTTONS
-    ===================================================== */
-
-    .floating {
-
-      position: fixed;
-
-      z-index: 1000;
-
-      cursor: pointer;
-    }
-
-    .reviews {
-
-      left: 15px;
-
-      bottom: 68px;
-
-      background: #fff;
-
-      color: #111;
-
-      padding:
-        15px 20px;
-
-      border-radius: 32px;
-
-      font-size: 16px;
-
-      font-weight: 600;
-
-      box-shadow:
-        0 4px 20px
-        rgba(0,0,0,0.12);
-    }
-
-    .reviews::before {
-
-      content: "★";
-
-      margin-right: 9px;
-
-      font-size: 17px;
-    }
-
-    .rewards {
-
-      left: 15px;
-
-      bottom: 10px;
-
-      background: #000;
-
-      color: #fff;
-
-      padding:
-        15px 22px;
-
-      border-radius: 32px;
-
-      font-size: 16px;
-
-      font-weight: 600;
-
-      box-shadow:
-        0 5px 20px
-        rgba(0,0,0,0.2);
-    }
-
-    .rewards::before {
-
-      content: "🎁";
-
-      margin-right: 9px;
-    }
-
-    .chat {
-
-      right: 15px;
-
-      bottom: 10px;
-
-      width: 50px;
-
-      height: 50px;
-
-      border-radius: 50%;
-
-      background: #000;
-
-      color: #fff;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      box-shadow:
-        0 5px 20px
-        rgba(0,0,0,0.2);
-    }
-
-    .chat svg {
-
-      width: 23px;
-
-      height: 23px;
-
-      fill: none;
-
-      stroke: #fff;
-
-      stroke-width: 1.7;
-
-      stroke-linecap: round;
-
-      stroke-linejoin: round;
-    }
-
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-
-    @media (max-width: 1000px) {
-
-      .navigation {
-
-        justify-content: flex-start;
-
-        padding: 0 25px;
-      }
-
-      .footer-grid {
-
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
-    }
-
-
-    @media (max-width: 650px) {
-
-      .announcement {
-
-        height: 32px;
-      }
-
-      .announcement-track span {
-
-        font-size: 10px;
-
-        margin-right: 90px;
-      }
-
-      .header-main {
-
-        height: 72px;
-      }
-
-      .logo {
-
-        font-size: 29px;
-      }
-
-      .header-icons {
-
-        right: 15px;
-
-        gap: 11px;
-      }
-
-      .header-icon {
-
-        width: 22px;
-
-        height: 22px;
-      }
-
-      .header-icon svg {
-
-        width: 21px;
-
-        height: 21px;
-      }
-
-      .navigation {
-
-        min-height: 45px;
-
-        gap: 25px;
-
-        padding: 0 20px;
-      }
-
-      .navigation a {
-
-        font-size: 12px;
-      }
-
-
-      /* RETURNS */
-
-      .returns-wrapper {
-
-        padding:
-          38px
-          20px
-          90px;
-      }
-
-      .returns-title {
-
-        font-size: 27px;
-
-        margin-bottom: 18px;
-      }
-
-      .returns-section h2 {
-
-        font-size: 14px;
-      }
-
-      .returns-section p,
-      .returns-section li,
-      .returns-notice p {
-
-        font-size: 13px;
-
-        line-height: 1.4;
-      }
-
-
-      /* FOOTER */
-
-      .footer-grid {
-
-        grid-template-columns:
-          1fr;
-
-        gap: 35px;
-      }
-
-
-      /* FLOATING */
-
-      .reviews,
-      .rewards {
-
-        left: 12px;
-
-        font-size: 14px;
-
-        padding:
-          13px 17px;
-      }
-
-      .reviews {
-
-        bottom: 65px;
-      }
-
-      .rewards {
-
-        bottom: 10px;
-      }
-
-      .chat {
-
-        right: 12px;
-
-        bottom: 10px;
-
-        width: 48px;
-
-        height: 48px;
-      }
-
-    }
-
+    
+/* FOOTER */
+.site-footer {
+  background: #111;
+  color: #fff;
+  padding: 60px 7% 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr 1.6fr;
+  gap: 45px;
+  padding-bottom: 45px;
+}
+
+.footer-brand h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.footer-brand p {
+  max-width: 350px;
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.site-footer h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.site-footer a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding-top: 25px;
+  color: #888;
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 25px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 45px 6% 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+  }
+}
   </style>
 
 </head>
@@ -981,44 +692,6 @@
 
     </div>
 
-
-
-    <!-- =================================================
-         NAVIGATION
-    ================================================== -->
-
-    <nav class="navigation">
-
-      <a href="bestsellers.html">
-        Bestsellers
-      </a>
-
-      <a href="edp.html">
-        Extrait de Parfum
-      </a>
-
-      <a href="newarrivals.html">
-        New Arrivals
-      </a>
-
-      <a href="#">
-        Collections
-      </a>
-
-      <a href="about.html">
-        About Us
-      </a>
-
-      <a href="#">
-        Contact
-      </a>
-
-    </nav>
-
-  </header>
-
-
-
   <!-- =====================================================
        RETURNS & EXCHANGES
   ===================================================== -->
@@ -1191,8 +864,6 @@
 
     </section>
 
-
-
     <!-- =================================================
          REFUNDS
     ================================================== -->
@@ -1223,8 +894,6 @@
 
     </section>
 
-
-
     <!-- =================================================
          RETURN SHIPPING
     ================================================== -->
@@ -1250,8 +919,6 @@
 
     </section>
 
-
-
     <!-- =================================================
          ORDER CANCELLATION
     ================================================== -->
@@ -1275,8 +942,6 @@
 
     </section>
 
-
-
     <!-- =================================================
          IMPORTANT NOTICE
     ================================================== -->
@@ -1295,8 +960,6 @@
       </p>
 
     </div>
-
-
 
     <!-- =================================================
          CONTACT
@@ -1325,201 +988,56 @@
         <a href="mailto:snsfragranceid@gmail.com">
           snsfragranceid@gmail.com
         </a>
-
       </p>
-
     </section>
-
-
   </main>
-
-
 
   <!-- =====================================================
        FOOTER
   ===================================================== -->
 
-  <footer>
+<footer class="site-footer">
+  <div class="footer-grid">
 
-    <div class="footer-grid">
-
-
-      <div class="footer-brand">
-
-        <h2>
-          SNS Fragrance
-        </h2>
-
-        <p>
-          A contemporary fragrance house creating
-          expressive scents for every individual,
-          every story, and every moment.
-        </p>
-
-      </div>
-
-
-
-      <div>
-
-        <h4>
-          ABOUT
-        </h4>
-
-        <a href="about.html">
-          Our Story
-        </a>
-
-        <a href="#">
-          Store
-        </a>
-
-      </div>
-
-
-
-      <div>
-
-        <h4>
-          FOLLOW
-        </h4>
-
-        <a
-          href="https://www.instagram.com/snsfragrance.id/"
-          target="_blank"
-        >
-          Instagram
-        </a>
-
-        <a
-          href="https://www.tiktok.com/@snsfragrance.id"
-          target="_blank"
-        >
-          TikTok
-        </a>
-
-        <a
-          href="https://wa.me/message/TZMPXSMPC6XHM1"
-          target="_blank"
-        >
-          WhatsApp
-        </a>
-
-      </div>
-
-
-
-      <div>
-
-        <h4>
-          INFO
-        </h4>
-
-        <a href="terms.html">
-          Terms of Service
-        </a>
-
-        <a href="privacy.html">
-          Privacy Policy
-        </a>
-
-        <a href="returns.html">
-          Returns &amp; Exchanges
-        </a>
-
-      </div>
-
-
-
-      <div>
-
-        <h4>
-          CONTACT
-        </h4>
-
-        <a
-          href="mailto:snsfragranceid@gmail.com"
-        >
-          snsfragranceid@gmail.com
-        </a>
-
-      </div>
-
-
+    <div class="footer-brand">
+      <h2>SNS Fragrance</h2>
+      <p>
+        A contemporary fragrance house creating
+        expressive scents for every individual, every
+        story, and every moment.
+      </p>
     </div>
 
-
-
-    <div class="copyright">
-
-      © 2026 SNS Fragrance.
-      All rights reserved.
-
+    <div>
+      <h4>ABOUT</h4>
+      <a href="about.html">Our Story</a>
     </div>
 
-  </footer>
+    <div>
+      <h4>FOLLOW</h4>
+      <a href="https://www.instagram.com/snsfragrance.id/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@snsfragrance.id" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://wa.me/message/TZMPXSMPC6XHM1" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
 
+    <div>
+      <h4>INFO</h4>
+      <a href="faq.html">FAQ</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Returns &amp; Exchanges</a>
+    </div>
 
-
-  <!-- =====================================================
-       FLOATING BUTTONS
-  ===================================================== -->
-
-  <div class="floating reviews">
-    Reviews
-  </div>
-
-
-  <div class="floating rewards">
-    Rewards
-  </div>
-
-
-  <div class="floating chat">
-
-    <svg viewBox="0 0 24 24">
-
-      <path
-        d="M5 5.5
-           h14
-           a2 2 0 0 1 2 2
-           v8
-           a2 2 0 0 1-2 2
-           h-7
-           l-4 3
-           v-3
-           H5
-           a2 2 0 0 1-2-2
-           v-8
-           a2 2 0 0 1 2-2z"
-      ></path>
-
-      <circle
-        cx="8"
-        cy="11.5"
-        r=".7"
-        fill="white"
-      ></circle>
-
-      <circle
-        cx="12"
-        cy="11.5"
-        r=".7"
-        fill="white"
-      ></circle>
-
-      <circle
-        cx="16"
-        cy="11.5"
-        r=".7"
-        fill="white"
-      ></circle>
-
-    </svg>
+    <div>
+      <h4>CONTACT</h4>
+      <a href="mailto:snsfragranceid@gmail.com">snsfragranceid@gmail.com</a>
+    </div>
 
   </div>
 
-
+  <div class="footer-bottom">
+    © 2026 SNS Fragrance. All rights reserved.
+  </div>
+</footer>
 </body>
-
 </html>
