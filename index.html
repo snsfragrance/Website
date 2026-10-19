@@ -2060,21 +2060,28 @@
     });
 
     renderCart();
-  /* =====================================================
+  
+/* =====================================================
    CLAIM NOW POPUP
 ===================================================== */
 
-const claimPopup = document.getElementById("claimPopup");
-const claimPopupClose = document.getElementById("claimPopupClose");
-const claimPopupForm = document.getElementById("claimPopupForm");
+document.addEventListener("DOMContentLoaded", function () {
+  const claimPopup = document.getElementById("claimPopup");
+  const claimPopupClose = document.getElementById("claimPopupClose");
+  const claimPopupForm = document.getElementById("claimPopupForm");
 
-claimPopupClose.addEventListener("click", function () {
-  claimPopup.style.display = "none";
-});
+  if (claimPopup && claimPopupClose) {
+    claimPopupClose.addEventListener("click", function () {
+      claimPopup.style.display = "none";
+    });
+  }
 
-claimPopupForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  claimPopup.style.display = "none";
+  if (claimPopup && claimPopupForm) {
+    claimPopupForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+      claimPopup.style.display = "none";
+    });
+  }
 });
   </script>
 
