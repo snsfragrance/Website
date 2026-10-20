@@ -1300,6 +1300,30 @@
   }
 }
 
+
+/* Desktop layout: Find Your Fragrance */
+@media screen and (min-width: 1024px) {
+  .categories,
+  .category-grid,
+  .fragrance-categories {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .categories > *,
+  .category-grid > *,
+  .fragrance-categories > * {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+}
+
+
   </style>
 </head>
 
