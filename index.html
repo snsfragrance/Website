@@ -1232,7 +1232,6 @@
   }
 }
 
-
 /* SNS FRAGRANCE - MOBILE PRODUCT GRID */
 @media screen and (max-width: 600px) {
   #products .products {
@@ -1260,6 +1259,47 @@
   }
 }
     
+/* Desktop: YOUR ESSENTIALS product layout */
+@media screen and (min-width: 1024px) {
+  #products .products {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    width: 100% !important;
+  }
+
+  #products .product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-right: 1px solid #e8e8e8;
+  }
+
+  #products .product-card:last-child {
+    border-right: none;
+  }
+
+  #products .product-image {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    box-sizing: border-box !important;
+    overflow: hidden;
+  }
+
+  #products .product-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  #products .product-info {
+    text-align: center;
+  }
+}
+
   </style>
 </head>
 
