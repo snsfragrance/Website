@@ -1177,11 +1177,17 @@
   text-decoration: underline;
 }
 
+
 @media (max-width: 600px) {
   .claim-popup {
     width: calc(100% - 30px);
-    left: 15px;
-    top: 15px;
+    max-width: 392px;
+    max-height: calc(100dvh - 30px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     padding: 34px 20px 25px;
   }
 
@@ -1189,6 +1195,7 @@
     font-size: 19px;
   }
 }
+
   </style>
 </head>
 
