@@ -2088,16 +2088,28 @@ const claimPopup = document.getElementById("claimPopup");
 const claimPopupClose = document.getElementById("claimPopupClose");
 const claimPopupForm = document.getElementById("claimPopupForm");
 
-if (claimPopup && claimPopupClose) {
-  claimPopupClose.addEventListener("click", function () {
+function closeClaimPopup() {
+  if (claimPopup) {
     claimPopup.style.display = "none";
-  });
+  }
+
+  document.documentElement.classList.remove("claim-popup-open");
+  document.body.classList.remove("claim-popup-open");
 }
 
-if (claimPopup && claimPopupForm) {
+if (claimPopup && claimPopup.style.display !== "none") {
+  document.documentElement.classList.add("claim-popup-open");
+  document.body.classList.add("claim-popup-open");
+}
+
+if (claimPopupClose) {
+  claimPopupClose.addEventListener("click", closeClaimPopup);
+}
+
+if (claimPopupForm) {
   claimPopupForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    claimPopup.style.display = "none";
+    closeClaimPopup();
   });
 }
   </script>
