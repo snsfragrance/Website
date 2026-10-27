@@ -117,15 +117,31 @@ header {
 ===================================================== */
 
 .logo {
-  font-size: 42px;
-  font-weight: 600;
-  letter-spacing: -2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+  max-width: 100%;
+  height: 110px;
+  flex-shrink: 0;
 }
 
-.logo span {
-  font-weight: 300;
+.logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
+.logo img {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: 100px;
+  object-fit: contain;
+  object-position: center;
+}
 
 /* =====================================================
    HEADER ICONS
@@ -1408,9 +1424,16 @@ footer a:hover {
     height: 75px;
   }
 
-  .logo {
-    font-size: 32px;
-  }
+.logo {
+  width: 200px;
+  height: 65px;
+  flex-shrink: 0;
+}
+
+.logo img {
+  max-width: 200px;
+  height: 60px;
+}
 
   .header-icons {
     right: 18px;
