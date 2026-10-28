@@ -77,7 +77,7 @@
 header {
   position: relative;
   width: 100%;
-  height: 93px;
+  height: 125px;
   background: #fff;
 }
 
@@ -277,7 +277,7 @@ header {
     /* HEADER REFINEMENT */
     .announcement,
     .announcement-bar {
-      height: 51px;
+     height: 67px;
     }
 
     .header-main {
@@ -285,12 +285,18 @@ header {
     }
 
     .main-navigation {
-      min-height: 65px;
-      gap: 42px;
-      padding: 0 24px;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
+  width: 100%;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 44px;
+  padding: 0 25px;
+  background: #fff;
+  border-bottom: 1px solid #e7e7e7;
+  overflow-x: auto;
+  scrollbar-width: none;
+  }
 
     .main-navigation::-webkit-scrollbar {
       display: none;
@@ -810,19 +816,19 @@ header {
 
     @media (max-width: 900px) {
 
-      .site-header {
-
-        height: 75px;
-
+      header {
+      height: 100px;
       }
 
-
-      .site-logo {
-
-        font-size: 31px;
-
+      .logo {
+      width: 250px;
+      height: 95px;
       }
 
+      .logo img {
+      max-width: 250px;
+      height: 80px;
+      }
 
       .header-icons {
 
@@ -831,7 +837,6 @@ header {
         gap: 15px;
 
       }
-
 
       .main-navigation {
 
