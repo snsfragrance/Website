@@ -274,6 +274,50 @@ header {
     }
 
 
+    /* HEADER REFINEMENT */
+    .announcement,
+    .announcement-bar {
+      height: 51px;
+    }
+
+    .header-main {
+      justify-content: center;
+    }
+
+    .main-navigation {
+      min-height: 65px;
+      gap: 42px;
+      padding: 0 24px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .main-navigation::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        height: 100px;
+      }
+
+      .logo {
+        width: 250px;
+        height: 95px;
+      }
+
+      .logo img {
+        max-width: 250px;
+        height: 80px;
+      }
+
+      .main-navigation {
+        justify-content: flex-start;
+        gap: 25px;
+        padding: 0 20px;
+      }
+    }
+
     /* =====================================================
        LANGUAGE SWITCHER
     ===================================================== */
@@ -1158,6 +1202,15 @@ header {
 
     </div>
 </header>
+
+<nav class="main-navigation" aria-label="Main navigation">
+  <a href="bestsellers.html">Bestsellers</a>
+  <a href="extrait.html" class="active">Extrait de Parfum</a>
+  <a href="edp.html">Eau de Parfum</a>
+  <a href="edt.html">Eau de Toilette</a>
+  <a href="home-fragrance.html">Home Fragrance</a>
+  <a href="limited-edition.html">Limited Edition</a>
+</nav>
 
 <div class="language-switcher">
 
@@ -3169,9 +3222,9 @@ header {
     <div>
       <h4>INFO</h4>
       <a href="faq.html">FAQ</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="returns.html">Returns &amp; Exchanges</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Returns &amp; Exchanges</a>
     </div>
 
     <div>
