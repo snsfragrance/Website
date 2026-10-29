@@ -155,58 +155,6 @@
       stroke-width: 1.8;
 
     }
-
-
-    /* =====================================================
-       NAVIGATION
-    ===================================================== */
-.main-navigation {
-  width: 100%;
-  min-height: 65px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  padding: 0 24px;
-  background: #fff;
-  border-bottom: 1px solid #e8e8e8;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.main-navigation::-webkit-scrollbar {
-  display: none;
-}
-
-.main-navigation a {
-  position: relative;
-  flex: 1 0 auto;
-  text-align: center;
-  color: #111;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 400;
-  white-space: nowrap;
-  padding: 0 18px;
-}
-
-.main-navigation a:hover {
-  opacity: 0.6;
-}
-
-.main-navigation a.active {
-  font-weight: 500;
-}
-
-.main-navigation a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -10px;
-  height: 1px;
-  background: #111;
-}
     
 /* HEADER REFINEMENT */
 .announcement,
@@ -256,9 +204,7 @@ header {
   object-fit: contain;
 }
 
-/* NAVIGATION */
-
-/* NAVIGATION */
+/* MAIN NAVIGATION */
 .main-navigation {
   width: 100%;
   min-height: 58px;
@@ -280,6 +226,7 @@ header {
 .main-navigation a {
   position: relative;
   flex: 0 0 auto;
+  padding: 0;
   color: #111;
   text-decoration: none;
   font-size: 15px;
