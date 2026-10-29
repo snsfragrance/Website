@@ -649,31 +649,40 @@ header {
     /* =====================================================
        FLOATING CHAT
     ===================================================== */ 
-.floating.chat {
+/* FLOATING CHAT BUTTON */
+.chat-button {
+  position: fixed;
   right: 18px;
   bottom: 18px;
+  z-index: 9999;
+
   width: 50px;
   height: 50px;
+  box-sizing: border-box;
   border-radius: 50%;
+
   background: #000;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 25px rgba(0,0,0,0.20);
+
+  text-decoration: none;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.20);
   cursor: pointer;
 }
 
-.floating.chat:hover {
+.chat-button:hover {
   color: #fff;
   text-decoration: none;
   transform: translateY(-1px);
 }
 
-.floating.chat svg {
+.chat-button svg {
+  display: block;
   width: 23px;
   height: 23px;
-  display: block;
+
   fill: none;
   stroke: #fff;
   stroke-width: 1.6;
@@ -681,9 +690,13 @@ header {
   stroke-linejoin: round;
 }
 
-.floating.chat circle {
-  fill: #fff;
-  stroke: none;
+@media (max-width: 600px) {
+  .chat-button {
+    right: 12px;
+    bottom: 15px;
+    width: 52px;
+    height: 52px;
+  }
 }
     /* =====================================================
        MOBILE
@@ -3062,13 +3075,11 @@ body > footer .copyright {
     All rights reserved.
 
   </div>
-
-
 </footer>
-
-  <!-- FLOATING CHAT BUTTON -->
+  
+<!-- FLOATING CHAT BUTTON -->
 <a href="https://wa.me/message/TZMPXSMPC6XHM1"
-   class="floating chat"
+   class="chat-button"
    aria-label="Chat with SNS Fragrance"
    target="_blank"
    rel="noopener noreferrer">
@@ -3076,11 +3087,9 @@ body > footer .copyright {
   <svg viewBox="0 0 24 24"
        xmlns="http://www.w3.org/2000/svg"
        aria-hidden="true">
-
     <path d="M7 18.5L3.5 20l1.2-4A8.5 8.5 0 1 1 7 18.5Z"/>
     <path d="M8 10h8"/>
     <path d="M8 13h5"/>
-
   </svg>
 </a>
 </body>
