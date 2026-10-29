@@ -843,19 +843,6 @@ header {
         padding: 14px 20px;
 
         font-size: 14px;
-
-      }
-
-
-      .chat-button {
-
-        right: 12px;
-
-        bottom: 15px;
-
-        width: 52px;
-
-        height: 52px;
       }
     }
 
@@ -938,52 +925,6 @@ body > footer .copyright {
 @media (max-width: 650px) {
   body > footer .footer-grid {
     grid-template-columns: 1fr !important;
-  }
-}
-
-  /* FLOATING CHAT BUTTON */
-.chat-button {
-  position: fixed !important;
-  right: 20px !important;
-  bottom: 20px !important;
-  z-index: 9999 !important;
-
-  width: 58px !important;
-  height: 58px !important;
-  border-radius: 50% !important;
-
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  background: #000 !important;
-  color: #fff !important;
-  text-decoration: none !important;
-
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.18);
-  transition: transform 0.2s ease;
-}
-
-.chat-button svg {
-  width: 25px;
-  height: 25px;
-  fill: none;
-  stroke: #fff;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.chat-button:hover {
-  transform: scale(1.05);
-}
-
-@media (max-width: 600px) {
-  .chat-button {
-    right: 12px !important;
-    bottom: 15px !important;
-    width: 52px !important;
-    height: 52px !important;
   }
 }
   </style>
