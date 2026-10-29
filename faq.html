@@ -160,13 +160,13 @@
     /* =====================================================
        NAVIGATION
     ===================================================== */
-    .main-navigation {
+.main-navigation {
   width: 100%;
   min-height: 65px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 42px;
+  gap: 0;
   padding: 0 24px;
   background: #fff;
   border-bottom: 1px solid #e8e8e8;
@@ -180,12 +180,14 @@
 
 .main-navigation a {
   position: relative;
+  flex: 1 0 auto;
+  text-align: center;
   color: #111;
   text-decoration: none;
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;
-  transition: opacity 0.2s ease;
+  padding: 0 18px;
 }
 
 .main-navigation a:hover {
