@@ -61,7 +61,7 @@
 
     .announcement {
 
-      height: 35px;
+      height: 43px;
 
       background: #7C5A28;
 
@@ -139,7 +139,7 @@
 
     .header-main {
 
-      height: 78px;
+      height: 105px;
 
       display: flex;
 
@@ -164,85 +164,13 @@
       font-weight: 300;
     }
 
-
-    /* =====================================================
-       HEADER ICONS
-    ===================================================== */
-
-    .header-icons {
-
-      position: absolute;
-
-      right: 38px;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 24px;
-    }
-
-    .header-icon {
-
-      width: 25px;
-      height: 25px;
-
-      padding: 0;
-      margin: 0;
-
-      border: none;
-
-      background: transparent;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      cursor: pointer;
-    }
-
-    .header-icon svg {
-
-      width: 23px;
-      height: 23px;
-
-      fill: none;
-
-      stroke: #111;
-
-      stroke-width: 1.7;
-
-      stroke-linecap: round;
-
-      stroke-linejoin: round;
-
-      transition:
-        transform 0.2s ease;
-    }
-
-    .header-icon:hover svg {
-
-      transform:
-        scale(1.08);
-    }
-
-    .wishlist-icon svg {
-
-      stroke: #e90046;
-
-      stroke-width: 1.8;
-    }
-
-
     /* =====================================================
        NAVIGATION
     ===================================================== */
 
     .navigation {
 
-      min-height: 45px;
+      min-height: 49px;
 
       display: flex;
 
@@ -259,7 +187,7 @@
 
     .navigation a {
 
-      font-size: 13px;
+      font-size: 14px;
 
       font-weight: 400;
 
@@ -537,25 +465,27 @@
   <!-- =====================================================
        HEADER
   ===================================================== -->
-
   <header>
-
-    <div class="header-main">
-
-
-      <!-- LOGO -->
-
-      <a
-        href="index.html"
-        class="logo"
-      >
-
-        SNS <span>Fragrance</span>
-
+  <div class="header-main">
+    <div class="logo">
+      <a href="index.html" aria-label="SNS Fragrance Home">
+        <img src="img/Logo SNS.png" alt="SNS Fragrance">
       </a>
-      </div>
     </div>
+  </div>
+</header>
 
+  <!-- NAVIGATION -->
+<nav class="navigation" aria-label="Main navigation">
+  <a href="bestsellers.html">Bestsellers</a>
+  <a href="extrait.html">Extrait de Parfum</a>
+  <a href="edp.html">Eau de Parfum</a>
+  <a href="edt.html">Eau de Toilette</a>
+  <a href="handpurifier.html">Hand Purifier</a>
+  <a href="home-fragrance.html">Home Fragrance</a>
+  <a href="limited-edition.html">Limited Edition</a>
+</nav>
+  
   <!-- =====================================================
        TERMS OF SERVICE
   ===================================================== -->
