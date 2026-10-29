@@ -56,222 +56,89 @@
     }
 
 
-    /* =====================================================
-       ANNOUNCEMENT BAR
-    ===================================================== */
-
-    .announcement {
-
-      height: 35px;
-
-      background: #7C5A28;
-
-      color: #fff;
-
-      overflow: hidden;
-
-      position: relative;
-
-      display: flex;
-
-      align-items: center;
-
-      white-space: nowrap;
-    }
-
-    .announcement-track {
-
-      display: flex;
-
-      align-items: center;
-
-      width: max-content;
-
-      animation:
-        announcementScroll
-        30s linear infinite;
-    }
-
-    .announcement-track span {
-
-      display: inline-flex;
-
-      align-items: center;
-
-      margin-right: 150px;
-
-      font-size: 12px;
-
-      font-weight: 400;
-
-      letter-spacing: 0.3px;
-    }
-
-    @keyframes announcementScroll {
-
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-
-    }
-
-    .announcement:hover
-    .announcement-track {
-
-      animation-play-state: paused;
-    }
-
-
-    /* =====================================================
-       HEADER
-    ===================================================== */
-
-    header {
-
-      background: #fff;
-
-      border-bottom:
-        1px solid #eeeeee;
-    }
-
-    .header-main {
-
-      height: 78px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      position: relative;
-    }
-
-    .logo {
-
-      font-size: 36px;
-
-      font-weight: 600;
-
-      letter-spacing: -2px;
-    }
-
-    .logo span {
-
-      font-weight: 300;
-    }
-
-
-    /* =====================================================
-       HEADER ICONS
-    ===================================================== */
-
-    .header-icons {
-
-      position: absolute;
-
-      right: 38px;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 24px;
-    }
-
-    .header-icon {
-
-      width: 25px;
-      height: 25px;
-
-      padding: 0;
-      margin: 0;
-
-      border: none;
-
-      background: transparent;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      cursor: pointer;
-    }
-
-    .header-icon svg {
-
-      width: 23px;
-      height: 23px;
-
-      fill: none;
-
-      stroke: #111;
-
-      stroke-width: 1.7;
-
-      stroke-linecap: round;
-
-      stroke-linejoin: round;
-
-      transition:
-        transform 0.2s ease;
-    }
-
-    .header-icon:hover svg {
-
-      transform:
-        scale(1.08);
-    }
-
-    .wishlist-icon svg {
-
-      stroke: #e90046;
-
-      stroke-width: 1.8;
-    }
-
-
-    /* =====================================================
-       NAVIGATION
-    ===================================================== */
-
-    .navigation {
-
-      min-height: 45px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 38px;
-
-      overflow-x: auto;
-
-      white-space: nowrap;
-    }
-
-    .navigation a {
-
-      font-size: 13px;
-
-      font-weight: 400;
-
-      transition:
-        opacity 0.2s ease;
-    }
-
-    .navigation a:hover {
-
-      opacity: 0.55;
-    }
+    /* ANNOUNCEMENT BAR */
+.announcement {
+  width: 100%; height: 42px; background: #7C5A28; color: #fff;
+  overflow: hidden; position: relative; display: flex; align-items: center;
+  white-space: nowrap;
+}
+.announcement-track {
+  display: flex; align-items: center; width: max-content;
+  animation: announcementScroll 30s linear infinite;
+}
+.announcement-track span {
+  display: inline-flex; align-items: center; flex-shrink: 0;
+  margin-right: 140px; font-size: 12px; line-height: 1;
+  font-weight: 400; letter-spacing: 1px; white-space: nowrap;
+}
+@keyframes announcementScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.announcement:hover .announcement-track { animation-play-state: paused; }
+
+/* HEADER REFINEMENT — MATCH FAQ */
+.announcement,
+.announcement-bar { height: 42px; }
+
+header {
+  width: 100%; height: 96px; position: relative; background: #fff;
+}
+.header-main {
+  width: 100%; height: 96px; display: flex; align-items: center;
+  justify-content: center; position: relative;
+}
+.logo {
+  width: 360px; height: 110px; display: flex; align-items: center;
+  justify-content: center; flex-shrink: 0;
+}
+.logo a {
+  display: flex; width: 100%; height: 100%; align-items: center;
+  justify-content: center;
+}
+.logo img {
+  display: block; width: 100%; max-width: 360px; height: 100px;
+  object-fit: contain;
+}
+
+/* MAIN NAVIGATION */
+.main-navigation {
+  width: 100%; min-height: 58px; display: flex; align-items: center;
+  justify-content: center; gap: 38px; padding: 0 25px; background: #fff;
+  border-bottom: 1px solid #e8e8e8; overflow-x: auto; scrollbar-width: none;
+  white-space: nowrap;
+}
+.main-navigation::-webkit-scrollbar { display: none; }
+.main-navigation a {
+  position: relative; flex: 0 0 auto; padding: 0; color: #111;
+  text-decoration: none; font-size: 15px; font-weight: 400; white-space: nowrap;
+}
+.main-navigation a:hover { opacity: 0.6; }
+.main-navigation a.active { font-weight: 500; }
+.main-navigation a.active::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -8px;
+  height: 2px; background: #111;
+}
+@media (max-width: 1100px) {
+  .logo { width: 360px; height: 110px; }
+  .logo img { max-width: 360px; height: 100px; }
+  .main-navigation { gap: 22px; }
+  .main-navigation a { font-size: 14px; }
+}
+@media (max-width: 900px) {
+  header, .header-main { height: 90px; }
+  .logo { width: 250px; height: 85px; }
+  .logo img { max-width: 250px; height: 80px; }
+  .main-navigation { justify-content: flex-start; gap: 25px; padding: 0 20px; }
+}
+@media (max-width: 600px) {
+  .announcement { height: 35px; }
+  header, .header-main { height: 70px; }
+  .logo { width: 200px; height: 65px; }
+  .logo img { max-width: 200px; height: 60px; }
+  .main-navigation { min-height: 55px; gap: 22px; }
+  .main-navigation a { font-size: 13px; }
+}
 
 
     /* =====================================================
@@ -512,67 +379,43 @@
 <body>
 
 
-  <!-- =====================================================
-       ANNOUNCEMENT BAR
-  ===================================================== -->
-
-  <div class="announcement">
-
-    <div class="announcement-track">
-
-      <span>
-        THE ART OF SCENT
-      </span>
-
-      <span>
-        A SYMPHONY FOR THE SENSES
-      </span>
-
-      <span>
-        DISCOVER SNS FRAGRANCE
-      </span>
-
-      <span>
-        THE ART OF SCENT
-      </span>
-
-      <span>
-        A SYMPHONY FOR THE SENSES
-      </span>
-
-      <span>
-        DISCOVER SNS FRAGRANCE
-      </span>
-
-    </div>
-
+  <!-- ANNOUNCEMENT BAR -->
+<div class="announcement">
+  <div class="announcement-track">
+    <span>THE ART OF SCENT</span>
+    <span>A SYMPHONY FOR THE SENSES</span>
+    <span>DISCOVER SNS FRAGRANCE</span>
+    <span>THE ART OF SCENT</span>
+    <span>A SYMPHONY FOR THE SENSES</span>
+    <span>DISCOVER SNS FRAGRANCE</span>
   </div>
+</div>
+
+<!-- MAIN HEADER -->
+<header>
+  <div class="header-main">
 
 
+    <div class="logo">
+  <a href="index.html" aria-label="SNS Fragrance Home">
+    <img src="img/Logo SNS.png" alt="SNS Fragrance">
+  </a>
+</div>
 
-  <!-- =====================================================
-       HEADER
-  ===================================================== -->
-
-  <header>
-
-    <div class="header-main">
-
-
-      <!-- LOGO -->
-
-      <a
-        href="index.html"
-        class="logo"
-      >
-
-        SNS <span>Fragrance</span>
-
-      </a>
-      </div>
     </div>
+</header>
 
-  <!-- =====================================================
+<nav class="main-navigation" aria-label="Main navigation">
+  <a href="bestsellers.html">Bestsellers</a>
+  <a href="extrait.html">Extrait de Parfum</a>
+  <a href="edp.html">Eau de Parfum</a>
+  <a href="edt.html">Eau de Toilette</a>
+  <a href="handpurifier.html">Hand Purifier</a>
+  <a href="home-fragrance.html">Home Fragrance</a>
+  <a href="limited-edition.html">Limited Edition</a>
+</nav>
+
+   <!-- =====================================================
        RETURNS & EXCHANGES
   ===================================================== -->
 
