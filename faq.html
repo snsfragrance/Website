@@ -257,14 +257,16 @@ header {
 }
 
 /* NAVIGATION */
+
+/* NAVIGATION */
 .main-navigation {
   width: 100%;
-  min-height: 65px;
+  min-height: 58px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 42px;
-  padding: 0 24px;
+  gap: 38px;
+  padding: 0 25px;
   background: #fff;
   border-bottom: 1px solid #e8e8e8;
   overflow-x: auto;
@@ -277,11 +279,30 @@ header {
 
 .main-navigation a {
   position: relative;
+  flex: 0 0 auto;
   color: #111;
   text-decoration: none;
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;
+}
+
+.main-navigation a:hover {
+  opacity: 0.6;
+}
+
+.main-navigation a.active {
+  font-weight: 500;
+}
+
+.main-navigation a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  background: #111;
 }
 
     /* =====================================================
@@ -739,6 +760,7 @@ header {
        MOBILE
     ===================================================== */
 
+
 @media (max-width: 1100px) {
   .logo {
     width: 360px;
@@ -783,8 +805,7 @@ header {
 }
 
 @media (max-width: 600px) {
-  .announcement,
-  .announcement-bar {
+  .announcement {
     height: 35px;
   }
 
