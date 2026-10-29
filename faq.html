@@ -650,58 +650,54 @@ header {
        FLOATING CHAT
     ===================================================== */
 
-    .chat-button {
+    .floating.chat {
+  right: 18px;
+  bottom: 18px;
 
-      position: fixed;
+  width: 50px;
+  height: 50px;
 
-      right: 20px;
+  border-radius: 50%;
 
-      bottom: 20px;
+  background: #000;
+  color: #fff;
 
-      z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      width: 58px;
+  box-shadow:
+    0 6px 25px rgba(0,0,0,0.20);
 
-      height: 58px;
+  cursor: pointer;
+}
 
-      border-radius: 50%;
+.floating.chat:hover {
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
 
-      background: #000;
+.floating.chat svg {
+  width: 23px;
+  height: 23px;
 
-      color: #fff;
+  display: block;
 
-      display: flex;
+  fill: none;
 
-      align-items: center;
+  stroke: #fff;
 
-      justify-content: center;
+  stroke-width: 1.6;
 
-      box-shadow:
-        0 3px 15px rgba(0,0,0,0.18);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 
-      cursor: pointer;
-
-    }
-
-
-    .chat-button svg {
-
-      width: 25px;
-
-      height: 25px;
-
-      fill: none;
-
-      stroke: #fff;
-
-      stroke-width: 1.6;
-
-      stroke-linecap: round;
-
-      stroke-linejoin: round;
-
-    }
-
+.floating.chat circle {
+  fill: #fff;
+  stroke: none;
+}
 
     /* =====================================================
        MOBILE
