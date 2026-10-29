@@ -59,71 +59,175 @@
        ANNOUNCEMENT BAR
     ===================================================== */
 
-    .announcement {
+    
+/* HEADER REFINEMENT */
+.announcement,
+.announcement-bar {
+  height: 42px;
+}
 
-      height: 43px;
+header {
+  width: 100%;
+  height: 96px;
+  position: relative;
+  background: #fff;
+}
 
-      background: #7C5A28;
+.header-main {
+  width: 100%;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-      color: #fff;
+.logo {
+  width: 360px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
 
-      overflow: hidden;
+.logo a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
 
-      position: relative;
+.logo img {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: 100px;
+  object-fit: contain;
+}
 
-      display: flex;
+/* MAIN NAVIGATION */
+.main-navigation {
+  width: 100%;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 38px;
+  padding: 0 25px;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
 
-      align-items: center;
+.main-navigation::-webkit-scrollbar {
+  display: none;
+}
 
-      white-space: nowrap;
-    }
+.main-navigation a {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 0;
+  color: #111;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+}
 
-    .announcement-track {
+.main-navigation a:hover {
+  opacity: 0.6;
+}
 
-      display: flex;
+.main-navigation a.active {
+  font-weight: 500;
+}
 
-      align-items: center;
+.main-navigation a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  background: #111;
+}
 
-      width: max-content;
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .logo {
+    width: 360px;
+    height: 110px;
+  }
 
-      animation:
-        announcementScroll
-        30s linear infinite;
-    }
+  .logo img {
+    max-width: 360px;
+    height: 100px;
+  }
 
-    .announcement-track span {
+  .main-navigation {
+    gap: 22px;
+  }
 
-      display: inline-flex;
+  .main-navigation a {
+    font-size: 14px;
+  }
+}
 
-      align-items: center;
+@media (max-width: 900px) {
+  header,
+  .header-main {
+    height: 90px;
+  }
 
-      margin-right: 150px;
+  .logo {
+    width: 250px;
+    height: 85px;
+  }
 
-      font-size: 12px;
+  .logo img {
+    max-width: 250px;
+    height: 80px;
+  }
 
-      font-weight: 400;
+  .main-navigation {
+    justify-content: flex-start;
+    gap: 25px;
+    padding: 0 20px;
+  }
+}
 
-      letter-spacing: 0.3px;
-    }
+@media (max-width: 600px) {
+  .announcement {
+    height: 35px;
+  }
 
-    @keyframes announcementScroll {
+  header,
+  .header-main {
+    height: 70px;
+  }
 
-      0% {
-        transform: translateX(0);
-      }
+  .logo {
+    width: 200px;
+    height: 65px;
+  }
 
-      100% {
-        transform: translateX(-50%);
-      }
+  .logo img {
+    max-width: 200px;
+    height: 60px;
+  }
 
-    }
+  .main-navigation {
+    min-height: 55px;
+    gap: 22px;
+  }
 
-    .announcement:hover
-    .announcement-track {
-
-      animation-play-state: paused;
-    }
-
+  .main-navigation a {
+    font-size: 13px;
+  }
+}
 
     /* =====================================================
        HEADER
@@ -465,7 +569,9 @@
   <!-- =====================================================
        HEADER
   ===================================================== -->
-  <header>
+  
+<!-- MAIN HEADER -->
+<header>
   <div class="header-main">
     <div class="logo">
       <a href="index.html" aria-label="SNS Fragrance Home">
@@ -475,8 +581,7 @@
   </div>
 </header>
 
-  <!-- NAVIGATION -->
-<nav class="navigation" aria-label="Main navigation">
+<nav class="main-navigation" aria-label="Main navigation">
   <a href="bestsellers.html">Bestsellers</a>
   <a href="extrait.html">Extrait de Parfum</a>
   <a href="edp.html">Eau de Parfum</a>
