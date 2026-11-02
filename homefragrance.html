@@ -918,41 +918,33 @@ header {
 
 
 /* =====================================================
-   PRODUCT IMAGE
+   PRODUCT IMAGE — SQUARE FRAME
 ===================================================== */
 
 .product-image {
   position: relative;
-
   width: 100%;
-
-  height: 475px;
-
-  background: #faf9f7;
-
+  aspect-ratio: 1 / 1;
+  height: auto;
+  background: #E8E6E1;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   overflow: hidden;
 }
 
 .product-image img {
   width: 82%;
   height: 82%;
-
   object-fit: contain;
-
-  transition:
-    transform .45s ease;
+  object-position: center;
+  transition: transform .45s ease;
 }
 
 .product-card:hover
 .product-image img {
   transform: scale(1.04);
 }
-
 
 /* =====================================================
    BADGES
