@@ -926,11 +926,11 @@ header {
   width: 100%;
   aspect-ratio: 1 / 1;
   height: auto;
-  background: #fff;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  background: #fff;
 }
 
 .product-image img {
@@ -938,9 +938,9 @@ header {
   height: 100%;
   object-fit: contain;
   object-position: center;
-  transition: transform .45s ease;
+  transform: scale(1.15);
 }
-
+      
 .product-card:hover
 .product-image img {
   transform: scale(1.04);
