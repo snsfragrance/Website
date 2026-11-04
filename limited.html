@@ -943,29 +943,21 @@ header {
 
 .product-image {
   position: relative;
-
   width: 100%;
-
-  height: 475px;
-
-  background: #faf9f7;
-
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
   display: flex;
-
   align-items: center;
   justify-content: center;
-
-  overflow: hidden;
+  background: #fff;
 }
 
 .product-image img {
-  width: 82%;
-  height: 82%;
-
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-
-  transition:
-    transform .45s ease;
+  object-position: center;
+  transition: transform .45s ease;
 }
 
 .product-card:hover
