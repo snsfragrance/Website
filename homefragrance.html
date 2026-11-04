@@ -921,7 +921,10 @@ header {
    PRODUCT IMAGE — SQUARE FRAME
 ===================================================== */
 
+/* PRODUCT IMAGE — SQUARE FRAME */
+
 .product-image {
+  position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
@@ -936,6 +939,7 @@ header {
   height: 100%;
   object-fit: contain;
   object-position: center;
+  transition: transform .45s ease;
 }
       
 .product-card:hover
