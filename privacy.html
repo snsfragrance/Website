@@ -84,16 +84,25 @@ header {
   justify-content: center; position: relative;
 }
 .logo {
-  width: 360px; height: 110px; display: flex; align-items: center;
-  justify-content: center; flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    max-width: 100%;
+    height: 110px;
+    flex-shrink: 0;
 }
 .logo a {
   display: flex; width: 100%; height: 100%; align-items: center;
   justify-content: center;
 }
 .logo img {
-  display: block; width: 100%; max-width: 360px; height: 100px;
-  object-fit: contain;
+    display: block;
+    width: 220px !important;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
 }
 .main-navigation {
   width: 100%; min-height: 58px; display: flex; align-items: center;
@@ -349,6 +358,20 @@ header {
     font-size: 14px;
   }
 }
+
+/* LOGO SIZE OVERRIDE */
+@media (min-width: 801px) {
+    .logo {
+        width: 450px !important;
+    }
+
+    .logo img {
+        width: 280px !important;
+        max-width: none !important;
+        height: auto !important;
+    }
+}
+    
   </style>
 
 </head>
