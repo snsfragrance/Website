@@ -696,7 +696,6 @@ header {
   line-height: 0;
 }
 
-
 /* =====================================================
    HERO IMAGE
 ===================================================== */
@@ -712,6 +711,21 @@ header {
   width: 100%;
   height: auto;
   object-fit: contain;
+  object-position: center;
+}
+
+/* SECOND BANNER IMAGE */
+.second-banner {
+  width: 100%;
+  aspect-ratio: 2.8 / 1;
+  overflow: hidden;
+}
+
+.second-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -919,7 +933,7 @@ header {
 
 
 /* =====================================================
-   PRODUCT IMAGE
+   PRODUCT IMAGE — SQUARE FRAME
 ===================================================== */
 
 /* PRODUCT IMAGE — SQUARE FRAME */
@@ -942,12 +956,11 @@ header {
   object-position: center;
   transition: transform .45s ease;
 }
-
+      
 .product-card:hover
 .product-image img {
   transform: scale(1.04);
 }
-
 
 /* =====================================================
    BADGES
@@ -1381,7 +1394,8 @@ footer a:hover {
   }
 
   .product-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns:
+      repeat(2, 1fr);
   }
 
   .footer-grid {
@@ -1397,7 +1411,7 @@ footer a:hover {
   .header-main {
     height: 75px;
   }
-
+  
 .logo {
   width: 200px;
   height: 65px;
@@ -1436,8 +1450,7 @@ footer a:hover {
   }
 
   .product-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
   .product-image {
@@ -1510,7 +1523,7 @@ footer a:hover {
   }
 
   .product-image {
-  height: 240px;
+    height: 240px;
   }
 
   .footer-grid {
@@ -1633,16 +1646,13 @@ footer a:hover {
 
   <div class="header-main">
 
-
     <div class="logo">
   <a href="index.html" aria-label="SNS Fragrance Home">
     <img src="img/Logo SNS.png" alt="SNS Fragrance">
   </a>
 </div>
 
-
     <div class="header-icons">
-
 
       <!-- ACCOUNT -->
       <!-- <a
@@ -1650,12 +1660,15 @@ footer a:hover {
         class="header-icon"
         aria-label="Account"
       >
+
         <svg viewBox="0 0 24 24">
+
           <circle
             cx="12"
             cy="8"
             r="3.2"
           ></circle>
+
           <path
             d="M5 20
                c.7-4
@@ -1673,7 +1686,9 @@ footer a:hover {
         class="header-icon wishlist-icon"
         aria-label="Add to wishlist"
       >
+
         <svg viewBox="0 0 24 24">
+
           <path
             d="M20.8 8.8
                c0-2.8-2-4.8-4.7-4.8
@@ -1687,7 +1702,6 @@ footer a:hover {
       </a> -->
 
       <!-- SEARCH -->
-
       <!-- <button
         type="button"
         class="header-icon search-trigger"
@@ -1702,6 +1716,7 @@ footer a:hover {
             cy="10.5"
             r="6.3"
           ></circle>
+
           <path
             d="M15.3 15.3
                L20.5 20.5"
@@ -1710,7 +1725,6 @@ footer a:hover {
       </button> -->
 
       <!-- CART -->
-
       <!-- <button
         class="header-icon"
         id="cartTrigger"
@@ -1760,11 +1774,11 @@ footer a:hover {
 
       <a href="bestsellers.html">Best Seller</a>
       <a href="extrait.html">Extrait de Parfum</a>
-      <a href="edp.html" class="active">Eau de Parfum</a>
+      <a href="edp.html">Eau de Parfum</a>
       <a href="edt.html">Body Mist</a>
       <a href="bodyoil.html">Body Oil</a>
       <a href="bodywash.html">Body Wash</a>
-      <a href="homefragrance.html">Home Fragrance</a>
+      <a href="homefragrance.html" class="active">Home Fragrance</a>
       <a href="limited.html">Limited Edition</a>
       <a href="collab.html">Special Collaboration</a>
       <!-- <a href="loyalty.html">Loyalty</a> -->
@@ -1927,10 +1941,22 @@ footer a:hover {
 ===================================================== -->
 
 <section class="extrait-hero">
-  <div class="extrait-hero-image">
-    <img src="images/extrait-hero.png" alt="SNS Fragrance Collection">
-  </div>
+    <div class="extrait-hero-image">
+        <img
+            src="img/EDP 1.png"
+            alt="SNS Fragrance Collection"
+        >
+    </div>
 </section>
+
+<!-- SECOND BANNER IMAGE -->
+<section class="second-banner">
+    <img
+        src="img/EDP 2.png"
+        alt="SNS Fragrance Collection"
+    >
+</section>
+
 
 <!-- =====================================================
      FILTER
@@ -2090,8 +2116,8 @@ footer a:hover {
     </button>
 
     <img
-      src="img/Cocoa Amore_White BG.png"
-      alt="SNS Cocoa Amore"
+      src="img/Intense_White BG.png"
+      alt="Intense"
     >
 
   </div>
@@ -2100,7 +2126,7 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Eau de Parfum COCOA AMORE
+      Eau de Parfum INTENSE 
     </div>
 
     <div class="product-price">
@@ -2118,7 +2144,6 @@ footer a:hover {
   </div>
 
 </article>
-
 
 <!-- PRODUCT 2 -->
 
@@ -2153,8 +2178,8 @@ footer a:hover {
     </button>
 
     <img
-      src="img/Intense_White BG.png"
-      alt="SNS Intense"
+      src="img/Seduction_White BG.png"
+      alt="Seduction"
     >
 
   </div>
@@ -2163,7 +2188,7 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Eau de Parfum INTENSE
+      Eau de Parfum SEDUCTION 
     </div>
 
     <div class="product-price">
@@ -2175,8 +2200,11 @@ footer a:hover {
       <span class="old-price">
         Rp 159,000
       </span>
+
     </div>
+
   </div>
+
 </article>
 
 <!-- PRODUCT 3 -->
@@ -2185,8 +2213,8 @@ footer a:hover {
 
   <div class="product-image">
 
-    <span class="badge best-seller">
-      BEST SELLER
+    <span class="badge new-arrival">
+      NEW ARRIVAL
     </span>
 
     <span class="badge sale">
@@ -2212,8 +2240,8 @@ footer a:hover {
     </button>
 
     <img
-      src="img/Charnelle_White BG.png"
-      alt="SNS Charnelle"
+      src="img/Saintvel_White BG.png"
+      alt="Saintvel"
     >
 
   </div>
@@ -2222,7 +2250,7 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Eau de Parfum CHARNELLE
+      Eau de Parfum SAINTVEL 
     </div>
 
     <div class="product-price">
@@ -2240,7 +2268,6 @@ footer a:hover {
   </div>
 
 </article>
-
 
 <!-- PRODUCT 4 -->
 
@@ -2275,8 +2302,8 @@ footer a:hover {
     </button>
 
     <img
-      src="img/Memories_White BG.png"
-      alt="SNS Memories"
+      src="img/Charnelle_White BG.png"
+      alt="Charnelle"
     >
 
   </div>
@@ -2285,7 +2312,7 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Eau de Parfum Memories
+      Eau de Parfum CHARNELLE 
     </div>
 
     <div class="product-price">
@@ -2303,7 +2330,6 @@ footer a:hover {
   </div>
 
 </article>
-
 
 <!-- PRODUCT 5 -->
 
@@ -2311,126 +2337,12 @@ footer a:hover {
 
   <div class="product-image">
 
-    <span class="badge best-seller">
-      BEST SELLER
+    <span class="badge new-arrival">
+      NEW ARRIVAL
     </span>
 
-    <button class="product-wishlist">
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
-
-      </svg>
-
-    </button>
-
-    <img
-      src="img/Seduction.png"
-      alt="SNS Seduction"
-    >
-
-  </div>
-
-
-  <div class="product-info">
-
-    <div class="product-name">
-      Eau de Parfum SEDUCTION
-    </div>
-
-    <div class="product-price">
-
-      <span class="current-price">
-        Rp 95,400
-      </span>
-
-      <span class="old-price">
-        Rp 159,000
-      </span>
-
-    </div>
-
-  </div>
-
-</article>
-
-
-<!-- PRODUCT 6 -->
-
-<article class="product-card">
-
-  <div class="product-image">
-
-    <span class="badge best-seller">
-      BEST SELLER
-    </span>
-
-    <button class="product-wishlist">
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
-
-      </svg>
-
-    </button>
-
-    <img
-      src="img/Saintvel.png"
-      alt="SNS Saintvel"
-    >
-
-  </div>
-
-
-  <div class="product-info">
-
-    <div class="product-name">
-      Eau de Parfum SAINTVEL
-    </div>
-
-    <div class="product-price">
-
-      <span class="current-price">
-        Rp 95,400
-      </span>
-
-      <span class="old-price">
-        Rp 159,000
-      </span>
-
-    </div>
-
-  </div>
-
-</article>
-
-
-<!-- PRODUCT 7 -->
-
-<article class="product-card">
-
-  <div class="product-image">
-
-    <span class="badge best-seller">
-      BEST SELLER
+    <span class="badge sale">
+      SALE
     </span>
 
     <button class="product-wishlist">
@@ -2453,7 +2365,7 @@ footer a:hover {
 
     <img
       src="img/Tranquility_White BG.png"
-      alt="SNS Tranquility"
+      alt="Tranquility"
     >
 
   </div>
@@ -2462,7 +2374,7 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Eau de Parfum TRANQUILITY
+      Eau de Parfum TRANQUILITY 
     </div>
 
     <div class="product-price">
@@ -2481,6 +2393,129 @@ footer a:hover {
 
 </article>
 
+<!-- PRODUCT 6 -->
+
+<article class="product-card">
+
+  <div class="product-image">
+
+    <span class="badge new-arrival">
+      NEW ARRIVAL
+    </span>
+
+    <span class="badge sale">
+      SALE
+    </span>
+
+    <button class="product-wishlist">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8
+             c0-2.8-2-4.8-4.7-4.8
+             -1.8 0-3.4 1-4.1 2.4
+             C11.3 5 9.7 4 7.9 4
+             5.2 4 3.2 6 3.2 8.8
+             c0 4.9 8.8 10.2 8.8 10.2
+             s8.8-5.3 8.8-10.2z"
+        ></path>
+
+      </svg>
+
+    </button>
+
+    <img
+      src="img/Memories_White BG.png"
+      alt="Memories"
+    >
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+      Eau de Parfum MEMORIES 
+    </div>
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 95,400
+      </span>
+
+      <span class="old-price">
+        Rp 159,000
+      </span>
+
+    </div>
+
+  </div>
+
+</article>
+
+<!-- PRODUCT 7 -->
+
+<article class="product-card">
+
+  <div class="product-image">
+
+    <span class="badge new-arrival">
+      NEW ARRIVAL
+    </span>
+
+    <span class="badge sale">
+      SALE
+    </span>
+
+    <button class="product-wishlist">
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20.8 8.8
+             c0-2.8-2-4.8-4.7-4.8
+             -1.8 0-3.4 1-4.1 2.4
+             C11.3 5 9.7 4 7.9 4
+             5.2 4 3.2 6 3.2 8.8
+             c0 4.9 8.8 10.2 8.8 10.2
+             s8.8-5.3 8.8-10.2z"
+        ></path>
+
+      </svg>
+
+    </button>
+
+    <img
+      src="img/Summer_White BG.png"
+      alt="Summer"
+    >
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+      Eau de Parfum SUMMER 
+    </div>
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 95,400
+      </span>
+
+      <span class="old-price">
+        Rp 159,000
+      </span>
+
+    </div>
+
+  </div>
+
+</article>
 
 <!-- PRODUCT 8 -->
 
@@ -2488,121 +2523,12 @@ footer a:hover {
 
   <div class="product-image">
 
-    <span class="badge best-seller">
-      BEST SELLER
+    <span class="badge new-arrival">
+      NEW ARRIVAL
     </span>
 
-    <button class="product-wishlist">
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
-
-      </svg>
-
-    </button>
-
-    <img
-      src="img/Summer.png"
-      alt="SNS Summer"
-    >
-
-  </div>
-
-
-  <div class="product-info">
-
-    <div class="product-name">
-      Eau de Parfum SUMMER
-    </div>
-
-    <div class="product-price">
-
-      <span class="current-price">
-        Rp 95,400
-      </span>
-
-      <span class="old-price">
-        Rp 159,000
-      </span>
-
-    </div>
-  </div>
-</article>
-      
-<!-- PRODUCT 9 -->
-
-<article class="product-card">
-
-  <div class="product-image">
-
-    <span class="badge best-seller">
-      BEST SELLER
-    </span>
-
-    <button class="product-wishlist">
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
-
-      </svg>
-
-    </button>
-
-    <img
-      src="img/Noelis_White BG.png"
-      alt="SNS Noelis"
-    >
-
-  </div>
-
-  <div class="product-info">
-
-    <div class="product-name">
-      Eau de Parfum NOELIS
-    </div>
-
-    <div class="product-price">
-
-      <span class="current-price">
-        Rp 95,400
-      </span>
-
-      <span class="old-price">
-        Rp 159,000
-      </span>
-
-    </div>
-
-  </div>
-
-</article>
-
-<!-- PRODUCT 10 -->
-
-<article class="product-card">
-
-  <div class="product-image">
-
-    <span class="badge best-seller">
-      BEST SELLER
+    <span class="badge sale">
+      SALE
     </span>
 
     <button class="product-wishlist">
@@ -2625,7 +2551,7 @@ footer a:hover {
 
     <img
       src="img/Stilenne_White BG.png"
-      alt="SNS Stilenne"
+      alt="Stilenne"
     >
 
   </div>
@@ -2634,7 +2560,7 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Eau de Parfum STILENNE
+      Eau de Parfum STILENNE 
     </div>
 
     <div class="product-price">
@@ -2653,6 +2579,7 @@ footer a:hover {
 
 </article>
 </main>
+
 
 <!-- =====================================================
      REVIEWS BUTTON
@@ -2825,6 +2752,7 @@ footer a:hover {
   href="https://wa.me/message/TZMPXSMPC6XHM1"
   class="floating chat"
 >
+
   <svg viewBox="0 0 24 24">
 
     <path
@@ -2862,8 +2790,11 @@ footer a:hover {
       r=".7"
       fill="white"
     ></circle>
+
   </svg>
+
 </a>
+
 
 <!-- =====================================================
      JAVASCRIPT
