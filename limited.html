@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>SNS Fragrance — Extrait de Parfum</title>
+<title>SNS Fragrance — Limited</title>
 
 
 <style>
@@ -690,49 +690,44 @@ header {
 
 .extrait-hero {
   width: 100%;
-
-  height: 465px;
-
-  display: grid;
-
-  grid-template-columns: 65% 35%;
-
+  height: auto;
+  display: block;
   overflow: hidden;
+  line-height: 0;
 }
-
 
 /* =====================================================
    HERO IMAGE
 ===================================================== */
 
 .extrait-hero-image {
+  width: 100%;
+  height: auto;
   position: relative;
-
-  background-image:
-    url("images/hero-extrait.jpg");
-
-  background-size: cover;
-
-  background-position: center;
-
-  min-width: 0;
 }
 
-.extrait-hero-image::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0,0,0,.35),
-      transparent 65%
-    );
+.extrait-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
+/* SECOND BANNER IMAGE */
+.second-banner {
+  width: 100%;
+  aspect-ratio: 2.8 / 1;
+  overflow: hidden;
+}
+
+.second-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 
 /* =====================================================
    HERO TEXT
@@ -938,8 +933,10 @@ header {
 
 
 /* =====================================================
-   PRODUCT IMAGE
+   PRODUCT IMAGE — SQUARE FRAME
 ===================================================== */
+
+/* PRODUCT IMAGE — SQUARE FRAME */
 
 .product-image {
   position: relative;
@@ -959,12 +956,11 @@ header {
   object-position: center;
   transition: transform .45s ease;
 }
-
+      
 .product-card:hover
 .product-image img {
   transform: scale(1.04);
 }
-
 
 /* =====================================================
    BADGES
@@ -1415,7 +1411,7 @@ footer a:hover {
   .header-main {
     height: 75px;
   }
-
+  
 .logo {
   width: 200px;
   height: 65px;
@@ -1608,7 +1604,7 @@ footer a:hover {
         height: auto !important;
     }
 }
-
+      
 </style>
 
 </head>
@@ -1645,6 +1641,7 @@ footer a:hover {
 <!-- =====================================================
      HEADER
 ===================================================== -->
+
 <header>
 
   <div class="header-main">
@@ -1771,7 +1768,6 @@ footer a:hover {
     </div>
   </div>
 
-
   <!-- NAVIGATION -->
 
   <nav class="navigation">
@@ -1782,8 +1778,8 @@ footer a:hover {
       <a href="edt.html">Body Mist</a>
       <a href="bodyoil.html">Body Oil</a>
       <a href="bodywash.html">Body Wash</a>
-      <a href="homefragrance.html">Home Fragrance</a>
-      <a href="limited.html" class="active">Limited Edition</a>
+      <a href="homefragrance.html" class="active">Home Fragrance</a>
+      <a href="limited.html">Limited Edition</a>
       <a href="collab.html">Special Collaboration</a>
       <!-- <a href="loyalty.html">Loyalty</a> -->
 
@@ -1945,44 +1941,20 @@ footer a:hover {
 ===================================================== -->
 
 <section class="extrait-hero">
-
-
-  <div class="extrait-hero-image">
-
-
-    <div class="hero-copy">
-
-
-      <div class="hero-small">
-        THE SIGNATURE COLLECTION
-      </div>
-
-
-      <h1>
-        SNS FRAGRANCE
-      </h1>
-
-
-      <p>
-        Limited Edition
-      </p>
-
-
+    <div class="extrait-hero-image">
+        <img
+            src="img/Home Fragrance 1.png"
+            alt="SNS Fragrance Collection"
+        >
     </div>
+</section>
 
-
-  </div>
-
-
-  <div class="extrait-hero-title">
-
-    <h2>
-      Limited Edition
-    </h2>
-
-  </div>
-
-
+<!-- SECOND BANNER IMAGE -->
+<section class="second-banner">
+    <img
+        src="img/Home Fragrance 2.png"
+        alt="SNS Fragrance Collection"
+    >
 </section>
 
 
@@ -2144,8 +2116,8 @@ footer a:hover {
     </button>
 
     <img
-      src="images/ophir.png"
-      alt="SNS Ophir"
+      src="img/The Cedar Room Reed Diffuser_White BG.png"
+      alt="The Cedar Room Reed Diffuser"
     >
 
   </div>
@@ -2154,17 +2126,17 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Extrait de Parfum OPHIR
+      Ambient Essence THE CEDAR ROOM 
     </div>
 
     <div class="product-price">
 
       <span class="current-price">
-        Rp 299,000
+        Rp 95,400
       </span>
 
       <span class="old-price">
-        Rp 349,000
+        Rp 159,000
       </span>
 
     </div>
@@ -2172,7 +2144,6 @@ footer a:hover {
   </div>
 
 </article>
-
 
 <!-- PRODUCT 2 -->
 
@@ -2207,8 +2178,8 @@ footer a:hover {
     </button>
 
     <img
-      src="images/tranquility.png"
-      alt="SNS Tranquility"
+      src="img/A Morning in Bloom Reed Diffuser_White BG.png"
+      alt="A Morning in Bloom"
     >
 
   </div>
@@ -2217,17 +2188,17 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Extrait de Parfum TRANQUILITY
+      Ambient Essence A MORNING IN BLOOM
     </div>
 
     <div class="product-price">
 
       <span class="current-price">
-        Rp 299,000
+        Rp 95,400
       </span>
 
       <span class="old-price">
-        Rp 349,000
+        Rp 159,000
       </span>
 
     </div>
@@ -2238,69 +2209,6 @@ footer a:hover {
 
 
 <!-- PRODUCT 3 -->
-
-<article class="product-card">
-
-  <div class="product-image">
-
-    <span class="badge best-seller">
-      BEST SELLER
-    </span>
-
-    <span class="badge sale">
-      SALE
-    </span>
-
-    <button class="product-wishlist">
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
-
-      </svg>
-
-    </button>
-
-    <img
-      src="images/rapha.png"
-      alt="SNS Rapha"
-    >
-
-  </div>
-
-
-  <div class="product-info">
-
-    <div class="product-name">
-      Extrait de Parfum RAPHA
-    </div>
-
-    <div class="product-price">
-
-      <span class="current-price">
-        Rp 285,000
-      </span>
-
-      <span class="old-price">
-        Rp 359,000
-      </span>
-
-    </div>
-
-  </div>
-
-</article>
-
-
-<!-- PRODUCT 4 -->
 
 <article class="product-card">
 
@@ -2333,8 +2241,8 @@ footer a:hover {
     </button>
 
     <img
-      src="images/cocoa-amore.png"
-      alt="SNS Cocoa Amore"
+      src="img/In A Quiet Garden Reed Diffuser_White BG.png"
+      alt="In A Quiet Garden Reed Diffuser"
     >
 
   </div>
@@ -2343,17 +2251,17 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Extrait de Parfum COCOA AMORE
+      Ambient Essence IN A QUIET GARDEN 
     </div>
 
     <div class="product-price">
 
       <span class="current-price">
-        Rp 289,000
+        Rp 95,400
       </span>
 
       <span class="old-price">
-        Rp 349,000
+        Rp 159,000
       </span>
 
     </div>
@@ -2363,7 +2271,7 @@ footer a:hover {
 </article>
 
 
-<!-- PRODUCT 5 -->
+<!-- PRODUCT 4 -->
 
 <article class="product-card">
 
@@ -2371,6 +2279,10 @@ footer a:hover {
 
     <span class="badge best-seller">
       BEST SELLER
+    </span>
+
+    <span class="badge sale">
+      SALE
     </span>
 
     <button class="product-wishlist">
@@ -2392,8 +2304,8 @@ footer a:hover {
     </button>
 
     <img
-      src="images/forte.png"
-      alt="SNS Forte"
+      src="img/A Hidden Eden Reed Diffuser_White BG.png"
+      alt="A Hidden Eden Reed Diffuser"
     >
 
   </div>
@@ -2402,17 +2314,17 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Extrait de Parfum FORTE
+      Ambient Essence A HIDDEN EDEN
     </div>
 
     <div class="product-price">
 
       <span class="current-price">
-        Rp 299,000
+        Rp 95,400
       </span>
 
       <span class="old-price">
-        Rp 349,000
+        Rp 159,000
       </span>
 
     </div>
@@ -2420,185 +2332,6 @@ footer a:hover {
   </div>
 
 </article>
-
-
-<!-- PRODUCT 6 -->
-
-<article class="product-card">
-
-  <div class="product-image">
-
-    <span class="badge best-seller">
-      BEST SELLER
-    </span>
-
-    <button class="product-wishlist">
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
-
-      </svg>
-
-    </button>
-
-    <img
-      src="images/intense.png"
-      alt="SNS Intense"
-    >
-
-  </div>
-
-
-  <div class="product-info">
-
-    <div class="product-name">
-      Extrait de Parfum INTENSE
-    </div>
-
-    <div class="product-price">
-
-      <span class="current-price">
-        Rp 299,000
-      </span>
-
-      <span class="old-price">
-        Rp 349,000
-      </span>
-
-    </div>
-
-  </div>
-
-</article>
-
-
-<!-- PRODUCT 7 -->
-
-<article class="product-card">
-
-  <div class="product-image">
-
-    <span class="badge best-seller">
-      BEST SELLER
-    </span>
-
-    <button class="product-wishlist">
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
-
-      </svg>
-
-    </button>
-
-    <img
-      src="images/memories.png"
-      alt="SNS Memories"
-    >
-
-  </div>
-
-
-  <div class="product-info">
-
-    <div class="product-name">
-      Extrait de Parfum MEMORIES
-    </div>
-
-    <div class="product-price">
-
-      <span class="current-price">
-        Rp 299,000
-      </span>
-
-      <span class="old-price">
-        Rp 349,000
-      </span>
-
-    </div>
-
-  </div>
-
-</article>
-
-
-<!-- PRODUCT 8 -->
-
-<article class="product-card">
-
-  <div class="product-image">
-
-    <span class="badge best-seller">
-      BEST SELLER
-    </span>
-
-    <button class="product-wishlist">
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
-
-      </svg>
-
-    </button>
-
-    <img
-      src="images/seduction.png"
-      alt="SNS Seduction"
-    >
-
-  </div>
-
-
-  <div class="product-info">
-
-    <div class="product-name">
-      Extrait de Parfum SEDUCTION
-    </div>
-
-    <div class="product-price">
-
-      <span class="current-price">
-        Rp 299,000
-      </span>
-
-      <span class="old-price">
-        Rp 349,000
-      </span>
-
-    </div>
-
-  </div>
-
-</article>
-
-
 </main>
 
 
