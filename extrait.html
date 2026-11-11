@@ -142,7 +142,7 @@ header {
     object-fit: contain;
     object-position: center;
 }
-      
+
 /* =====================================================
    HEADER ICONS
 ===================================================== */
@@ -696,7 +696,6 @@ header {
   line-height: 0;
 }
 
-
 /* =====================================================
    HERO IMAGE
 ===================================================== */
@@ -712,6 +711,21 @@ header {
   width: 100%;
   height: auto;
   object-fit: contain;
+  object-position: center;
+}
+
+/* SECOND BANNER IMAGE */
+.second-banner {
+  width: 100%;
+  aspect-ratio: 2.8 / 1;
+  overflow: hidden;
+}
+
+.second-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -918,6 +932,10 @@ header {
 }
 
 
+/* =====================================================
+   PRODUCT IMAGE — SQUARE FRAME
+===================================================== */
+
 /* PRODUCT IMAGE — SQUARE FRAME */
 
 .product-image {
@@ -938,12 +956,11 @@ header {
   object-position: center;
   transition: transform .45s ease;
 }
-
+      
 .product-card:hover
 .product-image img {
   transform: scale(1.04);
 }
-
 
 /* =====================================================
    BADGES
@@ -1078,7 +1095,6 @@ header {
 
   font-size: 12px;
 }
-
 
 /* =====================================================
    REVIEWS
@@ -1395,7 +1411,7 @@ footer a:hover {
   .header-main {
     height: 75px;
   }
-
+  
 .logo {
   width: 200px;
   height: 65px;
@@ -1482,6 +1498,10 @@ footer a:hover {
     height: 75px;
   }
 
+  .logo {
+    font-size: 30px;
+  }
+
   .header-icons {
     right: 15px;
 
@@ -1503,7 +1523,7 @@ footer a:hover {
   }
 
   .product-image {
-  height: 240px;
+    height: 240px;
   }
 
   .footer-grid {
@@ -1525,6 +1545,10 @@ footer a:hover {
     justify-content: space-between;
 
     padding: 0 18px;
+  }
+
+  .logo {
+    font-size: 28px;
   }
 
   .header-icons {
@@ -1580,7 +1604,7 @@ footer a:hover {
         height: auto !important;
     }
 }
-
+      
 </style>
 
 </head>
@@ -1622,16 +1646,13 @@ footer a:hover {
 
   <div class="header-main">
 
-
     <div class="logo">
   <a href="index.html" aria-label="SNS Fragrance Home">
     <img src="img/Logo SNS.png" alt="SNS Fragrance">
   </a>
 </div>
 
-
     <div class="header-icons">
-
 
       <!-- ACCOUNT -->
       <!-- <a
@@ -1752,12 +1773,12 @@ footer a:hover {
   <nav class="navigation">
 
       <a href="bestsellers.html">Best Seller</a>
-      <a href="extrait.html" class="active">Extrait de Parfum</a>
+      <a href="extrait.html">Extrait de Parfum</a>
       <a href="edp.html">Eau de Parfum</a>
       <a href="edt.html">Body Mist</a>
       <a href="bodyoil.html">Body Oil</a>
       <a href="bodywash.html">Body Wash</a>
-      <a href="homefragrance.html">Home Fragrance</a>
+      <a href="homefragrance.html" class="active">Home Fragrance</a>
       <a href="limited.html">Limited Edition</a>
       <a href="collab.html">Special Collaboration</a>
       <!-- <a href="loyalty.html">Loyalty</a> -->
@@ -1920,10 +1941,22 @@ footer a:hover {
 ===================================================== -->
 
 <section class="extrait-hero">
-  <div class="extrait-hero-image">
-    <img src="images/extrait-hero.png" alt="SNS Fragrance Collection">
-  </div>
+    <div class="extrait-hero-image">
+        <img
+            src="img/Home Fragrance 1.png"
+            alt="SNS Fragrance Collection"
+        >
+    </div>
 </section>
+
+<!-- SECOND BANNER IMAGE -->
+<section class="second-banner">
+    <img
+        src="img/Home Fragrance 2.png"
+        alt="SNS Fragrance Collection"
+    >
+</section>
+
 
 <!-- =====================================================
      FILTER
@@ -2084,7 +2117,7 @@ footer a:hover {
 
     <img
       src="img/Ophir_White BG.png"
-      alt="SNS Ophir"
+      alt="Ophir"
     >
 
   </div>
@@ -2111,7 +2144,6 @@ footer a:hover {
   </div>
 
 </article>
-
 
 <!-- PRODUCT 2 -->
 
@@ -2147,7 +2179,7 @@ footer a:hover {
 
     <img
       src="img/Rapha_White BG.png"
-      alt="SNS Rapha"
+      alt="Rapha"
     >
 
   </div>
@@ -2156,7 +2188,7 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Extrait de Parfum RAPHA
+      Extrait de Parfum RAPHA 
     </div>
 
     <div class="product-price">
@@ -2182,8 +2214,8 @@ footer a:hover {
 
   <div class="product-image">
 
-    <span class="badge best-seller">
-      BEST SELLER
+    <span class="badge new-arrival">
+      NEW ARRIVAL
     </span>
 
     <span class="badge sale">
@@ -2210,7 +2242,7 @@ footer a:hover {
 
     <img
       src="img/Kirche_White BG.png"
-      alt="SNS Kirche"
+      alt="Kirche"
     >
 
   </div>
@@ -2219,7 +2251,7 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Extrait de Parfum KIRCHE
+      Extrait de Parfum KIRCHE 
     </div>
 
     <div class="product-price">
@@ -2273,7 +2305,7 @@ footer a:hover {
 
     <img
       src="img/Zione_White BG.png"
-      alt="SNS Zione"
+      alt="Zione"
     >
 
   </div>
@@ -2282,7 +2314,7 @@ footer a:hover {
   <div class="product-info">
 
     <div class="product-name">
-      Extrait de Parfum ZIONE
+      Extrait de Parfum ZIONE 
     </div>
 
     <div class="product-price">
@@ -2296,9 +2328,12 @@ footer a:hover {
       </span>
 
     </div>
+
   </div>
+
 </article>
 </main>
+
 
 <!-- =====================================================
      REVIEWS BUTTON
