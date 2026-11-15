@@ -163,14 +163,12 @@
 }
 
 header {
-  width: 100%;
-  height: 96px;
-  position: relative;
   background: #fff;
+  border-bottom: 1px solid #eeeeee;
+  position: relative;
 }
 
 .header-main {
-  width: 100%;
   height: 96px;
   display: flex;
   align-items: center;
@@ -178,15 +176,16 @@ header {
   position: relative;
 }
 
+/* LOGO */
 
 .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
-    max-width: 100%;
-    height: 110px;
-    flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  max-width: 100%;
+  height: 110px;
+  flex-shrink: 0;
 }
 
 .logo a {
@@ -198,53 +197,44 @@ header {
 }
 
 .logo img {
-    display: block;
-    width: 220px !important;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
+  display: block;
+  width: 220px !important;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
-/* MAIN NAVIGATION */
-.main-navigation {
-  width: 100%;
-  min-height: 58px;
+/* NAVIGATION */
+
+.navigation {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 38px;
+  min-height: 58px;
   padding: 0 25px;
-  background: #fff;
-  border-bottom: 1px solid #e8e8e8;
-  overflow-x: auto;
-  scrollbar-width: none;
+  border-bottom: 1px solid #e7e7e7;
 }
 
-.main-navigation::-webkit-scrollbar {
-  display: none;
-}
-
-.main-navigation a {
+.navigation a {
   position: relative;
-  flex: 0 0 auto;
-  padding: 0;
   color: #111;
   text-decoration: none;
   font-size: 15px;
-  font-weight: 400;
   white-space: nowrap;
+  transition: 0.2s;
 }
 
-.main-navigation a:hover {
-  opacity: 0.6;
+.navigation a:hover {
+  color: #8b6736;
 }
 
-.main-navigation a.active {
+.navigation a.active {
   font-weight: 500;
 }
 
-.main-navigation a.active::after {
+.navigation a.active::after {
   content: "";
   position: absolute;
   left: 0;
@@ -726,7 +716,7 @@ header {
 }
 
 @media (max-width: 900px) {
-  header,
+
   .header-main {
     height: 90px;
   }
@@ -741,7 +731,7 @@ header {
     height: 80px;
   }
 
-  .main-navigation {
+  .navigation {
     justify-content: flex-start;
     gap: 25px;
     padding: 0 20px;
@@ -783,14 +773,14 @@ header {
     gap: 12px;
   }
 
-  .main-navigation {
-    min-height: 55px;
-    gap: 22px;
-  }
+.navigation {
+  min-height: 55px;
+  gap: 22px;
+}
 
-  .main-navigation a {
-    font-size: 13px;
-  }
+.navigation a {
+  font-size: 13px;
+}
     
       .language-switcher {
 
@@ -999,27 +989,30 @@ body > footer .copyright {
 
 <!-- MAIN HEADER -->
 <header>
+
   <div class="header-main">
 
     <div class="logo">
-  <img src="img/Logo SNS.png" alt="SNS Fragrance">
-</div>
-
+      <img src="img/Logo SNS.png" alt="SNS Fragrance">
     </div>
-</header>
 
-<nav class="main-navigation" aria-label="Main navigation">
-      <a href="bestsellers.html">Best Seller</a>
-      <a href="extrait.html">Extrait de Parfum</a>
-      <a href="edp.html">Eau de Parfum</a>
-      <a href="edt.html">Body Mist</a>
-      <a href="bodyoil.html">Body Oil</a>
-      <a href="bodywash.html">Body Wash</a>
-      <a href="homefragrance.html">Home Fragrance</a>
-      <a href="limited.html">Special Event</a>
-      <a href="collab.html">Special Collaboration</a>
-      <!-- <a href="loyalty.html">Loyalty</a> -->
-</nav>
+  </div>
+
+  <nav class="navigation" aria-label="Main navigation">
+
+    <a href="bestsellers.html">Best Seller</a>
+    <a href="extrait.html">Extrait de Parfum</a>
+    <a href="edp.html">Eau de Parfum</a>
+    <a href="edt.html">Body Mist</a>
+    <a href="bodyoil.html">Body Oil</a>
+    <a href="bodywash.html">Body Wash</a>
+    <a href="homefragrance.html">Home Fragrance</a>
+    <a href="limited.html">Special Event</a>
+    <a href="collab.html">Special Collaboration</a>
+    <!-- <a href="loyalty.html">Loyalty</a> -->
+
+  </nav>
+</header>
 
 <div class="language-switcher">
 
@@ -1030,7 +1023,6 @@ body > footer .copyright {
       English
 
     </button>
-
 
     <button
       class="language-btn"
