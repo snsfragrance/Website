@@ -1545,21 +1545,39 @@ footer a:hover {
 }
 
 
+
 @media (max-width: 520px) {
 
   .header-main {
-    justify-content: space-between;
-
-    padding: 0 18px;
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    position: relative;
+    height: 85px;
+    padding: 0 !important;
   }
 
   .logo {
-    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    height: 85px;
+    margin: 0 auto;
+  }
+
+  .logo img {
+    display: block;
+    width: 280px !important;
+    max-width: 85% !important;
+    height: auto !important;
+    object-fit: contain;
+    object-position: center;
   }
 
   .header-icons {
-    position: static;
-
+    position: absolute;
+    right: 15px;
     gap: 12px;
   }
 
