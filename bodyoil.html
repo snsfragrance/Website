@@ -1556,10 +1556,6 @@ footer a:hover {
     gap: 12px;
   }
 
-  .extrait-hero {
-    height: 600px;
-  }
-
   .hero-copy {
     left: 8%;
   }
@@ -1602,6 +1598,30 @@ footer a:hover {
         max-width: none !important;
         height: auto !important;
     }
+}
+
+/* FINAL MOBILE HERO FIX */
+@media screen and (max-width: 800px) {
+  .extrait-hero {
+    height: auto !important;
+    min-height: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .extrait-hero-image {
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .extrait-hero-image img {
+    display: block;
+    width: 100%;
+    height: auto !important;
+    margin: 0;
+  }
 }
       
 </style>
