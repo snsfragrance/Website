@@ -748,6 +748,7 @@ header {
   }
 }
 
+
 @media (max-width: 600px) {
   .announcement {
     height: 35px;
@@ -758,15 +759,30 @@ header {
     height: 70px;
   }
 
+  .header-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .logo {
-    width: 200px;
-    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    height: 70px;
+    margin: 0 auto;
   }
 
   .logo img {
-    max-width: 200px;
-    height: 60px;
+    display: block;
+    width: 250px !important;
+    max-width: 85vw !important;
+    height: auto !important;
+    object-fit: contain;
+    object-position: center;
   }
+}
 
   .main-navigation {
     min-height: 55px;
@@ -787,7 +803,6 @@ header {
 
       }
 
-
       .language-switcher button {
 
         height: 44px;
@@ -797,14 +812,24 @@ header {
         font-size: 14px;
 
       }
+      
+.faq-wrapper {
+  grid-template-columns: 1fr;
+  gap: 30px;
+  padding: 0 20px 60px;
+}
 
+.faq-sidebar {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
 
-      .faq-wrapper {
-
-        padding: 0 20px 60px;
-
-      }
-
+.faq-sidebar a {
+  width: auto;
+  margin-bottom: 5px;
+}
 
       .faq-section-title {
 
