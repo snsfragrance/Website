@@ -748,21 +748,15 @@ header {
   }
 }
 
-
-@media (max-width: 600px) {
-  .announcement {
-    height: 35px;
-  }
-
-  header,
-  .header-main {
-    height: 70px;
-  }
+@media (max-width: 520px) {
 
   .header-main {
     display: flex;
-    justify-content: center;
+    justify-content: center !important;
     align-items: center;
+    position: relative;
+    height: 85px;
+    padding: 0 !important;
   }
 
   .logo {
@@ -770,19 +764,24 @@ header {
     justify-content: center;
     align-items: center;
     width: 100% !important;
-    height: 70px;
+    height: 85px;
     margin: 0 auto;
   }
 
   .logo img {
     display: block;
-    width: 250px !important;
-    max-width: 85vw !important;
+    width: 280px !important;
+    max-width: 85% !important;
     height: auto !important;
     object-fit: contain;
     object-position: center;
   }
-}
+
+  .header-icons {
+    position: absolute;
+    right: 15px;
+    gap: 12px;
+  }
 
   .main-navigation {
     min-height: 55px;
