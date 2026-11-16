@@ -975,8 +975,8 @@ header {
    FOOTER — MATCH TERMS OF SERVICE
 ===================================================== */
 
-.site-footer,
-footer {
+/* FOOTER */
+.site-footer {
   background: #7A5C2C;
   color: #fff;
   padding: 60px 7% 15px;
@@ -1003,14 +1003,12 @@ footer {
   line-height: 1.7;
 }
 
-footer h4,
 .site-footer h4 {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 18px;
 }
 
-footer a,
 .site-footer a {
   display: block;
   color: #fff;
@@ -1019,20 +1017,17 @@ footer a,
   margin-bottom: 12px;
 }
 
-footer a:hover,
 .site-footer a:hover {
   color: #fff;
 }
 
-.footer-bottom,
-.copyright {
+.footer-bottom {
   border-top: 1px solid #fff;
   padding-top: 25px;
   color: #fff;
   font-size: 12px;
 }
 
-/* TABLET */
 @media (max-width: 800px) {
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1044,10 +1039,8 @@ footer a:hover,
   }
 }
 
-/* MOBILE */
 @media (max-width: 480px) {
-  .site-footer,
-  footer {
+  .site-footer {
     padding: 45px 6% 20px;
   }
 
@@ -1217,10 +1210,6 @@ footer a:hover,
     grid-template-columns: repeat(2,1fr);
   }
 
-  .footer-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-
 }
 
 
@@ -1350,11 +1339,6 @@ footer a:hover,
    .product-image {
    height: 240px !important;
    }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
 }
 
 
@@ -2413,7 +2397,7 @@ footer a:hover,
      FOOTER
 ===================================================== -->
 
-<footer>
+<footer class="site-footer">
 
   <div class="footer-grid">
 
@@ -2508,7 +2492,7 @@ footer a:hover,
   </div>
 
 
-  <div class="copyright">
+ <div class="footer-bottom">
 
     © 2026 SNS Fragrance. All rights reserved.
 
