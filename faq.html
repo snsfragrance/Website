@@ -862,54 +862,85 @@ header {
 /* =====================================================
    FOOTER
 ===================================================== */
-body > footer,
-footer {
-  display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  background-color: #7A5C2C !important;
-  color: #FFFFFF !important;
-  padding: 65px 7% 30px !important;
-  margin: 0 !important;
-  font-family: Arial, Helvetica, sans-serif !important;
+.site-footer {
+  background: #7A5C2C;
+  color: #fff;
+  padding: 60px 7% 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-footer .footer-grid {
-  display: grid !important;
-  grid-template-columns: 2.2fr 1fr 1fr 1fr 1.6fr !important;
-  gap: 45px !important;
-  width: 100% !important;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr 1.6fr;
+  gap: 45px;
+  padding-bottom: 45px;
 }
 
-footer h2,
-footer h4,
-footer p,
-footer a,
-footer .copyright {
-  color: #FFFFFF !important;
+.footer-brand h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 15px;
 }
 
-footer a {
-  text-decoration: none !important;
+.footer-brand p {
+  max-width: 350px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.7;
 }
 
-footer .copyright {
-  border-top: 1px solid #FFFFFF !important;
-  margin-top: 50px !important;
-  padding-top: 25px !important;
+.site-footer h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 18px;
 }
 
-/* TABLET */
-@media (max-width: 1000px) {
-  body > footer .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+.site-footer a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #fff;
+  padding-top: 25px;
+  color: #fff;
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 25px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
   }
 }
 
-/* MOBILE */
-@media (max-width: 650px) {
-  body > footer .footer-grid {
-    grid-template-columns: 1fr !important;
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 45px 6% 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
   }
 }
     
@@ -2879,7 +2910,7 @@ footer .copyright {
      FOOTER
 ===================================================== -->
 
-<footer>
+<footer class="site-footer">
 
   <div class="footer-grid">
 
@@ -2980,7 +3011,7 @@ footer .copyright {
   </div>
 
 
-  <div class="copyright">
+  <div class="footer-bottom">
 
     © 2026 SNS Fragrance.
     All rights reserved.
