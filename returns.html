@@ -178,10 +178,10 @@ header {
 }
 
 /* =====================================================
-   PRIVACY POLICY CONTENT
+   RETURNS & EXCHANGES CONTENT
 ===================================================== */
 
-.privacy-wrapper {
+.returns-wrapper {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
@@ -191,7 +191,7 @@ header {
 
 /* PAGE TITLE */
 
-.privacy-title {
+.returns-title {
   font-size: 30px;
   line-height: 1.15;
   font-weight: 600;
@@ -199,24 +199,28 @@ header {
   margin-bottom: 20px;
 }
 
-/* LAST UPDATED */
+/* INTRODUCTION */
 
-.last-updated {
-  font-size: 15px;
-  font-style: italic;
-  line-height: 1.2;
-  letter-spacing: 0.1px;
-  margin-bottom: 14px;
-  color: #111;
-}
-
-/* PRIVACY SECTIONS */
-
-.privacy-section {
+.returns-intro {
   margin-bottom: 34px;
 }
 
-.privacy-section h2 {
+.returns-intro p {
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: 0.1px;
+  margin-bottom: 9px;
+  color: #111;
+  text-align: left;
+}
+
+/* RETURNS SECTIONS */
+
+.returns-section {
+  margin-bottom: 34px;
+}
+
+.returns-section h2 {
   font-size: 15px;
   line-height: 1.3;
   font-weight: 700;
@@ -224,7 +228,16 @@ header {
   text-transform: uppercase;
 }
 
-.privacy-section p {
+.returns-section h3 {
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 700;
+  margin-top: 18px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.returns-section p {
   font-size: 15px;
   line-height: 1.2;
   letter-spacing: 0.1px;
@@ -235,11 +248,11 @@ header {
 
 /* LISTS */
 
-.privacy-section ul {
+.returns-section ul {
   margin: 5px 0 12px 25px;
 }
 
-.privacy-section li {
+.returns-section li {
   font-size: 15px;
   line-height: 1.25;
   margin-bottom: 5px;
@@ -247,13 +260,33 @@ header {
 
 /* LINKS */
 
-.privacy-section a {
+.returns-section a,
+.returns-intro a {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.privacy-section a:hover {
+.returns-section a:hover,
+.returns-intro a:hover {
   opacity: 0.6;
+}
+
+/* IMPORTANT NOTICE */
+
+.returns-notice {
+  margin: 25px 0 30px;
+  padding: 20px 22px;
+  background: #f7f7f7;
+  border-left: 3px solid #111;
+}
+
+.returns-notice p {
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: 0.1px;
+  margin-bottom: 0;
+  color: #111;
+  text-align: left;
 }
 
 /* =====================================================
@@ -262,24 +295,26 @@ header {
 
 @media (max-width: 1000px) {
 
-  .privacy-wrapper {
+  .returns-wrapper {
     padding: 40px 25px 100px;
   }
 
-  .privacy-title {
+  .returns-title {
     font-size: 30px;
   }
 
-  .privacy-section h2 {
+  .returns-section h2,
+  .returns-section h3 {
     font-size: 16px;
   }
 
-  .privacy-section p,
-  .privacy-section li {
+  .returns-intro p,
+  .returns-section p,
+  .returns-section li,
+  .returns-notice p {
     font-size: 16px;
     line-height: 1.25;
   }
-
 }
 
 /* =====================================================
@@ -288,53 +323,68 @@ header {
 
 @media (max-width: 650px) {
 
-  .privacy-wrapper {
+  .returns-wrapper {
     width: 100%;
     max-width: 100%;
-    padding: 48px 29px 100px;
+    padding: 35px 15px 100px;
   }
 
-  .privacy-title {
-    font-size: 30px;
+  .returns-title {
+    font-size: 25px;
     line-height: 1.2;
     font-weight: 500;
-    letter-spacing: -0.5px;
-    margin-bottom: 20px;
+    letter-spacing: -0.4px;
+    margin-bottom: 16px;
   }
 
-  .last-updated {
-    font-size: 15px;
-    line-height: 1.3;
+  .returns-intro {
     margin-bottom: 14px;
   }
 
-  .privacy-section {
-    margin-bottom: 17px;
+  .returns-section {
+    margin-bottom: 14px;
   }
 
-  .privacy-section h2 {
-    font-size: 15px;
+  .returns-section h2 {
+    font-size: 12px;
     line-height: 1.3;
     font-weight: 700;
     margin-bottom: 2px;
   }
 
-  .privacy-section p {
-    font-size: 15px;
+  .returns-section h3 {
+    font-size: 12px;
     line-height: 1.3;
-    letter-spacing: 0.15px;
-    margin-bottom: 10px;
+    margin-top: 14px;
+    margin-bottom: 3px;
+  }
+
+  .returns-intro p,
+  .returns-section p {
+    font-size: 12px;
+    line-height: 1.3;
+    letter-spacing: 0.1px;
+    margin-bottom: 8px;
     text-align: left;
   }
 
-  .privacy-section ul {
-    margin: 7px 0 13px 22px;
+  .returns-section ul {
+    margin: 6px 0 10px 20px;
   }
 
-  .privacy-section li {
-    font-size: 15px;
+  .returns-section li {
+    font-size: 12px;
     line-height: 1.3;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
+  }
+
+  .returns-notice {
+    padding: 15px;
+  }
+
+  .returns-notice p {
+    font-size: 12px;
+    line-height: 1.3;
   }
 }
 
