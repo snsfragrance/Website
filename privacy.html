@@ -54,7 +54,6 @@
       text-decoration: none;
     }
 
-
     /* ANNOUNCEMENT BAR */
 .announcement {
   width: 100%; height: 42px; background: #7C5A28; color: #fff;
@@ -76,11 +75,13 @@
 }
 .announcement:hover .announcement-track { animation-play-state: paused; }
 
+/* =====================================================
+   MAIN HEADER
+===================================================== */
 
 header {
-  width: 100%;
   background: #fff;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eeeeee;
 }
 
 .header-main {
@@ -104,45 +105,36 @@ header {
 
 .logo img {
   display: block;
-  width: 220px;
+  width: 220px !important;
   max-width: 100%;
   height: auto;
   object-fit: contain;
   object-position: center;
 }
 
-.main-navigation {
-  width: 100%;
-  min-height: 58px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 38px;
-  padding: 0 25px;
-  background: #fff;
-  border-bottom: 1px solid #e8e8e8;
-  overflow-x: auto;
-  scrollbar-width: none;
-  white-space: nowrap;
-}
+/* MAIN NAVIGATION */
 
-.main-navigation::-webkit-scrollbar {
-  display: none;
+.main-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 38px;
+  min-height: 58px;
+  padding: 0 25px;
+  border-bottom: 1px solid #e7e7e7;
 }
 
 .main-navigation a {
   position: relative;
-  flex: 0 0 auto;
-  padding: 0;
   color: #111;
   text-decoration: none;
   font-size: 15px;
-  font-weight: 400;
   white-space: nowrap;
+  transition: 0.2s;
 }
 
 .main-navigation a:hover {
-  opacity: 0.6;
+  color: #8b6736;
 }
 
 .main-navigation a.active {
@@ -159,9 +151,12 @@ header {
   background: #111;
 }
 
+/* RESPONSIVE NAVIGATION — LAPTOP */
+
 @media (min-width: 1001px) and (max-width: 1200px) {
   .main-navigation {
     gap: 20px;
+    padding: 0 18px;
   }
 
   .main-navigation a {
@@ -169,46 +164,71 @@ header {
   }
 }
 
+/* RESPONSIVE NAVIGATION — TABLET */
+
 @media (max-width: 1000px) {
-  header,
-  .header-main {
-    height: auto;
-  }
-
-  .header-main {
-    height: 90px;
-  }
-
-  .logo {
-    width: 250px;
-    height: 85px;
-  }
-
-  .logo img {
-    max-width: 250px;
-    height: 80px;
-  }
-
   .main-navigation {
+    overflow-x: auto;
     justify-content: flex-start;
-    gap: 25px;
-    padding: 0 20px;
+    scrollbar-width: none;
+  }
+
+  .main-navigation::-webkit-scrollbar {
+    display: none;
   }
 }
 
+/* RESPONSIVE NAVIGATION — MOBILE */
 
 @media (max-width: 650px) {
-  .announcement {
-    height: 42px;
+  .main-navigation {
+    gap: 25px;
+    min-height: 48px;
   }
 
+  .main-navigation a {
+    font-size: 13px;
+  }
+}
+
+/* RESPONSIVE LOGO — TABLET */
+
+@media (max-width: 800px) {
   .header-main {
-    height: 85px;
+    height: 75px;
   }
 
   .logo {
+    width: 200px;
+    height: 65px;
+    flex-shrink: 0;
+  }
+
+  .logo img {
+    max-width: 200px;
+    height: 60px;
+  }
+}
+
+/* RESPONSIVE LOGO — MOBILE */
+
+@media (max-width: 520px) {
+  .header-main {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    position: relative;
+    height: 85px;
+    padding: 0 !important;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100% !important;
     height: 85px;
+    margin: 0 auto;
   }
 
   .logo img {
@@ -216,15 +236,22 @@ header {
     width: 280px !important;
     max-width: 85% !important;
     height: auto !important;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+/* LOGO SIZE OVERRIDE — DESKTOP */
+
+@media (min-width: 801px) {
+  .logo {
+    width: 450px !important;
   }
 
-  .main-navigation {
-    min-height: 48px;
-    gap: 25px;
-  }
-
-  .main-navigation a {
-    font-size: 13px;
+  .logo img {
+    width: 280px !important;
+    max-width: none !important;
+    height: auto !important;
   }
 }
 
