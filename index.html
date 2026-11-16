@@ -794,84 +794,89 @@
       stroke: none;
     }
 
-    /* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
+    
+/* FOOTER */
+.site-footer {
   background: #7A5C2C;
-
   color: #fff;
-
-  padding:
-    65px
-    7%
-    30px;
+  padding: 60px 7% 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-grid {
   display: grid;
-
-  grid-template-columns:
-    2.2fr
-    1fr
-    1fr
-    1fr
-    1.6fr;
-
+  grid-template-columns: 2.2fr 1fr 1fr 1fr 1.6fr;
   gap: 45px;
+  padding-bottom: 45px;
 }
 
 .footer-brand h2 {
   font-size: 30px;
-
   font-weight: 500;
+  margin-bottom: 15px;
 }
 
 .footer-brand p {
-  margin-top: 15px;
-
   max-width: 350px;
-
   color: #fff;
-
+  font-size: 16px;
   line-height: 1.7;
 }
 
-footer h4 {
-  margin-bottom: 18px;
-
+.site-footer h4 {
   font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 18px;
 }
 
-footer a {
+.site-footer a {
   display: block;
-
   color: #fff;
-
   text-decoration: none;
-
-  margin-bottom: 12px;
-
   font-size: 13px;
+  margin-bottom: 12px;
 }
 
-footer a:hover {
+.site-footer a:hover {
   color: #fff;
 }
 
-.copyright {
+.footer-bottom {
   border-top: 1px solid #fff;
-
-  margin-top: 50px;
-
   padding-top: 25px;
-
   color: #fff;
-
   font-size: 12px;
 }
 
+@media (max-width: 800px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px 25px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 45px 6% 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+  }
+}
 
     /* =========================
        CART DRAWER
@@ -1003,10 +1008,6 @@ footer a:hover {
       .hero-content {
         width: 60%;
       }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
 
 
@@ -1073,10 +1074,6 @@ footer a:hover {
 
       .product-image {
         height: 420px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
       }
 
       .floating.join.member {
@@ -2140,7 +2137,7 @@ footer a:hover {
        FOOTER
   ========================== -->
 
-  <footer>
+  <footer class="site-footer">
 
     <div class="footer-grid">
 
@@ -2188,7 +2185,7 @@ footer a:hover {
     </div>
 
 
-    <div class="copyright">
+    <div class="footer-bottom">
 
       © 2026 SNS Fragrance. All rights reserved.
 
