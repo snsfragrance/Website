@@ -1348,9 +1348,9 @@ header {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2.2fr 1fr 1fr 1fr 1.6fr;
+    grid-template-columns: 2.2fr 1fr 1fr 1.2fr 1.6fr;
     gap: 32px;
-    padding-bottom: 32px;
+    padding-bottom: 25px;
     align-items: start;
 }
 
@@ -1448,6 +1448,44 @@ header {
     text-align: right;
 }
 
+.footer-bottom-row {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1fr 1.2fr 1.6fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.footer-tagline {
+    grid-column: 2 / 5;
+    justify-self: start;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.footer-tagline span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.footer-bottom {
+    grid-column: 5;
+    justify-self: end;
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    text-align: right;
+    white-space: nowrap;
+}
+
 @media (max-width: 800px) {
     .footer-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1476,36 +1514,6 @@ header {
     .footer-brand p {
         font-size: 14px;
     }
-}
-
-@media (max-width: 800px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 35px 25px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 480px) {
-  .site-footer {
-    padding: 45px 6% 20px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px 20px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .footer-brand p {
-    font-size: 14px;
-  }
 }
 
 /* =====================================================
@@ -2527,110 +2535,62 @@ header {
 
 <footer class="site-footer">
 
-  <div class="footer-grid">
+    <div class="footer-grid">
 
-<div class="footer-brand">
+        <!-- LOGO -->
+        <div class="footer-brand">
+            <img
+                src="img/Logo SNS 2.png"
+                alt="SNS Fragrance Logo"
+                class="footer-logo"
+            >
+        </div>
 
-  <img
-    src="img/Logo SNS 2.png"
-    alt="SNS Fragrance Logo"
-    class="footer-logo"
-  >
+        <!-- ABOUT -->
+        <div class="footer-about">
+            <h4>ABOUT</h4>
+            <a href="about.html">Our Story</a>
+        </div>
 
-  <h2 class="footer-tagline">
-    Make Your Day <span>with Us!</span>
-  </h2>
+        <!-- FOLLOW -->
+        <div class="footer-follow">
+            <h4>FOLLOW</h4>
+            <a href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==">Instagram</a>
+            <a href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z">TikTok</a>
+            <a href="https://wa.me/message/TZMPXSMPC6XHM1">WhatsApp</a>
+        </div>
+
+        <!-- INFO -->
+        <div class="footer-info">
+            <h4>INFO</h4>
+            <a href="faq.html">FAQ</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="returns.html">Returns & Exchanges</a>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-contact">
+            <h4>CONTACT</h4>
+            <a href="mailto:snsfragranceid@gmail.com">
+                snsfragranceid@gmail.com
+            </a>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM ROW -->
+<div class="footer-bottom-row">
+
+    <h2 class="footer-tagline">
+        Make Your Day <span>with Us!</span>
+    </h2>
+
+    <div class="footer-bottom">
+        © 2026 SNS Fragrance. All rights reserved.
+    </div>
 
 </div>
-
-    <div>
-
-      <h4>
-        ABOUT
-      </h4>
-
-      <a href="about.html">
-        Our Story
-      </a>
-
-    </div>
-
-
-    <div>
-
-      <h4>
-        FOLLOW
-      </h4>
-
-      <a
-        href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
-      >
-        Instagram
-      </a>
-
-      <a
-        href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z"
-      >
-        TikTok
-      </a>
-
-      <a
-        href="https://wa.me/message/TZMPXSMPC6XHM1"
-      >
-        WhatsApp
-      </a>
-
-    </div>
-
-
-    <div>
-
-      <h4>
-        INFO
-      </h4>
-
-      <a href="faq.html">
-        FAQ
-      </a>
-
-      <a href="terms.html">
-        Terms of Service
-      </a>
-
-      <a href="privacy.html">
-        Privacy Policy
-      </a>
-
-      <a href="returns.html">
-        Returns & Exchanges
-      </a>
-
-    </div>
-
-
-    <div class="footer-contact">
-
-      <h4>
-        CONTACT
-      </h4>
-
-      <a href="mailto:snsfragranceid@gmail.com">
-        snsfragranceid@gmail.com
-      </a>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="footer-bottom">
-
-    © 2026 SNS Fragrance.
-    All rights reserved.
-
-  </div>
-
 
 </footer>
 
