@@ -111,7 +111,6 @@ header {
   position: relative;
 }
 
-
 /* =====================================================
    LOGO
 ===================================================== */
@@ -211,17 +210,23 @@ header {
 
 .navigation {
   display: flex;
-
   justify-content: center;
   align-items: center;
-
   gap: 38px;
-
   min-height: 58px;
-
   padding: 0 25px;
+  border-bottom: none;
+  position: relative;
+}
 
-  border-bottom: 1px solid #e7e7e7;
+.navigation::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 2%;
+  width: 96%;
+  height: 0.5px;
+  background: #e7e7e7;
 }
 
 .navigation a {
@@ -232,7 +237,8 @@ header {
   text-decoration: none;
 
   font-size: 15px;
-
+  font-weight: 530;
+      
   white-space: nowrap;
 
   transition: 0.2s;
@@ -243,7 +249,7 @@ header {
 }
 
 .navigation a.active {
-  font-weight: 500;
+  font-weight: 530;
 }
 
 .navigation a.active::after {
@@ -261,6 +267,35 @@ header {
   background: #111;
 }
 
+/* =====================================================
+   PAGE TITLE — AMBIENT ESSENCE
+===================================================== */
+
+.page-title {
+   width: 100%;
+   padding: 25px 20px 20px;
+   background: #fff;
+   text-align: center;
+}
+
+.page-title h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.7px;
+  line-height: 1.2;
+  color: #111;
+}
+
+@media (max-width: 650px) {
+  .page-title {
+    padding: 20px 15px 16px;
+  }
+
+  .page-title h1 {
+    font-size: 21px;
+  }
+}
 
 /* =====================================================
    SEARCH PANEL
@@ -815,9 +850,9 @@ header {
 
   padding: 0 30px;
 
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #fff;
 
-  border-top: 1px solid #eee;
+  border-top: 1px solid #fff;
 }
 
 .filter-button {
@@ -913,7 +948,7 @@ header {
   grid-template-columns:
     repeat(4, 1fr);
 
-  border-left: 1px solid #eee;
+  border-left: 1px solid #fff;
 }
 
 
@@ -922,22 +957,18 @@ header {
 ===================================================== */
 
 .product-card {
-  border-right: 1px solid #eee;
+  border-right: 1px solid #fff;
 
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #fff;
 
   background: #fff;
 
   min-width: 0;
 }
 
-
 /* =====================================================
    PRODUCT IMAGE — SQUARE FRAME
 ===================================================== */
-
-/* PRODUCT IMAGE — SQUARE FRAME */
-
 .product-image {
   position: relative;
   width: 100%;
@@ -1039,7 +1070,7 @@ header {
 
   fill: none;
 
-  stroke: #ed174d;
+  stroke: #111;
 
   stroke-width: 1.7;
 
@@ -1066,9 +1097,9 @@ header {
 }
 
 .product-name {
-  font-size: 14px;
-
+  font-size: 13px;
   font-weight: 400;
+  letter-spacing: 0.3px;
 
   margin-bottom: 5px;
 }
@@ -1081,7 +1112,7 @@ header {
 
   gap: 10px;
 
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .current-price {
@@ -1093,7 +1124,7 @@ header {
 
   text-decoration: line-through;
 
-  font-size: 12px;
+  font-size: 11px;
 }
 
 /* =====================================================
@@ -1305,89 +1336,199 @@ header {
 /* =====================================================
    FOOTER
 ===================================================== */
-
-
-/* FOOTER */
 .site-footer {
-  background: #7A5C2C;
-  color: #fff;
-  padding: 60px 7% 15px;
-  font-family: Arial, Helvetica, sans-serif;
+    background: #7A5C2C;
+    color: #fff;
+    padding: 45px 2% 35px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-grid {
-  display: grid;
-  grid-template-columns: 2.2fr 1fr 1fr 1fr 1.6fr;
-  gap: 45px;
-  padding-bottom: 45px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr 1.6fr;
+    gap: 32px;
+    padding-bottom: 25px;
+    align-items: start;
 }
 
+/* FOOTER BRAND */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent;
+    margin-left: 30px;
+}
+
+.footer-logo {
+    display: block;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    margin: 0 0 16px 0;
+}
+      
 .footer-brand h2 {
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 650;
+    letter-spacing: 0;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0;
 }
 
-.footer-brand p {
-  max-width: 350px;
-  color: #fff;
-  font-size: 16px;
-  line-height: 1.7;
+.footer-tagline {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    color: #fff;
+    margin: 0;
 }
+
+.footer-tagline span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+/* FOOTER HEADINGS */
 
 .site-footer h4 {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 18px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FFFFFF;
+    width: 100%;
 }
 
 .site-footer a {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  font-size: 13px;
-  margin-bottom: 12px;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 548;
+    line-height: 1.5;
+    margin-bottom: 7px;
 }
 
 .site-footer a:hover {
-  color: #fff;
+    color: #fff;
+}
+.footer-business {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer-business span {
+    font-size: 14px;
+    font-weight: 548;
+    line-height: 1.3;
+}
+
+.footer-business a {
+    margin-bottom: 0;
+}
+
+/* FOOTER BOTTOM */
+
+.footer-bottom {
+    border-top: none;
+    padding-top: 0;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+}
+
+.footer-bottom-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr 1.6fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.footer-tagline {
+    grid-column: 2 / 5;
+    justify-self: start;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 31px;
+    font-weight: 700;
+    letter-spacing: -0.9px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.footer-tagline span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.5px;
 }
 
 .footer-bottom {
-  border-top: 1px solid #fff;
-  padding-top: 25px;
-  color: #fff;
-  font-size: 12px;
+    grid-column: 5;
+    justify-self: end;
+    margin: 0 80px 0 0;
+    padding: 0;
+    border: none;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 548;
+    letter-spacing: 0.1px;
+    text-align: right;
+    white-space: nowrap;
 }
 
 @media (max-width: 800px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 35px 25px;
-  }
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 25px;
+    }
 
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
 }
 
 @media (max-width: 480px) {
-  .site-footer {
-    padding: 45px 6% 20px;
-  }
+    .site-footer {
+        padding: 40px 6% 20px;
+    }
 
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px 20px;
-  }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 20px;
+    }
 
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
 
-  .footer-brand p {
-    font-size: 14px;
-  }
+    .footer-brand p {
+        font-size: 14px;
+    }
 }
 
 /* =====================================================
@@ -1438,7 +1579,7 @@ header {
     justify-content: flex-start;
   }
 
-  .extrait-hero {
+ .extrait-hero {
   display: block;
   width: 100%;
   height: auto;
@@ -1567,13 +1708,13 @@ header {
 
   .logo img {
     display: block;
-    width: 280px !important;
+    width: 225px !important;
     max-width: 85% !important;
     height: auto !important;
     object-fit: contain;
     object-position: center;
-  }
-
+}
+      
   .header-icons {
     position: absolute;
     right: 15px;
@@ -1618,7 +1759,7 @@ header {
     }
 
     .logo img {
-        width: 280px !important;
+        width: 250px !important;
         max-width: none !important;
         height: auto !important;
     }
@@ -1691,7 +1832,7 @@ header {
     <div class="logo">
   <img src="img/Logo SNS.png" alt="SNS Fragrance">
 </div>
-
+        
     <div class="header-icons">
 
       <!-- ACCOUNT -->
@@ -1826,8 +1967,6 @@ header {
   </nav>
 
 </header>
-
-
 <!-- =====================================================
      SEARCH
 ===================================================== -->
@@ -1988,16 +2127,7 @@ header {
         >
     </div>
 </section>
-
-<!-- SECOND BANNER IMAGE -->
-<section class="second-banner">
-    <img
-        src="img/Event 2.png"
-        alt="SNS Fragrance Collection"
-    >
-</section>
-
-
+      
 <!-- =====================================================
      FILTER
 ===================================================== -->
@@ -2122,7 +2252,6 @@ header {
 
 <main class="product-grid">
 
-
 <!-- PRODUCT 1 -->
 
 <article class="product-card">
@@ -2137,27 +2266,35 @@ header {
       SALE
     </span>
 
-    <button class="product-wishlist">
+    <a
+  href="https://s.shopee.co.id/3qOoVWGVRV"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="product-wishlist"
+  aria-label="Shop on Shopee"
+>
 
-      <svg viewBox="0 0 24 24">
+  <svg viewBox="0 0 24 24">
 
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
+    <path
+      d="M3 4
+         H5
+         L7.2 15.2
+         H18
+         L20 7
+         H6"
+    ></path>
 
-      </svg>
+    <circle cx="9.5" cy="19.5" r="1"></circle>
+    <circle cx="17.5" cy="19.5" r="1"></circle>
 
-    </button>
+  </svg>
+
+</a>
 
     <img
-      src="img/The Cedar Room Reed Diffuser_White BG.png"
-      alt="The Cedar Room Reed Diffuser"
+      src="img/Christmas_White BG.png"
+      alt="Christmas"
     >
 
   </div>
@@ -2166,17 +2303,17 @@ header {
   <div class="product-info">
 
     <div class="product-name">
-      Ambient Essence THE CEDAR ROOM 
+      Christmas Package Exclusive 
     </div>
 
     <div class="product-price">
 
       <span class="current-price">
-        Rp 95,400
+        Rp 359,400
       </span>
 
       <span class="old-price">
-        Rp 159,000
+        Rp 599,000
       </span>
 
     </div>
@@ -2191,132 +2328,6 @@ header {
 
   <div class="product-image">
 
-    <span class="badge new-arrival">
-      NEW ARRIVAL
-    </span>
-
-    <span class="badge sale">
-      SALE
-    </span>
-
-    <button class="product-wishlist">
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
-
-      </svg>
-
-    </button>
-
-    <img
-      src="img/A Morning in Bloom Reed Diffuser_White BG.png"
-      alt="A Morning in Bloom"
-    >
-
-  </div>
-
-
-  <div class="product-info">
-
-    <div class="product-name">
-      Ambient Essence A MORNING IN BLOOM
-    </div>
-
-    <div class="product-price">
-
-      <span class="current-price">
-        Rp 95,400
-      </span>
-
-      <span class="old-price">
-        Rp 159,000
-      </span>
-
-    </div>
-
-  </div>
-
-</article>
-
-
-<!-- PRODUCT 3 -->
-
-<article class="product-card">
-
-  <div class="product-image">
-
-    <span class="badge new-arrival">
-      NEW ARRIVAL
-    </span>
-
-    <span class="badge sale">
-      SALE
-    </span>
-
-    <button class="product-wishlist">
-
-      <svg viewBox="0 0 24 24">
-
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
-
-      </svg>
-
-    </button>
-
-    <img
-      src="img/In A Quiet Garden Reed Diffuser_White BG.png"
-      alt="In A Quiet Garden Reed Diffuser"
-    >
-
-  </div>
-
-
-  <div class="product-info">
-
-    <div class="product-name">
-      Ambient Essence IN A QUIET GARDEN 
-    </div>
-
-    <div class="product-price">
-
-      <span class="current-price">
-        Rp 95,400
-      </span>
-
-      <span class="old-price">
-        Rp 159,000
-      </span>
-
-    </div>
-
-  </div>
-
-</article>
-
-
-<!-- PRODUCT 4 -->
-
-<article class="product-card">
-
-  <div class="product-image">
-
     <span class="badge best-seller">
       BEST SELLER
     </span>
@@ -2325,27 +2336,34 @@ header {
       SALE
     </span>
 
-    <button class="product-wishlist">
+    <a
+  href="https://s.shopee.co.id/3qOoVWGVRV"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="product-wishlist"
+  aria-label="Shop on Shopee"
+>
 
-      <svg viewBox="0 0 24 24">
+  <svg viewBox="0 0 24 24">
 
-        <path
-          d="M20.8 8.8
-             c0-2.8-2-4.8-4.7-4.8
-             -1.8 0-3.4 1-4.1 2.4
-             C11.3 5 9.7 4 7.9 4
-             5.2 4 3.2 6 3.2 8.8
-             c0 4.9 8.8 10.2 8.8 10.2
-             s8.8-5.3 8.8-10.2z"
-        ></path>
+    <path
+      d="M3 4
+         H5
+         L7.2 15.2
+         H18
+         L20 7
+         H6"
+    ></path>
 
-      </svg>
+    <circle cx="9.5" cy="19.5" r="1"></circle>
+    <circle cx="17.5" cy="19.5" r="1"></circle>
 
-    </button>
+  </svg>
+</a>
 
     <img
-      src="img/A Hidden Eden Reed Diffuser_White BG.png"
-      alt="A Hidden Eden Reed Diffuser"
+      src="img/Fitr_White BG.png"
+      alt="Fitr"
     >
 
   </div>
@@ -2354,17 +2372,17 @@ header {
   <div class="product-info">
 
     <div class="product-name">
-      Ambient Essence A HIDDEN EDEN
+     Eid Al-Fitr Package Exclusive
     </div>
 
     <div class="product-price">
 
       <span class="current-price">
-        Rp 95,400
+        Rp 359,400
       </span>
 
       <span class="old-price">
-        Rp 159,000
+        Rp 599,000
       </span>
 
     </div>
@@ -2373,7 +2391,6 @@ header {
 
 </article>
 </main>
-
 
 <!-- =====================================================
      REVIEWS BUTTON
@@ -2416,112 +2433,65 @@ header {
 
 <footer class="site-footer">
 
-  <div class="footer-grid">
+    <div class="footer-grid">
 
+        <!-- LOGO -->
+        <div class="footer-brand">
+            <img
+                src="img/Logo SNS 2.png"
+                alt="SNS Fragrance Logo"
+                class="footer-logo"
+            >
+        </div>
 
-    <div class="footer-brand">
+        <!-- ABOUT -->
+        <div class="footer-about">
+            <h4>ABOUT</h4>
+            <a href="about.html">Our Story</a>
+        </div>
 
-      <h2>
-        SNS Fragrance
-      </h2>
+        <!-- FOLLOW -->
+        <div class="footer-follow">
+            <h4>FOLLOW</h4>
+            <a href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==">Instagram</a>
+            <a href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z">TikTok</a>
+            <a href="https://wa.me/message/TZMPXSMPC6XHM1">WhatsApp</a>
+        </div>
 
-      <p>
-        A contemporary fragrance house creating
-        expressive scents for every individual,
-        every story, and every moment.
-      </p>
+        <!-- INFO -->
+        <div class="footer-info">
+            <h4>INFO</h4>
+            <a href="faq.html">FAQ</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="returns.html">Returns & Exchanges</a>
+        </div>
 
+        <!-- CONTACT -->
+<div class="footer-contact">
+    <h4>CONTACT</h4>
+
+    <div class="footer-business">
+        <span>Business Inquiries</span>
+        <a href="mailto:snsfragranceid@gmail.com">
+            snsfragranceid@gmail.com
+        </a>
+    </div>
+</div>
+</div>
+
+    <!-- BOTTOM ROW -->
+<div class="footer-bottom-row">
+
+    <h2 class="footer-tagline">
+        Make Your Day <span>with Us!</span>
+    </h2>
+
+    <div class="footer-bottom">
+        © 2026 SNS Fragrance. All rights reserved.
     </div>
 
-
-    <div>
-
-      <h4>
-        ABOUT
-      </h4>
-
-      <a href="about.html">
-        Our Story
-      </a>
-
-    </div>
-
-
-    <div>
-
-      <h4>
-        FOLLOW
-      </h4>
-
-      <a
-        href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
-      >
-        Instagram
-      </a>
-
-      <a
-        href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z"
-      >
-        TikTok
-      </a>
-
-      <a
-        href="https://wa.me/message/TZMPXSMPC6XHM1"
-      >
-        WhatsApp
-      </a>
-
-    </div>
-
-
-    <div>
-
-      <h4>
-        INFO
-      </h4>
-
-      <a href="faq.html">
-        FAQ
-      </a>
-
-      <a href="terms.html">
-        Terms of Service
-      </a>
-
-      <a href="privacy.html">
-        Privacy Policy
-      </a>
-
-      <a href="returns.html">
-        Returns & Exchanges
-      </a>
-
-    </div>
-
-
-    <div class="footer-contact">
-
-      <h4>
-        CONTACT
-      </h4>
-
-      <a href="mailto:snsfragranceid@gmail.com">
-        snsfragranceid@gmail.com
-      </a>
-
-    </div>
-
-
-  </div>
-
-
-  <div class="footer-bottom">
-
-    © 2026 SNS Fragrance.
-    All rights reserved.
-
-  </div>
-
+</div>
 
 </footer>
 
@@ -2808,33 +2778,6 @@ cartOverlay.addEventListener(
   "click",
   closeCart
 );
-
-
-/* =====================================================
-   WISHLIST
-===================================================== */
-
-document
-  .querySelectorAll(
-    ".product-wishlist"
-  )
-  .forEach(
-    button => {
-
-      button.addEventListener(
-        "click",
-        function() {
-
-          this.classList.toggle(
-            "selected"
-          );
-
-        }
-      );
-
-    }
-  );
-
 
 </script>
 
