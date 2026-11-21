@@ -55,17 +55,16 @@
    SNS FRAGRANCE HEADER — MATCH TERMS PAGE
 ===================================================== */
 
-/* ANNOUNCEMENT BAR */
 .announcement {
-  width: 100%;
-  height: 42px;
-  background: #7C5A28;
-  color: #fff;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
+    width: 100%;
+    height: 42px;
+    background: #7C5A28;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
 }
 
 .announcement-track {
@@ -130,65 +129,77 @@ header {
     object-position: center;
 }
 
-/* MAIN NAVIGATION */
-.main-navigation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 38px;
-  min-height: 58px;
-  padding: 0 25px;
-  border-bottom: 1px solid #e7e7e7;
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 38px;
+    min-height: 58px;
+    padding: 0 25px;
+    border-bottom: none;
+    position: relative;
 }
 
-.main-navigation a {
-  position: relative;
-  color: #111;
-  text-decoration: none;
-  font-size: 15px;
-  white-space: nowrap;
-  transition: 0.2s;
+.navigation::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    width: 96%;
+    height: 0.5px;
+    background: #e7e7e7;
 }
 
-.main-navigation a:hover {
-  color: #8b6736;
+.navigation a {
+    position: relative;
+    color: #111;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 530;
+    white-space: nowrap;
+    transition: 0.2s;
 }
 
-/* RESPONSIVE NAVIGATION — LAPTOP */
-@media (min-width: 1001px) and (max-width: 1200px) {
-  .main-navigation {
-    gap: 20px;
-    padding: 0 18px;
-  }
-
-  .main-navigation a {
-    font-size: 14px;
-  }
+.navigation a:hover {
+    color: #8b6736;
 }
 
-/* RESPONSIVE NAVIGATION — TABLET */
+.navigation a.active {
+    font-weight: 530;
+}
+
+.navigation a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 2px;
+    background: #111;
+}
+
+/* RESPONSIVE NAVIGATION */
+
 @media (max-width: 1000px) {
-  .main-navigation {
-    overflow-x: auto;
-    justify-content: flex-start;
-    scrollbar-width: none;
-  }
-
-  .main-navigation::-webkit-scrollbar {
-    display: none;
-  }
+    .navigation {
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
 }
 
-/* RESPONSIVE NAVIGATION — MOBILE */
 @media (max-width: 650px) {
-  .main-navigation {
-    gap: 25px;
-    min-height: 48px;
-  }
+    .navigation {
+        gap: 25px;
+        min-height: 48px;
+    }
 
-  .main-navigation a {
-    font-size: 13px;
-  }
+    .navigation a {
+        font-size: 13px;
+    }
 }
 
 /* RESPONSIVE LOGO */
@@ -201,6 +212,14 @@ header {
         width: 200px;
         height: 65px;
         flex-shrink: 0;
+    }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
     }
 
     .logo img {
@@ -761,7 +780,7 @@ header {
 
   </div>
 
-  <nav class="main-navigation" aria-label="Main navigation">
+  <nav class="navigation" aria-label="Main navigation">
     <a href="bestsellers.html">Best Seller</a>
     <a href="extrait.html">Extrait de Parfum</a>
     <a href="edp.html">Eau de Parfum</a>
