@@ -817,85 +817,122 @@
     
 /* FOOTER */
 .site-footer {
-  background: #7A5C2C;
-  color: #fff;
-  padding: 60px 7% 15px;
-  font-family: Arial, Helvetica, sans-serif;
+    background: #7A5C2C;
+    color: #fff;
+    padding: 45px 2% 35px;
 }
 
 .footer-grid {
-  display: grid;
-  grid-template-columns: 2.2fr 1fr 1fr 1fr 1.6fr;
-  gap: 45px;
-  padding-bottom: 45px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr 1.6fr;
+    gap: 32px;
+    padding-bottom: 25px;
+    align-items: start;
 }
 
-.footer-brand h2 {
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 15px;
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 30px;
 }
 
-.footer-brand p {
-  max-width: 350px;
-  color: #fff;
-  font-size: 16px;
-  line-height: 1.7;
+.footer-logo {
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-.site-footer h4 {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 18px;
+.footer-column h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #fff;
+    width: 100%;
 }
 
-.site-footer a {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  font-size: 13px;
-  margin-bottom: 12px;
+.footer-column a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 548;
+    line-height: 1.5;
+    margin-bottom: 7px;
+    transition: opacity 0.3s ease;
 }
 
-.site-footer a:hover {
-  color: #fff;
+.footer-column a:hover {
+    opacity: 0.65;
 }
 
-.footer-bottom {
-  border-top: 1px solid #fff;
-  padding-top: 25px;
-  color: #fff;
-  font-size: 12px;
+.footer-business {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
+.footer-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.footer-tagline {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-tagline span {
+    font-weight: 700;
+}
+
+/* FOOTER RESPONSIVE */
 @media (max-width: 800px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 35px 25px;
-  }
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
 
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
+    .footer-brand {
+        margin-left: 0;
+    }
+
+    .footer-bottom-row {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
-  .site-footer {
-    padding: 45px 6% 20px;
-  }
+    .site-footer {
+        padding: 35px 5% 25px;
+    }
 
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px 20px;
-  }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px 20px;
+    }
 
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
 
-  .footer-brand p {
-    font-size: 14px;
-  }
+    .footer-logo {
+        width: 160px;
+    }
+
+    .footer-column h4 {
+        font-size: 13px;
+    }
+
+    .footer-column a {
+        font-size: 13px;
+    }
 }
 
     /* =========================
@@ -2226,60 +2263,62 @@
   ========================== -->
 
   <footer class="site-footer">
-
     <div class="footer-grid">
 
+        <!-- BRAND -->
+        <div class="footer-brand">
+            <img src="img/Logo SNS 2.png"
+                 alt="SNS Fragrance Logo"
+                 class="footer-logo">
+        </div>
 
-      <div class="footer-brand">
+        <!-- ABOUT -->
+        <div class="footer-column">
+            <h4>ABOUT</h4>
+            <a href="our-story.html">Our Story</a>
+        </div>
 
-        <h2>SNS Fragrance</h2>
+        <!-- FOLLOW -->
+        <div class="footer-column">
+            <h4>FOLLOW</h4>
+            <a href="https://www.instagram.com/">Instagram</a>
+            <a href="https://www.tiktok.com/">TikTok</a>
+            <a href="https://wa.me/">WhatsApp</a>
+        </div>
 
-        <p>
-          A contemporary fragrance house creating
-          expressive scents for every individual,
-          every story, and every moment.
-        </p>
+        <!-- INFO -->
+        <div class="footer-column">
+            <h4>INFO</h4>
+            <a href="faq.html">FAQ</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="returns.html">Returns & Exchanges</a>
+        </div>
 
-      </div>
-      <div>
-        <h4>ABOUT</h4>
-        <a href="about.html">Our Story</a>
-      </div>
-      <div>
+        <!-- CONTACT -->
+        <div class="footer-column">
+            <h4>CONTACT</h4>
 
-        <h4>FOLLOW</h4>
-
-        <a href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==">Instagram</a>
-        <a href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z">TikTok</a>
-        <a href="https://wa.me/message/TZMPXSMPC6XHM1">WhatsApp</a>
-
-      </div>
-
-      <div>
-
-        <h4>INFO</h4>
-
-        <a href="faq.html">FAQ</a>
-        <a href="terms.html">Terms of Service</a>
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="returns.html">Returns & Exchanges</a>
-    </div>
-      
-      <div class="footer-contact">
-
-        <h4>CONTACT</h4>
-        <a href="mailto:snsfragranceid@gmail.com">snsfragranceid@gmail.com</a>
-      </div>
-    </div>
-
-
-    <div class="footer-bottom">
-
-      © 2026 SNS Fragrance. All rights reserved.
+            <div class="footer-business">
+                <a href="mailto:snsfragranceid@gmail.com">
+                    Business Inquiries
+                </a>
+            </div>
+        </div>
 
     </div>
 
-  </footer>
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom-row">
+        <div class="footer-tagline">
+            Make Your Day <span>with Us!</span>
+        </div>
+
+        <div class="footer-copyright">
+            © 2026 SNS Fragrance. All rights reserved.
+        </div>
+    </div>
+</footer>
 
 
 
