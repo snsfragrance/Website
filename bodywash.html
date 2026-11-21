@@ -1811,6 +1811,26 @@ header {
     margin: 0;
   }
 }
+
+/* =====================================================
+   FOOTER POSITION FIX — BODY WASH PAGE
+===================================================== */
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+main.product-grid {
+  flex: 1 0 auto;
+  align-content: start;
+}
+
+body > footer.site-footer {
+  flex-shrink: 0;
+  margin-top: 0;
+}
 </style>
 
 </head>
