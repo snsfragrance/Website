@@ -29,14 +29,14 @@
   --gold: #8b6736;
 }
 
+/* =====================================================
+   GLOBAL PAGE LAYOUT
+===================================================== */
 html {
   min-height: 100%;
 }
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--black);
-  background: var(--white);
 
+body {
   min-height: 100vh;
   min-height: 100svh;
 
@@ -45,14 +45,14 @@ body {
 }
 
 main.page-main {
-  grid-row: 3;
+  flex: 1 0 auto;
   width: 100%;
   min-width: 0;
 }
-body > footer.site-footer {
-  grid-row: 4;
+
+footer.site-footer {
   width: 100%;
-  margin: 0;
+  flex-shrink: 0;
 }
 
 /* =====================================================
