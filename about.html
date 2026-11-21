@@ -541,6 +541,10 @@ header {
     /* =====================================================
        FOOTER
     ===================================================== */
+/* =====================================================
+   FOOTER — MATCH HOME FRAGRANCE
+===================================================== */
+
 .site-footer {
     background: #7A5C2C;
     color: #fff;
@@ -548,65 +552,14 @@ header {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* FOOTER GRID */
+
 .footer-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1.2fr 1.6fr;
     gap: 32px;
     padding-bottom: 25px;
     align-items: start;
-}
-
-/* FOOTER BRAND */
-
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    background: transparent;
-    margin-left: 30px;
-}
-
-.footer-logo {
-    display: block;
-    width: 200px;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    margin: 0 0 16px 0;
-}
-
-.footer-brand h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 24px;
-    font-weight: 650;
-    letter-spacing: 0;
-    line-height: 1.3;
-    color: #fff;
-    margin: 0;
-}
-
-.footer-tagline {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.8px;
-    line-height: 1.2;
-    color: #fff;
-    margin: 0;
-}
-
-.footer-tagline span {
-    font-family: Georgia, "Times New Roman", serif;
-    font-style: italic;
-    font-weight: 500;
-    letter-spacing: -0.5px;
 }
 
 /* FOOTER HEADINGS */
@@ -621,6 +574,8 @@ header {
     width: 100%;
 }
 
+/* FOOTER LINKS */
+
 .site-footer a {
     display: block;
     color: #ffffff;
@@ -634,6 +589,8 @@ header {
 .site-footer a:hover {
     color: #fff;
 }
+
+/* CONTACT */
 
 .footer-business {
     display: flex;
@@ -653,30 +610,14 @@ header {
 
 /* FOOTER BOTTOM */
 
-.footer-bottom {
-    border-top: none;
-    padding-top: 0;
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: right;
-}
-
 .footer-bottom-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.2fr 1.6fr;
-    gap: 32px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .footer-tagline {
-    grid-column: 1;
-    justify-self: start;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 31px;
@@ -684,6 +625,7 @@ header {
     letter-spacing: -0.9px;
     line-height: 1.2;
     color: #fff;
+    white-space: nowrap;
 }
 
 .footer-tagline span {
@@ -694,8 +636,6 @@ header {
 }
 
 .footer-bottom {
-    grid-column: 4;
-    justify-self: end;
     margin: 0 50px 0 0;
     padding: 0;
     border: none;
@@ -708,18 +648,31 @@ header {
     white-space: nowrap;
 }
 
+/* RESPONSIVE FOOTER */
+
 @media (max-width: 800px) {
+
     .footer-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 30px 25px;
     }
 
-    .footer-brand {
-        grid-column: 1 / -1;
+    .footer-bottom-row {
+        gap: 25px;
+    }
+
+    .footer-tagline {
+        font-size: 26px;
+        white-space: normal;
+    }
+
+    .footer-bottom {
+        margin-right: 0;
     }
 }
 
 @media (max-width: 480px) {
+
     .site-footer {
         padding: 40px 6% 20px;
     }
@@ -729,12 +682,18 @@ header {
         gap: 28px 20px;
     }
 
-    .footer-brand {
-        grid-column: 1 / -1;
+    .footer-bottom-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
     }
 
-    .footer-brand p {
-        font-size: 14px;
+    .footer-tagline {
+        font-size: 24px;
+    }
+
+    .footer-bottom {
+        text-align: left;
     }
 }
   </style>
@@ -931,22 +890,12 @@ header {
 
   </section>
 
-
   <!-- =====================================================
        FOOTER
   ===================================================== -->
 <footer class="site-footer">
 
     <div class="footer-grid">
-
-        <!-- LOGO -->
-        <div class="footer-brand">
-            <img
-                src="img/Logo SNS 2.png"
-                alt="SNS Fragrance Logo"
-                class="footer-logo"
-            >
-        </div>
 
         <!-- ABOUT -->
         <div class="footer-about">
