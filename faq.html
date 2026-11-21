@@ -862,221 +862,201 @@ header {
 /* =====================================================
    FOOTER
 ===================================================== */
-
 .site-footer {
-    width: 100%;
     background: #7A5C2C;
-    color: #FFFFFF;
-    padding: 65px 4% 35px;
-    box-sizing: border-box;
+    color: #fff;
+    padding: 45px 2% 35px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* MAIN FOOTER GRID */
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 0.8fr 1fr 1fr 1.25fr;
-    gap: 45px;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr 1.6fr;
+    gap: 32px;
+    padding-bottom: 25px;
     align-items: start;
 }
 
-/* FOOTER BRAND / LOGO */
+/* FOOTER BRAND */
 .footer-brand {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent;
+    margin-left: 30px;
 }
 
-.footer-brand img {
-    width: 250px;
+.footer-logo {
+    display: block;
+    width: 200px;
     max-width: 100%;
     height: auto;
     object-fit: contain;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    margin: 0 0 16px 0;
 }
-
+      
 .footer-brand h2 {
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 650;
+    letter-spacing: 0;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0;
 }
 
-.footer-brand p {
-    max-width: 300px;
-    font-size: 15px;
-    line-height: 1.7;
-    color: #FFFFFF;
-}
-
-/* FOOTER COLUMNS */
-.footer-grid > div:not(.footer-brand) {
-    display: flex;
-    flex-direction: column;
-}
-
-/* FOOTER HEADING */
-.footer-grid h4 {
-    font-size: 17px;
+.footer-tagline {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
     font-weight: 700;
-    margin: 0 0 22px;
-    padding-bottom: 12px;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    color: #fff;
+    margin: 0;
+}
+
+.footer-tagline span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+/* FOOTER HEADINGS */
+
+.site-footer h4 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    padding-bottom: 10px;
     border-bottom: 2px solid #FFFFFF;
-    color: #FFFFFF;
+    width: 100%;
 }
 
-/* FOOTER LINKS */
-.footer-grid a {
-    color: #FFFFFF;
+.site-footer a {
+    display: block;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 15px;
-    margin-bottom: 14px;
-    transition: opacity 0.3s ease;
+    font-size: 14px;
+    font-weight: 548;
+    line-height: 1.5;
+    margin-bottom: 7px;
 }
 
-.footer-grid a:hover {
-    opacity: 0.65;
+.site-footer a:hover {
+    color: #fff;
 }
-
-/* CONTACT */
-.footer-contact {
+.footer-business {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 24px;
 }
 
-.footer-contact a {
-    word-break: break-word;
+.footer-business span {
+    font-size: 14px;
+    font-weight: 548;
+    line-height: 1.3;
+}
+
+.footer-business a {
+    margin-bottom: 0;
 }
 
 /* FOOTER BOTTOM */
+
 .footer-bottom {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    margin-top: 90px;
-    gap: 20px;
-}
-
-/* TAGLINE */
-.footer-tagline {
-    grid-column: 2;
-    text-align: center;
-    font-size: 36px;
-    font-weight: 700;
-    margin: 0;
-    color: #FFFFFF;
-    white-space: nowrap;
-}
-
-.footer-tagline em {
-    font-family: Georgia, serif;
+    border-top: none;
+    padding-top: 0;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
     font-weight: 400;
-    font-style: italic;
+    letter-spacing: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
 }
 
-/* COPYRIGHT */
-.footer-copyright {
-    grid-column: 3;
+.footer-bottom-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr 1.6fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.footer-tagline {
+    grid-column: 2 / 5;
+    justify-self: start;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 31px;
+    font-weight: 700;
+    letter-spacing: -0.9px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.footer-tagline span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.footer-bottom {
+    grid-column: 5;
+    justify-self: end;
+    margin: 0 80px 0 0;
+    padding: 0;
+    border: none;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 548;
+    letter-spacing: 0.1px;
     text-align: right;
-    font-size: 14px;
-    color: #FFFFFF;
     white-space: nowrap;
 }
 
-/* =====================================================
-   RESPONSIVE FOOTER
-===================================================== */
-
-@media (max-width: 1024px) {
-
+@media (max-width: 800px) {
     .footer-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 35px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 25px;
     }
 
     .footer-brand {
         grid-column: 1 / -1;
     }
-
-    .footer-brand img {
-        width: 220px;
-    }
-
-    .footer-bottom {
-        grid-template-columns: 1fr 1fr;
-        margin-top: 60px;
-    }
-
-    .footer-tagline {
-        grid-column: 1;
-        text-align: left;
-        font-size: 30px;
-    }
-
-    .footer-copyright {
-        grid-column: 2;
-    }
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-
+@media (max-width: 480px) {
     .site-footer {
-        padding: 40px 6% 30px;
+        padding: 40px 6% 20px;
     }
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 35px 25px;
+        gap: 28px 20px;
     }
 
     .footer-brand {
         grid-column: 1 / -1;
     }
 
-    .footer-brand img {
-        width: 180px;
-    }
-
-    .footer-brand h2 {
-        font-size: 24px;
-    }
-
-    .footer-grid h4 {
+    .footer-brand p {
         font-size: 14px;
-        margin-bottom: 18px;
-    }
-
-    .footer-grid a {
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-    .footer-contact {
-        grid-column: 1 / -1;
-    }
-
-    .footer-bottom {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        margin-top: 50px;
-    }
-
-    .footer-tagline,
-    .footer-copyright {
-        grid-column: 1;
-        text-align: left;
-        white-space: normal;
-    }
-
-    .footer-tagline {
-        font-size: 27px;
-    }
-
-    .footer-copyright {
-        font-size: 13px;
     }
 }
-    
+
   </style>
 
 </head>
@@ -3043,106 +3023,67 @@ header {
      FOOTER
 ===================================================== -->
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer class="site-footer">
 
     <div class="footer-grid">
 
-        <!-- BRAND -->
+        <!-- LOGO -->
         <div class="footer-brand">
-
-            <img src="img/Logo SNS.png" alt="SNS Fragrance">
-
+            <img
+                src="img/Logo SNS 2.png"
+                alt="SNS Fragrance Logo"
+                class="footer-logo"
+            >
         </div>
-
 
         <!-- ABOUT -->
-        <div class="footer-column">
-
+        <div class="footer-about">
             <h4>ABOUT</h4>
-
-            <a href="about.html">
-                Our Story
-            </a>
-
+            <a href="about.html">Our Story</a>
         </div>
-
 
         <!-- FOLLOW -->
-        <div class="footer-column">
-
+        <div class="footer-follow">
             <h4>FOLLOW</h4>
-
-            <a href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==">
-                Instagram
-            </a>
-
-            <a href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z">
-                TikTok
-            </a>
-
-            <a href="https://wa.me/message/TZMPXSMPC6XHM1">
-                WhatsApp
-            </a>
-
+            <a href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==">Instagram</a>
+            <a href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z">TikTok</a>
+            <a href="https://wa.me/message/TZMPXSMPC6XHM1">WhatsApp</a>
         </div>
-
 
         <!-- INFO -->
-        <div class="footer-column">
-
+        <div class="footer-info">
             <h4>INFO</h4>
-
-            <a href="faq.html">
-                FAQ
-            </a>
-
-            <a href="terms.html">
-                Terms of Service
-            </a>
-
-            <a href="privacy.html">
-                Privacy Policy
-            </a>
-
-            <a href="returns.html">
-                Returns & Exchanges
-            </a>
-
+            <a href="faq.html">FAQ</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="returns.html">Returns & Exchanges</a>
         </div>
-
 
         <!-- CONTACT -->
-        <div class="footer-column footer-contact">
+<div class="footer-contact">
+    <h4>CONTACT</h4>
 
-            <h4>CONTACT</h4>
-
-            <a href="mailto:snsfragranceid@gmail.com">
-                snsfragranceid@gmail.com
-            </a>
-
-        </div>
-
+    <div class="footer-business">
+        <span>Business Inquiries</span>
+        <a href="mailto:snsfragranceid@gmail.com">
+            snsfragranceid@gmail.com
+        </a>
     </div>
+</div>
+</div>
 
+    <!-- BOTTOM ROW -->
+<div class="footer-bottom-row">
 
-    <!-- FOOTER BOTTOM -->
+    <h2 class="footer-tagline">
+        Make Your Day <span>with Us!</span>
+    </h2>
+
     <div class="footer-bottom">
-
-        <div></div>
-
-        <p class="footer-tagline">
-            Make your <em>Day</em> with Us!
-        </p>
-
-        <p class="footer-copyright">
-            © 2026 SNS Fragrance. All rights reserved.
-        </p>
-
+        © 2026 SNS Fragrance. All rights reserved.
     </div>
+
+</div>
 
 </footer>
   
