@@ -29,31 +29,12 @@
   --gold: #8b6736;
 }
 
-/* =====================================================
-   GLOBAL PAGE LAYOUT
-===================================================== */
-html {
-  min-height: 100%;
-}
-
 body {
-  min-height: 100vh;
-  min-height: 100svh;
-
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  background: var(--white);
 }
 
-main.page-main {
-  flex: 1 0 auto;
-  width: 100%;
-  min-width: 0;
-}
-
-footer.site-footer {
-  width: 100%;
-  flex-shrink: 0;
-}
 
 /* =====================================================
    ANNOUNCEMENT BAR
@@ -1976,9 +1957,9 @@ header {
       <a href="extrait.html">Extrait de Parfum</a>
       <a href="edp.html">Eau de Parfum</a>
       <a href="edt.html">Body Mist</a>
-      <a href="bodyoil.html">Body Oil</a>
+      <a href="bodyoil.html" class="active">Body Oil</a>
       <a href="bodywash.html">Body Wash</a>
-      <a href="homefragrance.html" class="active">Home Fragrance</a>
+      <a href="homefragrance.html">Home Fragrance</a>
       <a href="limited.html">Special Event</a>
       <a href="collab.html">Special Collaboration</a>
       <!-- <a href="loyalty.html">Loyalty</a> -->
@@ -2134,8 +2115,6 @@ header {
 </aside>
 
 
-<main class="page-main">
-
 <!-- =====================================================
      EXTRACT HERO
 ===================================================== -->
@@ -2279,7 +2258,7 @@ header {
      PRODUCTS
 ===================================================== -->
 
-<section class="product-grid">
+<main class="product-grid">
 
 <!-- PRODUCT 1 -->
 
@@ -2322,8 +2301,8 @@ header {
 </a>
 
     <img
-      src="img/The Cedar Room Reed Diffuser_White BG.png"
-      alt="The Cedar Room Reed Diffuser"
+      src="img/Caelum_White BG.png"
+      alt="Caelum"
     >
 
   </div>
@@ -2332,17 +2311,17 @@ header {
   <div class="product-info">
 
     <div class="product-name">
-      Ambient Essence THE CEDAR ROOM 
+      Home Fragrance Ambient Essence THE CEDAR ROOM 
     </div>
 
     <div class="product-price">
 
       <span class="current-price">
-        Rp 95,400
+        Rp 55,400
       </span>
 
       <span class="old-price">
-        Rp 159,000
+        Rp 138,500
       </span>
 
     </div>
@@ -2391,7 +2370,7 @@ header {
 </a>
 
     <img
-      src="img/A Hidden Eden Reed Diffuser_White BG.png"
+      src="img/Silva_White BG.png"
       alt="A Hidden Eden Reed Diffuser"
     >
 
@@ -2401,17 +2380,17 @@ header {
   <div class="product-info">
 
     <div class="product-name">
-      Ambient Essence A HIDDEN EDEN
+     Ambient Essence A HIDDEN EDEN
     </div>
 
     <div class="product-price">
 
       <span class="current-price">
-        Rp 95,400
+        Rp 55,400
       </span>
 
       <span class="old-price">
-        Rp 159,000
+        Rp 138,500
       </span>
 
     </div>
@@ -2419,7 +2398,7 @@ header {
   </div>
 
 </article>
-      
+
 <!-- PRODUCT 3 -->
 
 <article class="product-card">
@@ -2556,9 +2535,7 @@ header {
   </div>
 
 </article>
-</section>
 </main>
-
 
 <!-- =====================================================
      REVIEWS BUTTON
@@ -2820,10 +2797,10 @@ function closeSearch() {
 }
 
 
-// searchTrigger.addEventListener(
-//   "click",
-//   openSearch
-// );
+searchTrigger.addEventListener(
+  "click",
+  openSearch
+);
 
 
 searchClose.addEventListener(
@@ -2930,10 +2907,10 @@ function closeCart() {
 }
 
 
-// cartTrigger.addEventListener(
-//   "click",
-//   openCart
-// );
+cartTrigger.addEventListener(
+  "click",
+  openCart
+);
 
 
 cartClose.addEventListener(
