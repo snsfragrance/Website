@@ -862,44 +862,60 @@ header {
 /* =====================================================
    FOOTER
 ===================================================== */
+
 .site-footer {
     width: 100%;
     background: #7A5C2C;
     color: #FFFFFF;
-    padding: 60px 4% 40px;
+    padding: 65px 4% 35px;
     box-sizing: border-box;
 }
 
-/* MAIN FOOTER LAYOUT */
-.footer-container {
+/* MAIN FOOTER GRID */
+.footer-grid {
     display: grid;
-    grid-template-columns: 1.15fr 1fr 1fr 1.15fr 1.5fr;
-    gap: 40px;
+    grid-template-columns: 1.5fr 0.8fr 1fr 1fr 1.25fr;
+    gap: 45px;
     align-items: start;
 }
 
-/* LOGO */
-.footer-logo {
+/* FOOTER BRAND / LOGO */
+.footer-brand {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
 }
 
-.footer-logo img {
-    width: 270px;
+.footer-brand img {
+    width: 250px;
     max-width: 100%;
     height: auto;
     object-fit: contain;
 }
 
+.footer-brand h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+.footer-brand p {
+    max-width: 300px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #FFFFFF;
+}
+
 /* FOOTER COLUMNS */
-.footer-column {
+.footer-grid > div:not(.footer-brand) {
     display: flex;
     flex-direction: column;
 }
 
-.footer-column h4 {
-    font-size: 18px;
+/* FOOTER HEADING */
+.footer-grid h4 {
+    font-size: 17px;
     font-weight: 700;
     margin: 0 0 22px;
     padding-bottom: 12px;
@@ -907,48 +923,48 @@ header {
     color: #FFFFFF;
 }
 
-.footer-column a {
+/* FOOTER LINKS */
+.footer-grid a {
     color: #FFFFFF;
     text-decoration: none;
-    font-size: 16px;
-    margin-bottom: 15px;
+    font-size: 15px;
+    margin-bottom: 14px;
     transition: opacity 0.3s ease;
 }
 
-.footer-column a:hover {
+.footer-grid a:hover {
     opacity: 0.65;
 }
 
 /* CONTACT */
 .footer-contact {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
-    flex-wrap: wrap;
 }
 
 .footer-contact a {
-    color: #FFFFFF;
-    text-decoration: none;
-    white-space: nowrap;
+    word-break: break-word;
 }
 
 /* FOOTER BOTTOM */
 .footer-bottom {
     display: grid;
-    grid-template-columns: 1.15fr 2fr 1.5fr;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 90px;
+    gap: 20px;
 }
 
 /* TAGLINE */
 .footer-tagline {
     grid-column: 2;
-    text-align: left;
-    font-size: 38px;
+    text-align: center;
+    font-size: 36px;
     font-weight: 700;
     margin: 0;
     color: #FFFFFF;
+    white-space: nowrap;
 }
 
 .footer-tagline em {
@@ -961,47 +977,28 @@ header {
 .footer-copyright {
     grid-column: 3;
     text-align: right;
-    font-size: 16px;
+    font-size: 14px;
     color: #FFFFFF;
     white-space: nowrap;
 }
 
-/* ================================
-   STICKY FOOTER PAGE STRUCTURE
-================================ */
-
-body {
-    min-height: 100vh;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-}
-
-main.product-grid {
-    flex: 1 0 auto;
-}
-
-body > footer.site-footer {
-    flex-shrink: 0;
-    margin-top: 0;
-}
-
-/* ================================
-   RESPONSIVE
-================================ */
+/* =====================================================
+   RESPONSIVE FOOTER
+===================================================== */
 
 @media (max-width: 1024px) {
-    .footer-container {
+
+    .footer-grid {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 35px;
     }
 
-    .footer-logo {
+    .footer-brand {
         grid-column: 1 / -1;
     }
 
-    .footer-logo img {
-        width: 180px;
+    .footer-brand img {
+        width: 220px;
     }
 
     .footer-bottom {
@@ -1011,6 +1008,7 @@ body > footer.site-footer {
 
     .footer-tagline {
         grid-column: 1;
+        text-align: left;
         font-size: 30px;
     }
 
@@ -1019,35 +1017,42 @@ body > footer.site-footer {
     }
 }
 
+/* MOBILE */
 @media (max-width: 600px) {
+
     .site-footer {
         padding: 40px 6% 30px;
     }
 
-    .footer-container {
+    .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 35px 25px;
     }
 
-    .footer-logo {
+    .footer-brand {
         grid-column: 1 / -1;
     }
 
-    .footer-logo img {
-        width: 150px;
+    .footer-brand img {
+        width: 180px;
     }
 
-    .footer-column h4 {
-        font-size: 15px;
+    .footer-brand h2 {
+        font-size: 24px;
     }
 
-    .footer-column a {
+    .footer-grid h4 {
         font-size: 14px;
+        margin-bottom: 18px;
+    }
+
+    .footer-grid a {
+        font-size: 13px;
+        line-height: 1.5;
     }
 
     .footer-contact {
-        flex-direction: column;
-        gap: 5px;
+        grid-column: 1 / -1;
     }
 
     .footer-bottom {
@@ -1060,6 +1065,7 @@ body > footer.site-footer {
     .footer-copyright {
         grid-column: 1;
         text-align: left;
+        white-space: normal;
     }
 
     .footer-tagline {
@@ -1068,7 +1074,6 @@ body > footer.site-footer {
 
     .footer-copyright {
         font-size: 13px;
-        white-space: normal;
     }
 }
     
@@ -3038,113 +3043,107 @@ body > footer.site-footer {
      FOOTER
 ===================================================== -->
 
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer class="site-footer">
 
-  <div class="footer-grid">
+    <div class="footer-grid">
+
+        <!-- BRAND -->
+        <div class="footer-brand">
+
+            <img src="img/Logo SNS.png" alt="SNS Fragrance">
+
+        </div>
 
 
-    <div class="footer-brand">
+        <!-- ABOUT -->
+        <div class="footer-column">
 
-      <h2>
-        SNS Fragrance
-      </h2>
+            <h4>ABOUT</h4>
 
-      <p>
-        A contemporary fragrance house creating
-        expressive scents for every individual,
-        every story, and every moment.
-      </p>
+            <a href="about.html">
+                Our Story
+            </a>
 
-    </div>
+        </div>
 
 
-    <div>
+        <!-- FOLLOW -->
+        <div class="footer-column">
 
-      <h4>
-        ABOUT
-      </h4>
+            <h4>FOLLOW</h4>
 
-      <a href="about.html">
-        Our Story
-      </a>
+            <a href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==">
+                Instagram
+            </a>
 
-    </div>
+            <a href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z">
+                TikTok
+            </a>
 
+            <a href="https://wa.me/message/TZMPXSMPC6XHM1">
+                WhatsApp
+            </a>
 
-    <div>
-
-      <h4>
-        FOLLOW
-      </h4>
-
-      <a
-        href="https://www.instagram.com/snsfragrance.id?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw=="
-      >
-        Instagram
-      </a>
-
-      <a
-        href="https://www.tiktok.com/@snsfragrance.id?_r=1&_t=ZS-9A72PopTX4z"
-      >
-        TikTok
-      </a>
-
-      <a
-        href="https://wa.me/message/TZMPXSMPC6XHM1"
-      >
-        WhatsApp
-      </a>
-
-    </div>
+        </div>
 
 
-    <div>
+        <!-- INFO -->
+        <div class="footer-column">
 
-      <h4>
-        INFO
-      </h4>
+            <h4>INFO</h4>
 
-      <a href="faq.html">
-        FAQ
-      </a>
+            <a href="faq.html">
+                FAQ
+            </a>
 
-      <a href="terms.html">
-        Terms of Service
-      </a>
+            <a href="terms.html">
+                Terms of Service
+            </a>
 
-      <a href="privacy.html">
-        Privacy Policy
-      </a>
+            <a href="privacy.html">
+                Privacy Policy
+            </a>
 
-      <a href="returns.html">
-        Returns & Exchanges
-      </a>
+            <a href="returns.html">
+                Returns & Exchanges
+            </a>
+
+        </div>
+
+
+        <!-- CONTACT -->
+        <div class="footer-column footer-contact">
+
+            <h4>CONTACT</h4>
+
+            <a href="mailto:snsfragranceid@gmail.com">
+                snsfragranceid@gmail.com
+            </a>
+
+        </div>
 
     </div>
 
 
-    <div class="footer-contact">
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
 
-      <h4>
-        CONTACT
-      </h4>
+        <div></div>
 
-      <a href="mailto:snsfragranceid@gmail.com">
-        snsfragranceid@gmail.com
-      </a>
+        <p class="footer-tagline">
+            Make your <em>Day</em> with Us!
+        </p>
+
+        <p class="footer-copyright">
+            © 2026 SNS Fragrance. All rights reserved.
+        </p>
 
     </div>
 
-
-  </div>
-
-
-  <div class="footer-bottom">
-
-    © 2026 SNS Fragrance.
-    All rights reserved.
-
-  </div>
 </footer>
   
 <!-- FLOATING CHAT BUTTON -->
