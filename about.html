@@ -545,6 +545,10 @@ header {
    FOOTER — MATCH HOME FRAGRANCE
 ===================================================== */
 
+/* =====================================================
+   FOOTER — SNS FRAGRANCE
+===================================================== */
+
 .site-footer {
     background: #7A5C2C;
     color: #fff;
@@ -558,7 +562,7 @@ header {
     display: grid;
     grid-template-columns: 1.1fr 1fr 1fr 1.2fr 1.6fr;
     gap: 32px;
-    padding-bottom: 25px;
+    padding-bottom: 100px;
     align-items: start;
 }
 
@@ -599,8 +603,9 @@ header {
     text-decoration: none;
     font-size: 14px;
     font-weight: 548;
-    line-height: 1.5;
-    margin-bottom: 7px;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+    margin-bottom: 18px;
 }
 
 .site-footer a:hover {
@@ -613,7 +618,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 24px;
     width: 100%;
 }
 
@@ -627,6 +632,7 @@ header {
 .footer-business a {
     margin-bottom: 0;
     font-size: 14px;
+    font-weight: 548;
     white-space: nowrap;
 }
 
@@ -642,9 +648,9 @@ header {
 .footer-tagline {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 31px;
+    font-size: 34px;
     font-weight: 700;
-    letter-spacing: -0.9px;
+    letter-spacing: -0.8px;
     line-height: 1.2;
     color: #fff;
     white-space: nowrap;
@@ -658,33 +664,48 @@ header {
 }
 
 .footer-bottom {
-    margin: 0 50px 0 0;
+    margin: 0 80px 0 0;
     padding: 0;
     border: none;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    font-weight: 548;
-    letter-spacing: 0.1px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
     text-align: right;
     white-space: nowrap;
 }
 
 /* RESPONSIVE FOOTER */
 
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
 
     .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 30px 25px;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px 30px;
+        padding-bottom: 60px;
+    }
+
+    .footer-logo {
+        grid-column: 1 / -1;
+    }
+
+    .footer-logo img {
+        width: 220px;
+    }
+
+    .footer-business {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 8px 20px;
     }
 
     .footer-bottom-row {
-        gap: 25px;
+        gap: 30px;
     }
 
     .footer-tagline {
-        font-size: 26px;
+        font-size: 28px;
         white-space: normal;
     }
 
@@ -693,15 +714,36 @@ header {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 650px) {
 
     .site-footer {
-        padding: 40px 6% 20px;
+        padding: 40px 6% 25px;
     }
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 28px 20px;
+        gap: 30px 20px;
+        padding-bottom: 50px;
+    }
+
+    .footer-logo {
+        grid-column: 1 / -1;
+    }
+
+    .footer-logo img {
+        width: 190px;
+    }
+
+    .footer-business {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .footer-business span,
+    .footer-business a {
+        white-space: normal;
+        overflow-wrap: anywhere;
     }
 
     .footer-bottom-row {
@@ -711,11 +753,12 @@ header {
     }
 
     .footer-tagline {
-        font-size: 24px;
+        font-size: 25px;
     }
 
     .footer-bottom {
         text-align: left;
+        font-size: 13px;
     }
 }
   </style>
@@ -915,17 +958,21 @@ header {
   <!-- =====================================================
        FOOTER
   ===================================================== -->
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer class="site-footer">
 
-    <<div class="footer-grid">
+    <div class="footer-grid">
 
-    <!-- LOGO -->
-    <div class="footer-logo">
-        <img src="img/Logo SNS.png" alt="SNS Fragrance">
-    </div>
+        <!-- LOGO -->
+        <div class="footer-logo">
+            <img src="img/Logo SNS.png" alt="SNS Fragrance">
+        </div>
 
-    <!-- ABOUT -->
-    <div class="footer-about">
+        <!-- ABOUT -->
+        <div class="footer-about">
             <h4>ABOUT</h4>
             <a href="about.html">Our Story</a>
         </div>
