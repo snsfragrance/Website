@@ -29,35 +29,12 @@
   --gold: #8b6736;
 }
 
-/* =====================================================
-   GLOBAL PAGE LAYOUT
-===================================================== */
-html {
-  min-height: 100%;
-}
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--black);
   background: var(--white);
-
-  min-height: 100vh;
-  min-height: 100svh;
-
-  display: flex;
-  flex-direction: column;
 }
 
-main.page-main {
-  flex: 1 0 auto;
-  width: 100%;
-  min-width: 0;
-}
-
-footer.site-footer {
-  width: 100%;
-  flex-shrink: 0;
-}
 
 /* =====================================================
    ANNOUNCEMENT BAR
@@ -1811,26 +1788,6 @@ header {
     margin: 0;
   }
 }
-
-/* =====================================================
-   FOOTER POSITION FIX — BODY WASH PAGE
-===================================================== */
-body {
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-}
-
-main.product-grid {
-  flex: 1 0 auto;
-  align-content: start;
-}
-
-body > footer.site-footer {
-  flex-shrink: 0;
-  margin-top: 0;
-}
 </style>
 
 </head>
@@ -2000,8 +1957,8 @@ body > footer.site-footer {
       <a href="extrait.html">Extrait de Parfum</a>
       <a href="edp.html">Eau de Parfum</a>
       <a href="edt.html">Body Mist</a>
-      <a href="bodyoil.html">Body Oil</a>
-      <a href="bodywash.html" class="active">Body Wash</a>
+      <a href="bodyoil.html" class="active">Body Oil</a>
+      <a href="bodywash.html">Body Wash</a>
       <a href="homefragrance.html">Home Fragrance</a>
       <a href="limited.html">Special Event</a>
       <a href="collab.html">Special Collaboration</a>
@@ -2162,8 +2119,6 @@ body > footer.site-footer {
      EXTRACT HERO
 ===================================================== -->
 
-<main class="page-main">
-
 <section class="extrait-hero">
     <div class="extrait-hero-image">
         <img
@@ -2303,7 +2258,7 @@ body > footer.site-footer {
      PRODUCTS
 ===================================================== -->
 
-<section class="product-grid">
+<main class="product-grid">
 
 <!-- PRODUCT 1 -->
 
@@ -2346,8 +2301,8 @@ body > footer.site-footer {
 </a>
 
     <img
-      src="img/Calmera_White BG.png"
-      alt="Calmera"
+      src="img/Caelum_White BG.png"
+      alt="Caelum"
     >
 
   </div>
@@ -2356,17 +2311,17 @@ body > footer.site-footer {
   <div class="product-info">
 
     <div class="product-name">
-      Body Wash CALMERA
+      Body Wash CALMERA 
     </div>
 
     <div class="product-price">
 
       <span class="current-price">
-        Rp 51,600
+        Rp 55,400
       </span>
 
       <span class="old-price">
-        Rp 129,000
+        Rp 138,500
       </span>
 
     </div>
@@ -2374,10 +2329,213 @@ body > footer.site-footer {
   </div>
 
 </article>
-</section>
 
+<!-- PRODUCT 2 -->
+
+<article class="product-card">
+
+  <div class="product-image">
+
+    <span class="badge best-seller">
+      BEST SELLER
+    </span>
+
+    <span class="badge sale">
+      SALE
+    </span>
+
+    <a
+  href="https://s.shopee.co.id/3qOoVWGVRV"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="product-wishlist"
+  aria-label="Shop on Shopee"
+>
+
+  <svg viewBox="0 0 24 24">
+
+    <path
+      d="M3 4
+         H5
+         L7.2 15.2
+         H18
+         L20 7
+         H6"
+    ></path>
+
+    <circle cx="9.5" cy="19.5" r="1"></circle>
+    <circle cx="17.5" cy="19.5" r="1"></circle>
+
+  </svg>
+</a>
+
+    <img
+      src="img/Silva_White BG.png"
+      alt="A Hidden Eden Reed Diffuser"
+    >
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+     Essence Oil SILVA
+    </div>
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 55,400
+      </span>
+
+      <span class="old-price">
+        Rp 138,500
+      </span>
+
+    </div>
+
+  </div>
+
+</article>
+
+<!-- PRODUCT 3 -->
+
+<article class="product-card">
+
+  <div class="product-image">
+
+    <span class="badge new-arrival">
+      NEW ARRIVAL
+    </span>
+
+    <span class="badge sale">
+      SALE
+    </span>
+
+    <a
+  href="https://s.shopee.co.id/3qOoVWGVRV"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="product-wishlist"
+  aria-label="Shop on Shopee"
+>
+
+  <svg viewBox="0 0 24 24">
+
+    <path
+      d="M3 4
+         H5
+         L7.2 15.2
+         H18
+         L20 7
+         H6"
+    ></path>
+
+    <circle cx="9.5" cy="19.5" r="1"></circle>
+    <circle cx="17.5" cy="19.5" r="1"></circle>
+
+  </svg>
+</a>
+
+    <img
+      src="img/A Morning in Bloom Reed Diffuser_White BG.png"
+      alt="A Morning in Bloom"
+    >
+
+  </div>
+
+  <div class="product-info">
+
+    <div class="product-name">
+      Ambient Essence A MORNING IN BLOOM
+    </div>
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 95,400
+      </span>
+
+      <span class="old-price">
+        Rp 159,000
+      </span>
+
+    </div>
+
+  </div>
+
+</article>
+
+<!-- PRODUCT 4 -->
+
+<article class="product-card">
+
+  <div class="product-image">
+
+    <span class="badge new-arrival">
+      NEW ARRIVAL
+    </span>
+
+    <span class="badge sale">
+      SALE
+    </span>
+
+    <a
+  href="https://s.shopee.co.id/3qOoVWGVRV"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="product-wishlist"
+  aria-label="Shop on Shopee"
+>
+
+  <svg viewBox="0 0 24 24">
+
+    <path
+      d="M3 4
+         H5
+         L7.2 15.2
+         H18
+         L20 7
+         H6"
+    ></path>
+
+    <circle cx="9.5" cy="19.5" r="1"></circle>
+    <circle cx="17.5" cy="19.5" r="1"></circle>
+
+  </svg>
+</a>
+
+    <img
+      src="img/In A Quiet Garden Reed Diffuser_White BG.png"
+      alt="In A Quiet Garden Reed Diffuser"
+    >
+
+  </div>
+
+
+  <div class="product-info">
+
+    <div class="product-name">
+      Ambient Essence IN A QUIET GARDEN 
+    </div>
+
+    <div class="product-price">
+
+      <span class="current-price">
+        Rp 95,400
+      </span>
+
+      <span class="old-price">
+        Rp 159,000
+      </span>
+
+    </div>
+
+  </div>
+
+</article>
 </main>
-
 
 <!-- =====================================================
      REVIEWS BUTTON
@@ -2639,10 +2797,10 @@ function closeSearch() {
 }
 
 
-// searchTrigger.addEventListener(
-//   "click",
-//   openSearch
-// );
+searchTrigger.addEventListener(
+  "click",
+  openSearch
+);
 
 
 searchClose.addEventListener(
@@ -2749,10 +2907,10 @@ function closeCart() {
 }
 
 
-// cartTrigger.addEventListener(
-//   "click",
-//   openCart
-// );
+cartTrigger.addEventListener(
+  "click",
+  openCart
+);
 
 
 cartClose.addEventListener(
