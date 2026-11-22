@@ -13,7 +13,6 @@
   <title>SNS Fragrance — Privacy Policy</title>
   <link rel="stylesheet" href="css/sns-footer.css">
 
-
   <style>
 
     /* =====================================================
@@ -38,10 +37,7 @@
     }
 
     body {
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
 
       color: var(--black);
 
@@ -58,31 +54,54 @@
       text-decoration: none;
     }
 
-    /* ANNOUNCEMENT BAR */
+
+    /* =====================================================
+       SNS FRAGRANCE HEADER — MATCH FAQ PAGE
+    ===================================================== */
+
+    
+/* ANNOUNCEMENT BAR */
 .announcement {
-  width: 100%; height: 42px; background: #7C5A28; color: #fff;
-  overflow: hidden; position: relative; display: flex; align-items: center;
+  width: 100%;
+  height: 42px;
+  background: #7C5A28;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
   white-space: nowrap;
 }
+
 .announcement-track {
-  display: flex; align-items: center; width: max-content;
+  display: flex;
+  align-items: center;
+  width: max-content;
   animation: announcementScroll 30s linear infinite;
 }
+
 .announcement-track span {
-  display: inline-flex; align-items: center; flex-shrink: 0;
-  margin-right: 140px; font-size: 12px; line-height: 1;
-  font-weight: 400; letter-spacing: 1px; white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 140px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
+
 @keyframes announcementScroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.announcement:hover .announcement-track { animation-play-state: paused; }
 
-/* =====================================================
-   MAIN HEADER
-===================================================== */
+.announcement:hover .announcement-track {
+  animation-play-state: paused;
+}
 
+/* MAIN HEADER */
 header {
   background: #fff;
   border-bottom: 1px solid #eeeeee;
@@ -98,23 +117,33 @@ header {
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 400px;
-  max-width: 100%;
-  height: 110px;
-  flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    max-width: 100%;
+    height: 110px;
+    flex-shrink: 0;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
 }
 
 .logo img {
-  display: block;
-  width: 220px !important;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  object-position: center;
+    display: block;
+    width: 220px !important;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
 }
+
+/* MAIN NAVIGATION */
 
 /* MAIN NAVIGATION */
 
@@ -122,18 +151,23 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+
   gap: 38px;
   min-height: 58px;
   padding: 0 25px;
+
   border-bottom: 1px solid #e7e7e7;
 }
 
 .main-navigation a {
   position: relative;
+
   color: #111;
   text-decoration: none;
+
   font-size: 15px;
   white-space: nowrap;
+
   transition: 0.2s;
 }
 
@@ -147,17 +181,21 @@ header {
 
 .main-navigation a.active::after {
   content: "";
+
   position: absolute;
   left: 0;
   right: 0;
   bottom: -8px;
+
   height: 2px;
   background: #111;
 }
 
+
 /* RESPONSIVE NAVIGATION — LAPTOP */
 
 @media (min-width: 1001px) and (max-width: 1200px) {
+
   .main-navigation {
     gap: 20px;
     padding: 0 18px;
@@ -171,6 +209,7 @@ header {
 /* RESPONSIVE NAVIGATION — TABLET */
 
 @media (max-width: 1000px) {
+
   .main-navigation {
     overflow-x: auto;
     justify-content: flex-start;
@@ -180,11 +219,14 @@ header {
   .main-navigation::-webkit-scrollbar {
     display: none;
   }
+
 }
+
 
 /* RESPONSIVE NAVIGATION — MOBILE */
 
 @media (max-width: 650px) {
+
   .main-navigation {
     gap: 25px;
     min-height: 48px;
@@ -193,74 +235,65 @@ header {
   .main-navigation a {
     font-size: 13px;
   }
+
 }
 
-/* RESPONSIVE LOGO — TABLET */
+
+/* RESPONSIVE LOGO — MATCH BODY WASH */
 
 @media (max-width: 800px) {
-  .header-main {
-    height: 75px;
-  }
+    .header-main {
+        height: 75px;
+    }
 
-  .logo {
-    width: 200px;
-    height: 65px;
-    flex-shrink: 0;
-  }
+    .logo {
+        width: 200px;
+        height: 65px;
+        flex-shrink: 0;
+    }
 
-  .logo img {
-    max-width: 200px;
-    height: 60px;
-  }
+    .logo img {
+        max-width: 200px;
+        height: 60px;
+    }
 }
-
-/* RESPONSIVE LOGO — MOBILE */
 
 @media (max-width: 520px) {
-  .header-main {
-    display: flex;
-    justify-content: center !important;
-    align-items: center;
-    position: relative;
-    height: 85px;
-    padding: 0 !important;
-  }
+    .header-main {
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+        position: relative;
+        height: 85px;
+        padding: 0 !important;
+    }
 
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100% !important;
-    height: 85px;
-    margin: 0 auto;
-  }
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100% !important;
+        height: 85px;
+        margin: 0 auto;
+    }
 
-  .logo img {
-    display: block;
-    width: 280px !important;
-    max-width: 85% !important;
-    height: auto !important;
-    object-fit: contain;
-    object-position: center;
-  }
-}
-
-/* LOGO SIZE OVERRIDE — DESKTOP */
-
-@media (min-width: 801px) {
-  .logo {
-    width: 450px !important;
-  }
-
-  .logo img {
-    width: 280px !important;
-    max-width: none !important;
-    height: auto !important;
-  }
+    .logo img {
+        display: block;
+        width: 280px !important;
+        max-width: 85% !important;
+        height: auto !important;
+        object-fit: contain;
+        object-position: center;
+    }
 }
    
 /* =====================================================
-   PRIVACY PAGE — STICKY FOOTER LAYOUT
+   PRIVACY POLICY
+===================================================== */
+
+
+/* =====================================================
+   PRIVACY POLICY
 ===================================================== */
 
 #sns-footer-container {
@@ -276,14 +309,16 @@ header {
 
 
 /* =====================================================
-   PRIVACY POLICY CONTENT
+   TERMS PAGE — FOOTER TRANSITION
 ===================================================== */
 
-/* =====================================================
-   PRIVACY PAGE — FOOTER LAYOUT (MATCH TERMS)
-===================================================== */
+/* Keep the final contact section from adding uneven bottom spacing. */
+.privacy-wrapper .privacy-section:last-child {
+  margin-bottom: 0;
+}
 
-/* Match Terms page footer behavior: content expands on short pages, footer remains at viewport bottom. */
+
+/* Give the footer a clean, full-width start after the main content. */
 .privacy-wrapper {
   padding: 48px 35px 0;
   margin-bottom: 0;
@@ -291,48 +326,36 @@ header {
 }
 
 
-/* Prevent the final section from adding extra space before the footer. */
-.privacy-wrapper .privacy-section:last-child {
-  margin-bottom: 0;
-}
-
-
+/* Footer position is controlled by the page flex layout.
+   The brown footer stays at the bottom on short pages,
+   and naturally follows content on long pages. */
 @media (max-width: 650px) {
   .privacy-wrapper {
     padding-bottom: 0;
   }
 }
 
+/* PAGE TITLE */
+
 
 /* PAGE TITLE */
 
 .privacy-title {
-  font-size: 30px;
+  font-size: 28px;
   line-height: 1.15;
   font-weight: 600;
   letter-spacing: -0.5px;
   margin-bottom: 20px;
 }
 
-/* LAST UPDATED */
-
-.last-updated {
-  font-size: 15px;
-  font-style: italic;
-  line-height: 1.2;
-  letter-spacing: 0.1px;
-  margin-bottom: 14px;
-  color: #111;
-}
-
-/* PRIVACY SECTIONS */
+/* SECTION */
 
 .privacy-section {
   margin-bottom: 34px;
 }
 
 .privacy-section h2 {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.3;
   font-weight: 700;
   margin-bottom: 2px;
@@ -340,7 +363,7 @@ header {
 }
 
 .privacy-section h3 {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.3;
   font-weight: 700;
   margin-top: 18px;
@@ -349,7 +372,7 @@ header {
 }
 
 .privacy-section p {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.1px;
   margin-bottom: 9px;
@@ -357,28 +380,29 @@ header {
   text-align: left;
 }
 
-/* LISTS */
-
 .privacy-section ul {
   margin: 5px 0 12px 25px;
 }
 
 .privacy-section li {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.25;
   margin-bottom: 5px;
 }
 
-/* LINKS INSIDE POLICY */
+/* IMPORTANT NOTICE */
 
-.privacy-section a {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.privacy-notice {
+  margin: 25px 0 30px;
+  padding: 20px 22px;
+  background: #f7f7f7;
+  border-left: 3px solid #111;
 }
 
-.privacy-section a:hover {
-  opacity: 0.6;
+.privacy-notice p {
+  margin-bottom: 0;
 }
+
 
 /* =====================================================
    TABLET
@@ -391,12 +415,7 @@ header {
   }
 
   .privacy-title {
-    font-size: 30px;
-  }
-
-  .last-updated {
-    font-size: 16px;
-    line-height: 1.25;
+    font-size: 28px;
   }
 
   .privacy-section h2,
@@ -406,37 +425,38 @@ header {
 
   .privacy-section p,
   .privacy-section li {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.25;
   }
+
 }
+
 
 /* =====================================================
    MOBILE
 ===================================================== */
 
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+
 @media (max-width: 650px) {
 
-   .privacy-wrapper {
-     width: 100%;
-     max-width: 100%;
-     padding: 35px 15px 0;
-     margin-bottom: 0;
-   }
+  .privacy-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 35px 15px 0;
+    margin-bottom: 0;
+  }
 
   .privacy-title {
-    font-size: 25px;
+    font-size: 22px;
     line-height: 1.2;
     font-weight: 500;
     letter-spacing: -0.4px;
     margin-bottom: 16px;
-  }
-
-  .last-updated {
-    font-size: 12px;
-    line-height: 1.3;
-    letter-spacing: 0.1px;
-    margin-bottom: 12px;
   }
 
   .privacy-section {
@@ -444,14 +464,14 @@ header {
   }
 
   .privacy-section h2 {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.3;
     font-weight: 700;
     margin-bottom: 2px;
   }
 
   .privacy-section h3 {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.3;
     margin-top: 14px;
     margin-bottom: 3px;
@@ -474,9 +494,25 @@ header {
     line-height: 1.3;
     margin-bottom: 5px;
   }
+
+  .privacy-notice {
+    padding: 15px;
+  }
 }
 
-    </style>
+@media (min-width: 801px) {
+    .logo {
+        width: 450px !important;
+    }
+
+    .logo img {
+        width: 280px !important;
+        max-width: none !important;
+        height: auto !important;
+    }
+}
+    
+  </style>
 
 </head>
 
@@ -484,24 +520,57 @@ header {
 <body>
 
 
-  <!-- ANNOUNCEMENT BAR -->
-<div class="announcement">
-  <div class="announcement-track">
-    <span>THE ART OF SCENT</span>
-    <span>A SYMPHONY FOR THE SENSES</span>
-    <span>DISCOVER SNS FRAGRANCE</span>
-    <span>THE ART OF SCENT</span>
-    <span>A SYMPHONY FOR THE SENSES</span>
-    <span>DISCOVER SNS FRAGRANCE</span>
-  </div>
-</div>
+  <!-- =====================================================
+       ANNOUNCEMENT BAR
+  ===================================================== -->
 
+  <div class="announcement">
+
+    <div class="announcement-track">
+
+      <span>
+        THE ART OF SCENT
+      </span>
+
+      <span>
+        A SYMPHONY FOR THE SENSES
+      </span>
+
+      <span>
+        DISCOVER SNS FRAGRANCE
+      </span>
+
+      <span>
+        THE ART OF SCENT
+      </span>
+
+      <span>
+        A SYMPHONY FOR THE SENSES
+      </span>
+
+      <span>
+        DISCOVER SNS FRAGRANCE
+      </span>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       HEADER
+  ===================================================== -->
+  
 <!-- MAIN HEADER -->
 <header>
+
   <div class="header-main">
+
     <div class="logo">
       <img src="img/Logo SNS.png" alt="SNS Fragrance">
     </div>
+
   </div>
 
   <nav class="main-navigation" aria-label="Main navigation">
@@ -516,555 +585,76 @@ header {
     <a href="collab.html">Special Collaboration</a>
     <!-- <a href="loyalty.html">Loyalty</a> -->
   </nav>
-</header>
 
+</header>
+  
   <!-- =====================================================
        PRIVACY POLICY
   ===================================================== -->
 
   <main class="privacy-wrapper">
 
-
-    <!-- TITLE -->
-
-    <h1 class="privacy-title">
-      PRIVACY POLICY
-    </h1>
-
-
-    <!-- LAST UPDATED -->
-
-    <p class="last-updated">
-      Last updated: September 29, 2026
-    </p>
-
-
-
-    <!-- INTRODUCTION -->
-
-    <section class="privacy-section">
-
-      <p>
-        This Privacy Policy describes how SNS Fragrance
-        (“SNS Fragrance”, “we”, “us”, or “our”) collects,
-        uses, stores and discloses your personal information
-        when you visit our website, use our services, or
-        make a purchase from SNS Fragrance.
-      </p>
-
-      <p>
-        For purposes of this Privacy Policy, “you” and
-        “your” means you as the user of the Services,
-        whether you are a customer, website visitor, or
-        another individual whose information we have
-        collected pursuant to this Privacy Policy.
-      </p>
-
-      <p>
-        Please read this Privacy Policy carefully.
-        By using and accessing any of the Services,
-        you agree to the collection, use and disclosure
-        of your information as described in this Privacy
-        Policy.
-      </p>
-
-      <p>
-        If you do not agree to this Privacy Policy,
-        please do not use or access our Services.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         CHANGES
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        CHANGES TO THIS PRIVACY POLICY
-      </h2>
-
-      <p>
-        We may update this Privacy Policy from time to
-        time, including to reflect changes to our
-        practices or for other operational, legal, or
-        regulatory reasons.
-      </p>
-
-      <p>
-        When we make changes, we will update the
-        “Last updated” date at the top of this Privacy
-        Policy and publish the revised version on this
-        page.
-      </p>
-
-      <p>
-        We encourage you to review this Privacy Policy
-        periodically to stay informed about how we
-        collect, use and protect your information.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         HOW WE COLLECT
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        HOW WE COLLECT AND USE YOUR PERSONAL INFORMATION
-      </h2>
-
-      <p>
-        To provide our Services, we collect personal
-        information about you from a variety of sources,
-        as described below.
-      </p>
-
-      <p>
-        The information that we collect and use varies
-        depending on how you interact with our website,
-        purchase our products, contact us, or otherwise
-        use our Services.
-      </p>
-
-      <p>
-        We may use personal information to provide and
-        improve our Services, process transactions,
-        communicate with you, provide customer support,
-        and protect the security and integrity of our
-        website.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         PERSONAL INFORMATION
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        PERSONAL INFORMATION WE COLLECT
-      </h2>
-
-      <p>
-        The types of personal information we obtain
-        about you depends on how you interact with our
-        website and use our Services.
-      </p>
-
-      <p>
-        When we use the term “personal information”,
-        we are referring to information that identifies,
-        relates to, describes, or can reasonably be
-        associated with you.
-      </p>
-
-      <p>
-        Depending on your interaction with SNS Fragrance,
-        this information may include:
-      </p>
-
-      <ul>
-
-        <li>
-          Name and contact information.
-        </li>
-
-        <li>
-          Email address.
-        </li>
-
-        <li>
-          Telephone or WhatsApp number.
-        </li>
-
-        <li>
-          Billing and shipping address.
-        </li>
-
-        <li>
-          Order and purchase information.
-        </li>
-
-        <li>
-          Payment-related information necessary to
-          process transactions.
-        </li>
-
-        <li>
-          Information you provide when contacting
-          customer service.
-        </li>
-
-      </ul>
-
-    </section>
-
-
-
-    <!-- =================================================
-         INFORMATION AUTOMATICALLY COLLECTED
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        INFORMATION WE COLLECT AUTOMATICALLY
-      </h2>
-
-      <p>
-        When you visit, use or navigate our website,
-        we may automatically collect certain information
-        about your device and interaction with our
-        Services.
-      </p>
-
-      <p>
-        This information may include your IP address,
-        browser type, device type, operating system,
-        pages visited, referring website, and information
-        about how you interact with our website.
-      </p>
-
-      <p>
-        This information may be collected using cookies,
-        pixels, tags and similar technologies.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         COOKIES
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        COOKIES AND SIMILAR TECHNOLOGIES
-      </h2>
-
-      <p>
-        We may use cookies and similar technologies to
-        help operate our website, remember your preferences,
-        understand how visitors use our website, and
-        improve your browsing experience.
-      </p>
-
-      <p>
-        You may be able to control cookies through your
-        browser settings. Disabling certain cookies may
-        affect the functionality of some parts of the
-        website.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         HOW INFORMATION IS USED
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        HOW WE USE YOUR PERSONAL INFORMATION
-      </h2>
-
-      <p>
-        We may use your personal information for the
-        following purposes:
-      </p>
-
-      <ul>
-
-        <li>
-          To process and fulfill your orders.
-        </li>
-
-        <li>
-          To arrange shipping and delivery.
-        </li>
-
-        <li>
-          To communicate with you about your orders.
-        </li>
-
-        <li>
-          To respond to questions, requests and
-          customer service inquiries.
-        </li>
-
-        <li>
-          To maintain and improve our website and
-          Services.
-        </li>
-
-        <li>
-          To personalize your experience.
-        </li>
-
-        <li>
-          To detect and prevent fraud, abuse and
-          security incidents.
-        </li>
-
-        <li>
-          To comply with applicable legal obligations.
-        </li>
-
-      </ul>
-
-    </section>
-
-
-
-    <!-- =================================================
-         SHARING
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        SHARING YOUR PERSONAL INFORMATION
-      </h2>
-
-      <p>
-        We may share your personal information with
-        service providers and other third parties when
-        necessary to operate our business and provide
-        our Services.
-      </p>
-
-      <p>
-        For example, information may be shared with
-        payment providers, shipping and delivery
-        companies, website hosting providers, technology
-        providers, and customer service providers.
-      </p>
-
-      <p>
-        We may also disclose information when required
-        to comply with applicable law, legal process,
-        or a valid request from an authorized authority.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         PAYMENT
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        PAYMENT INFORMATION
-      </h2>
-
-      <p>
-        When you make a purchase through our website,
-        payment information may be processed by the
-        applicable payment service provider.
-      </p>
-
-      <p>
-        SNS Fragrance does not intend to store complete
-        payment card information on its own systems
-        unless expressly stated otherwise.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         DATA SECURITY
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        DATA SECURITY
-      </h2>
-
-      <p>
-        We take reasonable measures designed to protect
-        personal information from unauthorized access,
-        use, alteration or disclosure.
-      </p>
-
-      <p>
-        However, no method of transmission over the
-        Internet or method of electronic storage is
-        completely secure, and we cannot guarantee
-        absolute security.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         DATA RETENTION
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        DATA RETENTION
-      </h2>
-
-      <p>
-        We retain personal information for as long as
-        reasonably necessary to fulfill the purposes
-        described in this Privacy Policy, provide our
-        Services, comply with legal obligations, resolve
-        disputes, and enforce our agreements.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         YOUR RIGHTS
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        YOUR RIGHTS AND CHOICES
-      </h2>
-
-      <p>
-        Depending on applicable law, you may have rights
-        regarding your personal information, including
-        the right to request access, correction or
-        deletion of certain information.
-      </p>
-
-      <p>
-        You may also have the right to object to or
-        restrict certain processing activities where
-        applicable.
-      </p>
-
-      <p>
-        To make a privacy-related request, please
-        contact us using the information provided below.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         CHILDREN
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        CHILDREN'S PRIVACY
-      </h2>
-
-      <p>
-        Our Services are not intended for children who
-        are not legally permitted to use online shopping
-        services without parental or guardian involvement.
-      </p>
-
-      <p>
-        We do not knowingly collect personal information
-        from children without appropriate authorization.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         THIRD PARTY LINKS
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        THIRD-PARTY WEBSITES
-      </h2>
-
-      <p>
-        Our website may contain links to third-party
-        websites or services. These websites are not
-        operated or controlled by SNS Fragrance.
-      </p>
-
-      <p>
-        We are not responsible for the privacy practices
-        or content of third-party websites. We encourage
-        you to review their privacy policies before
-        providing personal information.
-      </p>
-
-    </section>
-
-
-
-    <!-- =================================================
-         CONTACT
-    ================================================== -->
-
-    <section class="privacy-section">
-
-      <h2>
-        CONTACT US
-      </h2>
-
-      <p>
-        If you have questions about this Privacy Policy
-        or would like to exercise an applicable privacy
-        right, you can contact us at:
-      </p>
-
-      <p>
-
-        <strong>
-          SNS Fragrance
-        </strong>
-
-        <br>
-
-        Email:
-        <strong>
-          snsfragranceid@gmail.com
-        </strong>
-
-      </p>
-
-    </section>
-
+    <h1 class="privacy-title">PRIVACY POLICY</h1>
+    <p><em>Last updated: September 29, 2026</em></p>
+    <p>This Privacy Policy describes how SNS Fragrance ("SNS Fragrance", "we", "us", or "our") collects, uses, stores and discloses your personal information when you visit our website, use our services, or make a purchase from SNS Fragrance.</p>
+    <p>For purposes of this Privacy Policy, "you" and "your" means you as the user of the Services, whether you are a customer, website visitor, or another individual whose information we have collected pursuant to this Privacy Policy.</p>
+    <p>Please read this Privacy Policy carefully. By using and accessing any of the Services, you agree to the collection, use and disclosure of your information as described in this Privacy Policy.</p>
+    <p>If you do not agree to this Privacy Policy, please do not use or access our Services.</p>
+    <section class="privacy-section"><h2>CHANGES TO THIS PRIVACY POLICY</h2>
+    <p>We may update this Privacy Policy from time to time, including to reflect changes to our practices or for other operational, legal, or regulatory reasons.</p>
+    <p>When we make changes, we will update the “Last updated” date at the top of this Privacy Policy and publish the revised version on this page.</p>
+    <p>We encourage you to review this Privacy Policy periodically to stay informed about how we collect, use and protect your information.</p></section>
+    <section class="privacy-section"><h2>HOW WE COLLECT AND USE YOUR PERSONAL INFORMATION</h2>
+    <p>To provide our Services, we collect personal information about you from a variety of sources, as described below.</p>
+    <p>The information that we collect and use varies depending on how you interact with our website, purchase our products, contact us, or otherwise use our Services.</p>
+    <p>We may use personal information to provide and improve our Services, process transactions, communicate with you, provide customer support, and protect the security and integrity of our website.</p></section>
+    <section class="privacy-section"><h2>PERSONAL INFORMATION WE COLLECT</h2>
+    <p>The types of personal information we obtain about you depends on how you interact with our website and use our Services.</p>
+    <p>When we use the term “personal information”, we are referring to information that identifies, relates to, describes, or can reasonably be associated with you.</p>
+    <p>Depending on your interaction with SNS Fragrance, this information may include:</p>
+    <ul><li>Name and contact information.</li><li>Email address.</li><li>Telephone or WhatsApp number.</li><li>Billing and shipping address.</li><li>Order and purchase information.</li><li>Payment-related information necessary to process transactions.</li><li>Information you provide when contacting customer service.</li></ul></section>
+    <section class="privacy-section"><h2>INFORMATION WE COLLECT AUTOMATICALLY</h2>
+    <p>When you visit, use or navigate our website, we may automatically collect certain information about your device and interaction with our Services.</p>
+    <p>This information may include your IP address, browser type, device type, operating system, pages visited, referring website, and information about how you interact with our website.</p>
+    <p>This information may be collected using cookies, pixels, tags and similar technologies.</p></section>
+    <section class="privacy-section"><h2>COOKIES AND SIMILAR TECHNOLOGIES</h2>
+    <p>We may use cookies and similar technologies to help operate our website, remember your preferences, understand how visitors use our website, and improve your browsing experience.</p>
+    <p>You may be able to control cookies through your browser settings. Disabling certain cookies may affect the functionality of some parts of the website.</p></section>
+    <section class="privacy-section"><h2>HOW WE USE YOUR PERSONAL INFORMATION</h2>
+    <p>We may use your personal information for the following purposes:</p>
+    <ul><li>To process and fulfill your orders.</li><li>To arrange shipping and delivery.</li><li>To communicate with you about your orders.</li><li>To respond to questions, requests and customer service inquiries.</li><li>To maintain and improve our website and Services.</li><li>To personalize your experience.</li><li>To detect and prevent fraud, abuse and security incidents.</li><li>To comply with applicable legal obligations.</li></ul></section>
+    <section class="privacy-section"><h2>SHARING YOUR PERSONAL INFORMATION</h2>
+    <p>We may share your personal information with service providers and other third parties when necessary to operate our business and provide our Services.</p>
+    <p>For example, information may be shared with payment providers, shipping and delivery companies, website hosting providers, technology providers, and customer service providers.</p>
+    <p>We may also disclose information when required to comply with applicable law, legal process, or a valid request from an authorized authority.</p></section>
+    <section class="privacy-section"><h2>PAYMENT INFORMATION</h2>
+    <p>When you make a purchase through our website, payment information may be processed by the applicable payment service provider.</p>
+    <p>SNS Fragrance does not intend to store complete payment card information on its own systems unless expressly stated otherwise.</p></section>
+    <section class="privacy-section"><h2>DATA SECURITY</h2>
+    <p>We take reasonable measures designed to protect personal information from unauthorized access, use, alteration or disclosure.</p>
+    <p>However, no method of transmission over the internet or method of electronic storage is completely secure, and we cannot guarantee absolute security.</p></section>
+    <section class="privacy-section"><h2>DATA RETENTION</h2>
+    <p>We retain personal information for as long as reasonably necessary to fulfill the purposes described in this Privacy Policy, provide our Services, comply with legal obligations, resolve disputes, and enforce our agreements.</p></section>
+    <section class="privacy-section"><h2>YOUR RIGHTS AND CHOICES</h2>
+    <p>Depending on applicable law, you may have rights regarding your personal information, including the right to request access, correction or deletion of certain information.</p>
+    <p>You may also have the right to object to or restrict certain processing activities where applicable.</p>
+    <p>To make a privacy-related request, please contact us using the information provided below.</p></section>
+    <section class="privacy-section"><h2>CHILDREN'S PRIVACY</h2>
+    <p>Our Services are not intended for children who are not legally permitted to use online shopping services without parental or guardian involvement.</p>
+    <p>We do not knowingly collect personal information from children without appropriate authorization.</p></section>
+    <section class="privacy-section"><h2>THIRD-PARTY WEBSITES</h2>
+    <p>Our website may contain links to third-party websites or services. These websites are not operated or controlled by SNS Fragrance.</p>
+    <p>We are not responsible for the privacy practices or content of third-party websites. We encourage you to review their privacy policies before providing personal information.</p></section>
+    <section class="privacy-section"><h2>CONTACT US</h2>
+    <p>If you have questions about this Privacy Policy or would like to exercise an applicable privacy right, you can contact us at:</p>
+    <p><strong>SNS Fragrance</strong><br>Email: <strong>snsfragranceid@gmail.com</strong></p></section>
 
   </main>
-
-
 
   <!-- SNS GLOBAL FOOTER -->
 <div id="sns-footer-container"></div>
 
 <script src="components/sns-footer.js"></script>
+
 </body>
 </html>
