@@ -1,55 +1,60 @@
 
-/* =========================================================
-   SNS FRAGRANCE — GLOBAL FOOTER
-========================================================= */
+/* ==========================================================
+   SNS FRAGRANCE — HOME FRAGRANCE STYLE FOOTER
+   ========================================================== */
+
+.sns-global-footer,
+.sns-global-footer * {
+  box-sizing: border-box;
+}
 
 .sns-global-footer {
+  position: relative;
   width: 100%;
   background: #7A5C2C;
   color: #ffffff;
-  box-sizing: border-box;
-  padding: 64px 4% 28px;
+  padding: 75px 5.2% 30px;
   font-family: Arial, Helvetica, sans-serif;
-  position: relative;
 }
 
-/* =========================================================
-   MAIN FOOTER LAYOUT
-========================================================= */
+/* ==========================================================
+   MAIN FOOTER — LOGO LEFT / INFORMATION RIGHT
+   ========================================================== */
 
 .sns-global-footer__main {
-  display: grid;
-  grid-template-columns: 1.25fr 0.85fr 0.85fr 1.1fr 1.45fr;
-  gap: 2.2%;
-  align-items: start;
   width: 100%;
+  display: grid;
+  grid-template-columns: 29% 12% 14% 17% 28%;
+  align-items: start;
 }
 
-/* =========================================================
+/* ==========================================================
    LOGO
-========================================================= */
+   ========================================================== */
 
 .sns-global-footer__brand {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  padding-top: 0;
 }
 
 .sns-global-footer__brand a {
-  display: inline-block;
+  display: block;
+  text-decoration: none;
 }
 
 .sns-global-footer__brand img {
   display: block;
-  width: 270px;
-  max-width: 100%;
+  width: 255px;
+  max-width: 90%;
   height: auto;
   object-fit: contain;
 }
 
-/* =========================================================
-   FOOTER COLUMNS
-========================================================= */
+/* ==========================================================
+   INFORMATION COLUMNS
+   ========================================================== */
 
 .sns-global-footer__column {
   display: flex;
@@ -59,79 +64,84 @@
 }
 
 .sns-global-footer__column h3 {
-  margin: 0;
-  padding: 0 0 14px;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.2;
-  color: #ffffff;
+  margin: 0 0 15px;
+  padding: 0;
 }
 
 .sns-global-footer__line {
+  display: block;
   width: 100%;
   height: 2px;
-  background: rgba(255, 255, 255, 0.95);
-  margin-bottom: 18px;
+  background: #ffffff;
+  margin: 0 0 19px;
 }
 
 .sns-global-footer__column > a {
+  display: block;
   color: #ffffff;
-  text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 1.45;
-  margin-bottom: 12px;
-  transition: opacity 0.25s ease;
+  text-decoration: none;
+  margin: 0 0 12px;
+  transition: opacity 0.2s ease;
 }
 
 .sns-global-footer__column > a:hover {
   opacity: 0.65;
 }
 
-/* =========================================================
-   CONTACT
-========================================================= */
+/* ==========================================================
+   CONTACT COLUMN
+   ========================================================== */
 
 .sns-global-footer__contact-row {
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
-  gap: 30px;
+  justify-content: space-between;
+  gap: 22px;
   width: 100%;
 }
 
 .sns-global-footer__contact-row a {
+  display: block;
   color: #ffffff;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 1.45;
-  white-space: nowrap;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.2s ease;
 }
 
 .sns-global-footer__contact-row a:hover {
   opacity: 0.65;
 }
 
-/* =========================================================
-   BOTTOM FOOTER
-========================================================= */
+/* ==========================================================
+   FOOTER BOTTOM
+   ========================================================== */
 
 .sns-global-footer__bottom {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-top: 120px;
-  width: 100%;
 }
 
 /* TAGLINE */
 
 .sns-global-footer__tagline {
+  color: #ffffff;
   font-size: 40px;
   font-weight: 700;
   line-height: 1.1;
-  color: #ffffff;
-  letter-spacing: -1px;
+  letter-spacing: -1.2px;
+  margin: 0;
 }
 
 .sns-global-footer__tagline span {
@@ -143,30 +153,32 @@
 /* COPYRIGHT */
 
 .sns-global-footer__copyright {
-  font-size: 16px;
-  font-weight: 400;
   color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
   text-align: right;
+  margin: 0;
 }
 
-/* =========================================================
-   FLOATING CHAT
-========================================================= */
+/* ==========================================================
+   FLOATING CHAT BUTTON
+   ========================================================== */
 
 .sns-global-footer__chat {
   position: fixed;
   right: 22px;
   bottom: 22px;
-  width: 68px;
-  height: 68px;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
   background: #000000;
   color: #ffffff;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
   text-decoration: none;
+  z-index: 9999;
   transition: transform 0.25s ease;
 }
 
@@ -175,23 +187,66 @@
 }
 
 .sns-global-footer__chat svg {
-  width: 28px;
-  height: 28px;
+  width: 29px;
+  height: 29px;
+  display: block;
 }
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* ==========================================================
+   LAPTOP
+   ========================================================== */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 
   .sns-global-footer {
-    padding: 50px 4% 28px;
+    padding: 65px 4% 28px;
+  }
+
+  .sns-global-footer__main {
+    grid-template-columns: 25% 14% 16% 19% 26%;
+  }
+
+  .sns-global-footer__brand img {
+    width: 220px;
+  }
+
+  .sns-global-footer__column h3 {
+    font-size: 17px;
+  }
+
+  .sns-global-footer__column > a,
+  .sns-global-footer__contact-row a {
+    font-size: 14px;
+  }
+
+  .sns-global-footer__contact-row {
+    gap: 12px;
+  }
+
+  .sns-global-footer__bottom {
+    margin-top: 95px;
+  }
+
+  .sns-global-footer__tagline {
+    font-size: 35px;
+  }
+
+}
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+  .sns-global-footer {
+    padding: 55px 5% 28px;
   }
 
   .sns-global-footer__main {
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 45px 30px;
+    column-gap: 35px;
+    row-gap: 45px;
   }
 
   .sns-global-footer__brand {
@@ -199,7 +254,12 @@
   }
 
   .sns-global-footer__brand img {
-    width: 220px;
+    width: 210px;
+  }
+
+  .sns-global-footer__contact-row {
+    flex-direction: column;
+    gap: 12px;
   }
 
   .sns-global-footer__bottom {
@@ -207,29 +267,25 @@
   }
 
   .sns-global-footer__tagline {
-    font-size: 34px;
-  }
-
-  .sns-global-footer__contact-row {
-    flex-direction: column;
-    gap: 10px;
+    font-size: 32px;
   }
 
 }
 
-/* =========================================================
+/* ==========================================================
    MOBILE
-========================================================= */
+   ========================================================== */
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
 
   .sns-global-footer {
-    padding: 40px 24px 25px;
+    padding: 42px 24px 25px;
   }
 
   .sns-global-footer__main {
     grid-template-columns: 1fr 1fr;
-    gap: 38px 24px;
+    column-gap: 25px;
+    row-gap: 38px;
   }
 
   .sns-global-footer__brand {
@@ -241,8 +297,8 @@
   }
 
   .sns-global-footer__column h3 {
-    font-size: 15px;
-    padding-bottom: 10px;
+    font-size: 14px;
+    margin-bottom: 12px;
   }
 
   .sns-global-footer__line {
@@ -250,8 +306,9 @@
   }
 
   .sns-global-footer__column > a {
-    font-size: 14px;
-    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 9px;
   }
 
   .sns-global-footer__contact-row {
@@ -260,16 +317,16 @@
   }
 
   .sns-global-footer__contact-row a {
-    font-size: 14px;
-    white-space: normal;
-    word-break: break-word;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
   }
 
   .sns-global-footer__bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 25px;
-    margin-top: 60px;
+    gap: 22px;
+    margin-top: 65px;
   }
 
   .sns-global-footer__tagline {
@@ -278,15 +335,20 @@
   }
 
   .sns-global-footer__copyright {
+    font-size: 11px;
     text-align: left;
-    font-size: 12px;
   }
 
   .sns-global-footer__chat {
-    width: 58px;
-    height: 58px;
+    width: 56px;
+    height: 56px;
     right: 16px;
     bottom: 16px;
+  }
+
+  .sns-global-footer__chat svg {
+    width: 25px;
+    height: 25px;
   }
 
 }
