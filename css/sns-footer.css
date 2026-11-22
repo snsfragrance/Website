@@ -1,354 +1,257 @@
 
-/* ==========================================================
-   SNS FRAGRANCE — HOME FRAGRANCE STYLE FOOTER
-   ========================================================== */
+/* =====================================================
+   FOOTER
+===================================================== */
 
-.sns-global-footer,
-.sns-global-footer * {
-  box-sizing: border-box;
+.site-footer {
+    background: #7A5C2C;
+    color: #fff;
+    padding: 45px 2% 35px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.sns-global-footer {
-  position: relative;
-  width: 100%;
-  background: #7A5C2C;
-  color: #ffffff;
-  padding: 75px 5.2% 30px;
-  font-family: Arial, Helvetica, sans-serif;
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr 1.6fr;
+    gap: 32px;
+    padding-bottom: 25px;
+    align-items: start;
 }
 
-/* ==========================================================
-   MAIN FOOTER — LOGO LEFT / INFORMATION RIGHT
-   ========================================================== */
+/* FOOTER BRAND */
 
-.sns-global-footer__main {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 29% 12% 14% 17% 28%;
-  align-items: start;
-}
-
-/* ==========================================================
-   LOGO
-   ========================================================== */
-
-.sns-global-footer__brand {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 0;
-}
-
-.sns-global-footer__brand a {
-  display: block;
-  text-decoration: none;
-}
-
-.sns-global-footer__brand img {
-  display: block;
-  width: 255px;
-  max-width: 90%;
-  height: auto;
-  object-fit: contain;
-}
-
-/* ==========================================================
-   INFORMATION COLUMNS
-   ========================================================== */
-
-.sns-global-footer__column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-}
-
-.sns-global-footer__column h3 {
-  color: #ffffff;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0 0 15px;
-  padding: 0;
-}
-
-.sns-global-footer__line {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: #ffffff;
-  margin: 0 0 19px;
-}
-
-.sns-global-footer__column > a {
-  display: block;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.45;
-  text-decoration: none;
-  margin: 0 0 12px;
-  transition: opacity 0.2s ease;
-}
-
-.sns-global-footer__column > a:hover {
-  opacity: 0.65;
-}
-
-/* ==========================================================
-   CONTACT COLUMN
-   ========================================================== */
-
-.sns-global-footer__contact-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 22px;
-  width: 100%;
-}
-
-.sns-global-footer__contact-row a {
-  display: block;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.45;
-  transition: opacity 0.2s ease;
-}
-
-.sns-global-footer__contact-row a:hover {
-  opacity: 0.65;
-}
-
-/* ==========================================================
-   FOOTER BOTTOM
-   ========================================================== */
-
-.sns-global-footer__bottom {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-top: 120px;
-}
-
-/* TAGLINE */
-
-.sns-global-footer__tagline {
-  color: #ffffff;
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -1.2px;
-  margin: 0;
-}
-
-.sns-global-footer__tagline span {
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
-/* COPYRIGHT */
-
-.sns-global-footer__copyright {
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.4;
-  text-align: right;
-  margin: 0;
-}
-
-/* ==========================================================
-   FLOATING CHAT BUTTON
-   ========================================================== */
-
-.sns-global-footer__chat {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  width: 66px;
-  height: 66px;
-  border-radius: 50%;
-  background: #000000;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  z-index: 9999;
-  transition: transform 0.25s ease;
-}
-
-.sns-global-footer__chat:hover {
-  transform: scale(1.08);
-}
-
-.sns-global-footer__chat svg {
-  width: 29px;
-  height: 29px;
-  display: block;
-}
-
-/* ==========================================================
-   LAPTOP
-   ========================================================== */
-
-@media (max-width: 1200px) {
-
-  .sns-global-footer {
-    padding: 65px 4% 28px;
-  }
-
-  .sns-global-footer__main {
-    grid-template-columns: 25% 14% 16% 19% 26%;
-  }
-
-  .sns-global-footer__brand img {
-    width: 220px;
-  }
-
-  .sns-global-footer__column h3 {
-    font-size: 17px;
-  }
-
-  .sns-global-footer__column > a,
-  .sns-global-footer__contact-row a {
-    font-size: 14px;
-  }
-
-  .sns-global-footer__contact-row {
-    gap: 12px;
-  }
-
-  .sns-global-footer__bottom {
-    margin-top: 95px;
-  }
-
-  .sns-global-footer__tagline {
-    font-size: 35px;
-  }
-
-}
-
-/* ==========================================================
-   TABLET
-   ========================================================== */
-
-@media (max-width: 900px) {
-
-  .sns-global-footer {
-    padding: 55px 5% 28px;
-  }
-
-  .sns-global-footer__main {
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 35px;
-    row-gap: 45px;
-  }
-
-  .sns-global-footer__brand {
-    grid-column: 1 / -1;
-  }
-
-  .sns-global-footer__brand img {
-    width: 210px;
-  }
-
-  .sns-global-footer__contact-row {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .sns-global-footer__bottom {
-    margin-top: 80px;
-  }
-
-  .sns-global-footer__tagline {
-    font-size: 32px;
-  }
-
-}
-
-/* ==========================================================
-   MOBILE
-   ========================================================== */
-
-@media (max-width: 600px) {
-
-  .sns-global-footer {
-    padding: 42px 24px 25px;
-  }
-
-  .sns-global-footer__main {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 25px;
-    row-gap: 38px;
-  }
-
-  .sns-global-footer__brand {
-    grid-column: 1 / -1;
-  }
-
-  .sns-global-footer__brand img {
-    width: 175px;
-  }
-
-  .sns-global-footer__column h3 {
-    font-size: 14px;
-    margin-bottom: 12px;
-  }
-
-  .sns-global-footer__line {
-    margin-bottom: 14px;
-  }
-
-  .sns-global-footer__column > a {
-    font-size: 13px;
-    line-height: 1.5;
-    margin-bottom: 9px;
-  }
-
-  .sns-global-footer__contact-row {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .sns-global-footer__contact-row a {
-    font-size: 13px;
-    line-height: 1.5;
-    overflow-wrap: anywhere;
-  }
-
-  .sns-global-footer__bottom {
+.footer-brand {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 22px;
-    margin-top: 65px;
-  }
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent;
+    margin-left: 30px;
+}
 
-  .sns-global-footer__tagline {
-    font-size: 27px;
+.footer-logo {
+    display: block;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    margin: 0 0 16px 0;
+}
+
+.footer-brand h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 650;
+    letter-spacing: 0;
+    line-height: 1.3;
+    color: #fff;
+    margin: 0;
+}
+
+.footer-tagline {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    color: #fff;
+    margin: 0;
+}
+
+.footer-tagline span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
     letter-spacing: -0.5px;
-  }
+}
 
-  .sns-global-footer__copyright {
-    font-size: 11px;
-    text-align: left;
-  }
+/* FOOTER HEADINGS */
 
-  .sns-global-footer__chat {
-    width: 56px;
-    height: 56px;
-    right: 16px;
-    bottom: 16px;
-  }
+.site-footer h4 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #FFFFFF;
+    width: 100%;
+}
 
-  .sns-global-footer__chat svg {
-    width: 25px;
-    height: 25px;
-  }
+.site-footer a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 548;
+    line-height: 1.5;
+    margin-bottom: 7px;
+}
 
+.site-footer a:hover {
+    color: #fff;
+}
+
+.footer-business {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.footer-business span {
+    font-size: 14px;
+    font-weight: 548;
+    line-height: 1.3;
+}
+
+.footer-business a {
+    margin-bottom: 0;
+}
+
+/* FOOTER BOTTOM */
+
+.footer-bottom {
+    border-top: none;
+    padding-top: 0;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+}
+
+.footer-bottom-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.2fr 1.6fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.footer-tagline {
+    grid-column: 2 / 5;
+    justify-self: start;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 31px;
+    font-weight: 700;
+    letter-spacing: -0.9px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.footer-tagline span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.footer-bottom {
+    grid-column: 5;
+    justify-self: end;
+    margin: 0 80px 0 0;
+    padding: 0;
+    border: none;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 548;
+    letter-spacing: 0.1px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* =====================================================
+   RESPONSIVE FOOTER
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 25px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .site-footer {
+        padding: 40px 6% 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 20px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-brand p {
+        font-size: 14px;
+    }
+
+}
+
+/* =====================================================
+   FLOATING WHATSAPP CHAT
+===================================================== */
+
+.floating {
+    position: fixed;
+    z-index: 1000;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.floating.chat {
+    right: 18px;
+    bottom: 18px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.20);
+    cursor: pointer;
+}
+
+.floating.chat:hover {
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.floating.chat svg {
+    width: 23px;
+    height: 23px;
+    display: block;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.floating.chat circle {
+    fill: #fff;
+    stroke: none;
 }
