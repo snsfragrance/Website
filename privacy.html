@@ -296,13 +296,11 @@ header {
    PRIVACY POLICY
 ===================================================== */
 
+/* Footer is rendered by the shared SNS footer component.
+   Keep only page-flow behavior here; footer dimensions and brown area
+   must be controlled centrally by css/sns-footer.css. */
 #sns-footer-container {
-  display: block;
   width: 100%;
-  clear: both;
-  margin: 0;
-  padding: 0;
-  position: relative;
   margin-top: auto;
   flex-shrink: 0;
 }
