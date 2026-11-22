@@ -300,16 +300,56 @@ header {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding: 48px 35px 120px;
+  padding: 48px 35px 0;
+  margin-bottom: 0;
 }
 
-/* FOOTER SPACING — TERMS PAGE ONLY */
-#sns-footer-container {
-  width: 100%;
-  margin-top: 30px;
+
+/* =====================================================
+   TERMS PAGE — FOOTER TRANSITION
+===================================================== */
+
+/* Keep the final contact section from adding uneven bottom spacing. */
+.terms-wrapper .terms-section:last-child {
+  margin-bottom: 0;
 }
-    
+
+
+/* Give the footer a clean, full-width start after the main content. */
+#sns-footer-container {
+  display: block;
+  width: 100%;
+  clear: both;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+
+/* Desktop spacing between Terms content and footer */
+@media (min-width: 651px) {
+  #sns-footer-container {
+    margin-top: 44px;
+  }
+}
+
+
+/* Mobile spacing between Terms content and footer */
+@media (max-width: 650px) {
+  .terms-wrapper {
+    padding-bottom: 0;
+  }
+
+  #sns-footer-container {
+    margin-top: 30px;
+  }
+}
+
 /* PAGE TITLE */
+
+
+/* PAGE TITLE */
+
 .terms-title {
   font-size: 30px;
   line-height: 1.15;
@@ -381,7 +421,7 @@ header {
 @media (max-width: 1000px) {
 
   .terms-wrapper {
-    padding: 40px 25px 100px;
+    padding: 40px 25px 0;
   }
 
   .terms-title {
@@ -417,7 +457,8 @@ header {
   .terms-wrapper {
     width: 100%;
     max-width: 100%;
-    padding: 35px 15px 100px;
+    padding: 35px 15px 0;
+    margin-bottom: 0;
   }
 
   .terms-title {
@@ -1011,7 +1052,7 @@ header {
 
   <!-- SNS GLOBAL FOOTER -->
 <div id="sns-footer-container"></div>
-  
+
 <script src="components/sns-footer.js"></script>
 
 </body>
