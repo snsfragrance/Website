@@ -270,8 +270,8 @@ header {
   margin: 0;
   padding: 0;
   position: relative;
-  margin-top: 0;
-  flex-shrink: 0;
+  margin-top: auto;
+  flex: 0 0 auto;
 }
 
 
@@ -283,11 +283,12 @@ header {
    PRIVACY PAGE — FOOTER LAYOUT (MATCH TERMS)
 ===================================================== */
 
-/* Keep the Privacy Policy content at its natural height so the footer begins immediately after the content. */
+/* Match Terms page footer behavior: content expands on short pages, footer remains at viewport bottom. */
 .privacy-wrapper {
   padding: 48px 35px 0;
   margin-bottom: 0;
-  flex: 0 0 auto;
+  flex: 1 0 auto;
+  min-height: 0;
 }
 
 
