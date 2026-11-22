@@ -47,6 +47,9 @@
       background: #fff;
 
       overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     a {
@@ -303,6 +306,8 @@ header {
   margin: 0;
   padding: 0;
   position: relative;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 
@@ -320,25 +325,16 @@ header {
 .terms-wrapper {
   padding: 48px 35px 0;
   margin-bottom: 0;
+  flex: 1 0 auto;
 }
 
 
-/* Desktop spacing between Terms content and footer */
-@media (min-width: 651px) {
-  #sns-footer-container {
-    margin-top: 44px;
-  }
-}
-
-
-/* Mobile spacing between Terms content and footer */
+/* Footer position is controlled by the page flex layout.
+   The brown footer stays at the bottom on short pages,
+   and naturally follows content on long pages. */
 @media (max-width: 650px) {
   .terms-wrapper {
     padding-bottom: 0;
-  }
-
-  #sns-footer-container {
-    margin-top: 30px;
   }
 }
 
