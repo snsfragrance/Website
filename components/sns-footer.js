@@ -1,26 +1,43 @@
+
 /* ==========================================
    SNS FRAGRANCE — GLOBAL FOOTER LOADER
 ========================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
 
-  const footerContainer = document.getElementById("sns-footer-container");
+  const currentScript = document.currentScript;
 
-  if (!footerContainer) return;
+  const footerURL = currentScript
+    ? new URL("./sns-footer.html", currentScript.src).href
+    : "components/sns-footer.html";
 
-  fetch("/components/sns-footer.html")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("SNS Footer failed to load");
-      }
+  function loadSNSFooter() {
 
-      return response.text();
-    })
-    .then(html => {
-      footerContainer.innerHTML = html;
-    })
-    .catch(error => {
-      console.error("SNS Footer Error:", error);
-    });
+    const footerContainer = document.getElementById("sns-footer-container");
 
-});
+    if (!footerContainer) return;
+
+    fetch(footerURL)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to load SNS Footer");
+        }
+
+        return response.text();
+      })
+      .then(html => {
+        footerContainer.innerHTML = html;
+      })
+      .catch(error => {
+        console.error("SNS Global Footer Error:", error);
+      });
+
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadSNSFooter);
+  } else {
+    loadSNSFooter();
+  }
+
+})();
