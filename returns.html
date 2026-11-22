@@ -12,6 +12,7 @@
 
   <title>SNS Fragrance — Returns & Exchanges</title>
 
+  <link rel="stylesheet" href="css/sns-footer.css">
 
   <style>
 
@@ -48,6 +49,20 @@
       background: #fff;
 
       overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #sns-footer-container {
+      display: block;
+      width: 100%;
+      clear: both;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      margin-top: auto;
+      flex-shrink: 0;
     }
 
     a {
@@ -265,8 +280,10 @@ header {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding: 48px 35px 120px;
+  padding: 48px 35px 0;
   font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 0;
+  flex: 1 0 auto;
 }
 
 /* PAGE TITLE */
@@ -376,7 +393,8 @@ header {
 @media (max-width: 1000px) {
 
   .returns-wrapper {
-    padding: 40px 25px 100px;
+    padding: 40px 25px 0;
+    margin-bottom: 0;
   }
 
   .returns-title {
@@ -406,7 +424,8 @@ header {
   .returns-wrapper {
     width: 100%;
     max-width: 100%;
-    padding: 35px 15px 100px;
+    padding: 35px 15px 0;
+    margin-bottom: 0;
   }
 
   .returns-title {
@@ -468,104 +487,6 @@ header {
   }
 }
 
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-.site-footer {
-  background: #7A5C2C;
-  color: #fff;
-  padding: 60px 7% 15px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2.2fr 1fr 1fr 1fr 1.6fr;
-  gap: 45px;
-  padding-bottom: 45px;
-}
-
-.footer-brand h2 {
-  font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-
-.footer-brand p {
-  max-width: 350px;
-  color: #fff;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.site-footer h4 {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 18px;
-}
-
-.site-footer a {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  font-size: 13px;
-  margin-bottom: 12px;
-}
-
-.site-footer a:hover {
-  color: #fff;
-}
-
-.footer-bottom {
-  border-top: 1px solid #fff;
-  padding-top: 25px;
-  color: #fff;
-  font-size: 12px;
-}
-
-@media (max-width: 800px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 35px 25px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 480px) {
-  .site-footer {
-    padding: 45px 6% 20px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px 20px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .footer-brand p {
-    font-size: 14px;
-  }
-}
-
-/* LOGO SIZE OVERRIDE */
-@media (min-width: 801px) {
-    .logo {
-        width: 450px !important;
-    }
-
-    .logo img {
-        width: 280px !important;
-        max-width: none !important;
-        height: auto !important;
-    }
-}
-    
   </style>
 
 </head>
@@ -910,48 +831,9 @@ header {
        FOOTER
   ===================================================== -->
 
-<footer class="site-footer">
-  <div class="footer-grid">
+<!-- SNS GLOBAL FOOTER -->
+<div id="sns-footer-container"></div>
 
-    <div class="footer-brand">
-      <h2>SNS Fragrance</h2>
-      <p>
-        A contemporary fragrance house creating
-        expressive scents for every individual, every
-        story, and every moment.
-      </p>
-    </div>
-
-    <div>
-      <h4>ABOUT</h4>
-      <a href="about.html">Our Story</a>
-    </div>
-
-    <div>
-      <h4>FOLLOW</h4>
-      <a href="https://www.instagram.com/snsfragrance.id/" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.tiktok.com/@snsfragrance.id" target="_blank" rel="noopener noreferrer">TikTok</a>
-      <a href="https://wa.me/message/TZMPXSMPC6XHM1" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    </div>
-
-    <div>
-      <h4>INFO</h4>
-      <a href="faq.html">FAQ</a>
-      <a href="terms.html">Terms of Service</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="returns.html">Returns & Exchanges</a>
-    </div>
-
-    <div>
-      <h4>CONTACT</h4>
-      <a href="mailto:snsfragranceid@gmail.com">snsfragranceid@gmail.com</a>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    © 2026 SNS Fragrance. All rights reserved.
-  </div>
-</footer>
+<script src="components/sns-footer.js"></script>
 </body>
 </html>
