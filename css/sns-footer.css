@@ -255,3 +255,16 @@
     fill: #fff;
     stroke: none;
 }
+
+/* TEMPORARY FOOTER DEBUG */
+.site-footer .footer-grid > div {
+    outline: 1px solid red !important;
+}
+
+.site-footer .footer-contact {
+    outline: 1px solid blue !important;
+}
+
+.site-footer .footer-contact h4 {
+    outline: 1px solid yellow !important;
+}
