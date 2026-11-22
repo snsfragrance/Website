@@ -284,17 +284,17 @@ header {
 
 
     /* =====================================================
-       FAQ LAYOUT
-    ===================================================== */
+   FAQ LAYOUT
+===================================================== */
 
-    .faq-wrapper {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 80px;
-  width: 100%;
-  max-width: 1560px;
-  margin: 0 auto;
-  padding: 0 5% 100px;
+.faq-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    width: 100%;
+    max-width: 1560px;
+    margin: 0 auto;
+    padding: 0 5% 100px;
 }
 
     /* =====================================================
@@ -779,9 +779,9 @@ header {
       }
       
 .faq-wrapper {
-  grid-template-columns: 1fr;
-  gap: 30px;
-  padding: 0 20px 60px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding: 0 20px 60px;
 }
 
 .faq-sidebar {
@@ -861,204 +861,6 @@ header {
         width: 280px !important;
         max-width: none !important;
         height: auto !important;
-    }
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
-.site-footer {
-    background: #7A5C2C;
-    color: #fff;
-    padding: 45px 2% 35px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1.2fr 1.6fr;
-    gap: 32px;
-    padding-bottom: 25px;
-    align-items: start;
-}
-
-/* FOOTER BRAND */
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    background: transparent;
-    margin-left: 30px;
-}
-
-.footer-logo {
-    display: block;
-    width: 200px;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    border: 0 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    margin: 0 0 16px 0;
-}
-      
-.footer-brand h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 24px;
-    font-weight: 650;
-    letter-spacing: 0;
-    line-height: 1.3;
-    color: #fff;
-    margin: 0;
-}
-
-.footer-tagline {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.8px;
-    line-height: 1.2;
-    color: #fff;
-    margin: 0;
-}
-
-.footer-tagline span {
-    font-family: Georgia, "Times New Roman", serif;
-    font-style: italic;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-}
-
-/* FOOTER HEADINGS */
-
-.site-footer h4 {
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 0 0 14px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #FFFFFF;
-    width: 100%;
-}
-
-.site-footer a {
-    display: block;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 548;
-    line-height: 1.5;
-    margin-bottom: 7px;
-}
-
-.site-footer a:hover {
-    color: #fff;
-}
-.footer-business {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-}
-
-.footer-business span {
-    font-size: 14px;
-    font-weight: 548;
-    line-height: 1.3;
-}
-
-.footer-business a {
-    margin-bottom: 0;
-}
-
-/* FOOTER BOTTOM */
-
-.footer-bottom {
-    border-top: none;
-    padding-top: 0;
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: right;
-}
-
-.footer-bottom-row {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1.2fr 1.6fr;
-    gap: 32px;
-    align-items: center;
-}
-
-.footer-tagline {
-    grid-column: 2 / 5;
-    justify-self: start;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 31px;
-    font-weight: 700;
-    letter-spacing: -0.9px;
-    line-height: 1.2;
-    color: #fff;
-}
-
-.footer-tagline span {
-    font-family: Georgia, "Times New Roman", serif;
-    font-style: italic;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-}
-
-.footer-bottom {
-    grid-column: 5;
-    justify-self: end;
-    margin: 0 80px 0 0;
-    padding: 0;
-    border: none;
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
-    font-weight: 548;
-    letter-spacing: 0.1px;
-    text-align: right;
-    white-space: nowrap;
-}
-
-@media (max-width: 800px) {
-    .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 30px 25px;
-    }
-
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-footer {
-        padding: 40px 6% 20px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px 20px;
-    }
-
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
-
-    .footer-brand p {
-        font-size: 14px;
     }
 }
 
