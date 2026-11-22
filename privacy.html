@@ -279,20 +279,32 @@ header {
    PRIVACY POLICY CONTENT
 ===================================================== */
 
- .privacy-wrapper {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
+/* =====================================================
+   PRIVACY PAGE — FOOTER LAYOUT (MATCH TERMS)
+===================================================== */
+
+/* Main content flexes to fill short pages; footer follows naturally on long pages. */
+.privacy-wrapper {
   padding: 48px 35px 0;
   margin-bottom: 0;
   flex: 1 0 auto;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* PAGE TITLE */
 
-/* Keep the final privacy section spacing consistent with Terms. */
-.privacy-wrapper .privacy-section:last-child { margin-bottom: 0; }
+/* Prevent the final section from adding extra space before the footer. */
+.privacy-wrapper .privacy-section:last-child {
+  margin-bottom: 0;
+}
+
+
+@media (max-width: 650px) {
+  .privacy-wrapper {
+    padding-bottom: 0;
+  }
+}
+
+
+/* PAGE TITLE */
 
 .privacy-title {
   font-size: 30px;
