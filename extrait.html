@@ -1622,6 +1622,31 @@ header {
     margin: 0;
   }
 }
+
+
+/* FINAL FOOTER LAYOUT FIX — keep brown footer, prevent stretched/collapsed bar */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+  width: 100%;
+  min-width: 0;
+}
+
+#sns-footer-container {
+  display: block;
+  width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  margin-top: auto !important;
+  flex: 0 0 auto;
+  position: relative;
+  overflow: visible;
+}
 </style>
 
 </head>
