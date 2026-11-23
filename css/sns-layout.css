@@ -1,1 +1,26 @@
+:root {
+    --sns-layout-width: 100%;
+    --sns-layout-min-width: 0;
+}
+
+/* Global page structure */
+html,
+body {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main global content container */
+main {
+    flex: 1 0 auto;
+    width: var(--sns-layout-width);
+    min-width: var(--sns-layout-min-width);
+}
 
