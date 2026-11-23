@@ -31,6 +31,9 @@
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--black);
   background: var(--white);
@@ -945,10 +948,8 @@ header {
 
 .product-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  flex: 1 0 auto;
   border-left: 1px solid #fff;
 }
 
@@ -1362,8 +1363,7 @@ header {
   }
 
   .product-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1418,11 +1418,7 @@ header {
 }
 
   .product-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  .product-image {
-    height: 380px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
 }
@@ -1488,10 +1484,6 @@ header {
 
   .product-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .product-image {
-    height: 240px;
   }
 
   .floating.join.member {
