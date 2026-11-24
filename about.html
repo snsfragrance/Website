@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>About Us — SNS Fragrance</title>
+  <link rel="stylesheet" href="css/sns-header.css">
   <link rel="stylesheet" href="css/sns-footer.css">
   <link rel="stylesheet" href="css/sns-layout.css">
 
@@ -64,226 +65,6 @@
 
     
 /* =====================================================
-   SNS FRAGRANCE HEADER — MATCH TERMS PAGE
-===================================================== */
-
-.announcement {
-    width: 100%;
-    height: 42px;
-    background: #7C5A28;
-    color: #fff;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-}
-
-.announcement-track {
-  display: flex;
-  align-items: center;
-  width: max-content;
-  animation: announcementScroll 30s linear infinite;
-}
-
-.announcement-track span {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-  margin-right: 140px;
-  font-size: 12px;
-  line-height: 1;
-  font-weight: 400;
-  letter-spacing: 1px;
-  white-space: nowrap;
-}
-
-@keyframes announcementScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.announcement:hover .announcement-track {
-  animation-play-state: paused;
-}
-
-/* MAIN HEADER */
-header {
-  background: #fff;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.header-main {
-  width: 100%;
-  height: 96px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 400px;
-    max-width: 100%;
-    height: 110px;
-    flex-shrink: 0;
-}
-
-.logo img {
-    display: block;
-    width: 220px !important;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-}
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-.navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 38px;
-    min-height: 58px;
-    padding: 0 25px;
-    border-bottom: none;
-    position: relative;
-}
-
-.navigation::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 2%;
-    width: 96%;
-    height: 0.5px;
-    background: #e7e7e7;
-}
-
-.navigation a {
-    position: relative;
-    color: #111;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 530;
-    white-space: nowrap;
-    transition: 0.2s;
-}
-
-.navigation a:hover {
-    color: #8b6736;
-}
-
-.navigation a.active {
-    font-weight: 530;
-}
-
-.navigation a.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -8px;
-    height: 2px;
-    background: #111;
-}
-
-/* RESPONSIVE NAVIGATION */
-
-@media (max-width: 1000px) {
-    .navigation {
-        overflow-x: auto;
-        justify-content: flex-start;
-    }
-}
-
-@media (max-width: 650px) {
-    .navigation {
-        gap: 25px;
-        min-height: 48px;
-    }
-
-    .navigation a {
-        font-size: 13px;
-    }
-}
-
-/* RESPONSIVE LOGO */
-@media (max-width: 800px) {
-    .header-main {
-        height: 75px;
-    }
-
-    .logo {
-        width: 200px;
-        height: 65px;
-        flex-shrink: 0;
-    }
-
-  .logo a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    }
-
-    .logo img {
-        max-width: 200px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 520px) {
-    .header-main {
-        display: flex;
-        justify-content: center !important;
-        align-items: center;
-        position: relative;
-        height: 85px;
-        padding: 0 !important;
-    }
-
-    .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100% !important;
-        height: 85px;
-        margin: 0 auto;
-    }
-
-    .logo img {
-        display: block;
-        width: 225px !important;
-        max-width: 85% !important;
-        height: auto !important;
-        object-fit: contain;
-        object-position: center;
-    }
-}
-
-/* LOGO SIZE OVERRIDE — DESKTOP */
-
-@media (min-width: 801px) {
-    .logo {
-        width: 450px !important;
-    }
-
-    .logo img {
-        width: 250px !important;
-        max-width: none !important;
-        height: auto !important;
-    }
-}
-
-    /* =====================================================
        ABOUT HERO
     ===================================================== */
 
@@ -570,57 +351,8 @@ header {
 <body>
 
 
-  <!-- =====================================================
-       ANNOUNCEMENT BAR
-  ===================================================== -->
-
-  <div class="announcement">
-
-    <div class="announcement-track">
-
-      <span>THE ART OF SCENT</span>
-
-      <span>A SYMPHONY FOR THE SENSES</span>
-
-      <span>DISCOVER SNS FRAGRANCE</span>
-
-      <span>THE ART OF SCENT</span>
-
-      <span>A SYMPHONY FOR THE SENSES</span>
-
-      <span>DISCOVER SNS FRAGRANCE</span>
-
-    </div>
-
-  </div>
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<header>
-
-  <div class="header-main">
-
-    <div class="logo">
-      <img src="img/Logo SNS.png" alt="SNS Fragrance">
-    </div>
-
-  </div>
-
-  <nav class="navigation" aria-label="Main navigation">
-    <a href="bestsellers.html">Best Seller</a>
-    <a href="extrait.html">Extrait de Parfum</a>
-    <a href="edp.html">Eau de Parfum</a>
-    <a href="edt.html">Body Mist</a>
-    <a href="bodyoil.html">Body Oil</a>
-    <a href="bodywash.html">Body Wash</a>
-    <a href="homefragrance.html">Home Fragrance</a>
-    <a href="limited.html">Special Event</a>
-    <a href="collab.html">Special Collaboration</a>
-  </nav>
-
-</header>
+  <!-- SNS GLOBAL HEADER -->
+  <div id="sns-header-container"></div>
 
   <!-- =====================================================
        ABOUT HERO
@@ -769,6 +501,7 @@ header {
 <!-- SNS GLOBAL FOOTER -->
 <div id="sns-footer-container"></div>
 
+<script src="components/sns-header.js"></script>
 <script src="components/sns-footer.js"></script>
 </body>
 </html>
