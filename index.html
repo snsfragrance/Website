@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="css/sns-header.css">
+  <link rel="stylesheet" href="css/sns-body.css">
   <link rel="stylesheet" href="css/sns-footer.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,7 +33,6 @@
       flex-direction: column;
       min-height: 100vh;
     }
-
 
     /* GLOBAL PAGE LAYOUT: flexible content + consistent footer */
     main {
@@ -130,7 +130,6 @@
       background: var(--gold);
     }
 
-
     /* =========================
        CATEGORY
     ========================= */
@@ -159,7 +158,6 @@
 
       font-size: 40px;
     }
-
 
     .categories {
       display: grid;
@@ -232,7 +230,6 @@
       font-size: 13px;
       opacity: 0.9;
     }
-
 
     /* =========================
        PRODUCTS
@@ -326,7 +323,6 @@
       font-size: 16px;
     }
 
-
     /* =========================
        BRAND STATEMENT
     ========================= */
@@ -363,7 +359,6 @@
       line-height: 1.8;
     }
 
-
     /* =========================
        REVIEWS
     ========================= */
@@ -377,7 +372,6 @@
       font-size: 16px;
       font-weight: 600;
     }
-
 
     /* =========================
        FLOATING BUTTONS
@@ -610,7 +604,6 @@
       .cart-drawer-footer { padding: 20px; }
     }
 
-
     /* =========================
        RESPONSIVE
     ========================= */
@@ -629,151 +622,7 @@
       }
     }
 
-    /* =========================
-   RESPONSIVE HEADER
-   TABLET
-========================= */
-
-@media (max-width: 800px) {
-
-  .header-main {
-    height: 75px;
-  }
-
-  .logo {
-    width: 200px;
-    height: 65px;
-    flex-shrink: 0;
-  }
-
-  .logo img {
-    max-width: 200px;
-    height: 60px;
-  }
-
-  .header-icons {
-    right: 18px;
-    gap: 15px;
-  }
-
-  .navigation {
-    overflow-x: auto;
-    justify-content: flex-start;
-  }
-
-}
-    
-    @media (max-width: 650px) {
-
-      .announcement {
-        font-size: 10px;
-        padding: 0 12px;
-      }
-
-      .header-main {
-        height: 75px;
-      }
-     
-      .logo {
-      width: 200px;
-      height: 65px;
-      flex-shrink: 0;
-      }
-
-      .logo img {
-      max-width: 200px;
-      height: 60px;
-      }
-
-      .header-icons {
-        right: 15px;
-        gap: 12px;
-      }
-
-      .navigation {
-        gap: 25px;
-        min-height: 48px;
-      }
-
-      .navigation a {
-        font-size: 13px;
-      }
-
-      .hero {
-        min-height: 600px;
-
-        background-position: 35% center;
-      }
-
-      .hero-content {
-        width: 100%;
-
-        margin-top: auto;
-
-        padding: 40px 20px;
-
-        background:
-          linear-gradient(
-            transparent,
-            rgba(255,255,255,0.95)
-          );
-      }
-
-      .categories,
-      .products {
-        grid-template-columns: 1fr;
-      }
-
-      .product-image {
-        height: 420px;
-      }
-
-      .floating.join.member {
-        padding: 13px 18px;
-      }
-    }
-
-    /* =========================
-   MOBILE HEADER
-========================= */
-
-@media (max-width: 520px) {
-
-  .header-main {
-    display: flex;
-    justify-content: center !important;
-    align-items: center;
-    position: relative;
-    height: 85px;
-    padding: 0 !important;
-  }
-
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100% !important;
-    height: 85px;
-    margin: 0 auto;
-  }
-
-  .logo img {
-    display: block;
-    width: 225px !important;
-    max-width: 85% !important;
-    height: auto !important;
-    object-fit: contain;
-    object-position: center;
-  }
-
-  .header-icons {
-    position: absolute;
-    right: 15px;
-    gap: 12px;
-  }
-
-}
-  /* =====================================================
+    /* =====================================================
    CLAIM NOW POPUP
 ===================================================== */
 .claim-popup {
@@ -904,7 +753,6 @@
   text-decoration: underline;
 }
 
-
 @media (max-width: 600px) {
   .claim-popup {
     position: fixed;
@@ -930,28 +778,6 @@
   }
 }
 
-
-/* Two-column fragrance categories */
-.categories {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  width: 100%;
-}
-
-.category {
-  width: 100%;
-  min-width: 0;
-}
-
-.category img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-/* Keep two columns on mobile */
 @media (max-width: 600px) {
   .categories {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1027,7 +853,6 @@
   }
 }
 
-
 /* Desktop layout: Find Your Fragrance */
 @media screen and (min-width: 1024px) {
   .categories {
@@ -1076,7 +901,6 @@
 
   </style>
 </head>
-
 
 <body>
 
@@ -1162,7 +986,7 @@
 <div id="sns-header-container"></div>
 
 <!-- GLOBAL MAIN CONTENT START -->
-  <main>
+  <main id="sns-body-container">
 
   <!-- =========================
        HERO
@@ -1209,9 +1033,7 @@
 
     </div>
 
-
     <div class="products">
-
 
       <!-- PRODUCT 1 -->
 
@@ -1249,7 +1071,6 @@
 
       </div>
 
-
       <!-- PRODUCT 2 -->
 
       <div class="product-card">
@@ -1285,8 +1106,6 @@
         </div>
 
       </div>
-
-
 
       <!-- PRODUCT 3 -->
 
@@ -1324,8 +1143,6 @@
 
       </div>
 
-
-
       <!-- PRODUCT 4 -->
 
       <div class="product-card">
@@ -1361,7 +1178,6 @@
         </div>
 
       </div>
-
 
     <!-- PRODUCT 5 -->
 
@@ -1402,218 +1218,6 @@
     </div>
 
   </section>
-
-
-  <!-- =========================
-       PRODUCT CATEGORIES
-  ========================== -->
-
-  <section class="section" id="products">
-
-    <div class="section-heading">
-
-      <span>Signature Collection</span>
-
-      <h2>Everyone's Favorite</h2>
-
-    </div>
-
-
-    <div class="products">
-
-
-      <!-- PRODUCT 1 -->
-
-      <div class="product-card">
-
-        <button class="add-cart"
-                onclick="addToCart('Tranquility')">
-          +
-        </button>
-
-        <div class="product-image">
-
-          <img
-            src="YOUR_PRODUCT_IMAGE_1"
-            alt="SNS Tranquility"
-          />
-
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-category">
-            Extrait de Parfum
-          </div>
-
-          <div class="product-name">
-            Tranquility
-          </div>
-
-          <div class="product-price">
-            Rp 299.000
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- PRODUCT 2 -->
-
-      <div class="product-card">
-
-        <button class="add-cart"
-                onclick="addToCart('Cocoa Amore')">
-          +
-        </button>
-
-        <div class="product-image">
-
-          <img
-            src="YOUR_PRODUCT_IMAGE_2"
-            alt="SNS Cocoa Amore"
-          />
-
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-category">
-            Extrait de Parfum
-          </div>
-
-          <div class="product-name">
-            Cocoa Amore
-          </div>
-
-          <div class="product-price">
-            Rp 299.000
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- PRODUCT 3 -->
-
-      <div class="product-card">
-
-        <button class="add-cart"
-                onclick="addToCart('Rapha')">
-          +
-        </button>
-
-        <div class="product-image">
-
-          <img
-            src="YOUR_PRODUCT_IMAGE_3"
-            alt="SNS Rapha"
-          />
-
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-category">
-            Extrait de Parfum
-          </div>
-
-          <div class="product-name">
-            Rapha
-          </div>
-
-          <div class="product-price">
-            Rp 299.000
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- PRODUCT 4 -->
-
-      <div class="product-card">
-
-        <button class="add-cart"
-                onclick="addToCart('Ophir')">
-          +
-        </button>
-
-        <div class="product-image">
-
-          <img
-            src="YOUR_PRODUCT_IMAGE_4"
-            alt="SNS Ophir"
-          />
-
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-category">
-            Extrait de Parfum
-          </div>
-
-          <div class="product-name">
-            Ophir
-          </div>
-
-          <div class="product-price">
-            Rp 299.000
-          </div>
-
-        </div>
-
-      </div>
-
-
-    <!-- PRODUCT 5 -->
-
-      <div class="product-card">
-
-        <button class="add-cart"
-                onclick="addToCart('Ophir')">
-          +
-        </button>
-
-        <div class="product-image">
-
-          <img
-            src="YOUR_PRODUCT_IMAGE_4"
-            alt="SNS Ophir"
-          />
-
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-category">
-            Extrait de Parfum
-          </div>
-
-          <div class="product-name">
-            Ophir
-          </div>
-
-          <div class="product-price">
-            Rp 299.000
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
 
   <!-- =========================
        BRAND STATEMENT
@@ -1635,72 +1239,8 @@
 
   </section>
 
-
   </main>
   <!-- GLOBAL MAIN CONTENT END -->
-
-
-  <!-- =========================
-       REVIEWS
-  ========================== -->
-
-  <!-- <a href="review.html" class="floating review-button" aria-label="Reviews">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 3.5 L14.5 8.5 L20 9.3 L16 13.2 L17 18.7 L12 16.1 L7 18.7 L8 13.2 L4 9.3 L9.5 8.5 Z"></path>
-    </svg>
-    <span>Reviews</span>
-  </a> -->
-  
-<!-- SNS GLOBAL FOOTER -->
-<div id="sns-footer-container"></div>
-
-  <!-- =========================
-       FLOATING BUTTONS
-  ========================== -->
-
-  <!-- <a href="member.html" class="floating join member">
-  Join Member
-  </a>
-  
-  <a href="https://wa.me/message/TZMPXSMPC6XHM1" class="floating chat">
-    <svg viewBox="0 0 24 24">
-      <path
-        d="M5 5.5
-           h14
-           a2 2 0 0 1 2 2
-           v8
-           a2 2 0 0 1-2 2
-           h-7
-           l-4 3
-           v-3
-           H5
-           a2 2 0 0 1-2-2
-           v-8
-           a2 2 0 0 1 2-2z"
-      ></path>
-
-      <circle
-        cx="8"
-        cy="11.5"
-        r=".7"
-        fill="white"
-      ></circle>
-
-      <circle
-        cx="12"
-        cy="11.5"
-        r=".7"
-        fill="white"
-      ></circle>
-
-      <circle
-        cx="16"
-        cy="11.5"
-        r=".7"
-        fill="white"
-      ></circle>
-    </svg>
-  </a> -->
 
   <!-- =========================
        JAVASCRIPT
@@ -1742,8 +1282,6 @@ if (claimPopupForm) {
   });
 }
   </script>
-
-  
 
 <script src="components/sns-header.js"></script>
 <script src="components/sns-footer.js"></script>
