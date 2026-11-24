@@ -13,6 +13,7 @@
 
 <!-- SNS FOOTER CSS -->
 <link rel="stylesheet" href="css/sns-footer.css">
+<link rel="stylesheet" href="css/sns-layout.css">
 
 
   <style>
@@ -35,6 +36,15 @@
       font-family: Arial, Helvetica, sans-serif;
       color: #111;
       background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1 0 auto;
+      width: 100%;
+      min-width: 0;
     }
     
 /* ANNOUNCEMENT BAR */
@@ -908,6 +918,8 @@ header {
   </nav>
 </header>
 
+<main>
+
 <div class="language-switcher">
 
     <button
@@ -945,7 +957,7 @@ header {
            RIGHT FAQ CONTENT
       =========================================== -->
 
-      <main class="faq-content">
+      <div class="faq-content">
 
 
 
@@ -1940,7 +1952,7 @@ header {
         </section>
 
 
-      </main>
+      </div>
 
     </div>
 
@@ -1959,7 +1971,7 @@ header {
     <div class="faq-wrapper">
   
       <!-- RIGHT FAQ CONTENT -->
-      <main class="faq-content">
+      <div class="faq-content">
   
         <!-- =========================
              PESANAN
@@ -2656,11 +2668,13 @@ header {
   
         </section>
   
-      </main>
+      </div>
   
     </div>
   
   </div>
+
+</main>
 
   <!-- ==================================================
        JAVASCRIPT
@@ -2849,4 +2863,3 @@ header {
 
 </body>
 </html>
-
