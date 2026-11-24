@@ -99,7 +99,7 @@
 
 .footer-business {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 24px;
 }
 
@@ -256,15 +256,9 @@
     stroke: none;
 }
 
-/* TEMPORARY FOOTER DEBUG */
-.site-footer .footer-grid > div {
-    outline: 1px solid red !important;
-}
-
-.site-footer .footer-contact {
-    outline: 1px solid blue !important;
-}
-
-.site-footer .footer-contact h4 {
-    outline: 1px solid yellow !important;
+/* FIX FOOTER HEADING LINE */
+.site-footer .footer-grid h4 {
+    border-bottom: 2px solid #FFFFFF !important;
+    border-top: none !important;
+    box-shadow: none !important;
 }
