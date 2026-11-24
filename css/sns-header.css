@@ -1,1 +1,44 @@
-
+/* SNS FRAGRANCE GLOBAL HEADER — extracted from Home Fragrance */
+#sns-header-container { display:block; width:100%; }
+#sns-header-container .announcement { height:42px; background:#7C5A28; color:#fff; overflow:hidden; position:relative; display:flex; align-items:center; white-space:nowrap; }
+#sns-header-container .announcement-track { display:flex; align-items:center; width:max-content; animation: snsAnnouncementScroll 30s linear infinite; }
+#sns-header-container .announcement-track span { display:inline-flex; align-items:center; margin-right:140px; font-size:12px; font-weight:400; letter-spacing:1px; }
+@keyframes snsAnnouncementScroll { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+#sns-header-container .announcement:hover .announcement-track { animation-play-state:paused; }
+#sns-header-container header { background:#fff; border-bottom:1px solid #eee; }
+#sns-header-container .header-main { height:96px; display:flex; align-items:center; justify-content:center; position:relative; }
+#sns-header-container .logo { display:flex; align-items:center; justify-content:center; width:400px; max-width:100%; height:110px; flex-shrink:0; }
+#sns-header-container .logo img { display:block; width:220px !important; max-width:100%; height:auto; object-fit:contain; object-position:center; }
+#sns-header-container .header-icons { position:absolute; right:38px; display:flex; align-items:center; gap:25px; }
+#sns-header-container .header-icon { width:26px; height:26px; padding:0; margin:0; border:none; outline:none; background:transparent; display:flex; align-items:center; justify-content:center; cursor:pointer; text-decoration:none; color:#111; }
+#sns-header-container .header-icon svg { width:25px; height:25px; fill:none !important; stroke:#111 !important; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; display:block; transition:transform .2s ease; }
+#sns-header-container .header-icon:hover svg { transform:scale(1.08); }
+#sns-header-container .wishlist-icon svg { fill:none !important; stroke:#e90046 !important; stroke-width:1.8; }
+#sns-header-container .navigation { display:flex; justify-content:center; align-items:center; gap:38px; min-height:58px; padding:0 25px; border-bottom:none; position:relative; }
+#sns-header-container .navigation::after { content:""; position:absolute; bottom:0; left:2%; width:96%; height:.5px; background:#e7e7e7; }
+#sns-header-container .navigation a { position:relative; color:#111; text-decoration:none; font-size:15px; font-weight:530; white-space:nowrap; transition:.2s; }
+#sns-header-container .navigation a:hover { color:#8b6736; }
+#sns-header-container .navigation a.active { font-weight:530; }
+#sns-header-container .navigation a.active::after { content:""; position:absolute; left:0; right:0; bottom:-8px; height:2px; background:#111; }
+@media(max-width:1000px) { #sns-header-container .navigation { overflow-x:auto; justify-content:flex-start; } }
+@media(max-width:800px) {
+ #sns-header-container .header-main { height:75px; }
+ #sns-header-container .logo { width:200px; height:65px; flex-shrink:0; }
+ #sns-header-container .logo img { max-width:200px; height:60px; }
+ #sns-header-container .header-icons { right:18px; gap:15px; }
+ #sns-header-container .navigation { overflow-x:auto; justify-content:flex-start; }
+}
+@media(max-width:650px) {
+ #sns-header-container .announcement { font-size:10px; padding:0 12px; }
+ #sns-header-container .header-main { height:75px; }
+ #sns-header-container .logo { font-size:30px; }
+ #sns-header-container .header-icons { right:15px; gap:12px; }
+ #sns-header-container .navigation { gap:25px; min-height:48px; }
+ #sns-header-container .navigation a { font-size:13px; }
+}
+@media(max-width:520px) {
+ #sns-header-container .header-main { display:flex; justify-content:center !important; align-items:center; position:relative; height:85px; padding:0 !important; }
+ #sns-header-container .logo { display:flex; justify-content:center; align-items:center; width:100% !important; height:85px; margin:0 auto; }
+ #sns-header-container .logo img { display:block; width:225px !important; max-width:85% !important; height:auto !important; object-fit:contain; object-position:center; }
+ #sns-header-container .header-icons { position:absolute; right:15px; gap:12px; }
+}
