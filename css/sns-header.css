@@ -1,6 +1,6 @@
 /* SNS FRAGRANCE GLOBAL HEADER — extracted from Home Fragrance */
 #sns-header-container { display:block; width:100%; }
-#sns-header-container .announcement { height:25px; background:#7C5A28; color:#fff; overflow:hidden; position:relative; display:flex; align-items:center; white-space:nowrap; }
+#sns-header-container .announcement { height:20px; background:#7C5A28; color:#fff; overflow:hidden; position:relative; display:flex; align-items:center; white-space:nowrap; }
 #sns-header-container .announcement-track { display:flex; align-items:center; width:max-content; animation: snsAnnouncementScroll 30s linear infinite; }
 #sns-header-container .announcement-track span { display:inline-flex; align-items:center; margin-right:140px; font-size:6px; font-weight:400; letter-spacing:1px; }
 @keyframes snsAnnouncementScroll { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
