@@ -1,3 +1,8 @@
+```javascript
+/* =====================================================
+   SNS GLOBAL MESSAGE
+===================================================== */
+
 (function () {
 
   // Prevent duplicate message buttons
@@ -8,13 +13,16 @@
   message.id = "sns-global-message";
   message.className = "sns-global-message";
 
+  // WhatsApp destination
   message.href = "https://wa.me/message/TZMPXSMPC6XHM1";
   message.target = "_blank";
   message.rel = "noopener noreferrer";
 
+  // Accessibility
   message.setAttribute("aria-label", "Contact SNS Fragrance");
   message.setAttribute("title", "Contact SNS Fragrance");
 
+  // Chat icon
   message.innerHTML = `
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M5 5.5
@@ -37,6 +45,7 @@
     </svg>
   `;
 
+  // Insert into page
   document.body.appendChild(message);
 
 })();
