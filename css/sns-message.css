@@ -1,1 +1,90 @@
+/* =====================================================
+   SNS GLOBAL MESSAGE
+===================================================== */
 
+.sns-global-message {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+
+    z-index: 1000;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: #000;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    box-sizing: border-box;
+
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.20);
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+.sns-global-message:hover {
+    color: #fff;
+    text-decoration: none;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   MESSAGE ICON
+===================================================== */
+
+.sns-global-message svg {
+    width: 23px;
+    height: 23px;
+
+    display: block;
+
+    fill: none;
+    stroke: #fff;
+
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =====================================================
+   CHAT DOTS
+===================================================== */
+
+.sns-global-message circle {
+    fill: #fff;
+    stroke: none;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .sns-global-message {
+        right: 18px;
+        bottom: 18px;
+
+        width: 50px;
+        height: 50px;
+    }
+
+}
