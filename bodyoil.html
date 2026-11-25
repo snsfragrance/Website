@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <title>SNS Fragrance — Essence Oil</title>
+<link rel="stylesheet" href="css/sns-header.css">
 <link rel="stylesheet" href="css/sns-footer.css">
 <link rel="stylesheet" href="css/sns-layout.css">
-<link rel="stylesheet" href="css/sns-header.css">
-
+<link rel="stylesheet" href="css/sns-message.css">
 
 <style>
 
@@ -626,68 +626,6 @@ main {
 
   transform: translateY(-1px);
 }
-
-
-/* =====================================================
-   CHAT
-===================================================== */
-
-.floating.chat {
-  right: 18px;
-
-  bottom: 18px;
-
-  width: 50px;
-  height: 50px;
-
-  border-radius: 50%;
-
-  background: #000;
-
-  color: #fff;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  box-shadow:
-    0 6px 25px rgba(0,0,0,0.20);
-
-  cursor: pointer;
-}
-
-.floating.chat:hover {
-  color: #fff;
-
-  text-decoration: none;
-
-  transform: translateY(-1px);
-}
-
-.floating.chat svg {
-  width: 23px;
-  height: 23px;
-
-  display: block;
-
-  fill: none;
-
-  stroke: #fff;
-
-  stroke-width: 1.6;
-
-  stroke-linecap: round;
-
-  stroke-linejoin: round;
-}
-
-.floating.chat circle {
-  fill: #fff;
-
-  stroke: none;
-}
-
 
 /* =====================================================
    SNS GLOBAL FOOTER CONTAINER
@@ -1553,6 +1491,7 @@ main {
 <div id="sns-footer-container"></div>
 <script src="components/sns-header.js"></script>
 <script src="components/sns-footer.js"></script>
+<script src="components/sns-message.js"></script>
 
 
 <!-- =====================================================
@@ -1565,59 +1504,6 @@ main {
 >
   Join Member
 </a> -->
-
-
-<!-- =====================================================
-     CHAT
-===================================================== -->
-
-<a
-  href="https://wa.me/message/TZMPXSMPC6XHM1"
-  class="floating chat"
->
-
-  <svg viewBox="0 0 24 24">
-
-    <path
-      d="M5 5.5
-         h14
-         a2 2 0 0 1 2 2
-         v8
-         a2 2 0 0 1-2 2
-         h-7
-         l-4 3
-         v-3
-         H5
-         a2 2 0 0 1-2-2
-         v-8
-         a2 2 0 0 1 2-2z"
-    ></path>
-
-    <circle
-      cx="8"
-      cy="11.5"
-      r=".7"
-      fill="white"
-    ></circle>
-
-    <circle
-      cx="12"
-      cy="11.5"
-      r=".7"
-      fill="white"
-    ></circle>
-
-    <circle
-      cx="16"
-      cy="11.5"
-      r=".7"
-      fill="white"
-    ></circle>
-
-  </svg>
-
-</a>
-
 
 <!-- =====================================================
      JAVASCRIPT
