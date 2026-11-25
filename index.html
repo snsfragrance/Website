@@ -375,87 +375,6 @@
     }
 
     /* =========================
-       FLOATING BUTTONS
-    ========================= */
-
-    .floating {
-      position: fixed;
-      z-index: 1000;
-      text-decoration: none;
-      box-sizing: border-box;
-    }
-
-    /* REVIEWS */
-    .floating.review-button {
-      left: 18px;
-      bottom: 80px;
-      height: 52px;
-      padding: 0 20px;
-
-      background: #fff;
-      color: #111;
-      border-radius: 40px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1;
-
-      box-shadow: 0 6px 25px rgba(0,0,0,0.12);
-      cursor: pointer;
-    }
-
-    .floating.review-button:hover {
-      color: #111;
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-
-    .floating.review-button svg {
-      width: 18px;
-      height: 18px;
-      flex: 0 0 18px;
-      display: block;
-      fill: #111;
-    }
-
-    /* JOIN MEMBER */
-    .floating.join.member {
-      left: 18px;
-      bottom: 18px;
-
-      background: #000;
-      color: #fff;
-
-      padding: 15px 24px;
-      border-radius: 40px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1;
-
-      box-shadow: 0 6px 25px rgba(0,0,0,0.20);
-      cursor: pointer;
-    }
-
-    .floating.join.member:hover {
-      color: #fff;
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-
-    /* =========================
        CART DRAWER
     ========================= */
 
@@ -569,10 +488,6 @@
     @media (max-width: 1000px) {
       .categories {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .product-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       }
 
       .hero-content {
@@ -873,7 +788,6 @@
   class="claim-popup-close"
   id="claimPopupClose"
   aria-label="Close"
-  onclick="document.getElementById('claimPopup').style.display='none';"
 >
   ×
 </button>
