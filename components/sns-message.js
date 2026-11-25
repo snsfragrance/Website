@@ -1,8 +1,3 @@
-```javascript
-/* =====================================================
-   SNS GLOBAL MESSAGE
-===================================================== */
-
 (function () {
 
   // Prevent duplicate message buttons
