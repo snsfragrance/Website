@@ -5,7 +5,1174 @@
 <link rel="stylesheet" href="css/sns-footer.css">
 <link rel="stylesheet" href="css/sns-layout.css">
 <link rel="stylesheet" href="css/sns-message.css">
+  <meta charset="UTF-8" <!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="css/sns-header.css">
+<link rel="stylesheet" href="css/sns-footer.css">
+<link rel="stylesheet" href="css/sns-layout.css">
+<link rel="stylesheet" href="css/sns-message.css">
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SNS Fragrance — Website</title>
+
+  <style>
+    :root {
+      --black: #111111;
+      --white: #ffffff;
+      --cream: #f7f5f0;
+      --gold: #9b7a42;
+      --light-gray: #e8e6e1;
+      --text-gray: #666666;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* GLOBAL PAGE LAYOUT: flexible content + consistent footer */
+    main {
+      flex: 1 0 auto;
+      width: 100%;
+      min-width: 0;
+    }
+
+    #sns-footer-container {
+      margin-top: auto;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+   /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 530px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(245, 243, 237, 0.15),
+          rgba(245, 243, 237, 0.95)
+        ),
+        url("https://sl.bing.net/fy7g5510Fhc");
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      width: 50%;
+      margin-left: auto;
+
+      padding: 50px 8% 50px 30px;
+
+      text-align: center;
+    }
+
+    .hero-small {
+      font-size: 15px;
+      letter-spacing: 4px;
+      margin-bottom: 15px;
+    }
+
+    .hero-title {
+      font-family: Georgia, serif;
+
+      font-size: clamp(48px, 6vw, 86px);
+      line-height: 0.95;
+
+      font-weight: 400;
+      letter-spacing: -3px;
+
+      margin-bottom: 22px;
+    }
+
+    .hero-description {
+      font-size: 16px;
+      line-height: 1.7;
+
+      max-width: 470px;
+      margin: 0 auto 28px;
+
+      color: #333;
+    }
+
+    .hero-button {
+      display: inline-block;
+
+      padding: 14px 32px;
+
+      background: #111;
+      color: #fff;
+
+      border-radius: 2px;
+
+      text-decoration: none;
+
+      font-size: 14px;
+      letter-spacing: 0.5px;
+
+      transition: 0.25s;
+    }
+
+    .hero-button:hover {
+      background: var(--gold);
+    }
+
+    /* =========================
+       CATEGORY
+    ========================= */
+
+    .section {
+      padding: 75px 5%;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-heading span {
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin-top: 10px;
+
+      font-family: Georgia, serif;
+      font-weight: 400;
+
+      font-size: 40px;
+    }
+
+    .categories {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .category {
+      position: relative;
+      min-height: 270px;
+
+      overflow: hidden;
+
+      background: #eee;
+
+      display: flex;
+      align-items: flex-end;
+
+      cursor: pointer;
+    }
+
+    .category img {
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: 0.5s;
+    }
+
+    .category:hover img {
+      transform: scale(1.05);
+    }
+
+    .category-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          transparent 40%,
+          rgba(0,0,0,0.65)
+        );
+    }
+
+    .category-content {
+      position: relative;
+
+      color: #fff;
+
+      padding: 25px;
+
+      z-index: 2;
+    }
+
+    .category-content h3 {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: 400;
+    }
+
+    .category-content p {
+      margin-top: 7px;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    /* =========================
+       PRODUCTS
+    ========================= */
+
+    .products {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 25px;
+    }
+
+    .product-card {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .product-image {
+      height: 360px;
+
+      background: var(--cream);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 75%;
+      height: 85%;
+
+      object-fit: contain;
+
+      transition: 0.4s;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding-top: 17px;
+    }
+
+    .product-category {
+      font-size: 11px;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      color: var(--text-gray);
+    }
+
+    .product-name {
+      margin-top: 7px;
+
+      font-family: Georgia, serif;
+      font-size: 20px;
+    }
+
+    .product-price {
+      margin-top: 8px;
+
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .add-cart {
+      position: absolute;
+
+      top: 15px;
+      right: 15px;
+
+      width: 38px;
+      height: 38px;
+
+      border-radius: 50%;
+
+      background: #fff;
+
+      border: none;
+
+      cursor: pointer;
+
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+      font-size: 16px;
+    }
+
+    /* =========================
+       BRAND STATEMENT
+    ========================= */
+
+    .statement {
+      padding: 100px 10%;
+
+      text-align: center;
+
+      background: #f6f4ef;
+    }
+
+    .statement h2 {
+      font-family: Georgia, serif;
+
+      font-weight: 400;
+
+      font-size: clamp(36px, 5vw, 65px);
+
+      line-height: 1.1;
+
+      max-width: 900px;
+
+      margin: auto;
+    }
+
+    .statement p {
+      max-width: 650px;
+
+      margin: 25px auto 0;
+
+      color: #666;
+
+      line-height: 1.8;
+    }
+
+    /* =========================
+       REVIEWS
+    ========================= */
+
+    .reviews {
+      padding: 45px 40px;
+
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    /* =========================
+       CART DRAWER
+    ========================= */
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.38);
+      z-index: 1998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .cart-overlay.active { opacity: 1; visibility: visible; }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(420px, 92vw);
+      height: 100vh;
+      background: #fff;
+      z-index: 1999;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -10px 0 35px rgba(0,0,0,0.12);
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+    }
+
+    .cart-drawer.active { transform: translateX(0); }
+
+    .cart-drawer-header {
+      height: 82px;
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e8e8e8;
+      flex: 0 0 82px;
+    }
+
+    .cart-drawer-header h2 {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: 400;
+    }
+
+    .cart-close {
+      width: 30px; height: 30px; padding: 0; border: none; background: transparent;
+      color: #111; font-size: 29px; font-weight: 300; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .cart-close:hover { opacity: 0.55; }
+
+    .cart-items { flex: 1; overflow-y: auto; padding: 25px 28px; }
+
+    .cart-empty {
+      min-height: 240px; display: flex; align-items: center; justify-content: center;
+      text-align: center; color: #777; font-size: 14px;
+    }
+
+    .cart-item {
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      padding: 18px 0; border-bottom: 1px solid #eeeeee;
+    }
+
+    .cart-item-info { min-width: 0; }
+    .cart-item-name { font-family: Georgia, serif; font-size: 18px; margin-bottom: 6px; }
+    .cart-item-meta { color: #777; font-size: 12px; }
+    .cart-item-price { font-size: 14px; font-weight: 600; white-space: nowrap; }
+
+    .cart-drawer-footer {
+      border-top: 1px solid #e8e8e8; padding: 22px 28px 28px; flex: 0 0 auto; background: #fff;
+    }
+
+    .cart-total-row {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; font-size: 15px;
+    }
+
+    .cart-total-row strong { font-size: 16px; }
+
+    .cart-checkout {
+      width: 100%; height: 48px; border: none; background: #111; color: #fff;
+      font-size: 13px; letter-spacing: 0.5px; cursor: pointer;
+    }
+
+    .cart-checkout:hover { background: var(--gold); }
+
+    #cartTrigger { position: relative; }
+
+    .cart-count {
+      position: absolute; top: -5px; right: -7px; min-width: 16px; height: 16px;
+      padding: 0 4px; border-radius: 50%; background: #111; color: #fff;
+      font-size: 9px; line-height: 16px; text-align: center; display: none;
+    }
+
+    .cart-count.active { display: block; }
+
+    @media (max-width: 600px) {
+      .cart-drawer-header { padding: 0 20px; }
+      .cart-items { padding: 20px; }
+      .cart-drawer-footer { padding: 20px; }
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-content {
+        width: 60%;
+      }
+    }
+
+    /* =====================================================
+   CLAIM NOW POPUP
+===================================================== */
+.claim-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 392px;
+  min-height: 404px;
+  background: #fff;
+  z-index: 99999;
+  padding: 34px 29px 27px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+
+.claim-popup-close {
+  position: absolute;
+  top: 13px;
+  right: 17px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  color: #111;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 18px;
+  cursor: pointer;
+}
+
+.claim-popup-title {
+  margin: 0 0 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.claim-popup input {
+  width: 100%;
+  height: 46px;
+  margin: 0 0 12px;
+  padding: 0 14px;
+  border: 1px solid #d9d9d9;
+  border-radius: 0;
+  outline: none;
+  background: #fff;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.claim-popup input::placeholder {
+  color: #777;
+}
+
+.claim-phone-row {
+  display: flex;
+  width: 100%;
+  height: 46px;
+  margin-bottom: 12px;
+}
+
+.claim-country {
+  width: 74px;
+  height: 46px;
+  flex: 0 0 74px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+}
+
+.claim-country-flag {
+  width: 23px;
+  height: 15px;
+  display: block;
+  background: linear-gradient(
+    to bottom,
+    #e40018 0%,
+    #e40018 50%,
+    #fff 50%,
+    #fff 100%
+  );
+}
+
+.claim-country-arrow {
+  font-size: 7px;
+  color: #111;
+}
+
+.claim-phone-row input {
+  flex: 1;
+  width: auto;
+  margin: 0;
+}
+
+.claim-popup-submit {
+  width: 100%;
+  height: 48px;
+  margin-top: 3px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.claim-popup-disclaimer {
+  margin: 15px 0 0;
+  color: #777;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.claim-popup-disclaimer a {
+  color: #666;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .claim-popup {
+    position: fixed;
+    width: calc(100% - 30px);
+    max-width: 392px;
+
+    left: 0;
+    right: 0;
+    top: 50%;
+
+    margin: 0 auto;
+    transform: translateY(-50%);
+
+    max-height: calc(100vh - 30px);
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    padding: 34px 20px 25px;
+  }
+
+  .claim-popup-title {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 600px) {
+  .categories {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+/* SNS FRAGRANCE - MOBILE PRODUCT GRID */
+@media screen and (max-width: 600px) {
+  #products .products {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #products .product-card {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #products .product-image,
+  #products .product-image img {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+    
+/* Desktop: YOUR ESSENTIALS product layout */
+@media screen and (min-width: 1024px) {
+  #products .products {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    width: 100% !important;
+  }
+
+  #products .product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-right: 1px solid #e8e8e8;
+  }
+
+  #products .product-card:last-child {
+    border-right: none;
+  }
+
+  #products .product-image {
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    box-sizing: border-box !important;
+    overflow: hidden;
+  }
+
+  #products .product-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  #products .product-info {
+    text-align: center;
+  }
+}
+
+/* Desktop layout: Find Your Fragrance */
+@media screen and (min-width: 1024px) {
+  .categories {
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .categories .category {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-right: 1px solid #e8e8e8;
+  }
+
+  .categories .category:last-child {
+    border-right: none;
+  }
+
+  .categories .category img {
+    display: block;
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* LOGO SIZE OVERRIDE */
+@media (min-width: 801px) {
+    .logo {
+        width: 450px !important;
+    }
+
+    .logo img {
+        width: 250px !important;
+        max-width: none !important;
+        height: auto !important;
+    }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================================
+       CLAIM NOW POPUP
+  ===================================================== -->
+
+  <div class="claim-popup" id="claimPopup">
+
+    <button
+  type="button"
+  class="claim-popup-close"
+  id="claimPopupClose"
+  aria-label="Close"
+  onclick="document.getElementById('claimPopup').style.display='none';"
+>
+  ×
+</button>
+
+    <h2 class="claim-popup-title">
+      CLAIM NOW &amp; GET 15K OFF!
+    </h2>
+
+    <form id="claimPopupForm">
+
+      <input
+        type="text"
+        name="name"
+        placeholder="Name"
+        autocomplete="name"
+        required
+      >
+
+      <div class="claim-phone-row">
+
+        <div class="claim-country">
+          <span class="claim-country-flag"></span>
+          <span class="claim-country-arrow">▼</span>
+        </div>
+
+        <input
+          type="tel"
+          name="phone"
+          value="+62"
+          placeholder="Phone Number"
+          autocomplete="tel"
+          required
+        >
+
+      </div>
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        autocomplete="email"
+        required
+      >
+
+      <button
+        type="submit"
+        class="claim-popup-submit"
+      >
+        SUBMIT
+      </button>
+
+      <p class="claim-popup-disclaimer">
+        By submitting this form, you agree to receive marketing communications
+        via email and WhatsApp.
+        <br>
+        Please refer to our
+        <a href="privacy.html">Privacy Policy</a>
+        and
+        <a href="terms.html">Terms of Service</a>
+        for more info.
+      </p>
+
+    </form>
+
+  </div>
+
+  <!-- SNS GLOBAL HEADER -->
+<div id="sns-header-container"></div>
+
+<!-- GLOBAL MAIN CONTENT START -->
+  <main id="sns-body-container">
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-small">
+        SNS FRAGRANCE
+      </div>
+
+      <h1 class="hero-title">
+        Find Your<br>
+        Signature
+      </h1>
+
+      <p class="hero-description">
+        Discover fragrances crafted to become
+        part of your identity. A scent for every
+        story, every mood, and every moment.
+      </p>
+
+      <a href="#products" class="hero-button">
+        SHOP COLLECTION
+      </a>
+
+    </div>
+
+  </section>
+
+<!-- =========================
+       NEW ARRIVALS
+  ========================== -->
+
+  <section class="section" id="products">
+
+    <div class="section-heading">
+
+      <span>Signature Collection</span>
+
+      <h2>New Arrivals</h2>
+
+    </div>
+
+    <div class="products">
+
+      <!-- PRODUCT 1 -->
+
+      <div class="product-card">
+
+        <button class="add-cart"
+                onclick="addToCart('Tranquility')">
+          +
+        </button>
+
+        <div class="product-image">
+
+          <img
+            src="YOUR_PRODUCT_IMAGE_1"
+            alt="SNS Tranquility"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Extrait de Parfum
+          </div>
+
+          <div class="product-name">
+            Tranquility
+          </div>
+
+          <div class="product-price">
+            Rp 299.000
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PRODUCT 2 -->
+
+      <div class="product-card">
+
+        <button class="add-cart"
+                onclick="addToCart('Cocoa Amore')">
+          +
+        </button>
+
+        <div class="product-image">
+
+          <img
+            src="YOUR_PRODUCT_IMAGE_2"
+            alt="SNS Cocoa Amore"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Extrait de Parfum
+          </div>
+
+          <div class="product-name">
+            Cocoa Amore
+          </div>
+
+          <div class="product-price">
+            Rp 299.000
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PRODUCT 3 -->
+
+      <div class="product-card">
+
+        <button class="add-cart"
+                onclick="addToCart('Rapha')">
+          +
+        </button>
+
+        <div class="product-image">
+
+          <img
+            src="YOUR_PRODUCT_IMAGE_3"
+            alt="SNS Rapha"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Extrait de Parfum
+          </div>
+
+          <div class="product-name">
+            Rapha
+          </div>
+
+          <div class="product-price">
+            Rp 299.000
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PRODUCT 4 -->
+
+      <div class="product-card">
+
+        <button class="add-cart"
+                onclick="addToCart('Ophir')">
+          +
+        </button>
+
+        <div class="product-image">
+
+          <img
+            src="YOUR_PRODUCT_IMAGE_4"
+            alt="SNS Ophir"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Extrait de Parfum
+          </div>
+
+          <div class="product-name">
+            Ophir
+          </div>
+
+          <div class="product-price">
+            Rp 299.000
+          </div>
+
+        </div>
+
+      </div>
+
+    <!-- PRODUCT 5 -->
+
+      <div class="product-card">
+
+        <button class="add-cart"
+                onclick="addToCart('Ophir')">
+          +
+        </button>
+
+        <div class="product-image">
+
+          <img
+            src="YOUR_PRODUCT_IMAGE_4"
+            alt="SNS Ophir"
+          />
+
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Extrait de Parfum
+          </div>
+
+          <div class="product-name">
+            Ophir
+          </div>
+
+          <div class="product-price">
+            Rp 299.000
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+       BRAND STATEMENT
+  ========================== -->
+
+  <section class="statement">
+
+    <h2>
+      Your scent is more than
+      a fragrance. It is a memory.
+    </h2>
+
+    <p>
+      At SNS Fragrance, we believe fragrance is
+      an extension of who you are. Each creation is
+      designed to accompany your story and leave
+      an impression long after you have left the room.
+    </p>
+
+  </section>
+
+</main>
+<!-- GLOBAL MAIN CONTENT END -->
+
+<!-- GLOBAL FOOTER -->
+<div id="sns-footer-container"></div>
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+function addToCart(product) { console.log(product + " added to cart"); }
+
+/* =====================================================
+   CLAIM NOW POPUP
+===================================================== */
+
+const claimPopup = document.getElementById("claimPopup");
+const claimPopupClose = document.getElementById("claimPopupClose");
+const claimPopupForm = document.getElementById("claimPopupForm");
+
+function closeClaimPopup() {
+  if (claimPopup) {
+    claimPopup.style.display = "none";
+  }
+
+  document.documentElement.classList.remove("claim-popup-open");
+  document.body.classList.remove("claim-popup-open");
+}
+
+if (claimPopup && claimPopup.style.display !== "none") {
+  document.documentElement.classList.add("claim-popup-open");
+  document.body.classList.add("claim-popup-open");
+}
+
+if (claimPopupClose) {
+  claimPopupClose.addEventListener("click", closeClaimPopup);
+}
+
+if (claimPopupForm) {
+  claimPopupForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    closeClaimPopup();
+  });
+}
+  </script>
+
+<script src="components/sns-header.js"></script>
+<script src="components/sns-footer.js"></script>
+<script src="components/sns-message.js"></script>
+  
+</body>
+</html>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>SNS Fragrance — Website</title>
@@ -1121,7 +2288,7 @@
      JAVASCRIPT
 ========================= -->
 
-<script>>
+<script>
 function addToCart(product) { console.log(product + " added to cart"); }
 
 /* =====================================================
