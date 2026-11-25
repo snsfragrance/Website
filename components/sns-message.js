@@ -4,6 +4,7 @@
 ===================================================== */
 
 (function () {
+
   // Prevent duplicate message buttons
   if (document.getElementById("sns-global-message")) return;
 
@@ -21,7 +22,20 @@
 
   message.innerHTML = `
     <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 5.5 h14 a2 2 0 0 1 2 2 v8 a2 2 0 0 1-2 2 h-7 l-4 3 v-3 H5 a2 2 0 0 a-2-2 v-8 a2 2 0 0 a2-2-2-2z"></path>
+      <path d="M5 5.5
+               h14
+               a2 2 0 0 1 2 2
+               v8
+               a2 2 0 0 1-2 2
+               h-7
+               l-4 3
+               v-3
+               H5
+               a2 2 0 0 1-2-2
+               v-8
+               a2 2 0 0 1 2-2z">
+      </path>
+
       <circle cx="8" cy="11.5" r=".7"></circle>
       <circle cx="12" cy="11.5" r=".7"></circle>
       <circle cx="16" cy="11.5" r=".7"></circle>
@@ -29,5 +43,6 @@
   `;
 
   document.body.appendChild(message);
+
 })();
 ```
